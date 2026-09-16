@@ -31,7 +31,7 @@ _PYTHON_DETECT = """\
 _GFY_PROBE="import importlib.util, sys; sys.exit(0 if importlib.util.find_spec('graphify') else 1)"
 GRAPHIFY_PYTHON=""
 _PINNED='__PINNED_PYTHON__'
-if [ -n "$_PINNED" ] && [ -x "$_PINNED" ] && "$_PINNED" -c "$_GFY_PROBE" 2>/dev/null; then
+if [ -n "$_PINNED" ] && [ -x "$_PINNED" ] && "$_PINNED" -c "$_GFY_PROBE" >/dev/null 2>&1; then
     GRAPHIFY_PYTHON="$_PINNED"
 fi
 # Second probe: read graphify-out/.graphify_python (written by the skill and
@@ -43,7 +43,7 @@ if [ -z "$GRAPHIFY_PYTHON" ]; then
         case "$_FROM_FILE" in
             *[!a-zA-Z0-9/_.@:\\\\-]*) _FROM_FILE="" ;;  # allowlist (covers Windows paths)
         esac
-        if [ -n "$_FROM_FILE" ] && [ -x "$_FROM_FILE" ] && "$_FROM_FILE" -c "$_GFY_PROBE" 2>/dev/null; then
+        if [ -n "$_FROM_FILE" ] && [ -x "$_FROM_FILE" ] && "$_FROM_FILE" -c "$_GFY_PROBE" >/dev/null 2>&1; then
             GRAPHIFY_PYTHON="$_FROM_FILE"
         fi
     fi
@@ -57,9 +57,9 @@ if [ -z "$GRAPHIFY_PYTHON" ]; then
         # return the launcher path WITHOUT the .exe suffix, so this cannot key
         # on the extension.
         _GFY_BINDIR=$(dirname "$GRAPHIFY_BIN")
-        if [ -x "$_GFY_BINDIR/../python.exe" ] && "$_GFY_BINDIR/../python.exe" -c "$_GFY_PROBE" 2>/dev/null; then
+        if [ -x "$_GFY_BINDIR/../python.exe" ] && "$_GFY_BINDIR/../python.exe" -c "$_GFY_PROBE" >/dev/null 2>&1; then
             GRAPHIFY_PYTHON="$_GFY_BINDIR/../python.exe"
-        elif [ -x "$_GFY_BINDIR/python.exe" ] && "$_GFY_BINDIR/python.exe" -c "$_GFY_PROBE" 2>/dev/null; then
+        elif [ -x "$_GFY_BINDIR/python.exe" ] && "$_GFY_BINDIR/python.exe" -c "$_GFY_PROBE" >/dev/null 2>&1; then
             GRAPHIFY_PYTHON="$_GFY_BINDIR/python.exe"
         fi
     fi
@@ -88,7 +88,20 @@ if [ -z "$GRAPHIFY_PYTHON" ]; then
         case "$GRAPHIFY_PYTHON" in
             *[!a-zA-Z0-9/_.@:\\\\-]*) GRAPHIFY_PYTHON="" ;;
         esac
-        if [ -n "$GRAPHIFY_PYTHON" ] && ! "$GRAPHIFY_PYTHON" -c "$_GFY_PROBE" 2>/dev/null; then
+        # A shebang only names the interpreter when it actually names a
+        # python. pipx and pipenv install a `#!/bin/sh` polyglot that
+        # re-execs into the venv, so line 1 names the SHELL. Taking it at
+        # face value probes with `/bin/sh -c "<probe>"`, which imports
+        # nothing and instead runs the probe's first word as a command --
+        # and on any machine with ImageMagick that word, `import`, is its
+        # screen-capture tool (#3611).
+        _GFY_BASE="${GRAPHIFY_PYTHON##*/}"
+        _GFY_BASE="${_GFY_BASE##*\\\\}"
+        case "$_GFY_BASE" in
+            python*|pypy*) ;;
+            *) GRAPHIFY_PYTHON="" ;;
+        esac
+        if [ -n "$GRAPHIFY_PYTHON" ] && ! "$GRAPHIFY_PYTHON" -c "$_GFY_PROBE" >/dev/null 2>&1; then
             GRAPHIFY_PYTHON=""
         fi
     fi
@@ -117,7 +130,7 @@ if [ -z "$GRAPHIFY_PYTHON" ]; then
         [ -n "$_GFY_TOOLS" ] || continue
         for _GFY_CAND in "$_GFY_TOOLS"/*/bin/python "$_GFY_TOOLS"/*/Scripts/python.exe; do
             [ -x "$_GFY_CAND" ] || continue
-            if "$_GFY_CAND" -c "$_GFY_PROBE" 2>/dev/null; then
+            if "$_GFY_CAND" -c "$_GFY_PROBE" >/dev/null 2>&1; then
                 GRAPHIFY_PYTHON="$_GFY_CAND"
                 break 2
             fi
@@ -126,9 +139,9 @@ if [ -z "$GRAPHIFY_PYTHON" ]; then
 fi
 # Last resort: try python3 / python (works for system/venv installs on PATH).
 if [ -z "$GRAPHIFY_PYTHON" ]; then
-    if command -v python3 >/dev/null 2>&1 && python3 -c "$_GFY_PROBE" 2>/dev/null; then
+    if command -v python3 >/dev/null 2>&1 && python3 -c "$_GFY_PROBE" >/dev/null 2>&1; then
         GRAPHIFY_PYTHON="python3"
-    elif command -v python >/dev/null 2>&1 && python -c "$_GFY_PROBE" 2>/dev/null; then
+    elif command -v python >/dev/null 2>&1 && python -c "$_GFY_PROBE" >/dev/null 2>&1; then
         GRAPHIFY_PYTHON="python"
     else
         echo "[graphify hook] could not locate a Python with graphify installed. Add the graphify bin dir to PATH or re-run 'graphify hook install' from the env where graphify lives." >&2

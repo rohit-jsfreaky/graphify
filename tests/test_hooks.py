@@ -1533,3 +1533,113 @@ def test_commit_hook_still_rebuilds_for_a_source_change(tmp_path):
     result = _emitted_hook_run(repo, _HOOK_SCRIPT, [], {"GRAPHIFY_OUT": "custom-out"})
     assert result.returncode == 0, result.stderr
     assert _LAUNCH_LINE in result.stdout, result.stdout
+
+
+def _run_emitted_shebang_gate(tmp_path, candidate: str) -> str:
+    """Run the emitted python-name gate over one candidate and return what it
+    leaves in GRAPHIFY_PYTHON. Exercises the shipped shell text, not a copy of
+    the logic (the #2126/#2641 convention)."""
+    from graphify.hooks import _PYTHON_DETECT
+
+    lines = _PYTHON_DETECT.splitlines()
+    first = next(i for i, ln in enumerate(lines) if "_GFY_BASE=" in ln)
+    last = next(i for i, ln in enumerate(lines[first:], first) if ln.strip() == "esac")
+    gate = "\n".join(ln.strip() for ln in lines[first:last + 1])
+
+    script = tmp_path / "gate.sh"
+    script.write_text(
+        'GRAPHIFY_PYTHON="$1"\n' + gate + '\necho "RESULT=$GRAPHIFY_PYTHON"\n',
+        encoding="utf-8", newline="\n",
+    )
+    res = subprocess.run(
+        ["sh", script.name, candidate], capture_output=True, text=True, cwd=str(tmp_path),
+    )
+    assert res.returncode == 0, res.stderr
+    return res.stdout.strip().split("RESULT=", 1)[1]
+
+
+@pytest.mark.skipif(shutil.which("sh") is None, reason="sh required to run emitted probe chain")
+@pytest.mark.parametrize("candidate", [
+    "/usr/bin/python3",
+    "/usr/bin/python",
+    "/home/u/venv/bin/python",
+    "/usr/bin/pypy3",
+    "python3",                             # the `env python3` form, already unwrapped
+    "C:\\Python312\\python.exe",           # Windows launcher shebang
+])
+def test_shebang_gate_keeps_real_pythons(tmp_path, candidate):
+    """The guard rejects shells, not pythons.
+
+    The Windows case matters: a basename taken with `##*/` alone leaves a
+    backslash path whole, which then fails the name test and throws away a
+    working interpreter. Both separators have to be stripped.
+    """
+    assert _run_emitted_shebang_gate(tmp_path, candidate) == candidate
+
+
+@pytest.mark.skipif(shutil.which("sh") is None, reason="sh required to run emitted probe chain")
+@pytest.mark.parametrize("candidate", [
+    "/bin/sh",
+    "/bin/bash",
+    "/usr/bin/perl",
+    "C:\\Windows\\system32\\cmd.exe",
+])
+def test_shebang_gate_drops_non_pythons(tmp_path, candidate):
+    """pipx and pipenv ship a `#!/bin/sh` polyglot launcher, so line 1 names the
+    SHELL, not the interpreter (#3611)."""
+    assert _run_emitted_shebang_gate(tmp_path, candidate) == ""
+
+
+@pytest.mark.skipif(shutil.which("sh") is None, reason="sh required to run emitted probe chain")
+def test_non_python_shebang_is_never_executed(tmp_path):
+    """A shebang that does not name a python must never be RUN as one (#3611).
+
+    Adopting it ran `<shell> -c "<probe>"`, which imports nothing and instead
+    executes the probe's first word as a command -- `import`, which on any
+    machine with ImageMagick is its screen-capture tool, dumping usage into the
+    output of every commit.
+
+    The interpreter that finally resolves is the same either way, so this
+    asserts the thing that actually differs: the non-python is never invoked.
+    """
+    home, stub_bin = _broken_uv_machine(tmp_path)
+    _tool_venv(home, "graphifyy", "bin/python", ok=True)
+
+    marker = tmp_path / "decoy_was_executed"
+    decoy = stub_bin / "notpython"
+    decoy.write_text(
+        '#!/bin/sh\ntouch "%s"\necho "USAGE DUMP FROM A NON-PYTHON"\nexit 1\n' % marker.as_posix(),
+        encoding="utf-8", newline="\n",
+    )
+    decoy.chmod(0o755)
+
+    # Only line 1 matters here; the pipx launcher's polyglot body is irrelevant
+    # to detection, which reads the shebang alone.
+    launcher = stub_bin / "graphify"
+    launcher.write_text(
+        "#!%s\nexec /venv/bin/python \"$0\" \"$@\"\n" % decoy.as_posix(),
+        encoding="utf-8", newline="\n",
+    )
+    launcher.chmod(0o755)
+
+    res = _detect_run(tmp_path, home, stub_bin)
+    assert res.returncode == 0, res.stderr
+    assert not marker.exists(), "a non-python shebang was executed as the interpreter"
+    assert "USAGE DUMP" not in res.stdout, res.stdout
+    # Path spelling differs between sh and the host, so match the tail.
+    assert "uv/tools/graphifyy/bin/python" in res.stdout, res.stdout + res.stderr
+
+
+def test_every_probe_silences_stdout():
+    """The probes are used only for their exit status, so neither stream may
+    reach the terminal: a misdetected interpreter otherwise prints into the
+    output of every commit (#3611). Checked against the emitted text, not a copy.
+    """
+    from graphify.hooks import _PYTHON_DETECT
+
+    assert '-c "$_GFY_PROBE" 2>/dev/null' not in _PYTHON_DETECT, (
+        "a probe still leaves stdout connected to the terminal"
+    )
+    probes = _PYTHON_DETECT.count('-c "$_GFY_PROBE"')
+    silenced = _PYTHON_DETECT.count('-c "$_GFY_PROBE" >/dev/null 2>&1')
+    assert probes == silenced, f"{probes - silenced} of {probes} probes are not silenced"
