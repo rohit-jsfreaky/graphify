@@ -1,0 +1,117 @@
+{
+  "nodes": 1352,
+  "edges": 2710,
+  "questions": 6,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 1,
+  "hit_at_3": 2,
+  "hit_at_5": 2,
+  "found": 5,
+  "median_tokens": 2202,
+  "over_budget": 0,
+  "per_question": [
+    {
+      "question": "`Session.resolve_redirects` copies the original request for all subsequent requests, can cause incorrect method selection",
+      "files": [
+        "requests/sessions.py"
+      ],
+      "rank": 0,
+      "tokens": 2201,
+      "over_budget": false,
+      "files_shown": 17,
+      "top_files": [
+        "requests/sessions.py",
+        "requests/packages/urllib3/packages/six.py",
+        "requests/api.py",
+        "test_requests.py",
+        "requests/packages/urllib3/exceptions.py"
+      ]
+    },
+    {
+      "question": "socket.error exception not caught/wrapped in a requests exception (ConnectionError perhaps?)",
+      "files": [
+        "requests/models.py"
+      ],
+      "rank": 9,
+      "tokens": 2202,
+      "over_budget": false,
+      "files_shown": 16,
+      "top_files": [
+        "requests/exceptions.py",
+        "requests/packages/urllib3/contrib/pyopenssl.py",
+        "test_requests.py",
+        "requests/packages/urllib3/util/retry.py",
+        "requests/adapters.py"
+      ]
+    },
+    {
+      "question": "method = builtin_str(method) problem",
+      "files": [
+        "requests/sessions.py"
+      ],
+      "rank": null,
+      "tokens": 2141,
+      "over_budget": false,
+      "files_shown": 21,
+      "top_files": [
+        "requests/utils.py",
+        "requests/packages/urllib3/packages/six.py",
+        "requests/packages/urllib3/filepost.py",
+        "requests/models.py",
+        "test_requests.py"
+      ]
+    },
+    {
+      "question": "urllib3 exceptions passing through requests API",
+      "files": [
+        "requests/adapters.py"
+      ],
+      "rank": 6,
+      "tokens": 2221,
+      "over_budget": false,
+      "files_shown": 20,
+      "top_files": [
+        "requests/packages/urllib3/exceptions.py",
+        "requests/api.py",
+        "test_requests.py",
+        "requests/utils.py",
+        "requests/models.py"
+      ]
+    },
+    {
+      "question": "Uncertain about content/text vs iter_content(decode_unicode=True/False)",
+      "files": [
+        "requests/utils.py"
+      ],
+      "rank": 7,
+      "tokens": 2214,
+      "over_budget": false,
+      "files_shown": 15,
+      "top_files": [
+        "test_requests.py",
+        "requests/models.py",
+        "requests/structures.py",
+        "requests/adapters.py",
+        "requests/__init__.py"
+      ]
+    },
+    {
+      "question": "Allow lists in the dict values of the hooks argument",
+      "files": [
+        "requests/models.py"
+      ],
+      "rank": 2,
+      "tokens": 308,
+      "over_budget": false,
+      "files_shown": 5,
+      "top_files": [
+        "test_requests.py",
+        "requests/cookies.py",
+        "requests/models.py",
+        "requests/hooks.py",
+        "requests/packages/urllib3/util/retry.py"
+      ]
+    }
+  ]
+}

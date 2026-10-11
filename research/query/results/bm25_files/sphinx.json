@@ -1,0 +1,276 @@
+{
+ "per_question": [
+  {
+   "question": "inherited-members should support more than one class",
+   "files": [
+    "sphinx/ext/autodoc/__init__.py"
+   ],
+   "rank": 0,
+   "tokens": 74680,
+   "tokens_paths": 52,
+   "top_files": [
+    "sphinx/ext/autodoc/__init__.py",
+    "sphinx/ext/napoleon/__init__.py",
+    "tests/test_ext_autodoc_automodule.py",
+    "sphinx/ext/autodoc/directive.py",
+    "tests/test_ext_autodoc.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Fix duplicated *args and **kwargs with autodoc_typehints",
+   "files": [
+    "sphinx/ext/autodoc/typehints.py"
+   ],
+   "rank": 2,
+   "tokens": 70011,
+   "tokens_paths": 45,
+   "top_files": [
+    "tests/test_ext_autodoc_configs.py",
+    "sphinx/ext/autodoc/__init__.py",
+    "sphinx/ext/autodoc/typehints.py",
+    "doc/conf.py",
+    "tests/test_util_inspect.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Using rst_prolog removes top level headings containing a domain directive",
+   "files": [
+    "sphinx/util/rst.py"
+   ],
+   "rank": 0,
+   "tokens": 10601,
+   "tokens_paths": 39,
+   "top_files": [
+    "sphinx/util/rst.py",
+    "tests/test_util_rst.py",
+    "tests/test_parser.py",
+    "tests/roots/test-prolog/conf.py",
+    "sphinx/util/docutils.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "autosummary: The members variable for module template contains imported members",
+   "files": [
+    "sphinx/ext/autosummary/generate.py"
+   ],
+   "rank": 0,
+   "tokens": 26834,
+   "tokens_paths": 82,
+   "top_files": [
+    "sphinx/ext/autosummary/generate.py",
+    "tests/test_ext_autosummary.py",
+    "sphinx/ext/autosummary/__init__.py",
+    "tests/roots/test-ext-autosummary/autosummary_dummy_module.py",
+    "tests/roots/test-ext-autosummary-imported_members/autosummary_dummy_package/__init__.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "overescaped trailing underscore on attribute with napoleon",
+   "files": [
+    "sphinx/ext/napoleon/docstring.py"
+   ],
+   "rank": 7,
+   "tokens": 29286,
+   "tokens_paths": 80,
+   "top_files": [
+    "doc/usage/extensions/example_google.py",
+    "doc/usage/extensions/example_numpy.py",
+    "tests/roots/test-apidoc-trailing-underscore/package_/module_.py",
+    "tests/test_ext_napoleon_docstring.py",
+    "tests/roots/test-apidoc-trailing-underscore/package_/__init__.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Two sections called Symbols in index",
+   "files": [
+    "sphinx/environment/adapters/indexentries.py"
+   ],
+   "rank": 2,
+   "tokens": 13283,
+   "tokens_paths": 52,
+   "top_files": [
+    "tests/test_config.py",
+    "tests/test_ext_doctest.py",
+    "sphinx/environment/adapters/indexentries.py",
+    "tests/test_build_gettext.py",
+    "tests/test_environment_indexentries.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Generate man page section directories",
+   "files": [
+    "sphinx/builders/manpage.py"
+   ],
+   "rank": 1,
+   "tokens": 12757,
+   "tokens_paths": 36,
+   "top_files": [
+    "doc/conf.py",
+    "sphinx/builders/manpage.py",
+    "sphinx/writers/manpage.py",
+    "tests/test_build_manpage.py",
+    "sphinx/theming.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "autodoc_typehints does not effect to overloaded callables",
+   "files": [
+    "sphinx/ext/autodoc/__init__.py"
+   ],
+   "rank": 1,
+   "tokens": 77796,
+   "tokens_paths": 48,
+   "top_files": [
+    "tests/test_ext_autodoc_configs.py",
+    "sphinx/ext/autodoc/__init__.py",
+    "sphinx/ext/autodoc/typehints.py",
+    "sphinx/util/inspect.py",
+    "tests/test_util_inspect.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "autodoc_type_aliases does not effect to variables and attributes",
+   "files": [
+    "sphinx/ext/autodoc/__init__.py"
+   ],
+   "rank": 1,
+   "tokens": 74587,
+   "tokens_paths": 50,
+   "top_files": [
+    "tests/test_ext_autodoc_configs.py",
+    "sphinx/ext/autodoc/__init__.py",
+    "sphinx/ext/napoleon/__init__.py",
+    "sphinx/ext/autodoc/typehints.py",
+    "sphinx/util/inspect.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "v3.3 upgrade started generating \"WARNING: no number is assigned for table\" warnings",
+   "files": [
+    "sphinx/domains/std.py"
+   ],
+   "rank": 15,
+   "tokens": 52044,
+   "tokens_paths": 40,
+   "top_files": [
+    "tests/test_build_html.py",
+    "sphinx/transforms/__init__.py",
+    "tests/test_quickstart.py",
+    "sphinx/ext/mathjax.py",
+    "tests/test_intl.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Sphinx 3.2 complains about option:: syntax that earlier versions accepted",
+   "files": [
+    "sphinx/domains/std.py"
+   ],
+   "rank": 31,
+   "tokens": 17352,
+   "tokens_paths": 41,
+   "top_files": [
+    "sphinx/util/pycompat.py",
+    "sphinx/config.py",
+    "sphinx/util/smartypants.py",
+    "sphinx/ext/autodoc/type_comment.py",
+    "sphinx/domains/rst.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "autodoc: empty __all__ attribute is ignored",
+   "files": [
+    "sphinx/ext/autodoc/__init__.py"
+   ],
+   "rank": 1,
+   "tokens": 65688,
+   "tokens_paths": 50,
+   "top_files": [
+    "sphinx/util/inspect.py",
+    "sphinx/ext/autodoc/__init__.py",
+    "tests/test_ext_autodoc_events.py",
+    "tests/test_ext_autosummary.py",
+    "sphinx/ext/autosummary/generate.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "autodoc isn't able to resolve struct.Struct type annotations",
+   "files": [
+    "sphinx/util/typing.py"
+   ],
+   "rank": 2,
+   "tokens": 59673,
+   "tokens_paths": 47,
+   "top_files": [
+    "sphinx/ext/autodoc/typehints.py",
+    "sphinx/ext/autodoc/__init__.py",
+    "sphinx/util/typing.py",
+    "sphinx/ext/autodoc/type_comment.py",
+    "tests/test_domain_c.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "napoleon_use_param should also affect \"other parameters\" section",
+   "files": [
+    "sphinx/ext/napoleon/docstring.py"
+   ],
+   "rank": 2,
+   "tokens": 51469,
+   "tokens_paths": 59,
+   "top_files": [
+    "sphinx/ext/napoleon/__init__.py",
+    "tests/test_ext_napoleon_docstring.py",
+    "sphinx/ext/napoleon/docstring.py",
+    "doc/usage/extensions/example_numpy.py",
+    "doc/usage/extensions/example_google.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`",
+   "files": [
+    "sphinx/ext/viewcode.py"
+   ],
+   "rank": 0,
+   "tokens": 21507,
+   "tokens_paths": 38,
+   "top_files": [
+    "sphinx/ext/viewcode.py",
+    "tests/test_ext_viewcode.py",
+    "doc/conf.py",
+    "sphinx/builders/_epub_base.py",
+    "sphinx/builders/epub3.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "autodoc: The annotation only member in superclass is treated as \"undocumented\"",
+   "files": [
+    "sphinx/ext/autodoc/importer.py"
+   ],
+   "rank": 0,
+   "tokens": 51016,
+   "tokens_paths": 49,
+   "top_files": [
+    "sphinx/ext/autodoc/importer.py",
+    "sphinx/ext/autodoc/__init__.py",
+    "tests/test_ext_coverage.py",
+    "sphinx/ext/napoleon/__init__.py",
+    "sphinx/ext/autodoc/mock.py"
+   ],
+   "over_budget": false
+  }
+ ]
+}

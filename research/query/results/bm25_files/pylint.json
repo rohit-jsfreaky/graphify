@@ -1,0 +1,106 @@
+{
+ "per_question": [
+  {
+   "question": "\"--notes\" option ignores note tags that are entirely punctuation",
+   "files": [
+    "pylint/checkers/misc.py"
+   ],
+   "rank": 0,
+   "tokens": 6468,
+   "tokens_paths": 56,
+   "top_files": [
+    "pylint/checkers/misc.py",
+    "tests/functional/f/fixme.py",
+    "tests/checkers/unittest_misc.py",
+    "doc/exts/pylint_options.py",
+    "tests/functional/ext/docparams/raise/missing_raises_doc.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Traceback printed for unrecognized option",
+   "files": [
+    "pylint/config/config_initialization.py"
+   ],
+   "rank": 1,
+   "tokens": 13080,
+   "tokens_paths": 59,
+   "top_files": [
+    "tests/functional/u/unrecognized_inline_option.py",
+    "pylint/config/config_initialization.py",
+    "pylint/config/exceptions.py",
+    "tests/config/test_config.py",
+    "pylint/config/arguments_manager.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "`--recursive=y` ignores `ignore-paths`",
+   "files": [
+    "pylint/lint/expand_modules.py"
+   ],
+   "rank": 5,
+   "tokens": 29956,
+   "tokens_paths": 46,
+   "top_files": [
+    "pylint/lint/base_options.py",
+    "tests/config/unittest_config.py",
+    "tests/test_similar.py",
+    "tests/lint/unittest_expand_modules.py",
+    "tests/test_self.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Linting fails if module contains module of the same name",
+   "files": [
+    "pylint/lint/expand_modules.py"
+   ],
+   "rank": 118,
+   "tokens": 13443,
+   "tokens_paths": 66,
+   "top_files": [
+    "pylint/checkers/non_ascii_names.py",
+    ".github/workflows/codeql-analysis.yml",
+    "pylint/checkers/format.py",
+    "tests/functional/u/unnecessary/unnecessary_pass.py",
+    "tests/functional/r/raising/raising_format_tuple.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "rxg include '\\p{Han}' will throw error",
+   "files": [
+    "pylint/config/argument.py"
+   ],
+   "rank": 219,
+   "tokens": 4929,
+   "tokens_paths": 57,
+   "top_files": [
+    "tests/functional/g/globals.py",
+    "CODE_OF_CONDUCT.md",
+    "pylint/pyreverse/main.py",
+    "doc/data/messages/p/potential-index-error/bad.py",
+    "doc/data/messages/p/potential-index-error/good.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Using custom braces in message template does not work",
+   "files": [
+    "pylint/reporters/text.py"
+   ],
+   "rank": 2,
+   "tokens": 9751,
+   "tokens_paths": 51,
+   "top_files": [
+    "tests/functional/r/raising/raising_format_tuple.py",
+    "tests/unittest_reporting.py",
+    "pylint/reporters/text.py",
+    "tests/lint/test_utils.py",
+    "pylint/message/message.py"
+   ],
+   "over_budget": false
+  }
+ ]
+}

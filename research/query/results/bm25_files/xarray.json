@@ -1,0 +1,89 @@
+{
+ "per_question": [
+  {
+   "question": "Ignore missing variables when concatenating datasets?",
+   "files": [
+    "xarray/core/concat.py"
+   ],
+   "rank": 0,
+   "tokens": 34628,
+   "tokens_paths": 44,
+   "top_files": [
+    "xarray/core/concat.py",
+    "xarray/core/combine.py",
+    "asv_bench/benchmarks/combine.py",
+    "xarray/tests/test_concat.py",
+    "xarray/tests/test_combine.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "to_unstacked_dataset broken for single-dim variables",
+   "files": [
+    "xarray/core/dataarray.py"
+   ],
+   "rank": 0,
+   "tokens": 201027,
+   "tokens_paths": 44,
+   "top_files": [
+    "xarray/core/dataarray.py",
+    "xarray/core/variable.py",
+    "xarray/core/dataset.py",
+    "xarray/tests/test_dataset.py",
+    "xarray/tests/test_extensions.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Feature request: show units in dataset overview",
+   "files": [
+    "xarray/core/formatting.py"
+   ],
+   "rank": 36,
+   "tokens": 74502,
+   "tokens_paths": 50,
+   "top_files": [
+    ".github/ISSUE_TEMPLATE/bug_report.md",
+    "xarray/tutorial.py",
+    "xarray/tests/test_backends.py",
+    "xarray/tests/test_coding_times.py",
+    "xarray/tests/test_accessor_dt.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "DataSet.update causes chunked dask DataArray to evalute its values eagerly",
+   "files": [
+    "xarray/core/variable.py"
+   ],
+   "rank": 1,
+   "tokens": 148043,
+   "tokens_paths": 40,
+   "top_files": [
+    "xarray/core/parallel.py",
+    "xarray/core/variable.py",
+    "xarray/core/dataarray.py",
+    "xarray/core/dataset.py",
+    "xarray/tests/test_dask.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Trailing whitespace in DatasetGroupBy text representation",
+   "files": [
+    "xarray/core/groupby.py"
+   ],
+   "rank": 2,
+   "tokens": 39827,
+   "tokens_paths": 44,
+   "top_files": [
+    "xarray/core/accessor_str.py",
+    "xarray/core/resample.py",
+    "xarray/core/groupby.py",
+    "xarray/tests/test_accessor_str.py",
+    "xarray/plot/facetgrid.py"
+   ],
+   "over_budget": false
+  }
+ ]
+}

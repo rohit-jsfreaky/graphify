@@ -1,0 +1,47 @@
+{
+ "django": {
+  "commit": "004b4620f6f4ad87261e149898940f2dcd5757ef",
+  "issues": 114,
+  "covered": 114
+ },
+ "pytest": {
+  "commit": "10ca84ffc56c2dd2d9dc4bd71b7b898e083500cd",
+  "issues": 17,
+  "covered": 17
+ },
+ "sphinx": {
+  "commit": "195e911f1dab04b8ddeacbe04b7d214aaf81bb0b",
+  "issues": 16,
+  "covered": 16
+ },
+ "astropy": {
+  "commit": "7269fa3e33e8d02485a647da91a5a2a60a06af61",
+  "issues": 6,
+  "covered": 6
+ },
+ "requests": {
+  "commit": "091991be0da19de9108dbe5e3752917fea3d7fdc",
+  "issues": 6,
+  "covered": 6
+ },
+ "pylint": {
+  "commit": "0a4204fd7555cfedd43f43017c94d24ef48244a5",
+  "issues": 6,
+  "covered": 6
+ },
+ "xarray": {
+  "commit": "863e49066ca4d61c9adfe62aca3bf21b90e1af8c",
+  "issues": 5,
+  "covered": 5
+ },
+ "seaborn": {
+  "commit": "0f5a013e2cf43562deec3b879458e59a73853813",
+  "issues": 4,
+  "covered": 4
+ },
+ "flask": {
+  "commit": "182ce3dd15dfa3537391c3efaf9c3ff407d134d4",
+  "issues": 3,
+  "covered": 3
+ }
+}

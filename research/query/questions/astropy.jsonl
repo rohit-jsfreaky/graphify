@@ -1,0 +1,6 @@
+{"id": "astropy__astropy-12907", "question": "Modeling's `separability_matrix` does not compute separability correctly for nested CompoundModels", "files": ["astropy/modeling/separable.py"]}
+{"id": "astropy__astropy-14182", "question": "Please support header rows in RestructuredText output", "files": ["astropy/io/ascii/rst.py"]}
+{"id": "astropy__astropy-14365", "question": "ascii.qdp Table format assumes QDP commands are upper case", "files": ["astropy/io/ascii/qdp.py"]}
+{"id": "astropy__astropy-14995", "question": "In v5.3, NDDataRef mask propagation fails when one of the operand does not have a mask", "files": ["astropy/nddata/mixins/ndarithmetic.py"]}
+{"id": "astropy__astropy-6938", "question": "Possible bug in io.fits related to D exponents", "files": ["astropy/io/fits/fitsrec.py"]}
+{"id": "astropy__astropy-7746", "question": "Issue when passing empty lists/arrays to WCS transformations", "files": ["astropy/wcs/wcs.py"]}

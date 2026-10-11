@@ -1,0 +1,6 @@
+{"id": "psf__requests-1963", "question": "`Session.resolve_redirects` copies the original request for all subsequent requests, can cause incorrect method selection", "files": ["requests/sessions.py"]}
+{"id": "psf__requests-2148", "question": "socket.error exception not caught/wrapped in a requests exception (ConnectionError perhaps?)", "files": ["requests/models.py"]}
+{"id": "psf__requests-2317", "question": "method = builtin_str(method) problem", "files": ["requests/sessions.py"]}
+{"id": "psf__requests-2674", "question": "urllib3 exceptions passing through requests API", "files": ["requests/adapters.py"]}
+{"id": "psf__requests-3362", "question": "Uncertain about content/text vs iter_content(decode_unicode=True/False)", "files": ["requests/utils.py"]}
+{"id": "psf__requests-863", "question": "Allow lists in the dict values of the hooks argument", "files": ["requests/models.py"]}

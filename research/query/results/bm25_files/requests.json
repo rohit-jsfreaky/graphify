@@ -1,0 +1,106 @@
+{
+ "per_question": [
+  {
+   "question": "`Session.resolve_redirects` copies the original request for all subsequent requests, can cause incorrect method selection",
+   "files": [
+    "requests/sessions.py"
+   ],
+   "rank": 0,
+   "tokens": 41655,
+   "tokens_paths": 30,
+   "top_files": [
+    "requests/sessions.py",
+    "test_requests.py",
+    "requests/models.py",
+    "requests/api.py",
+    "requests/cookies.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "socket.error exception not caught/wrapped in a requests exception (ConnectionError perhaps?)",
+   "files": [
+    "requests/models.py"
+   ],
+   "rank": 5,
+   "tokens": 14548,
+   "tokens_paths": 56,
+   "top_files": [
+    "requests/packages/urllib3/exceptions.py",
+    "requests/exceptions.py",
+    "requests/adapters.py",
+    "requests/packages/urllib3/response.py",
+    "requests/packages/urllib3/contrib/pyopenssl.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "method = builtin_str(method) problem",
+   "files": [
+    "requests/sessions.py"
+   ],
+   "rank": 2,
+   "tokens": 42165,
+   "tokens_paths": 31,
+   "top_files": [
+    "requests/models.py",
+    "requests/compat.py",
+    "requests/sessions.py",
+    "test_requests.py",
+    "requests/utils.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "urllib3 exceptions passing through requests API",
+   "files": [
+    "requests/adapters.py"
+   ],
+   "rank": 1,
+   "tokens": 13642,
+   "tokens_paths": 56,
+   "top_files": [
+    "requests/__init__.py",
+    "requests/adapters.py",
+    "requests/packages/urllib3/exceptions.py",
+    "requests/packages/urllib3/contrib/pyopenssl.py",
+    "requests/packages/urllib3/util/retry.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Uncertain about content/text vs iter_content(decode_unicode=True/False)",
+   "files": [
+    "requests/utils.py"
+   ],
+   "rank": 2,
+   "tokens": 41140,
+   "tokens_paths": 44,
+   "top_files": [
+    "requests/models.py",
+    "test_requests.py",
+    "requests/utils.py",
+    "requests/packages/urllib3/packages/six.py",
+    "requests/packages/urllib3/response.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Allow lists in the dict values of the hooks argument",
+   "files": [
+    "requests/models.py"
+   ],
+   "rank": 3,
+   "tokens": 44277,
+   "tokens_paths": 41,
+   "top_files": [
+    "requests/sessions.py",
+    "test_requests.py",
+    "requests/utils.py",
+    "requests/models.py",
+    "requests/packages/urllib3/packages/ordered_dict.py"
+   ],
+   "over_budget": false
+  }
+ ]
+}

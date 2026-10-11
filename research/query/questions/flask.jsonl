@@ -1,0 +1,3 @@
+{"id": "pallets__flask-4045", "question": "Raise error when blueprint name contains a dot", "files": ["src/flask/blueprints.py"]}
+{"id": "pallets__flask-4992", "question": "Add a file mode parameter to flask.Config.from_file()", "files": ["src/flask/config.py"]}
+{"id": "pallets__flask-5063", "question": "Flask routes to return domain/sub-domains information", "files": ["src/flask/cli.py"]}

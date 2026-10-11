@@ -1,0 +1,5 @@
+{"id": "pydata__xarray-3364", "question": "Ignore missing variables when concatenating datasets?", "files": ["xarray/core/concat.py"]}
+{"id": "pydata__xarray-4094", "question": "to_unstacked_dataset broken for single-dim variables", "files": ["xarray/core/dataarray.py"]}
+{"id": "pydata__xarray-4248", "question": "Feature request: show units in dataset overview", "files": ["xarray/core/formatting.py"]}
+{"id": "pydata__xarray-4493", "question": "DataSet.update causes chunked dask DataArray to evalute its values eagerly", "files": ["xarray/core/variable.py"]}
+{"id": "pydata__xarray-5131", "question": "Trailing whitespace in DatasetGroupBy text representation", "files": ["xarray/core/groupby.py"]}

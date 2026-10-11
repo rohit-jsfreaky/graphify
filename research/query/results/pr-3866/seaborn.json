@@ -1,0 +1,83 @@
+{
+  "nodes": 3481,
+  "edges": 8353,
+  "questions": 4,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 1,
+  "hit_at_3": 1,
+  "hit_at_5": 1,
+  "found": 3,
+  "median_tokens": 2171,
+  "over_budget": 0,
+  "per_question": [
+    {
+      "question": "pairplot fails with hue_order not containing all hue values in seaborn 0.11.1",
+      "files": [
+        "seaborn/_oldcore.py"
+      ],
+      "rank": 6,
+      "tokens": 2161,
+      "over_budget": false,
+      "files_shown": 17,
+      "top_files": [
+        "tests/test_axisgrid.py",
+        "seaborn/axisgrid.py",
+        "seaborn/distributions.py",
+        "seaborn/relational.py",
+        "seaborn/regression.py"
+      ]
+    },
+    {
+      "question": "PolyFit is not robust to missing data",
+      "files": [
+        "seaborn/_stats/regression.py"
+      ],
+      "rank": null,
+      "tokens": 2171,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "tests/test_categorical.py",
+        "seaborn/categorical.py",
+        "seaborn/utils.py",
+        "seaborn/external/version.py",
+        "seaborn/_statistics.py"
+      ]
+    },
+    {
+      "question": "Color mapping fails with boolean data",
+      "files": [
+        "seaborn/_core/scales.py"
+      ],
+      "rank": 7,
+      "tokens": 2165,
+      "over_budget": false,
+      "files_shown": 22,
+      "top_files": [
+        "seaborn/_core/properties.py",
+        "seaborn/external/docscrape.py",
+        "tests/_core/test_scales.py",
+        "seaborn/palettes.py",
+        "seaborn/_docstrings.py"
+      ]
+    },
+    {
+      "question": "pairplot raises KeyError with MultiIndex DataFrame",
+      "files": [
+        "seaborn/axisgrid.py"
+      ],
+      "rank": 0,
+      "tokens": 2172,
+      "over_budget": false,
+      "files_shown": 30,
+      "top_files": [
+        "seaborn/axisgrid.py",
+        "tests/_core/test_plot.py",
+        "seaborn/_core/plot.py",
+        "seaborn/_core/groupby.py",
+        "seaborn/_core/data.py"
+      ]
+    }
+  ]
+}

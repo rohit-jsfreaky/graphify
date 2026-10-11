@@ -1,0 +1,106 @@
+{
+ "per_question": [
+  {
+   "question": "Modeling's `separability_matrix` does not compute separability correctly for nested CompoundModels",
+   "files": [
+    "astropy/modeling/separable.py"
+   ],
+   "rank": 0,
+   "tokens": 93729,
+   "tokens_paths": 56,
+   "top_files": [
+    "astropy/modeling/separable.py",
+    "astropy/modeling/tests/test_separable.py",
+    "astropy/modeling/tests/test_core.py",
+    "astropy/modeling/tests/test_models.py",
+    "astropy/modeling/core.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Please support header rows in RestructuredText output",
+   "files": [
+    "astropy/io/ascii/rst.py"
+   ],
+   "rank": 0,
+   "tokens": 44224,
+   "tokens_paths": 47,
+   "top_files": [
+    "astropy/io/ascii/rst.py",
+    "astropy/io/ascii/tests/test_fixedwidth.py",
+    "astropy/io/ascii/qdp.py",
+    "astropy/io/fits/hdu/table.py",
+    "astropy/table/pprint.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "ascii.qdp Table format assumes QDP commands are upper case",
+   "files": [
+    "astropy/io/ascii/qdp.py"
+   ],
+   "rank": 0,
+   "tokens": 26273,
+   "tokens_paths": 50,
+   "top_files": [
+    "astropy/io/ascii/qdp.py",
+    "astropy/io/ascii/tests/test_qdp.py",
+    "astropy/io/ascii/latex.py",
+    "astropy/io/ascii/tests/test_write.py",
+    "astropy/io/ascii/__init__.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "In v5.3, NDDataRef mask propagation fails when one of the operand does not have a mask",
+   "files": [
+    "astropy/nddata/mixins/ndarithmetic.py"
+   ],
+   "rank": 0,
+   "tokens": 56507,
+   "tokens_paths": 67,
+   "top_files": [
+    "astropy/nddata/mixins/ndarithmetic.py",
+    "astropy/nddata/nduncertainty.py",
+    "astropy/nddata/mixins/tests/test_ndarithmetic.py",
+    "astropy/nddata/tests/test_ccddata.py",
+    "astropy/nddata/mixins/tests/test_ndslicing.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Possible bug in io.fits related to D exponents",
+   "files": [
+    "astropy/io/fits/fitsrec.py"
+   ],
+   "rank": 23,
+   "tokens": 64409,
+   "tokens_paths": 43,
+   "top_files": [
+    "astropy/io/fits/card.py",
+    "CONTRIBUTING.md",
+    "astropy/units/format/generic.py",
+    "astropy/io/fits/util.py",
+    "astropy/io/fits/tests/test_image.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Issue when passing empty lists/arrays to WCS transformations",
+   "files": [
+    "astropy/wcs/wcs.py"
+   ],
+   "rank": 2,
+   "tokens": 94335,
+   "tokens_paths": 53,
+   "top_files": [
+    "astropy/nddata/decorators.py",
+    "astropy/wcs/wcsapi/low_level_api.py",
+    "astropy/wcs/wcs.py",
+    "astropy/extern/configobj/configobj.py",
+    "astropy/nddata/mixins/ndarithmetic.py"
+   ],
+   "over_budget": false
+  }
+ ]
+}

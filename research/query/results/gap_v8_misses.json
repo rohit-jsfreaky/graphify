@@ -1,0 +1,5435 @@
+[
+ {
+  "repo": "astropy",
+  "id": "astropy__astropy-14995",
+  "question": "In v5.3, NDDataRef mask propagation fails when one of the operand does not have a mask",
+  "files": [
+   "astropy/nddata/mixins/ndarithmetic.py"
+  ],
+  "rank": 9,
+  "cause": "late",
+  "seeds": [
+   "NDDataRef",
+   "One-dimensional linear interpolation. Like `numpy.interp`, but any masked\u2026",
+   ".mask()",
+   "OperandTypeError",
+   "Propagation of uncertainties for variances, also used to perform error\u2026",
+   "3D coordinate representations and differentials. Parameters ---------- comp1,\u2026",
+   "ones_like()",
+   "Do a consistency check on the cache. .. note:: Since v5.0, this function no\u2026",
+   "test_operation_unitspherical_with_rv_fails()"
+  ],
+  "seed_files": [
+   "astropy/nddata/nddata_withmixins.py",
+   "astropy/utils/masked/function_helpers.py",
+   "astropy/table/table.py",
+   "astropy/time/core.py",
+   "astropy/nddata/nduncertainty.py",
+   "astropy/coordinates/representation.py",
+   "astropy/utils/masked/function_helpers.py",
+   "astropy/utils/data.py",
+   "astropy/coordinates/tests/test_representation_arithmetic.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "rationale": 4,
+   "test": 1
+  },
+  "gold_nodes": 26,
+  "best_gold_score_rank": 441,
+  "visited": 982,
+  "gold_terms_in_source": [
+   "3",
+   "5",
+   "data",
+   "have",
+   "mask",
+   "nd",
+   "one",
+   "operand",
+   "propagation"
+  ],
+  "tokens": 2262,
+  "scorer_file_rank": 84,
+  "scorer_file_rank_no_tests": 33,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "astropy",
+  "id": "astropy__astropy-6938",
+  "question": "Possible bug in io.fits related to D exponents",
+  "files": [
+   "astropy/io/fits/fitsrec.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "Fits",
+   "bug_report.yaml",
+   ".possible_string_format_functions()",
+   "Numbers with exponents beyond float64 range (|~4.94e-324 to 1.7977e+308|) shall\u2026",
+   "test_pixel_to_pixel_correlated()"
+  ],
+  "seed_files": [
+   "astropy/units/format/fits.py",
+   ".github/ISSUE_TEMPLATE/bug_report.yaml",
+   "astropy/units/quantity.py",
+   "astropy/io/ascii/tests/test_c_reader.py",
+   "astropy/wcs/tests/test_utils.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "test": 2
+  },
+  "gold_nodes": 95,
+  "best_gold_score_rank": 5,
+  "visited": 396,
+  "gold_terms_in_source": [
+   "bug",
+   "d",
+   "fits",
+   "possible"
+  ],
+  "tokens": 2214,
+  "scorer_file_rank": 5,
+  "scorer_file_rank_no_tests": 5,
+  "flags": [
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-10914",
+  "question": "Set default FILE_UPLOAD_PERMISSION to 0o644.",
+  "files": [
+   "django/conf/global_settings.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Permission",
+   "default()",
+   "File",
+   "set()",
+   "uploadedfile.py"
+  ],
+  "seed_files": [
+   "django/contrib/auth/models.py",
+   "django/template/defaultfilters.py",
+   "django/core/files/base.py",
+   "django/contrib/contenttypes/fields.py",
+   "django/core/files/uploadedfile.py"
+  ],
+  "seed_kinds": {
+   "code": 5
+  },
+  "gold_nodes": 3,
+  "best_gold_score_rank": 51,
+  "visited": 2867,
+  "gold_terms_in_source": [
+   "0",
+   "0o644",
+   "644",
+   "default",
+   "file",
+   "o",
+   "set",
+   "upload"
+  ],
+  "tokens": 2162,
+  "scorer_file_rank": 22,
+  "scorer_file_rank_no_tests": 8,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11001",
+  "question": "Incorrect removal of order_by clause created as multiline RawSQL",
+  "files": [
+   "django/db/models/sql/compiler.py"
+  ],
+  "rank": 29,
+  "cause": "late",
+  "seeds": [
+   "RawSQL",
+   "Order",
+   "Ordering can be based on fields included from an 'extra' clause",
+   ".multiline()",
+   "IncorrectLookupParameters",
+   "CreateDefaultSiteTests",
+   "bytes_to_text()",
+   "test_conditional_content_removal.py",
+   ".test_annotate_with_in_clause()"
+  ],
+  "seed_files": [
+   "django/db/models/expressions.py",
+   "tests/extra_regress/models.py",
+   "tests/ordering/tests.py",
+   "tests/admin_views/admin.py",
+   "django/contrib/admin/options.py",
+   "tests/sites_tests/tests.py",
+   "django/http/request.py",
+   "tests/test_client/test_conditional_content_removal.py",
+   "tests/expressions_case/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "test": 6
+  },
+  "gold_nodes": 85,
+  "best_gold_score_rank": 74,
+  "visited": 2484,
+  "gold_terms_in_source": [
+   "clause",
+   "created",
+   "multiline",
+   "order",
+   "order_by",
+   "raw",
+   "rawsql",
+   "sql"
+  ],
+  "tokens": 2231,
+  "scorer_file_rank": 36,
+  "scorer_file_rank_no_tests": 14,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11019",
+  "question": "Merging 3 or more media objects can throw unnecessary MediaOrderConflictWarnings",
+  "files": [
+   "django/forms/widgets.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Media",
+   "media()",
+   "Thrower()",
+   "more_operations.py",
+   "ObjectSelfReference",
+   "Test merging transactions with savepoint=False.",
+   ".test_unique_no_unnecessary_fk_drops()",
+   "sqlite3/base.py"
+  ],
+  "seed_files": [
+   "django/contrib/admin/widgets.py",
+   "django/template/context_processors.py",
+   "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+   "tests/custom_migration_operations/more_operations.py",
+   "tests/backends/models.py",
+   "tests/transactions/tests.py",
+   "tests/schema/tests.py",
+   "django/db/backends/sqlite3/base.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 4
+  },
+  "gold_nodes": 161,
+  "best_gold_score_rank": 4,
+  "visited": 3458,
+  "gold_terms_in_source": [
+   "3",
+   "conflict",
+   "media",
+   "more",
+   "order",
+   "warnings"
+  ],
+  "tokens": 2214,
+  "scorer_file_rank": 2,
+  "scorer_file_rank_no_tests": 2,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget"
+  ],
+  "primary": "A_scorer_had_it_render_lost_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11039",
+  "question": "sqlmigrate wraps it's outpout in BEGIN/COMMIT even if the database doesn't support transactional DDL",
+  "files": [
+   "django/core/management/commands/sqlmigrate.py"
+  ],
+  "rank": 5,
+  "cause": "late",
+  "seeds": [
+   "commit()",
+   ".test_sqlmigrate_for_non_transactional_databases()",
+   "DatabaseOperations initialization doesn't query the database. See #17656.",
+   "TransactionalTests",
+   "Wraps an OGR Data Source object.",
+   "sqlmigrate.py",
+   "beginning_with_slash.py",
+   "Event",
+   "DoesNotAllowNulls",
+   "supports_color()",
+   "ddl_references.py",
+   "database.py"
+  ],
+  "seed_files": [
+   "django/db/transaction.py",
+   "tests/migrations/test_commands.py",
+   "tests/backends/tests.py",
+   "tests/backends/oracle/tests.py",
+   "django/contrib/gis/gdal/datasource.py",
+   "django/core/management/commands/sqlmigrate.py",
+   "tests/check_framework/urls/beginning_with_slash.py",
+   "tests/timezones/models.py",
+   "tests/gis_tests/layermap/models.py",
+   "django/core/management/color.py",
+   "django/db/backends/ddl_references.py",
+   "django/core/checks/database.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 6,
+   "rationale": 1
+  },
+  "gold_nodes": 5,
+  "best_gold_score_rank": 15,
+  "visited": 1725,
+  "gold_terms_in_source": [
+   "begin",
+   "commit",
+   "database",
+   "ddl",
+   "s",
+   "sqlmigrate",
+   "support",
+   "t",
+   "transactional"
+  ],
+  "tokens": 2262,
+  "scorer_file_rank": 13,
+  "scorer_file_rank_no_tests": 2,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11099",
+  "question": "UsernameValidator allows trailing newline in usernames",
+  "files": [
+   "django/contrib/auth/validators.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "UsernameValidatorsTests",
+   "Newlines in email reports' subjects are escaped to prevent AdminErrorHandler\u2026",
+   "Trailing zeros in the fractional part aren't truncated.",
+   "AllowsNullGFK",
+   "return_usernames()"
+  ],
+  "seed_files": [
+   "tests/auth_tests/test_validators.py",
+   "tests/logging_tests/tests.py",
+   "tests/model_fields/test_decimalfield.py",
+   "tests/generic_relations/models.py",
+   "tests/auth_tests/test_management.py"
+  ],
+  "seed_kinds": {
+   "test": 5
+  },
+  "gold_nodes": 3,
+  "best_gold_score_rank": 10,
+  "visited": 345,
+  "gold_terms_in_source": [
+   "username",
+   "validator"
+  ],
+  "tokens": 2200,
+  "scorer_file_rank": 9,
+  "scorer_file_rank_no_tests": 1,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11179",
+  "question": "delete() on instances of models without any dependencies doesn't clear PKs.",
+  "files": [
+   "django/db/models/deletion.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "clear()",
+   "Clear the cache (if primed) each time a site is saved or deleted.",
+   "delete/models.py",
+   ".delete()",
+   "Instances with deferred fields look the same as normal instances when we\u2026",
+   "DoesNotAllowNulls",
+   "models/fields/__init__.py",
+   "conflicting_app_with_dependencies/migrations/0002_second.py",
+   "GetOrCreateTestsWithManualPKs"
+  ],
+  "seed_files": [
+   "django/db/models/fields/related_descriptors.py",
+   "django/contrib/sites/models.py",
+   "tests/delete/models.py",
+   "tests/save_delete_hooks/models.py",
+   "tests/defer/tests.py",
+   "tests/gis_tests/layermap/models.py",
+   "django/db/models/fields/__init__.py",
+   "tests/migrations/migrations_test_apps/conflicting_app_with_dependencies/migrations/0002_second.py",
+   "tests/get_or_create/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 2,
+   "rationale": 1,
+   "test": 6
+  },
+  "gold_nodes": 36,
+  "best_gold_score_rank": 135,
+  "visited": 4223,
+  "gold_terms_in_source": [
+   "any",
+   "clear",
+   "delete",
+   "dependencies",
+   "instances",
+   "models",
+   "t",
+   "without"
+  ],
+  "tokens": 2261,
+  "scorer_file_rank": 93,
+  "scorer_file_rank_no_tests": 41,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11564",
+  "question": "Add support for SCRIPT_NAME in STATIC_URL and MEDIA_URL",
+  "files": [
+   "django/conf/__init__.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "static()",
+   "Media",
+   "media()",
+   "url()",
+   "add()",
+   "name()",
+   "ScriptNameTests",
+   "supports_color()"
+  ],
+  "seed_files": [
+   "django/conf/urls/static.py",
+   "django/contrib/admin/widgets.py",
+   "django/template/context_processors.py",
+   "django/template/defaulttags.py",
+   "django/db/models/fields/related_descriptors.py",
+   "tests/responses/test_fileresponse.py",
+   "tests/handlers/tests.py",
+   "django/core/management/color.py"
+  ],
+  "seed_kinds": {
+   "code": 6,
+   "test": 2
+  },
+  "gold_nodes": 39,
+  "best_gold_score_rank": 25,
+  "visited": 846,
+  "gold_terms_in_source": [
+   "add",
+   "media",
+   "media_url",
+   "name",
+   "script",
+   "script_name",
+   "static",
+   "static_url",
+   "support",
+   "url"
+  ],
+  "tokens": 2162,
+  "scorer_file_rank": 16,
+  "scorer_file_rank_no_tests": 8,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11620",
+  "question": "When DEBUG is True, raising Http404 in a path converter's to_python method does not result in a technical response",
+  "files": [
+   "django/views/debug.py"
+  ],
+  "rank": 8,
+  "cause": "late",
+  "seeds": [
+   "Http404",
+   "converter()",
+   "Debug",
+   "Result",
+   ".python()",
+   "method()",
+   "path",
+   "._response()",
+   "technical_500_response()",
+   ".raising_test()",
+   ".__truediv__()",
+   "TokenGeneratorTest"
+  ],
+  "seed_files": [
+   "django/http/response.py",
+   "django/contrib/staticfiles/storage.py",
+   "django/core/checks/messages.py",
+   "tests/expressions/models.py",
+   "django/core/management/commands/shell.py",
+   "tests/admin_checks/tests.py",
+   ".github/workflows/docs.yml",
+   "tests/template_tests/test_response.py",
+   "django/views/debug.py",
+   "tests/test_utils/test_simpletestcase.py",
+   "django/contrib/gis/measure.py",
+   "tests/auth_tests/test_tokens.py"
+  ],
+  "seed_kinds": {
+   "code": 7,
+   "test": 5
+  },
+  "gold_nodes": 53,
+  "best_gold_score_rank": 24,
+  "visited": 3254,
+  "gold_terms_in_source": [
+   "404",
+   "debug",
+   "http",
+   "http404",
+   "path",
+   "python",
+   "raising",
+   "response",
+   "s",
+   "technical",
+   "true"
+  ],
+  "tokens": 2220,
+  "scorer_file_rank": 18,
+  "scorer_file_rank_no_tests": 13,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11630",
+  "question": "Django throws error when different apps with different models have the same name table name.",
+  "files": [
+   "django/core/checks/model_checks.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Apps",
+   "Table",
+   "Error",
+   ".django()",
+   "name()",
+   "different_tags_app/apps.py",
+   "same_tags_app_1/apps.py",
+   "models/fields/__init__.py",
+   ".test_nonaggregate_aggregation_throws()"
+  ],
+  "seed_files": [
+   "django/apps/registry.py",
+   "django/db/backends/ddl_references.py",
+   "django/core/checks/messages.py",
+   "django/contrib/gis/gdal/geomtype.py",
+   "tests/responses/test_fileresponse.py",
+   "tests/check_framework/template_test_apps/different_tags_app/apps.py",
+   "tests/check_framework/template_test_apps/same_tags_app_1/apps.py",
+   "django/db/models/fields/__init__.py",
+   "tests/aggregation/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 4
+  },
+  "gold_nodes": 11,
+  "best_gold_score_rank": 960,
+  "visited": 6410,
+  "gold_terms_in_source": [
+   "apps",
+   "django",
+   "error",
+   "have",
+   "models",
+   "name",
+   "table"
+  ],
+  "tokens": 2218,
+  "scorer_file_rank": 399,
+  "scorer_file_rank_no_tests": 246,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11742",
+  "question": "Add check to ensure max_length fits longest choice.",
+  "files": [
+   "django/db/models/fields/__init__.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Length",
+   "length()",
+   "Max",
+   "choice()",
+   "add()",
+   "check()",
+   "ensure_csrf_cookie_view()",
+   "String content fits also in a TextField"
+  ],
+  "seed_files": [
+   "django/contrib/gis/db/models/functions.py",
+   "django/template/defaultfilters.py",
+   "django/db/models/aggregates.py",
+   "tests/model_forms/test_modelchoicefield.py",
+   "django/db/models/fields/related_descriptors.py",
+   "tests/admin_checks/tests.py",
+   "tests/csrf_tests/views.py",
+   "tests/gis_tests/layermap/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 4
+  },
+  "gold_nodes": 304,
+  "best_gold_score_rank": 60,
+  "visited": 1692,
+  "gold_terms_in_source": [
+   "add",
+   "check",
+   "choice",
+   "ensure",
+   "length",
+   "longest",
+   "max",
+   "max_length"
+  ],
+  "tokens": 2189,
+  "scorer_file_rank": 43,
+  "scorer_file_rank_no_tests": 22,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11797",
+  "question": "Filtering on query result overrides GROUP BY of internal query",
+  "files": [
+   "django/db/models/lookups.py"
+  ],
+  "rank": 12,
+  "cause": "late",
+  "seeds": [
+   "Group",
+   "Result",
+   "Query",
+   "Filtering by an invalid value.",
+   "OverrideSettingsTests",
+   "InternalCertificationAudit"
+  ],
+  "seed_files": [
+   "tests/queryset_pickle/models.py",
+   "tests/expressions/models.py",
+   "django/db/models/sql/query.py",
+   "tests/admin_filters/tests.py",
+   "tests/test_utils/tests.py",
+   "tests/model_inheritance_regress/models.py"
+  ],
+  "seed_kinds": {
+   "test": 5,
+   "code": 1
+  },
+  "gold_nodes": 104,
+  "best_gold_score_rank": 151,
+  "visited": 2204,
+  "gold_terms_in_source": [
+   "filtering",
+   "group",
+   "internal",
+   "query",
+   "result"
+  ],
+  "tokens": 2171,
+  "scorer_file_rank": 84,
+  "scorer_file_rank_no_tests": 29,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11815",
+  "question": "Migrations uses value of enum object instead of its name.",
+  "files": [
+   "django/db/migrations/serializer.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Enum",
+   "uses",
+   "object",
+   "Value",
+   "name()",
+   "Instead of generating a random string, generate a secure url-safe\u2026",
+   "migrations/test_commands.py"
+  ],
+  "seed_files": [
+   "",
+   ".github/workflows/docs.yml",
+   "",
+   "django/db/models/expressions.py",
+   "tests/responses/test_fileresponse.py",
+   "django/contrib/sessions/backends/signed_cookies.py",
+   "tests/migrations/test_commands.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 2,
+   "rationale": 1
+  },
+  "gold_nodes": 65,
+  "best_gold_score_rank": 40,
+  "visited": 4921,
+  "gold_terms_in_source": [
+   "enum",
+   "migrations",
+   "name",
+   "object",
+   "value"
+  ],
+  "tokens": 2190,
+  "scorer_file_rank": 15,
+  "scorer_file_rank_no_tests": 8,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11910",
+  "question": "ForeignKey's to_field parameter gets the old field's name when renaming a PrimaryKey.",
+  "files": [
+   "django/db/migrations/autodetector.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "old()",
+   "ForeignKey",
+   "ForeignKeyToFieldTest",
+   "name()",
+   "Field",
+   "Renaming a field shouldn't affect the not null status.",
+   "PrimaryKeyUUIDModel",
+   "ParameterRestrictionTests",
+   "TokenGeneratorTest"
+  ],
+  "seed_files": [
+   "tests/deprecation/tests.py",
+   "django/db/models/fields/related.py",
+   "tests/prefetch_related/tests.py",
+   "tests/responses/test_fileresponse.py",
+   "django/db/models/fields/__init__.py",
+   "tests/schema/tests.py",
+   "tests/model_fields/models.py",
+   "tests/urlpatterns/tests.py",
+   "tests/auth_tests/test_tokens.py"
+  ],
+  "seed_kinds": {
+   "test": 7,
+   "code": 2
+  },
+  "gold_nodes": 69,
+  "best_gold_score_rank": 100,
+  "visited": 2671,
+  "gold_terms_in_source": [
+   "field",
+   "foreign",
+   "foreignkey",
+   "key",
+   "name",
+   "old",
+   "primary",
+   "s",
+   "to_field"
+  ],
+  "tokens": 376,
+  "scorer_file_rank": 59,
+  "scorer_file_rank_no_tests": 25,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-11999",
+  "question": "Cannot override get_FOO_display() in Django 2.2+.",
+  "files": [
+   "django/db/models/fields/__init__.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Foo",
+   "foo()",
+   "override",
+   "display()",
+   ".django()",
+   "get()",
+   "#24129 - Tests callback process",
+   ".test_bad_origin_cannot_be_parsed()"
+  ],
+  "seed_files": [
+   "tests/admin_scripts/complex_app/models/foo.py",
+   "tests/model_inheritance/tests.py",
+   "django/utils/timezone.py",
+   "django/contrib/admin/decorators.py",
+   "django/contrib/gis/gdal/geomtype.py",
+   "tests/utils_tests/test_functional.py",
+   "tests/migrations/test_executor.py",
+   "tests/csrf_tests/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 5,
+   "code": 3
+  },
+  "gold_nodes": 304,
+  "best_gold_score_rank": 57,
+  "visited": 1094,
+  "gold_terms_in_source": [
+   "2",
+   "display",
+   "django",
+   "foo",
+   "get",
+   "get_foo_display",
+   "override"
+  ],
+  "tokens": 2195,
+  "scorer_file_rank": 37,
+  "scorer_file_rank_no_tests": 17,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12113",
+  "question": "admin_views.test_multidb fails with persistent test SQLite database.",
+  "files": [
+   "django/db/backends/sqlite3/creation.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "admin_views/test_multidb.py",
+   "fails()",
+   "AdminViewsNoUrlTest",
+   "Test",
+   "PersistentRemoteUserTest",
+   "MultiDBOperationTests",
+   "sqlite3/base.py",
+   "views/debug.py",
+   "database.py",
+   "admin_views/admin.py"
+  ],
+  "seed_files": [
+   "tests/admin_views/test_multidb.py",
+   "tests/dispatch/tests.py",
+   "tests/admin_views/tests.py",
+   "tests/test_runner_apps/sample/pattern_tests.py",
+   "tests/auth_tests/test_remote_user.py",
+   "tests/migrations/test_multidb.py",
+   "django/db/backends/sqlite3/base.py",
+   "django/views/debug.py",
+   "django/core/checks/database.py",
+   "tests/admin_views/admin.py"
+  ],
+  "seed_kinds": {
+   "test": 7,
+   "code": 3
+  },
+  "gold_nodes": 10,
+  "best_gold_score_rank": 186,
+  "visited": 6578,
+  "gold_terms_in_source": [
+   "database",
+   "lite",
+   "sq",
+   "sqlite",
+   "test"
+  ],
+  "tokens": 2193,
+  "scorer_file_rank": 92,
+  "scorer_file_rank_no_tests": 9,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12125",
+  "question": "makemigrations produces incorrect path for inner classes",
+  "files": [
+   "django/db/migrations/serializer.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Inner",
+   "inner()",
+   "path",
+   "IncorrectLookupParameters",
+   "makemigrations.py",
+   "classesToArray()",
+   "Calling dumpdata produces an error when yaml package missing"
+  ],
+  "seed_files": [
+   "tests/admin_inlines/models.py",
+   "django/contrib/admin/sites.py",
+   ".github/workflows/docs.yml",
+   "django/contrib/admin/options.py",
+   "django/core/management/commands/makemigrations.py",
+   "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+   "tests/serializers/test_yaml.py"
+  ],
+  "seed_kinds": {
+   "test": 2,
+   "code": 5
+  },
+  "gold_nodes": 65,
+  "best_gold_score_rank": 96,
+  "visited": 1895,
+  "gold_terms_in_source": [
+   "path"
+  ],
+  "tokens": 2208,
+  "scorer_file_rank": 42,
+  "scorer_file_rank_no_tests": 20,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12184",
+  "question": "Optional URL params crash some view functions.",
+  "files": [
+   "django/urls/resolvers.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "url()",
+   "view()",
+   "View",
+   ".params()",
+   "OptionalImageFile",
+   "functions/__init__.py",
+   ".test_non_ascii_query_string_does_not_crash()"
+  ],
+  "seed_files": [
+   "django/template/defaulttags.py",
+   "tests/check_framework/urls/bad_class_based_error_handlers.py",
+   "django/views/generic/base.py",
+   "django/contrib/auth/hashers.py",
+   "tests/model_forms/models.py",
+   "django/db/models/functions/__init__.py",
+   "tests/middleware/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 3
+  },
+  "gold_nodes": 72,
+  "best_gold_score_rank": 27,
+  "visited": 4936,
+  "gold_terms_in_source": [
+   "functions",
+   "params",
+   "url",
+   "view"
+  ],
+  "tokens": 299,
+  "scorer_file_rank": 25,
+  "scorer_file_rank_no_tests": 14,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12284",
+  "question": "Model.get_FOO_display() does not work correctly with inherited choices.",
+  "files": [
+   "django/db/models/fields/__init__.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Foo",
+   "foo()",
+   "Choices",
+   "display()",
+   "Model",
+   "get()",
+   "InheritedCounter",
+   ".test_head_caches_correctly()"
+  ],
+  "seed_files": [
+   "tests/admin_scripts/complex_app/models/foo.py",
+   "tests/model_inheritance/tests.py",
+   "django/db/models/enums.py",
+   "django/contrib/admin/decorators.py",
+   "django/db/models/base.py",
+   "tests/utils_tests/test_functional.py",
+   "tests/force_insert_update/models.py",
+   "tests/cache/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 5,
+   "code": 3
+  },
+  "gold_nodes": 304,
+  "best_gold_score_rank": 99,
+  "visited": 1489,
+  "gold_terms_in_source": [
+   "choices",
+   "display",
+   "foo",
+   "get",
+   "get_foo_display",
+   "inherited",
+   "model",
+   "work"
+  ],
+  "tokens": 2179,
+  "scorer_file_rank": 58,
+  "scorer_file_rank_no_tests": 13,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12286",
+  "question": "translation.E004 shouldn't be raised on sublanguages when a base language is available.",
+  "files": [
+   "django/core/checks/translation.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "translation()",
+   "Language",
+   "language()",
+   "Base",
+   "ShouldNotExecuteException",
+   "test_get_available_languages.py",
+   ".test_type_error_raised()"
+  ],
+  "seed_files": [
+   "django/utils/translation/trans_real.py",
+   "tests/admin_views/models.py",
+   "django/templatetags/i18n.py",
+   "tests/select_related_regress/models.py",
+   "tests/template_tests/utils.py",
+   "tests/template_tests/syntax_tests/i18n/test_get_available_languages.py",
+   "tests/auth_tests/test_auth_backends.py"
+  ],
+  "seed_kinds": {
+   "code": 2,
+   "test": 5
+  },
+  "gold_nodes": 9,
+  "best_gold_score_rank": 21,
+  "visited": 782,
+  "gold_terms_in_source": [
+   "004",
+   "e",
+   "e004",
+   "language",
+   "translation"
+  ],
+  "tokens": 2181,
+  "scorer_file_rank": 14,
+  "scorer_file_rank_no_tests": 4,
+  "flags": [
+   "test_doc_seeds",
+   "names_only"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12308",
+  "question": "JSONField are not properly displayed in admin when they are readonly.",
+  "files": [
+   "django/contrib/admin/utils.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "JSONField",
+   "ReadOnlyPizzaAdmin",
+   "ReadOnlyRelatedFieldAdmin",
+   "ReadonlyTest",
+   "admin_views/admin.py",
+   "ListDisplayEditableTests",
+   "ImproperlyConfigured"
+  ],
+  "seed_files": [
+   "django/contrib/postgres/fields/jsonb.py",
+   "tests/admin_views/admin.py",
+   "tests/admin_views/admin.py",
+   "tests/admin_views/tests.py",
+   "tests/admin_views/admin.py",
+   "tests/modeladmin/test_checks.py",
+   "django/core/exceptions.py"
+  ],
+  "seed_kinds": {
+   "code": 2,
+   "test": 5
+  },
+  "gold_nodes": 49,
+  "best_gold_score_rank": 39,
+  "visited": 9836,
+  "gold_terms_in_source": [
+   "admin",
+   "field",
+   "json",
+   "jsonfield"
+  ],
+  "tokens": 2184,
+  "scorer_file_rank": 28,
+  "scorer_file_rank_no_tests": 12,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12453",
+  "question": "`TransactionTestCase.serialized_rollback` fails to restore objects due to ordering constraints",
+  "files": [
+   "django/db/backends/base/creation.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "TransactionTestCase",
+   "fails()",
+   "rollback()",
+   "restoreScript()",
+   "Serialized content can be deserialized.",
+   "constraints/tests.py",
+   "OrderingTests",
+   "ObjectSelfReference",
+   "The \"safe\" and \"escape\" filters cannot work due to internal implementation\u2026"
+  ],
+  "seed_files": [
+   "django/test/testcases.py",
+   "tests/dispatch/tests.py",
+   "django/db/transaction.py",
+   "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+   "tests/serializers/tests.py",
+   "tests/constraints/tests.py",
+   "tests/ordering/tests.py",
+   "tests/backends/models.py",
+   "tests/template_tests/syntax_tests/test_autoescape.py"
+  ],
+  "seed_kinds": {
+   "test": 7,
+   "code": 2
+  },
+  "gold_nodes": 38,
+  "best_gold_score_rank": 523,
+  "visited": 4223,
+  "gold_terms_in_source": [
+   "case",
+   "constraints",
+   "objects",
+   "restore",
+   "serialized",
+   "test",
+   "transaction",
+   "transactiontestcase"
+  ],
+  "tokens": 2227,
+  "scorer_file_rank": 166,
+  "scorer_file_rank_no_tests": 54,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12470",
+  "question": "Inherited model doesn't correctly order by \"-pk\" when specified on Parent.Meta.ordering",
+  "files": [
+   "django/db/models/sql/compiler.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "ordering/models.py",
+   "Ordering shouldn't be cleared when distinct on fields are specified. refs #25081",
+   "Model without any defined `Meta.ordering`. Refs #17198.",
+   "Parent",
+   "Meta",
+   "Order",
+   "Model",
+   "InheritedCounter",
+   "DoesNotAllowNulls",
+   "OrderingTests",
+   "unspecified_app_with_conflict/migrations/0002_second.py",
+   ".test_head_caches_correctly()"
+  ],
+  "seed_files": [
+   "tests/ordering/models.py",
+   "tests/distinct_on_fields/tests.py",
+   "tests/admin_changelist/models.py",
+   "tests/admin_views/models.py",
+   "tests/model_meta/models.py",
+   "tests/queries/models.py",
+   "django/db/models/base.py",
+   "tests/force_insert_update/models.py",
+   "tests/gis_tests/layermap/models.py",
+   "tests/ordering/tests.py",
+   "tests/migrations/migrations_test_apps/unspecified_app_with_conflict/migrations/0002_second.py",
+   "tests/cache/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 11,
+   "code": 1
+  },
+  "gold_nodes": 85,
+  "best_gold_score_rank": 595,
+  "visited": 1939,
+  "gold_terms_in_source": [
+   "meta",
+   "model",
+   "order",
+   "ordering",
+   "parent",
+   "pk",
+   "specified",
+   "t"
+  ],
+  "tokens": 2253,
+  "scorer_file_rank": 186,
+  "scorer_file_rank_no_tests": 21,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12497",
+  "question": "Wrong hint about recursive relationship.",
+  "files": [
+   "django/db/models/fields/related.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "Relationship",
+   "hint: inverting your ordering might do what you need",
+   "wrong_namespace.py",
+   "RecursiveM2MTests"
+  ],
+  "seed_files": [
+   "tests/m2m_through/models.py",
+   "tests/queries/tests.py",
+   "tests/i18n/patterns/urls/wrong_namespace.py",
+   "tests/m2m_recursive/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 4
+  },
+  "gold_nodes": 133,
+  "best_gold_score_rank": 88,
+  "visited": 593,
+  "gold_terms_in_source": [
+   "hint",
+   "recursive",
+   "relationship"
+  ],
+  "tokens": 2183,
+  "scorer_file_rank": 44,
+  "scorer_file_rank_no_tests": 8,
+  "flags": [
+   "test_doc_seeds",
+   "names_only"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12589",
+  "question": "Django 3.0: \"GROUP BY\" clauses error with tricky field annotation",
+  "files": [
+   "django/db/models/sql/query.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Group",
+   "Annotation",
+   "Error",
+   ".django()",
+   "Field",
+   "0011_update_proxy_permissions.py",
+   "Custom format for select clauses. For example, EXISTS expressions need to be\u2026",
+   "sqlite3/base.py"
+  ],
+  "seed_files": [
+   "django/contrib/auth/models.py",
+   "tests/queries/models.py",
+   "django/core/checks/messages.py",
+   "django/contrib/gis/gdal/geomtype.py",
+   "django/db/models/fields/__init__.py",
+   "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+   "django/db/models/expressions.py",
+   "django/db/backends/sqlite3/base.py"
+  ],
+  "seed_kinds": {
+   "code": 6,
+   "test": 1,
+   "rationale": 1
+  },
+  "gold_nodes": 184,
+  "best_gold_score_rank": 322,
+  "visited": 6495,
+  "gold_terms_in_source": [
+   "0",
+   "3",
+   "annotation",
+   "clauses",
+   "django",
+   "error",
+   "field",
+   "group"
+  ],
+  "tokens": 350,
+  "scorer_file_rank": 184,
+  "scorer_file_rank_no_tests": 106,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12700",
+  "question": "Settings are cleaned insufficiently.",
+  "files": [
+   "django/views/debug.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "Settings",
+   ".cleaned_data()"
+  ],
+  "seed_files": [
+   "tests/admin_scripts/configured_dynamic_settings_manage.py",
+   "django/forms/formsets.py"
+  ],
+  "seed_kinds": {
+   "test": 1,
+   "code": 1
+  },
+  "gold_nodes": 53,
+  "best_gold_score_rank": 87,
+  "visited": 90,
+  "gold_terms_in_source": [
+   "settings"
+  ],
+  "tokens": 2149,
+  "scorer_file_rank": 40,
+  "scorer_file_rank_no_tests": 11,
+  "flags": [
+   "test_doc_seeds",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12708",
+  "question": "Migration crashes deleting an index_together if there is a unique_together on the same fields",
+  "files": [
+   "django/db/backends/base/schema.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "index/unique_together doesn't generate a migration if no changes have been made.",
+   "index/unique_together also triggers on ordering changes.",
+   "Index",
+   ".unique()",
+   "Migration",
+   "fields()",
+   "Deleting the *proxy* instance bubbles through to its non-proxy and *all*\u2026",
+   "same_tags_app_1/apps.py",
+   "If RenameField doesn't reload state appropriately, the AlterField crashes on\u2026",
+   "AlterTogetherOptionOperation"
+  ],
+  "seed_files": [
+   "tests/migrations/test_autodetector.py",
+   "tests/migrations/test_autodetector.py",
+   "django/db/models/indexes.py",
+   "django/db/models/fields/__init__.py",
+   "django/db/migrations/migration.py",
+   "tests/model_inheritance/test_abstract_inheritance.py",
+   "tests/delete_regress/tests.py",
+   "tests/check_framework/template_test_apps/same_tags_app_1/apps.py",
+   "tests/migrations/test_operations.py",
+   "django/db/migrations/operations/models.py"
+  ],
+  "seed_kinds": {
+   "test": 6,
+   "code": 4
+  },
+  "gold_nodes": 108,
+  "best_gold_score_rank": 243,
+  "visited": 1797,
+  "gold_terms_in_source": [
+   "deleting",
+   "fields",
+   "index",
+   "index_together",
+   "migration",
+   "there",
+   "together",
+   "unique",
+   "unique_together"
+  ],
+  "tokens": 575,
+  "scorer_file_rank": 194,
+  "scorer_file_rank_no_tests": 29,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12747",
+  "question": "QuerySet.Delete - inconsistent result when zero objects deleted",
+  "files": [
+   "django/db/models/deletion.py"
+  ],
+  "rank": 17,
+  "cause": "late",
+  "seeds": [
+   "Result",
+   "QuerySet.delete() should return the number of deleted rows and a dictionary\u2026",
+   "QuerySet",
+   ".delete()",
+   "InconsistentMigrationHistory",
+   "DeleteDistinct",
+   "Zero as id for AutoField should raise exception in MySQL, because MySQL does\u2026",
+   "ObjectSelfReference"
+  ],
+  "seed_files": [
+   "tests/expressions/models.py",
+   "tests/delete/tests.py",
+   "django/db/models/query.py",
+   "tests/save_delete_hooks/models.py",
+   "django/db/migrations/exceptions.py",
+   "tests/delete_regress/tests.py",
+   "tests/backends/tests.py",
+   "tests/backends/models.py"
+  ],
+  "seed_kinds": {
+   "test": 6,
+   "code": 2
+  },
+  "gold_nodes": 36,
+  "best_gold_score_rank": 22,
+  "visited": 2171,
+  "gold_terms_in_source": [
+   "delete",
+   "deleted",
+   "objects",
+   "query",
+   "queryset",
+   "result",
+   "set"
+  ],
+  "tokens": 2244,
+  "scorer_file_rank": 16,
+  "scorer_file_rank_no_tests": 4,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-12856",
+  "question": "Add check for fields of UniqueConstraints.",
+  "files": [
+   "django/db/models/base.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "fields()",
+   "add()",
+   "check()"
+  ],
+  "seed_files": [
+   "tests/model_inheritance/test_abstract_inheritance.py",
+   "django/contrib/contenttypes/fields.py",
+   "tests/admin_checks/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 2,
+   "code": 1
+  },
+  "gold_nodes": 108,
+  "best_gold_score_rank": 40,
+  "visited": 84,
+  "gold_terms_in_source": [
+   "add",
+   "check",
+   "constraints",
+   "fields",
+   "unique"
+  ],
+  "tokens": 136,
+  "scorer_file_rank": 17,
+  "scorer_file_rank_no_tests": 8,
+  "flags": [
+   "test_doc_seeds",
+   "names_only"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13028",
+  "question": "Queryset raises NotSupportedError when RHS has filterable=False attribute.",
+  "files": [
+   "django/db/models/sql/query.py"
+  ],
+  "rank": 6,
+  "cause": "late",
+  "seeds": [
+   "NotSupportedError",
+   "raises()",
+   "QuerySet",
+   ".rhs_is_direct_value()",
+   "Falsey values (Such as an empty string) are rejected.",
+   "AttributeSetter",
+   ".check_filterable()"
+  ],
+  "seed_files": [
+   "django/db/utils.py",
+   "tests/view_tests/views.py",
+   "django/db/models/query.py",
+   "django/db/models/lookups.py",
+   "tests/sessions_tests/tests.py",
+   "django/contrib/postgres/fields/utils.py",
+   "django/db/models/sql/query.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 2
+  },
+  "gold_nodes": 184,
+  "best_gold_score_rank": 60,
+  "visited": 4546,
+  "gold_terms_in_source": [
+   "attribute",
+   "error",
+   "false",
+   "filterable",
+   "has",
+   "notsupportederror",
+   "queryset",
+   "raises",
+   "rhs",
+   "supported"
+  ],
+  "tokens": 2201,
+  "scorer_file_rank": 34,
+  "scorer_file_rank_no_tests": 5,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13033",
+  "question": "Self referencing foreign key doesn't correctly order by a relation \"_id\" field.",
+  "files": [
+   "django/db/models/sql/compiler.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Foreign key fields declared on abstract models should not add lazy relations to\u2026",
+   "ForeignKeyRawIdWidget",
+   "ForeignKeyRawIdWidgetTest",
+   "Relation",
+   "Order",
+   "key",
+   "id",
+   "Field",
+   "SelfReferentialM2MClashTests",
+   "DoesNotAllowNulls",
+   "foreign_object/tests.py",
+   ".test_string_form_referencing()",
+   ".test_head_caches_correctly()"
+  ],
+  "seed_files": [
+   "tests/model_fields/test_foreignkey.py",
+   "django/contrib/admin/widgets.py",
+   "tests/admin_widgets/tests.py",
+   "tests/model_meta/models.py",
+   "tests/queries/models.py",
+   ".github/workflows/docs.yml",
+   ".pre-commit-config.yaml",
+   "django/db/models/fields/__init__.py",
+   "tests/invalid_models_tests/test_relative_fields.py",
+   "tests/gis_tests/layermap/models.py",
+   "tests/foreign_object/tests.py",
+   "tests/string_lookup/tests.py",
+   "tests/cache/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 9,
+   "code": 4
+  },
+  "gold_nodes": 85,
+  "best_gold_score_rank": 661,
+  "visited": 3272,
+  "gold_terms_in_source": [
+   "field",
+   "key",
+   "order",
+   "relation",
+   "self",
+   "t"
+  ],
+  "tokens": 2252,
+  "scorer_file_rank": 207,
+  "scorer_file_rank_no_tests": 47,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13158",
+  "question": "QuerySet.none() on combined queries returns all results.",
+  "files": [
+   "django/db/models/sql/query.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Results()",
+   "QuerySet",
+   ".queries()",
+   ".none()",
+   "CombinedExpression",
+   "Returns the paths for any external backend packages."
+  ],
+  "seed_files": [
+   "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+   "django/db/models/query.py",
+   "django/db/backends/base/base.py",
+   "django/db/models/query.py",
+   "django/db/models/expressions.py",
+   "tests/admin_scripts/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 1
+  },
+  "gold_nodes": 184,
+  "best_gold_score_rank": 162,
+  "visited": 1567,
+  "gold_terms_in_source": [
+   "all",
+   "combined",
+   "none",
+   "queries",
+   "query",
+   "queryset",
+   "results",
+   "set"
+  ],
+  "tokens": 262,
+  "scorer_file_rank": 62,
+  "scorer_file_rank_no_tests": 16,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13220",
+  "question": "Allow ValidationErrors to equal each other when created identically",
+  "files": [
+   "django/core/exceptions.py"
+  ],
+  "rank": 13,
+  "cause": "late",
+  "seeds": [
+   "equal()",
+   "CreateDefaultSiteTests",
+   "Each input gets a separate ID.",
+   "other/__init__.py",
+   "AllowAllUsersModelBackendTest"
+  ],
+  "seed_files": [
+   "tests/backends/test_utils.py",
+   "tests/sites_tests/tests.py",
+   "tests/forms_tests/widget_tests/test_checkboxselectmultiple.py",
+   "tests/i18n/other/__init__.py",
+   "tests/auth_tests/test_auth_backends.py"
+  ],
+  "seed_kinds": {
+   "test": 5
+  },
+  "gold_nodes": 54,
+  "best_gold_score_rank": 570,
+  "visited": 345,
+  "gold_terms_in_source": [
+   "errors",
+   "other",
+   "validation"
+  ],
+  "tokens": 2171,
+  "scorer_file_rank": 287,
+  "scorer_file_rank_no_tests": 99,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "D_shown_late_by_bfs_luck"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13230",
+  "question": "Add support for item_comments to syndication framework",
+  "files": [
+   "django/contrib/syndication/views.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Item",
+   "add()",
+   "Add the fields and methods necessary to support the Group and Permission models\u2026",
+   "CommentSyntaxTests",
+   "SyndicationFeedTest",
+   "FrameworkForm",
+   "supports_color()"
+  ],
+  "seed_files": [
+   "tests/backends/models.py",
+   "django/contrib/contenttypes/fields.py",
+   "django/contrib/auth/models.py",
+   "tests/template_tests/syntax_tests/test_comment.py",
+   "tests/syndication_tests/tests.py",
+   "tests/forms_tests/tests/test_forms.py",
+   "django/core/management/color.py"
+  ],
+  "seed_kinds": {
+   "test": 4,
+   "code": 2,
+   "rationale": 1
+  },
+  "gold_nodes": 19,
+  "best_gold_score_rank": 21,
+  "visited": 1280,
+  "gold_terms_in_source": [
+   "add",
+   "comments",
+   "item",
+   "item_comments",
+   "support"
+  ],
+  "tokens": 2206,
+  "scorer_file_rank": 17,
+  "scorer_file_rank_no_tests": 8,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13265",
+  "question": "AlterOrderWithRespectTo() with ForeignKey crash when _order is included in Index().",
+  "files": [
+   "django/db/migrations/autodetector.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "AlterOrderWithRespectTo",
+   "ForeignKey",
+   "Index",
+   "Order",
+   "included_namespace_urls.py",
+   ".test_non_ascii_query_string_does_not_crash()"
+  ],
+  "seed_files": [
+   "django/db/migrations/operations/models.py",
+   "django/db/models/fields/related.py",
+   "django/db/models/indexes.py",
+   "tests/queries/models.py",
+   "tests/urlpatterns_reverse/included_namespace_urls.py",
+   "tests/middleware/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "test": 3
+  },
+  "gold_nodes": 69,
+  "best_gold_score_rank": 565,
+  "visited": 2014,
+  "gold_terms_in_source": [
+   "alter",
+   "alterorderwithrespectto",
+   "foreign",
+   "foreignkey",
+   "index",
+   "key",
+   "order",
+   "respect"
+  ],
+  "tokens": 2180,
+  "scorer_file_rank": 188,
+  "scorer_file_rank_no_tests": 50,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13315",
+  "question": "limit_choices_to on a ForeignKey can render duplicate options in formfield",
+  "files": [
+   "django/forms/models.py"
+  ],
+  "rank": 19,
+  "cause": "late",
+  "seeds": [
+   "ForeignKey",
+   "LimitChoicesToTests",
+   "LimitChoicesToInAdminTest",
+   ".formfield()",
+   "Options",
+   "Choices",
+   "render()",
+   "DuplicateDBTableTests",
+   "TokenGeneratorTest"
+  ],
+  "seed_files": [
+   "django/db/models/fields/related.py",
+   "tests/model_forms/tests.py",
+   "tests/admin_views/tests.py",
+   "django/db/models/fields/__init__.py",
+   "django/db/models/options.py",
+   "django/db/models/enums.py",
+   "django/shortcuts.py",
+   "tests/check_framework/test_model_checks.py",
+   "tests/auth_tests/test_tokens.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 4
+  },
+  "gold_nodes": 115,
+  "best_gold_score_rank": 32,
+  "visited": 2472,
+  "gold_terms_in_source": [
+   "choices",
+   "duplicate",
+   "foreign",
+   "foreignkey",
+   "formfield",
+   "key",
+   "limit",
+   "limit_choices_to",
+   "options"
+  ],
+  "tokens": 2210,
+  "scorer_file_rank": 26,
+  "scorer_file_rank_no_tests": 10,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13321",
+  "question": "Decoding an invalid session data crashes.",
+  "files": [
+   "django/contrib/sessions/backends/base.py"
+  ],
+  "rank": 24,
+  "cause": "late",
+  "seeds": [
+   "Session",
+   "Invalid",
+   "Data()",
+   "If RenameField doesn't reload state appropriately, the AlterField crashes on\u2026"
+  ],
+  "seed_files": [
+   "django/contrib/sessions/models.py",
+   "tests/gis_tests/layermap/models.py",
+   "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+   "tests/migrations/test_operations.py"
+  ],
+  "seed_kinds": {
+   "code": 2,
+   "test": 2
+  },
+  "gold_nodes": 65,
+  "best_gold_score_rank": 8,
+  "visited": 506,
+  "gold_terms_in_source": [
+   "data",
+   "invalid",
+   "session"
+  ],
+  "tokens": 2184,
+  "scorer_file_rank": 6,
+  "scorer_file_rank_no_tests": 3,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13447",
+  "question": "Added model class to app_list context",
+  "files": [
+   "django/contrib/admin/sites.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Context",
+   "Class",
+   "list",
+   "Model",
+   "Added fields will be created before using them in index/unique_together.",
+   "AppConfig"
+  ],
+  "seed_files": [
+   "django/template/context.py",
+   "tests/admin_inlines/models.py",
+   "",
+   "django/db/models/base.py",
+   "tests/migrations/test_autodetector.py",
+   "django/apps/config.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 2
+  },
+  "gold_nodes": 56,
+  "best_gold_score_rank": 623,
+  "visited": 5271,
+  "gold_terms_in_source": [
+   "app",
+   "app_list",
+   "class",
+   "context",
+   "list",
+   "model"
+  ],
+  "tokens": 2187,
+  "scorer_file_rank": 291,
+  "scorer_file_rank_no_tests": 81,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13448",
+  "question": "Test runner setup_databases crashes with \"TEST\": {\"MIGRATE\": False}.",
+  "files": [
+   "django/db/backends/base/creation.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "runner()",
+   "SetupDatabasesTests",
+   "setUp()",
+   ".databases()",
+   ".migrate()",
+   "setup",
+   "Test",
+   "Falsey values (Such as an empty string) are rejected.",
+   "If RenameField doesn't reload state appropriately, the AlterField crashes on\u2026"
+  ],
+  "seed_files": [
+   "tests/backends/tests.py",
+   "tests/test_runner/tests.py",
+   "django/test/utils.py",
+   "django/db/utils.py",
+   "django/db/migrations/executor.py",
+   "",
+   "tests/test_runner_apps/sample/pattern_tests.py",
+   "tests/sessions_tests/tests.py",
+   "tests/migrations/test_operations.py"
+  ],
+  "seed_kinds": {
+   "test": 6,
+   "code": 3
+  },
+  "gold_nodes": 38,
+  "best_gold_score_rank": 533,
+  "visited": 1030,
+  "gold_terms_in_source": [
+   "databases",
+   "false",
+   "migrate",
+   "runner",
+   "test"
+  ],
+  "tokens": 2216,
+  "scorer_file_rank": 148,
+  "scorer_file_rank_no_tests": 17,
+  "flags": [
+   "test_doc_seeds",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13590",
+  "question": "Upgrading 2.2>3.0 causes named tuples used as arguments to __range to error.",
+  "files": [
+   "django/db/models/sql/query.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Range",
+   "Used in the tests for the database argument in signals (#13552)",
+   "Error",
+   "TupleSerializer",
+   "NamedEndblockTests",
+   "Arguments: * name: the name of the field this expression references",
+   "Used in TestStaticFilePermissions",
+   "0011_update_proxy_permissions.py",
+   "#24129 - Tests callback process",
+   ".test_integer_parameter_name_causes_exception()",
+   "sqlite3/base.py"
+  ],
+  "seed_files": [
+   "django/db/models/lookups.py",
+   "tests/multiple_database/tests.py",
+   "django/core/checks/messages.py",
+   "django/db/migrations/serializer.py",
+   "tests/template_tests/syntax_tests/test_named_endblock.py",
+   "django/db/models/expressions.py",
+   "tests/staticfiles_tests/test_storage.py",
+   "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+   "tests/migrations/test_executor.py",
+   "tests/urlpatterns/tests.py",
+   "django/db/backends/sqlite3/base.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 5,
+   "rationale": 1
+  },
+  "gold_nodes": 184,
+  "best_gold_score_rank": 214,
+  "visited": 4397,
+  "gold_terms_in_source": [
+   "0",
+   "2",
+   "3",
+   "arguments",
+   "error",
+   "tuples"
+  ],
+  "tokens": 524,
+  "scorer_file_rank": 142,
+  "scorer_file_rank_no_tests": 31,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13710",
+  "question": "Use Admin Inline verbose_name as default for Inline verbose_name_plural",
+  "files": [
+   "django/contrib/admin/options.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "VerboseNamePluralProfile",
+   "Default User model verbose names are translatable (#19945)",
+   "verbose_name_plural correctly inherited from ABC if inheritance chain includes\u2026",
+   ".plural()",
+   "default()",
+   "name()",
+   "VerboseNameProfile",
+   "InlineFormsetFactoryTest",
+   "admin_views/admin.py",
+   "user_commands/tests.py"
+  ],
+  "seed_files": [
+   "tests/admin_inlines/models.py",
+   "tests/auth_tests/test_basic.py",
+   "tests/model_inheritance_regress/tests.py",
+   "django/utils/translation/trans_real.py",
+   "django/template/defaultfilters.py",
+   "tests/responses/test_fileresponse.py",
+   "tests/admin_inlines/models.py",
+   "tests/inline_formsets/tests.py",
+   "tests/admin_views/admin.py",
+   "tests/user_commands/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 8,
+   "code": 2
+  },
+  "gold_nodes": 201,
+  "best_gold_score_rank": 28,
+  "visited": 3628,
+  "gold_terms_in_source": [
+   "admin",
+   "default",
+   "inline",
+   "name",
+   "plural",
+   "verbose",
+   "verbose_name",
+   "verbose_name_plural"
+  ],
+  "tokens": 2234,
+  "scorer_file_rank": 17,
+  "scorer_file_rank_no_tests": 7,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13925",
+  "question": "models.W042 is raised on inherited manually specified primary key.",
+  "files": [
+   "django/db/models/base.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Primary",
+   "key",
+   "PrimaryKeyUUIDModel",
+   "Manually created sequence name to keep backward compatibility for AutoFields\u2026",
+   "InheritedCounter",
+   "models/fields/__init__.py",
+   "unspecified_app_with_conflict/migrations/0002_second.py",
+   ".test_type_error_raised()"
+  ],
+  "seed_files": [
+   "tests/defer/models.py",
+   ".github/workflows/docs.yml",
+   "tests/fixtures/models.py",
+   "django/db/backends/oracle/operations.py",
+   "tests/force_insert_update/models.py",
+   "django/db/models/fields/__init__.py",
+   "tests/migrations/migrations_test_apps/unspecified_app_with_conflict/migrations/0002_second.py",
+   "tests/auth_tests/test_auth_backends.py"
+  ],
+  "seed_kinds": {
+   "test": 5,
+   "code": 2,
+   "rationale": 1
+  },
+  "gold_nodes": 108,
+  "best_gold_score_rank": 52,
+  "visited": 4197,
+  "gold_terms_in_source": [
+   "042",
+   "inherited",
+   "key",
+   "manually",
+   "models",
+   "primary",
+   "raised",
+   "specified",
+   "w",
+   "w042"
+  ],
+  "tokens": 2230,
+  "scorer_file_rank": 27,
+  "scorer_file_rank_no_tests": 5,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-13964",
+  "question": "Saving parent object after setting on child leads to data loss for parents with non-numeric primary key.",
+  "files": [
+   "django/db/models/base.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "ParentStringPrimaryKey",
+   "ChildStringPrimaryKeyParent",
+   "ChildPrimaryKeyWithDefault",
+   "Primary",
+   "Child",
+   "Parent",
+   "object",
+   "key",
+   "Data()",
+   "Saving to same file name twice overwrites the first file.",
+   "NumericOutputFieldMixin",
+   "After pickling, this class fails unpickling with an error about incorrect\u2026",
+   "settings_tests/tests.py",
+   "non_unique_namespaces.py",
+   "Running slugify on a pre-escaped string leads to odd behavior, but the result\u2026"
+  ],
+  "seed_files": [
+   "tests/many_to_one/models.py",
+   "tests/many_to_one/models.py",
+   "tests/basic/models.py",
+   "tests/defer/models.py",
+   "tests/admin_inlines/models.py",
+   "tests/admin_views/models.py",
+   "",
+   ".github/workflows/docs.yml",
+   "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+   "tests/file_storage/tests.py",
+   "django/db/models/functions/mixins.py",
+   "tests/test_runner/test_parallel.py",
+   "tests/settings_tests/tests.py",
+   "tests/check_framework/urls/non_unique_namespaces.py",
+   "tests/template_tests/filter_tests/test_slugify.py"
+  ],
+  "seed_kinds": {
+   "test": 11,
+   "code": 4
+  },
+  "gold_nodes": 108,
+  "best_gold_score_rank": 79,
+  "visited": 1758,
+  "gold_terms_in_source": [
+   "after",
+   "child",
+   "data",
+   "key",
+   "loss",
+   "non",
+   "object",
+   "parent",
+   "parents",
+   "primary",
+   "saving",
+   "setting"
+  ],
+  "tokens": 2295,
+  "scorer_file_rank": 44,
+  "scorer_file_rank_no_tests": 6,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-14016",
+  "question": "\"TypeError: cannot pickle\" when applying | operator to a Q object",
+  "files": [
+   "django/db/models/query_utils.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "operator",
+   "pickle",
+   "object",
+   "Applying a non-atomic migration works as expected.",
+   "TypeErrorBackend",
+   ".test_bad_origin_cannot_be_parsed()"
+  ],
+  "seed_files": [
+   "",
+   "",
+   "",
+   "tests/migrations/test_executor.py",
+   "tests/auth_tests/test_auth_backends.py",
+   "tests/csrf_tests/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "test": 3
+  },
+  "gold_nodes": 45,
+  "best_gold_score_rank": 923,
+  "visited": 3499,
+  "gold_terms_in_source": [
+   "error",
+   "object",
+   "q",
+   "type",
+   "typeerror"
+  ],
+  "tokens": 2191,
+  "scorer_file_rank": 310,
+  "scorer_file_rank_no_tests": 139,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-14017",
+  "question": "Q(...) & Exists(...) raises a TypeError",
+  "files": [
+   "django/db/models/query_utils.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Exists",
+   "raises()",
+   "TypeErrorBackend"
+  ],
+  "seed_files": [
+   "django/db/models/expressions.py",
+   "tests/view_tests/views.py",
+   "tests/auth_tests/test_auth_backends.py"
+  ],
+  "seed_kinds": {
+   "code": 1,
+   "test": 2
+  },
+  "gold_nodes": 45,
+  "best_gold_score_rank": null,
+  "visited": 1727,
+  "gold_terms_in_source": [
+   "error",
+   "q",
+   "type",
+   "typeerror"
+  ],
+  "tokens": 2166,
+  "scorer_file_rank": null,
+  "scorer_file_rank_no_tests": null,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-14382",
+  "question": "django-admin startapp with trailing slash in directory name results in error",
+  "files": [
+   "django/core/management/templates.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "directory: django-admin builtin commands fail with an error when no settings\u2026",
+   "StartApp",
+   "Results()",
+   ".django()",
+   "Error",
+   "name()",
+   "Trailing zeros in the fractional part aren't truncated.",
+   "DirectoryCreationTests",
+   "admin_views/admin.py",
+   "test_addslashes.py"
+  ],
+  "seed_files": [
+   "tests/admin_scripts/tests.py",
+   "tests/admin_scripts/tests.py",
+   "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+   "django/contrib/gis/gdal/geomtype.py",
+   "django/core/checks/messages.py",
+   "tests/responses/test_fileresponse.py",
+   "tests/model_fields/test_decimalfield.py",
+   "tests/file_uploads/tests.py",
+   "tests/admin_views/admin.py",
+   "tests/template_tests/filter_tests/test_addslashes.py"
+  ],
+  "seed_kinds": {
+   "test": 7,
+   "code": 3
+  },
+  "gold_nodes": 19,
+  "best_gold_score_rank": 238,
+  "visited": 4573,
+  "gold_terms_in_source": [
+   "directory",
+   "django",
+   "error",
+   "name"
+  ],
+  "tokens": 2234,
+  "scorer_file_rank": 90,
+  "scorer_file_rank_no_tests": 62,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-14580",
+  "question": "Missing import statement in generated migration (NameError: name 'models' is not defined)",
+  "files": [
+   "django/db/migrations/serializer.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Statement",
+   "Migration",
+   "name",
+   "name()",
+   "importerror/__init__.py",
+   "MissingForeignKey",
+   "models/fields/__init__.py",
+   ".test_for_update_sql_generated()",
+   ".test_get_new_defined()"
+  ],
+  "seed_files": [
+   "django/db/backends/ddl_references.py",
+   "tests/db_functions/migrations/0002_create_test_models.py",
+   ".github/workflows/docs.yml",
+   "tests/responses/test_fileresponse.py",
+   "tests/template_backends/apps/importerror/__init__.py",
+   "django/contrib/gis/utils/layermapping.py",
+   "django/db/models/fields/__init__.py",
+   "tests/select_for_update/tests.py",
+   "tests/deprecation/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 5
+  },
+  "gold_nodes": 65,
+  "best_gold_score_rank": 9279,
+  "visited": 4671,
+  "gold_terms_in_source": [
+   "error",
+   "generated",
+   "import",
+   "migration",
+   "models",
+   "name"
+  ],
+  "tokens": 2207,
+  "scorer_file_rank": null,
+  "scorer_file_rank_no_tests": null,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-14667",
+  "question": "QuerySet.defer() doesn't clear deferred field when chaining with only().",
+  "files": [
+   "django/db/models/sql/query.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Deferred",
+   "clear()",
+   ".defer()",
+   "QuerySet",
+   ".only()",
+   "Field",
+   "ChainingTests",
+   "DoesNotAllowNulls"
+  ],
+  "seed_files": [
+   "django/db/models/base.py",
+   "django/db/models/fields/related_descriptors.py",
+   "django/db/models/query.py",
+   "django/db/models/query.py",
+   "django/db/models/query.py",
+   "django/db/models/fields/__init__.py",
+   "tests/template_tests/filter_tests/test_chaining.py",
+   "tests/gis_tests/layermap/models.py"
+  ],
+  "seed_kinds": {
+   "code": 6,
+   "test": 2
+  },
+  "gold_nodes": 184,
+  "best_gold_score_rank": 19,
+  "visited": 2871,
+  "gold_terms_in_source": [
+   "clear",
+   "defer",
+   "deferred",
+   "field",
+   "only",
+   "query",
+   "queryset",
+   "set",
+   "t"
+  ],
+  "tokens": 292,
+  "scorer_file_rank": 12,
+  "scorer_file_rank_no_tests": 8,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-14730",
+  "question": "Prevent developers from defining a related_name on symmetrical ManyToManyFields",
+  "files": [
+   "django/db/models/fields/related.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "Related",
+   "name",
+   "name()",
+   "SymmetricalFriendship",
+   "prevent_deletes()",
+   "Changes to ManyToManyFields are included in the object's history.",
+   "MediaDefiningClass"
+  ],
+  "seed_files": [
+   "tests/generic_relations_regress/models.py",
+   ".github/workflows/docs.yml",
+   "tests/responses/test_fileresponse.py",
+   "tests/m2m_through/models.py",
+   "tests/generic_relations_regress/models.py",
+   "tests/admin_views/tests.py",
+   "django/forms/widgets.py"
+  ],
+  "seed_kinds": {
+   "test": 5,
+   "code": 2
+  },
+  "gold_nodes": 133,
+  "best_gold_score_rank": 26,
+  "visited": 638,
+  "gold_terms_in_source": [
+   "fields",
+   "many",
+   "manytomanyfields",
+   "name",
+   "related",
+   "related_name",
+   "symmetrical"
+  ],
+  "tokens": 2211,
+  "scorer_file_rank": 12,
+  "scorer_file_rank_no_tests": 6,
+  "flags": [
+   "test_doc_seeds",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-14787",
+  "question": "method_decorator() should preserve wrapper assignments",
+  "files": [
+   "django/utils/decorators.py"
+  ],
+  "rank": 6,
+  "cause": "late",
+  "seeds": [
+   "wrapper()",
+   "decorator()",
+   "method()",
+   "Preserve extra headers of requests made with django.test.Client."
+  ],
+  "seed_files": [
+   "tests/decorators/tests.py",
+   "django/contrib/admin/decorators.py",
+   "tests/decorators/tests.py",
+   "tests/test_client_regress/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 3,
+   "code": 1
+  },
+  "gold_nodes": 27,
+  "best_gold_score_rank": 44,
+  "visited": 201,
+  "gold_terms_in_source": [
+   "decorator",
+   "method",
+   "method_decorator",
+   "preserve",
+   "wrapper"
+  ],
+  "tokens": 2189,
+  "scorer_file_rank": 26,
+  "scorer_file_rank_no_tests": 13,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-14855",
+  "question": "Wrong URL generated by get_admin_url for readonly field in custom Admin Site",
+  "files": [
+   "django/contrib/admin/helpers.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "AdminURLFieldWidget",
+   "ReadOnlyRelatedFieldAdmin",
+   "Site",
+   "custom",
+   "url()",
+   "get()",
+   "Field",
+   "wrong_namespace.py",
+   "ReadonlyTest",
+   "admin_views/admin.py",
+   ".test_for_update_sql_generated()"
+  ],
+  "seed_files": [
+   "django/contrib/admin/widgets.py",
+   "tests/admin_views/admin.py",
+   "django/contrib/sites/models.py",
+   ".github/FUNDING.yml",
+   "django/template/defaulttags.py",
+   "tests/utils_tests/test_functional.py",
+   "django/db/models/fields/__init__.py",
+   "tests/i18n/patterns/urls/wrong_namespace.py",
+   "tests/admin_views/tests.py",
+   "tests/admin_views/admin.py",
+   "tests/select_for_update/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 6
+  },
+  "gold_nodes": 50,
+  "best_gold_score_rank": 17,
+  "visited": 6034,
+  "gold_terms_in_source": [
+   "admin",
+   "field",
+   "get",
+   "get_admin_url",
+   "readonly",
+   "site",
+   "url"
+  ],
+  "tokens": 425,
+  "scorer_file_rank": 15,
+  "scorer_file_rank_no_tests": 2,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15202",
+  "question": "URLField throws ValueError instead of ValidationError on clean",
+  "files": [
+   "django/core/validators.py"
+  ],
+  "rank": 23,
+  "cause": "late",
+  "seeds": [
+   "ValidationError",
+   "ValueError",
+   "URLField",
+   "clean()",
+   "Instead of generating a random string, generate a secure url-safe\u2026",
+   ".test_nonaggregate_aggregation_throws()"
+  ],
+  "seed_files": [
+   "django/core/exceptions.py",
+   "",
+   "django/db/models/fields/__init__.py",
+   "tests/forms_tests/tests/test_error_messages.py",
+   "django/contrib/sessions/backends/signed_cookies.py",
+   "tests/aggregation/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "test": 2,
+   "rationale": 1
+  },
+  "gold_nodes": 54,
+  "best_gold_score_rank": 119,
+  "visited": 5344,
+  "gold_terms_in_source": [
+   "clean",
+   "error",
+   "field",
+   "url",
+   "validation",
+   "validationerror",
+   "value",
+   "valueerror"
+  ],
+  "tokens": 2192,
+  "scorer_file_rank": 61,
+  "scorer_file_rank_no_tests": 29,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "D_shown_late_by_bfs_luck"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15213",
+  "question": "ExpressionWrapper for ~Q(pk__in=[]) crashes.",
+  "files": [
+   "django/db/models/fields/__init__.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "ExpressionWrapper",
+   "In",
+   "pk and attribute name are available on the model No default id attribute is\u2026",
+   "If RenameField doesn't reload state appropriately, the AlterField crashes on\u2026"
+  ],
+  "seed_files": [
+   "django/db/models/expressions.py",
+   "django/db/models/lookups.py",
+   "tests/custom_pk/tests.py",
+   "tests/migrations/test_operations.py"
+  ],
+  "seed_kinds": {
+   "code": 2,
+   "test": 2
+  },
+  "gold_nodes": 304,
+  "best_gold_score_rank": 37,
+  "visited": 1400,
+  "gold_terms_in_source": [
+   "pk",
+   "wrapper"
+  ],
+  "tokens": 2194,
+  "scorer_file_rank": 29,
+  "scorer_file_rank_no_tests": 11,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15347",
+  "question": "Messages framework incorrectly serializes/deserializes extra_tags when it's an empty string",
+  "files": [
+   "django/contrib/messages/storage/cookie.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "messages()",
+   "Tags",
+   "Tags()",
+   "Empty",
+   ".extra()",
+   "string",
+   "FrameworkForm",
+   "The test client serializes JSON data."
+  ],
+  "seed_files": [
+   "django/contrib/messages/context_processors.py",
+   "django/core/checks/registry.py",
+   "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+   "tests/empty/models.py",
+   "django/db/models/query.py",
+   "",
+   "tests/forms_tests/tests/test_forms.py",
+   "tests/test_client/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 3
+  },
+  "gold_nodes": 25,
+  "best_gold_score_rank": 60,
+  "visited": 2091,
+  "gold_terms_in_source": [
+   "empty",
+   "extra",
+   "extra_tags",
+   "messages",
+   "s",
+   "tags"
+  ],
+  "tokens": 2177,
+  "scorer_file_rank": 46,
+  "scorer_file_rank_no_tests": 9,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15388",
+  "question": "Dev Server fails to restart after adding BASE_DIR to TEMPLATES[0]['DIRS'] in settings",
+  "files": [
+   "django/template/autoreload.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "fails()",
+   "settings.FIXTURE_DIRS cannot contain a default fixtures directory for\u2026",
+   "settings.FIXTURE_DIRS cannot contain duplicates in order to avoid repeated\u2026",
+   ".templates()",
+   "Settings",
+   ".__dir__()",
+   "Base",
+   "restart_with_reloader()",
+   "devDependencies",
+   "Adding a NOT NULL field to a model.",
+   "servers/tests.py",
+   "After pickling, this class fails unpickling with an error about incorrect\u2026",
+   "0011_update_proxy_permissions.py",
+   "get_app_template_dirs()"
+  ],
+  "seed_files": [
+   "tests/dispatch/tests.py",
+   "tests/fixtures_regress/tests.py",
+   "tests/fixtures_regress/tests.py",
+   "django/template/utils.py",
+   "tests/admin_scripts/configured_dynamic_settings_manage.py",
+   "django/conf/__init__.py",
+   "tests/select_related_regress/models.py",
+   "django/utils/autoreload.py",
+   "package.json",
+   "django/db/migrations/questioner.py",
+   "tests/servers/tests.py",
+   "tests/test_runner/test_parallel.py",
+   "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+   "django/template/utils.py"
+  ],
+  "seed_kinds": {
+   "test": 7,
+   "code": 6,
+   "rationale": 1
+  },
+  "gold_nodes": 5,
+  "best_gold_score_rank": 1515,
+  "visited": 2120,
+  "gold_terms_in_source": [
+   "dir",
+   "dirs",
+   "templates"
+  ],
+  "tokens": 2310,
+  "scorer_file_rank": null,
+  "scorer_file_rank_no_tests": null,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15498",
+  "question": "Fix handling empty string for If-Modified-Since header",
+  "files": [
+   "django/views/static.py"
+  ],
+  "rank": 31,
+  "cause": "late",
+  "seeds": [
+   "Empty",
+   "string",
+   "EmptyStringsAsNullTest",
+   "Since prefetch_related_objects() is just the inner part of prefetch_related(),\u2026",
+   "HeadersCheckMixin",
+   "fixtures_regress/tests.py",
+   "._test_file_time_getter_tz_handling_on()",
+   "HttpResponseNotModified"
+  ],
+  "seed_files": [
+   "tests/empty/models.py",
+   "",
+   "tests/queries/tests.py",
+   "tests/prefetch_related/test_prefetch_related_objects.py",
+   "tests/mail/tests.py",
+   "tests/fixtures_regress/tests.py",
+   "tests/file_storage/tests.py",
+   "django/http/response.py"
+  ],
+  "seed_kinds": {
+   "test": 6,
+   "code": 2
+  },
+  "gold_nodes": 7,
+  "best_gold_score_rank": 10,
+  "visited": 3015,
+  "gold_terms_in_source": [
+   "header",
+   "modified",
+   "since",
+   "string"
+  ],
+  "tokens": 2233,
+  "scorer_file_rank": 7,
+  "scorer_file_rank_no_tests": 2,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15695",
+  "question": "RenameIndex() crashes when unnamed index is moving backward and forward.",
+  "files": [
+   "django/db/migrations/operations/models.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Index",
+   "index()",
+   ".backwards_plan()",
+   "ForwardManyToOneDescriptor",
+   "If RenameField doesn't reload state appropriately, the AlterField crashes on\u2026",
+   "replace_unnamed_groups()",
+   ".test_m2m_relations_signals_clearing_removing()"
+  ],
+  "seed_files": [
+   "django/db/models/indexes.py",
+   "django/contrib/sitemaps/views.py",
+   "django/db/migrations/graph.py",
+   "django/db/models/fields/related_descriptors.py",
+   "tests/migrations/test_operations.py",
+   "django/contrib/admindocs/utils.py",
+   "tests/m2m_signals/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 2
+  },
+  "gold_nodes": 130,
+  "best_gold_score_rank": 42,
+  "visited": 1527,
+  "gold_terms_in_source": [
+   "index",
+   "rename"
+  ],
+  "tokens": 2207,
+  "scorer_file_rank": 26,
+  "scorer_file_rank_no_tests": 6,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15738",
+  "question": "Models migration with change field foreign to many and deleting unique together.",
+  "files": [
+   "django/db/migrations/autodetector.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Many-to-many fields declared on abstract models should not add lazy relations\u2026",
+   "Foreign key fields declared on abstract models should not add lazy relations to\u2026",
+   "Change the value of unique_together to the target one. Input value of\u2026",
+   ".unique()",
+   "Migration",
+   "Field",
+   "Deleting the *proxy* instance bubbles through to its non-proxy and *all*\u2026",
+   "ManyToOneTests",
+   "foreign_object/tests.py",
+   "models/fields/__init__.py",
+   "ChangeListTests",
+   "AlterTogetherOptionOperation"
+  ],
+  "seed_files": [
+   "tests/model_fields/test_manytomanyfield.py",
+   "tests/model_fields/test_foreignkey.py",
+   "django/db/migrations/operations/models.py",
+   "django/db/models/fields/__init__.py",
+   "django/db/migrations/migration.py",
+   "django/db/models/fields/__init__.py",
+   "tests/delete_regress/tests.py",
+   "tests/many_to_one/tests.py",
+   "tests/foreign_object/tests.py",
+   "django/db/models/fields/__init__.py",
+   "tests/admin_changelist/tests.py",
+   "django/db/migrations/operations/models.py"
+  ],
+  "seed_kinds": {
+   "test": 6,
+   "rationale": 1,
+   "code": 5
+  },
+  "gold_nodes": 69,
+  "best_gold_score_rank": 235,
+  "visited": 5549,
+  "gold_terms_in_source": [
+   "change",
+   "field",
+   "foreign",
+   "many",
+   "migration",
+   "models",
+   "together",
+   "unique"
+  ],
+  "tokens": 657,
+  "scorer_file_rank": 196,
+  "scorer_file_rank_no_tests": 32,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15789",
+  "question": "Add an encoder parameter to django.utils.html.json_script().",
+  "files": [
+   "django/utils/html.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Utils",
+   "DjangoJSONEncoder",
+   "html",
+   "json",
+   ".django()",
+   "add()",
+   "ScriptNameTests",
+   "ParameterRestrictionTests"
+  ],
+  "seed_files": [
+   "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+   "django/core/serializers/json.py",
+   "",
+   "",
+   "django/contrib/gis/gdal/geomtype.py",
+   "django/db/models/fields/related_descriptors.py",
+   "tests/handlers/tests.py",
+   "tests/urlpatterns/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 6,
+   "test": 2
+  },
+  "gold_nodes": 46,
+  "best_gold_score_rank": 11,
+  "visited": 5239,
+  "gold_terms_in_source": [
+   "django",
+   "encoder",
+   "html",
+   "json",
+   "json_script",
+   "script",
+   "utils"
+  ],
+  "tokens": 296,
+  "scorer_file_rank": 8,
+  "scorer_file_rank_no_tests": 5,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15814",
+  "question": "QuerySet.only() after select_related() crash on proxy models.",
+  "files": [
+   "django/db/models/sql/query.py"
+  ],
+  "rank": 31,
+  "cause": "late",
+  "seeds": [
+   "Proxy",
+   "select_related/models.py",
+   "select_related_regress/models.py",
+   "Select",
+   "QuerySet",
+   "Related",
+   ".only()",
+   "After pickling, this class fails unpickling with an error about incorrect\u2026",
+   "models/fields/__init__.py",
+   ".test_non_ascii_query_string_does_not_crash()"
+  ],
+  "seed_files": [
+   "tests/auth_tests/models/proxy.py",
+   "tests/select_related/models.py",
+   "tests/select_related_regress/models.py",
+   "django/forms/widgets.py",
+   "django/db/models/query.py",
+   "tests/queries/models.py",
+   "django/db/models/query.py",
+   "tests/test_runner/test_parallel.py",
+   "django/db/models/fields/__init__.py",
+   "tests/middleware/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 6,
+   "code": 4
+  },
+  "gold_nodes": 184,
+  "best_gold_score_rank": 61,
+  "visited": 5581,
+  "gold_terms_in_source": [
+   "after",
+   "models",
+   "only",
+   "proxy",
+   "query",
+   "queryset",
+   "related",
+   "select",
+   "select_related",
+   "set"
+  ],
+  "tokens": 2246,
+  "scorer_file_rank": 39,
+  "scorer_file_rank_no_tests": 4,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15819",
+  "question": "inspectdb should generate related_name on same relation links.",
+  "files": [
+   "django/core/management/commands/inspectdb.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "Relation",
+   "Related",
+   "inspectdb can inspect a subset of tables by passing the table names as\u2026",
+   ".generate()",
+   "name()",
+   "InspectDBTestCase",
+   "same_tags_app_1/apps.py",
+   "TestCollectionLinks"
+  ],
+  "seed_files": [
+   "tests/many_to_one/models.py",
+   "tests/generic_relations_regress/models.py",
+   "tests/inspectdb/tests.py",
+   "tests/reserved_names/tests.py",
+   "tests/responses/test_fileresponse.py",
+   "tests/inspectdb/tests.py",
+   "tests/check_framework/template_test_apps/same_tags_app_1/apps.py",
+   "tests/staticfiles_tests/test_management.py"
+  ],
+  "seed_kinds": {
+   "test": 8
+  },
+  "gold_nodes": 12,
+  "best_gold_score_rank": 68,
+  "visited": 556,
+  "gold_terms_in_source": [
+   "name",
+   "relation"
+  ],
+  "tokens": 2217,
+  "scorer_file_rank": 41,
+  "scorer_file_rank_no_tests": 13,
+  "flags": [
+   "test_doc_seeds",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15851",
+  "question": "dbshell additional parameters should be passed before dbname on PostgreSQL.",
+  "files": [
+   "django/db/backends/postgresql/client.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "PostgreSqlDbshellCommandTestCase",
+   "additional_file.py",
+   "dbshell.py",
+   "dbshell/tests.py",
+   "postgresql/base.py",
+   "test_migrations_run_before/0003_third.py",
+   ".test_aggregation_default_passed_another_aggregate()",
+   "GenericInlineAdminParametersTest"
+  ],
+  "seed_files": [
+   "tests/dbshell/test_postgresql.py",
+   "tests/admin_scripts/custom_templates/project_template/additional_dir/additional_file.py",
+   "django/core/management/commands/dbshell.py",
+   "tests/dbshell/tests.py",
+   "django/db/backends/postgresql/base.py",
+   "tests/migrations/test_migrations_run_before/0003_third.py",
+   "tests/aggregation/tests.py",
+   "tests/generic_inline_admin/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 6,
+   "code": 2
+  },
+  "gold_nodes": 4,
+  "best_gold_score_rank": 9,
+  "visited": 2174,
+  "gold_terms_in_source": [
+   "dbname",
+   "parameters"
+  ],
+  "tokens": 432,
+  "scorer_file_rank": 8,
+  "scorer_file_rank_no_tests": 2,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-15996",
+  "question": "Support for serialization of combination of Enum flags.",
+  "files": [
+   "django/db/migrations/serializer.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "Enum",
+   "SerializationTests",
+   "supports_color()",
+   "FieldFlagsTests",
+   "TestCombinations"
+  ],
+  "seed_files": [
+   "",
+   "tests/timezones/tests.py",
+   "django/core/management/color.py",
+   "tests/model_fields/test_field_flags.py",
+   "tests/postgres_tests/test_search.py"
+  ],
+  "seed_kinds": {
+   "code": 2,
+   "test": 3
+  },
+  "gold_nodes": 65,
+  "best_gold_score_rank": 5,
+  "visited": 822,
+  "gold_terms_in_source": [
+   "enum",
+   "flags"
+  ],
+  "tokens": 2176,
+  "scorer_file_rank": 2,
+  "scorer_file_rank_no_tests": 1,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget"
+  ],
+  "primary": "A_scorer_had_it_render_lost_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-16041",
+  "question": "Rendering empty_form crashes when empty_permitted is passed to form_kwargs",
+  "files": [
+   "django/forms/formsets.py"
+  ],
+  "rank": 11,
+  "cause": "late",
+  "seeds": [
+   "Empty",
+   "Form kwargs can be passed dynamically in a formset.",
+   "Form",
+   "RenderingTemplatesWithPercentSigns",
+   "KwargsOperation",
+   "If RenameField doesn't reload state appropriately, the AlterField crashes on\u2026",
+   ".test_empty_permitted()",
+   ".test_aggregation_default_passed_another_aggregate()"
+  ],
+  "seed_files": [
+   "tests/empty/models.py",
+   "tests/forms_tests/tests/test_formsets.py",
+   "django/forms/forms.py",
+   "tests/i18n/test_percents.py",
+   "tests/custom_migration_operations/operations.py",
+   "tests/migrations/test_operations.py",
+   "tests/forms_tests/tests/test_forms.py",
+   "tests/aggregation/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 7,
+   "code": 1
+  },
+  "gold_nodes": 69,
+  "best_gold_score_rank": 22,
+  "visited": 780,
+  "gold_terms_in_source": [
+   "empty",
+   "empty_form",
+   "empty_permitted",
+   "form",
+   "form_kwargs",
+   "kwargs",
+   "permitted",
+   "rendering"
+  ],
+  "tokens": 2239,
+  "scorer_file_rank": 14,
+  "scorer_file_rank_no_tests": 4,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-16229",
+  "question": "ModelForm fields with callable defaults don't correctly propagate default values",
+  "files": [
+   "django/forms/boundfield.py"
+  ],
+  "rank": null,
+  "cause": "names_only",
+  "seeds": [
+   "Defaults",
+   "Defaults()",
+   "ModelFormCallableModelDefault",
+   "ModelForm",
+   "Callable",
+   "._values()",
+   "fields()",
+   "default()",
+   "Donut",
+   ".test_propagates_null()",
+   ".test_head_caches_correctly()"
+  ],
+  "seed_files": [
+   "tests/forms_tests/models.py",
+   "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+   "tests/forms_tests/tests/tests.py",
+   "django/forms/models.py",
+   "tests/dispatch/tests.py",
+   "django/db/models/query.py",
+   "tests/model_inheritance/test_abstract_inheritance.py",
+   "django/template/defaultfilters.py",
+   "tests/datatypes/models.py",
+   "tests/db_functions/comparison/test_greatest.py",
+   "tests/cache/tests.py"
+  ],
+  "seed_kinds": {
+   "test": 7,
+   "code": 4
+  },
+  "gold_nodes": 47,
+  "best_gold_score_rank": null,
+  "visited": 1095,
+  "gold_terms_in_source": [
+   "default",
+   "fields",
+   "form",
+   "model",
+   "t"
+  ],
+  "tokens": 442,
+  "scorer_file_rank": null,
+  "scorer_file_rank_no_tests": null,
+  "flags": [
+   "test_doc_seeds",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-16400",
+  "question": "migrate management command does not respect database parameter when adding Permissions.",
+  "files": [
+   "django/contrib/auth/management/__init__.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Command",
+   "Management commands can also be loaded from Python eggs.",
+   "Migrate the database up to the given targets. Django first needs to create all\u2026",
+   ".migrate()",
+   "Adding a NOT NULL field to a model.",
+   "management/base.py",
+   "PermissionsMixin",
+   "ParameterRestrictionTests",
+   "database.py",
+   "order_with_respect_to/tests.py"
+  ],
+  "seed_files": [
+   "django/core/management/commands/migrate.py",
+   "tests/user_commands/tests.py",
+   "django/db/migrations/executor.py",
+   "django/db/migrations/executor.py",
+   "django/db/migrations/questioner.py",
+   "django/core/management/base.py",
+   "django/contrib/auth/models.py",
+   "tests/urlpatterns/tests.py",
+   "django/core/checks/database.py",
+   "tests/order_with_respect_to/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 3,
+   "rationale": 2
+  },
+  "gold_nodes": 11,
+  "best_gold_score_rank": 210,
+  "visited": 3176,
+  "gold_terms_in_source": [
+   "adding",
+   "database",
+   "management",
+   "migrate",
+   "permissions"
+  ],
+  "tokens": 496,
+  "scorer_file_rank": 122,
+  "scorer_file_rank_no_tests": 50,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-16408",
+  "question": "Multi-level FilteredRelation with select_related() may set wrong related object.",
+  "files": [
+   "django/db/models/sql/compiler.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "FilteredRelation",
+   "Select",
+   "RelatedPopulator is used for select_related() object instantiation. The idea is\u2026",
+   "Related",
+   "object",
+   "set()",
+   "wrong_namespace.py",
+   ".level_tag()",
+   "multiple_database/tests.py"
+  ],
+  "seed_files": [
+   "django/db/models/query_utils.py",
+   "django/forms/widgets.py",
+   "django/db/models/query.py",
+   "tests/queries/models.py",
+   "",
+   "django/contrib/contenttypes/fields.py",
+   "tests/i18n/patterns/urls/wrong_namespace.py",
+   "django/contrib/messages/storage/base.py",
+   "tests/multiple_database/tests.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "rationale": 1,
+   "test": 3
+  },
+  "gold_nodes": 85,
+  "best_gold_score_rank": 227,
+  "visited": 2801,
+  "gold_terms_in_source": [
+   "filtered",
+   "level",
+   "may",
+   "multi",
+   "object",
+   "related",
+   "relation",
+   "select",
+   "select_related",
+   "set"
+  ],
+  "tokens": 2215,
+  "scorer_file_rank": 89,
+  "scorer_file_rank_no_tests": 28,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-16527",
+  "question": "\"show_save_as_new\" in admin can add without this permission",
+  "files": [
+   "django/contrib/admin/templatetags/admin_modify.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "show()",
+   "new()",
+   "Permission",
+   "save()",
+   "add()",
+   "admin_views/admin.py",
+   "async_unsafe()"
+  ],
+  "seed_files": [
+   "django/contrib/admin/static/admin/js/actions.js",
+   "tests/deprecation/tests.py",
+   "django/contrib/auth/models.py",
+   "tests/model_formsets/tests.py",
+   "django/db/models/fields/related_descriptors.py",
+   "tests/admin_views/admin.py",
+   "django/utils/asyncio.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 3
+  },
+  "gold_nodes": 11,
+  "best_gold_score_rank": 203,
+  "visited": 4542,
+  "gold_terms_in_source": [
+   "add",
+   "admin",
+   "new",
+   "permission",
+   "save",
+   "show",
+   "show_save_as_new"
+  ],
+  "tokens": 2177,
+  "scorer_file_rank": 100,
+  "scorer_file_rank_no_tests": 44,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-16816",
+  "question": "Error E108 does not cover some cases",
+  "files": [
+   "django/contrib/admin/checks.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Cover",
+   "Error",
+   "error()",
+   "cases.py"
+  ],
+  "seed_files": [
+   "tests/queries/models.py",
+   "django/core/checks/messages.py",
+   "django/contrib/messages/api.py",
+   "tests/staticfiles_tests/cases.py"
+  ],
+  "seed_kinds": {
+   "test": 2,
+   "code": 2
+  },
+  "gold_nodes": 110,
+  "best_gold_score_rank": null,
+  "visited": 2300,
+  "gold_terms_in_source": [
+   "108",
+   "cases",
+   "e",
+   "e108",
+   "error",
+   "some"
+  ],
+  "tokens": 2146,
+  "scorer_file_rank": null,
+  "scorer_file_rank_no_tests": null,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-16820",
+  "question": "Squashing migrations with Meta.index_together -> indexes transition should remove deprecation warnings.",
+  "files": [
+   "django/db/migrations/operations/models.py"
+  ],
+  "rank": 8,
+  "cause": "late",
+  "seeds": [
+   "warnings",
+   "Removed fields will be removed after updating index/unique_together.",
+   "remove()",
+   "Index",
+   "Meta",
+   "deprecation.py",
+   "indexes/tests.py",
+   "migrations/test_commands.py",
+   "If the truncated datetime transitions to a different offset (daylight saving)\u2026",
+   "AlterTogetherOptionOperation"
+  ],
+  "seed_files": [
+   "",
+   "tests/migrations/test_autodetector.py",
+   "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+   "django/db/models/indexes.py",
+   "tests/model_meta/models.py",
+   "django/utils/deprecation.py",
+   "tests/indexes/tests.py",
+   "tests/migrations/test_commands.py",
+   "tests/db_functions/datetime/test_extract_trunc.py",
+   "django/db/migrations/operations/models.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 5
+  },
+  "gold_nodes": 130,
+  "best_gold_score_rank": 472,
+  "visited": 5981,
+  "gold_terms_in_source": [
+   "index",
+   "index_together",
+   "indexes",
+   "meta",
+   "migrations",
+   "remove",
+   "together"
+  ],
+  "tokens": 2225,
+  "scorer_file_rank": 158,
+  "scorer_file_rank_no_tests": 19,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "D_shown_late_by_bfs_luck"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-16910",
+  "question": "QuerySet.only() doesn't work with select_related() on a reverse OneToOneField relation.",
+  "files": [
+   "django/db/models/sql/query.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "OneToOneField",
+   "ReverseSelectRelatedTestCase",
+   "ReverseSelectRelatedValidationTests",
+   "reverse()",
+   "Relation",
+   "Select",
+   "QuerySet",
+   "Related",
+   ".only()",
+   "DoesNotAllowNulls"
+  ],
+  "seed_files": [
+   "django/db/models/fields/related.py",
+   "tests/select_related_onetoone/tests.py",
+   "tests/select_related_onetoone/tests.py",
+   "django/urls/base.py",
+   "tests/model_meta/models.py",
+   "django/forms/widgets.py",
+   "django/db/models/query.py",
+   "tests/queries/models.py",
+   "django/db/models/query.py",
+   "tests/gis_tests/layermap/models.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 5
+  },
+  "gold_nodes": 184,
+  "best_gold_score_rank": 77,
+  "visited": 6734,
+  "gold_terms_in_source": [
+   "field",
+   "one",
+   "only",
+   "query",
+   "queryset",
+   "related",
+   "relation",
+   "reverse",
+   "select",
+   "select_related",
+   "set",
+   "t",
+   "work"
+  ],
+  "tokens": 2192,
+  "scorer_file_rank": 42,
+  "scorer_file_rank_no_tests": 10,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "django",
+  "id": "django__django-17087",
+  "question": "Class methods from nested classes cannot be used as Field.default.",
+  "files": [
+   "django/db/migrations/serializer.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Used to unpickle Model subclasses with deferred fields.",
+   "Nested",
+   "Default function to generate keys. Construct the key used by all other methods.\u2026",
+   "Class",
+   "default()",
+   "Field",
+   "MethodsTests",
+   "classesToArray()",
+   "Used in TestStaticFilePermissions",
+   ".test_bad_origin_cannot_be_parsed()"
+  ],
+  "seed_files": [
+   "django/db/models/base.py",
+   "tests/model_fields/tests.py",
+   "django/core/cache/backends/base.py",
+   "tests/admin_inlines/models.py",
+   "django/template/defaultfilters.py",
+   "django/db/models/fields/__init__.py",
+   "tests/custom_methods/tests.py",
+   "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+   "tests/staticfiles_tests/test_storage.py",
+   "tests/csrf_tests/tests.py"
+  ],
+  "seed_kinds": {
+   "rationale": 2,
+   "test": 5,
+   "code": 3
+  },
+  "gold_nodes": 65,
+  "best_gold_score_rank": 3292,
+  "visited": 1973,
+  "gold_terms_in_source": [
+   "class",
+   "default",
+   "field",
+   "nested"
+  ],
+  "tokens": 2239,
+  "scorer_file_rank": null,
+  "scorer_file_rank_no_tests": null,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "pylint",
+  "id": "pylint-dev__pylint-6506",
+  "question": "Traceback printed for unrecognized option",
+  "files": [
+   "pylint/config/config_initialization.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "traceback",
+   "Option",
+   "unrecognized_inline_option.py"
+  ],
+  "seed_files": [
+   "",
+   "pylint/config/option.py",
+   "tests/functional/u/unrecognized_inline_option.py"
+  ],
+  "seed_kinds": {
+   "code": 2,
+   "test": 1
+  },
+  "gold_nodes": 3,
+  "best_gold_score_rank": 232,
+  "visited": 604,
+  "gold_terms_in_source": [
+   "option",
+   "unrecognized"
+  ],
+  "tokens": 2165,
+  "scorer_file_rank": 66,
+  "scorer_file_rank_no_tests": 32,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "pylint",
+  "id": "pylint-dev__pylint-7080",
+  "question": "`--recursive=y` ignores `ignore-paths`",
+  "files": [
+   "pylint/lint/expand_modules.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "paths",
+   "ignores_no_docstring()",
+   "ignores_unknown_style()",
+   "Recursive walk on the given node.",
+   "ignore_imports/file_one.py"
+  ],
+  "seed_files": [
+   ".github/workflows/primer-test.yaml",
+   "tests/functional/ext/docparams/return/missing_return_doc.py",
+   "tests/functional/ext/docparams/return/missing_return_doc.py",
+   "pylint/testutils/checker_test_case.py",
+   "tests/regrtest_data/duplicate_code/ignore_imports/file_one.py"
+  ],
+  "seed_kinds": {
+   "code": 1,
+   "test": 3,
+   "rationale": 1
+  },
+  "gold_nodes": 9,
+  "best_gold_score_rank": 101,
+  "visited": 435,
+  "gold_terms_in_source": [
+   "ignore",
+   "paths"
+  ],
+  "tokens": 2164,
+  "scorer_file_rank": 55,
+  "scorer_file_rank_no_tests": 20,
+  "flags": [
+   "test_doc_seeds",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "pylint",
+  "id": "pylint-dev__pylint-7114",
+  "question": "Linting fails if module contains module of the same name",
+  "files": [
+   "pylint/lint/expand_modules.py"
+  ],
+  "rank": null,
+  "cause": "seeds_lost",
+  "seeds": [
+   "Module",
+   "name()",
+   "name",
+   ".__contains__()",
+   "same_scope()",
+   "Check that instantiating a class with `abc.ABCMeta` as ancestor fails if it\u2026",
+   "Tests related to linting of namespace packages."
+  ],
+  "seed_files": [
+   "",
+   "tests/functional/n/non_ascii_name/non_ascii_name_pos_and_kwonly_function.py",
+   ".github/ISSUE_TEMPLATE/BUG-REPORT.yml",
+   "tests/functional/a/abstract/abstract_class_instantiated.py",
+   "pylint/checkers/base/basic_error_checker.py",
+   "tests/functional/a/abstract/abstract_class_instantiated.py",
+   "tests/lint/test_namespace_packages.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "test": 4
+  },
+  "gold_nodes": 9,
+  "best_gold_score_rank": 236,
+  "visited": 211,
+  "gold_terms_in_source": [
+   "module",
+   "name"
+  ],
+  "tokens": 378,
+  "scorer_file_rank": 95,
+  "scorer_file_rank_no_tests": 32,
+  "flags": [
+   "test_doc_seeds",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "pylint",
+  "id": "pylint-dev__pylint-7228",
+  "question": "rxg include '\\p{Han}' will throw error",
+  "files": [
+   "pylint/config/argument.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Thrown in case the pragma is invalid.",
+   "Thrown in case the of a valid but unrecognized option.",
+   "HANDLER()",
+   "error_of_type()",
+   "# TODO: Revisit when astroid 3.0 includes the change"
+  ],
+  "seed_files": [
+   "pylint/utils/pragma_parser.py",
+   "pylint/utils/pragma_parser.py",
+   "tests/pyreverse/test_diadefs.py",
+   "pylint/checkers/utils.py",
+   "pylint/checkers/variables.py"
+  ],
+  "seed_kinds": {
+   "rationale": 3,
+   "test": 1,
+   "code": 1
+  },
+  "gold_nodes": 45,
+  "best_gold_score_rank": 221,
+  "visited": 496,
+  "gold_terms_in_source": [
+   "error",
+   "will"
+  ],
+  "tokens": 2215,
+  "scorer_file_rank": 120,
+  "scorer_file_rank_no_tests": 50,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "pylint",
+  "id": "pylint-dev__pylint-7993",
+  "question": "Using custom braces in message template does not work",
+  "files": [
+   "pylint/reporters/text.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Custom",
+   "Message",
+   "message()",
+   "using_constant_test.py",
+   "PULL_REQUEST_TEMPLATE.md",
+   "bad_braces()"
+  ],
+  "seed_files": [
+   "tests/functional/r/recursion/recursion_error_3152.py",
+   "pylint/message/message.py",
+   "tests/testutils/test_output_line.py",
+   "tests/functional/u/using_constant_test.py",
+   ".github/PULL_REQUEST_TEMPLATE.md",
+   "tests/functional/r/raising/raising_format_tuple.py"
+  ],
+  "seed_kinds": {
+   "test": 4,
+   "code": 1,
+   "doc": 1
+  },
+  "gold_nodes": 34,
+  "best_gold_score_rank": 145,
+  "visited": 969,
+  "gold_terms_in_source": [
+   "message",
+   "template"
+  ],
+  "tokens": 586,
+  "scorer_file_rank": 50,
+  "scorer_file_rank_no_tests": 10,
+  "flags": [
+   "test_doc_seeds",
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "pytest",
+  "id": "pytest-dev__pytest-11143",
+  "question": "Rewrite fails when first expression of file is a number and mistaken as docstring",
+  "files": [
+   "src/_pytest/assertion/rewrite.py"
+  ],
+  "rank": 7,
+  "cause": "late",
+  "seeds": [
+   "rewrite()",
+   "File",
+   "failsonjython",
+   "numbers",
+   "write_docstring()",
+   "XXX_test_expression_multiline()",
+   "TestNewFirst"
+  ],
+  "seed_files": [
+   "testing/test_assertrewrite.py",
+   "src/_pytest/nodes.py",
+   "",
+   "",
+   "src/_pytest/python.py",
+   "testing/code/test_source.py",
+   "testing/test_cacheprovider.py"
+  ],
+  "seed_kinds": {
+   "test": 3,
+   "code": 4
+  },
+  "gold_nodes": 78,
+  "best_gold_score_rank": 5,
+  "visited": 683,
+  "gold_terms_in_source": [
+   "docstring",
+   "expression",
+   "fails",
+   "file",
+   "first",
+   "rewrite"
+  ],
+  "tokens": 2187,
+  "scorer_file_rank": 3,
+  "scorer_file_rank_no_tests": 2,
+  "flags": [
+   "spread_or_budget"
+  ],
+  "primary": "A_scorer_had_it_render_lost_it"
+ },
+ {
+  "repo": "pytest",
+  "id": "pytest-dev__pytest-11148",
+  "question": "Module imported twice under import-mode=importlib",
+  "files": [
+   "src/_pytest/pathlib.py"
+  ],
+  "rank": 16,
+  "cause": "late",
+  "seeds": [
+   "importlib",
+   "mode()",
+   "Module",
+   "Underlying Python object.",
+   "importorskip()",
+   "._warn_already_imported()",
+   "test_runs_twice_xdist()"
+  ],
+  "seed_files": [
+   "",
+   "testing/python/setup_only.py",
+   "src/_pytest/python.py",
+   "src/_pytest/python.py",
+   "src/_pytest/outcomes.py",
+   "src/_pytest/assertion/rewrite.py",
+   "testing/test_junitxml.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 2,
+   "rationale": 1
+  },
+  "gold_nodes": 40,
+  "best_gold_score_rank": null,
+  "visited": 1069,
+  "gold_terms_in_source": [
+   "import"
+  ],
+  "tokens": 2181,
+  "scorer_file_rank": null,
+  "scorer_file_rank_no_tests": null,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "D_shown_late_by_bfs_luck"
+ },
+ {
+  "repo": "pytest",
+  "id": "pytest-dev__pytest-5103",
+  "question": "Unroll the iterable for all/any calls to get better reports",
+  "files": [
+   "src/_pytest/assertion/rewrite.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "reports.py",
+   "CallSpec2",
+   "test_reports.py",
+   ".test_better_reporting_on_conftest_load_failure()",
+   ".test_iterable_full_diff()"
+  ],
+  "seed_files": [
+   "src/_pytest/reports.py",
+   "src/_pytest/python.py",
+   "testing/test_reports.py",
+   "testing/acceptance_test.py",
+   "testing/test_assertion.py"
+  ],
+  "seed_kinds": {
+   "code": 2,
+   "test": 3
+  },
+  "gold_nodes": 78,
+  "best_gold_score_rank": 31,
+  "visited": 1474,
+  "gold_terms_in_source": [
+   "all",
+   "any",
+   "calls",
+   "get"
+  ],
+  "tokens": 3872,
+  "scorer_file_rank": 21,
+  "scorer_file_rank_no_tests": 10,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "pytest",
+  "id": "pytest-dev__pytest-5413",
+  "question": "str() on the pytest.raises context variable doesn't behave same as normal exception catch",
+  "files": [
+   "src/_pytest/_code/code.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "raises()",
+   "Exception",
+   "Context manager that catches warnings generated in the contained execution\u2026",
+   ".variable()",
+   ".context()",
+   ".str()",
+   "_pytest()",
+   "catching_logs()",
+   "normalize_mark_list()",
+   "test_doctest_mock_objects_dont_recurse_missbehaved()",
+   ".test_namespace_import_doesnt_confuse_import_hook()",
+   "test_fdcapture_tmpfile_remains_the_same()"
+  ],
+  "seed_files": [
+   "src/_pytest/python_api.py",
+   "",
+   "src/_pytest/warnings.py",
+   "src/_pytest/assertion/rewrite.py",
+   "src/_pytest/monkeypatch.py",
+   "src/_pytest/pytester.py",
+   "src/_pytest/pytester.py",
+   "src/_pytest/logging.py",
+   "src/_pytest/mark/structures.py",
+   "testing/test_doctest.py",
+   "testing/acceptance_test.py",
+   "testing/test_capture.py"
+  ],
+  "seed_kinds": {
+   "code": 8,
+   "rationale": 1,
+   "test": 3
+  },
+  "gold_nodes": 141,
+  "best_gold_score_rank": 36,
+  "visited": 1077,
+  "gold_terms_in_source": [
+   "context",
+   "exception",
+   "pytest",
+   "raises",
+   "same",
+   "str",
+   "t",
+   "variable"
+  ],
+  "tokens": 2265,
+  "scorer_file_rank": 19,
+  "scorer_file_rank_no_tests": 10,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "pytest",
+  "id": "pytest-dev__pytest-5495",
+  "question": "Confusing assertion rewriting message with byte strings",
+  "files": [
+   "src/_pytest/assertion/util.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "AssertionRewritingHook",
+   "Assertions in the pytester plugin must also benefit from assertion rewriting\u2026",
+   "Assertion rewriting implementation. The main entrypoint is to call .run() with\u2026",
+   "AssertionRewriter",
+   "_bytes_to_ascii()",
+   ".messages()",
+   "._set_opt_strings()"
+  ],
+  "seed_files": [
+   "src/_pytest/assertion/rewrite.py",
+   "testing/test_assertion.py",
+   "src/_pytest/assertion/rewrite.py",
+   "src/_pytest/assertion/rewrite.py",
+   "src/_pytest/compat.py",
+   "src/_pytest/logging.py",
+   "src/_pytest/config/argparsing.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 1,
+   "rationale": 1
+  },
+  "gold_nodes": 28,
+  "best_gold_score_rank": 25,
+  "visited": 436,
+  "gold_terms_in_source": [
+   "assertion",
+   "strings"
+  ],
+  "tokens": 2238,
+  "scorer_file_rank": 6,
+  "scorer_file_rank_no_tests": 4,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "pytest",
+  "id": "pytest-dev__pytest-6116",
+  "question": "pytest --collect-only needs a one char shortcut command",
+  "files": [
+   "src/_pytest/main.py"
+  ],
+  "rank": 8,
+  "cause": "late",
+  "seeds": [
+   "collect_one_node()",
+   "collect_pytest_prefix/conftest.py",
+   "collect_pytest_prefix/test_foo.py",
+   ".collect()",
+   "_pytest()",
+   "Shortcut for .makefile() with a .py extension.",
+   "needsosdup",
+   "command line options, ini-file and conftest.py processing.",
+   "only called on non option completions",
+   ".test_formatchar()"
+  ],
+  "seed_files": [
+   "src/_pytest/runner.py",
+   "testing/example_scripts/config/collect_pytest_prefix/conftest.py",
+   "testing/example_scripts/config/collect_pytest_prefix/test_foo.py",
+   "src/_pytest/python.py",
+   "src/_pytest/pytester.py",
+   "src/_pytest/pytester.py",
+   "",
+   "src/_pytest/config/__init__.py",
+   "src/_pytest/_argcomplete.py",
+   "testing/test_assertrewrite.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 3,
+   "rationale": 3
+  },
+  "gold_nodes": 57,
+  "best_gold_score_rank": 8,
+  "visited": 616,
+  "gold_terms_in_source": [
+   "collect",
+   "command",
+   "needs",
+   "one",
+   "only",
+   "pytest"
+  ],
+  "tokens": 2239,
+  "scorer_file_rank": 7,
+  "scorer_file_rank_no_tests": 3,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "pytest",
+  "id": "pytest-dev__pytest-7373",
+  "question": "Incorrect caching of skipif/xfail string condition evaluation",
+  "files": [
+   "src/_pytest/mark/evaluate.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "condition",
+   "skipif",
+   "string",
+   "xfail()",
+   ".test_short_circuit_evaluation()",
+   "Session's gethookproxy() would cache conftests incorrectly (#2016). It was\u2026"
+  ],
+  "seed_files": [
+   "azure-pipelines.yml",
+   "",
+   "",
+   "src/_pytest/outcomes.py",
+   "testing/test_assertrewrite.py",
+   "testing/test_conftest.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 2
+  },
+  "gold_nodes": 13,
+  "best_gold_score_rank": null,
+  "visited": 1005,
+  "gold_terms_in_source": [
+   "condition",
+   "string"
+  ],
+  "tokens": 2181,
+  "scorer_file_rank": null,
+  "scorer_file_rank_no_tests": null,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "pytest",
+  "id": "pytest-dev__pytest-7490",
+  "question": "Pytest 6: Dynamically adding xfail marker in test no longer ignores failure",
+  "files": [
+   "src/_pytest/skipping.py"
+  ],
+  "rank": 16,
+  "cause": "late",
+  "seeds": [
+   "xfail()",
+   "dynamically add a marker object to the node. :type marker: ``str`` or\u2026",
+   "PYTEST_ADDOPTS should not take values from normal args (#4265).",
+   "_pytest()",
+   "Test",
+   "failure_demo.py",
+   "called at plugin registration time to allow adding new hooks via a call to\u2026",
+   ".test_cleanup_ignores_symlink()",
+   ".test_filter_traceback_path_no_longer_valid()",
+   "TestFixtureMarker",
+   "test_unicode_issue368()"
+  ],
+  "seed_files": [
+   "src/_pytest/outcomes.py",
+   "src/_pytest/nodes.py",
+   "testing/test_config.py",
+   "src/_pytest/pytester.py",
+   "testing/example_scripts/unittest/test_setup_skip_class.py",
+   "doc/en/example/assertion/failure_demo.py",
+   "src/_pytest/hookspec.py",
+   "testing/test_tmpdir.py",
+   "testing/python/collect.py",
+   "testing/python/fixtures.py",
+   "testing/test_junitxml.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "rationale": 2,
+   "test": 6
+  },
+  "gold_nodes": 13,
+  "best_gold_score_rank": 50,
+  "visited": 1469,
+  "gold_terms_in_source": [
+   "failure",
+   "pytest",
+   "test",
+   "xfail"
+  ],
+  "tokens": 2275,
+  "scorer_file_rank": 30,
+  "scorer_file_rank_no_tests": 23,
+  "flags": [
+   "test_doc_seeds",
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "D_shown_late_by_bfs_luck"
+ },
+ {
+  "repo": "pytest",
+  "id": "pytest-dev__pytest-9359",
+  "question": "Error message prints extra code line when using assert in python3.9",
+  "files": [
+   "src/_pytest/_code/source.py"
+  ],
+  "rank": 14,
+  "cause": "late",
+  "seeds": [
+   "Code",
+   "Assert that lines2 are contained (linearly) in lines1. Return a list of\u2026",
+   "Test that conftest files are using assertion rewrite on import. (#1619)",
+   ".line()",
+   ".error()",
+   "extract_suffixes()",
+   "Using \"-s\" with pytest should suspend/resume fixture capturing.",
+   ".messages()",
+   "AssertionRewriter",
+   ".test_lf_and_ff_prints_no_needless_message()",
+   "test_dontreadfrominput_buffer_python3()",
+   "issue_519.py"
+  ],
+  "seed_files": [
+   "src/_pytest/_code/code.py",
+   "src/_pytest/pytester.py",
+   "testing/test_assertion.py",
+   "src/_pytest/terminal.py",
+   "src/_pytest/config/argparsing.py",
+   "src/_pytest/pathlib.py",
+   "testing/test_pdb.py",
+   "src/_pytest/logging.py",
+   "src/_pytest/assertion/rewrite.py",
+   "testing/test_cacheprovider.py",
+   "testing/test_capture.py",
+   "testing/example_scripts/issue_519.py"
+  ],
+  "seed_kinds": {
+   "code": 6,
+   "rationale": 1,
+   "test": 5
+  },
+  "gold_nodes": 33,
+  "best_gold_score_rank": 158,
+  "visited": 1350,
+  "gold_terms_in_source": [
+   "assert",
+   "code",
+   "error",
+   "line",
+   "python"
+  ],
+  "tokens": 2253,
+  "scorer_file_rank": 38,
+  "scorer_file_rank_no_tests": 17,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "D_shown_late_by_bfs_luck"
+ },
+ {
+  "repo": "requests",
+  "id": "psf__requests-2148",
+  "question": "socket.error exception not caught/wrapped in a requests exception (ConnectionError perhaps?)",
+  "files": [
+   "requests/models.py"
+  ],
+  "rank": 5,
+  "cause": "late",
+  "seeds": [
+   "ConnectionError",
+   "Exception",
+   "socket",
+   "WrappedSocket",
+   "RequestsTestCase",
+   "Errors when we're fairly sure that the server did not receive the request, so\u2026"
+  ],
+  "seed_files": [
+   "requests/exceptions.py",
+   "",
+   "",
+   "requests/packages/urllib3/contrib/pyopenssl.py",
+   "test_requests.py",
+   "requests/packages/urllib3/util/retry.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 1,
+   "rationale": 1
+  },
+  "gold_nodes": 78,
+  "best_gold_score_rank": 30,
+  "visited": 790,
+  "gold_terms_in_source": [
+   "connection",
+   "connectionerror",
+   "error",
+   "exception",
+   "perhaps",
+   "requests"
+  ],
+  "tokens": 2204,
+  "scorer_file_rank": 12,
+  "scorer_file_rank_no_tests": 11,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "D_shown_late_by_bfs_luck"
+ },
+ {
+  "repo": "requests",
+  "id": "psf__requests-2317",
+  "question": "method = builtin_str(method) problem",
+  "files": [
+   "requests/sessions.py"
+  ],
+  "rank": 6,
+  "cause": "late",
+  "seeds": [
+   "builtins",
+   "structures.py",
+   "struct",
+   ".__str__()",
+   "RequestMethods"
+  ],
+  "seed_files": [
+   "",
+   "requests/structures.py",
+   "",
+   "requests/packages/urllib3/connectionpool.py",
+   "requests/packages/urllib3/request.py"
+  ],
+  "seed_kinds": {
+   "code": 5
+  },
+  "gold_nodes": 50,
+  "best_gold_score_rank": 33,
+  "visited": 652,
+  "gold_terms_in_source": [
+   "builtin",
+   "builtin_str",
+   "method",
+   "str"
+  ],
+  "tokens": 2170,
+  "scorer_file_rank": 12,
+  "scorer_file_rank_no_tests": 11,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "requests",
+  "id": "psf__requests-2674",
+  "question": "urllib3 exceptions passing through requests API",
+  "files": [
+   "requests/adapters.py"
+  ],
+  "rank": 8,
+  "cause": "late",
+  "seeds": [
+   "urllib3",
+   "urllib3/exceptions.py",
+   "requests/exceptions.py",
+   "api.py",
+   "RequestsTestCase",
+   "Raised when passing an invalid state to a timeout",
+   "Re-quote the given URI. This function passes the given URI through an\u2026"
+  ],
+  "seed_files": [
+   "",
+   "requests/packages/urllib3/exceptions.py",
+   "requests/exceptions.py",
+   "requests/api.py",
+   "test_requests.py",
+   "requests/packages/urllib3/exceptions.py",
+   "requests/utils.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 1,
+   "rationale": 2
+  },
+  "gold_nodes": 32,
+  "best_gold_score_rank": 28,
+  "visited": 835,
+  "gold_terms_in_source": [
+   "3",
+   "exceptions",
+   "requests",
+   "through",
+   "urllib",
+   "urllib3"
+  ],
+  "tokens": 2220,
+  "scorer_file_rank": 21,
+  "scorer_file_rank_no_tests": 20,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "requests",
+  "id": "psf__requests-3362",
+  "question": "Uncertain about content/text vs iter_content(decode_unicode=True/False)",
+  "files": [
+   "requests/utils.py"
+  ],
+  "rank": 5,
+  "cause": "late",
+  "seeds": [
+   "Content of the response, in unicode. If Response.encoding is None, encoding\u2026",
+   "Iterates over the response data. When stream=True is set on the request, this\u2026",
+   "Iterates over the response data, one line at a time. When stream=True is set on\u2026",
+   ".text()",
+   ".content()",
+   ".__iter__()",
+   "DecodeError",
+   "True if this Response one of the permanant versions of redirect",
+   "Returns True if there are multiple domains in the jar. Returns False otherwise.",
+   "test_prepare_unicode_url()"
+  ],
+  "seed_files": [
+   "requests/models.py",
+   "requests/models.py",
+   "requests/models.py",
+   "requests/models.py",
+   "requests/models.py",
+   "requests/models.py",
+   "requests/packages/urllib3/exceptions.py",
+   "requests/models.py",
+   "requests/cookies.py",
+   "test_requests.py"
+  ],
+  "seed_kinds": {
+   "rationale": 5,
+   "code": 4,
+   "test": 1
+  },
+  "gold_nodes": 62,
+  "best_gold_score_rank": 6,
+  "visited": 524,
+  "gold_terms_in_source": [
+   "content",
+   "decode",
+   "false",
+   "iter",
+   "text",
+   "true",
+   "unicode"
+  ],
+  "tokens": 2307,
+  "scorer_file_rank": 3,
+  "scorer_file_rank_no_tests": 2,
+  "flags": [
+   "spread_or_budget"
+  ],
+  "primary": "A_scorer_had_it_render_lost_it"
+ },
+ {
+  "repo": "sphinx",
+  "id": "sphinx-doc__sphinx-11445",
+  "question": "Using rst_prolog removes top level headings containing a domain directive",
+  "files": [
+   "sphinx/util/rst.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Domain",
+   "Directive",
+   "domains/rst.py",
+   "Removes the file or directory and any files or directories it may contain.\u2026",
+   "prolog_markdown_parser.py",
+   "toPath()",
+   "using_user_docutils_conf()",
+   "RSTParser",
+   "test_module_file_noheadings()",
+   "basic auth creds stripped from URL containing creds",
+   "ModuleLevelDocumenter"
+  ],
+  "seed_files": [
+   "sphinx/domains/__init__.py",
+   "",
+   "sphinx/domains/rst.py",
+   "sphinx/testing/path.py",
+   "tests/roots/test-prolog/prolog_markdown_parser.py",
+   "sphinx/themes/basic/static/underscore-1.13.1.js",
+   "sphinx/util/docutils.py",
+   "sphinx/parsers.py",
+   "tests/test_ext_apidoc.py",
+   "tests/test_ext_intersphinx.py",
+   "sphinx/ext/autodoc/__init__.py"
+  ],
+  "seed_kinds": {
+   "code": 7,
+   "test": 4
+  },
+  "gold_nodes": 12,
+  "best_gold_score_rank": 35,
+  "visited": 1882,
+  "gold_terms_in_source": [
+   "level",
+   "prolog",
+   "rst",
+   "rst_prolog",
+   "top"
+  ],
+  "tokens": 2246,
+  "scorer_file_rank": 11,
+  "scorer_file_rank_no_tests": 4,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "B_tests_docs_crowd_it_out"
+ },
+ {
+  "repo": "sphinx",
+  "id": "sphinx-doc__sphinx-7738",
+  "question": "overescaped trailing underscore on attribute with napoleon",
+  "files": [
+   "sphinx/ext/napoleon/docstring.py"
+  ],
+  "rank": 8,
+  "cause": "late",
+  "seeds": [
+   "Attribute",
+   "underscore-1.13.1.js",
+   "napoleon/__init__.py",
+   ".trailingReturn()"
+  ],
+  "seed_files": [
+   "sphinx/ext/autodoc/importer.py",
+   "sphinx/themes/basic/static/underscore-1.13.1.js",
+   "sphinx/ext/napoleon/__init__.py",
+   "sphinx/domains/cpp.py"
+  ],
+  "seed_kinds": {
+   "code": 4
+  },
+  "gold_nodes": 91,
+  "best_gold_score_rank": 27,
+  "visited": 801,
+  "gold_terms_in_source": [
+   "attribute",
+   "napoleon"
+  ],
+  "tokens": 2182,
+  "scorer_file_rank": 15,
+  "scorer_file_rank_no_tests": 6,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "D_shown_late_by_bfs_luck"
+ },
+ {
+  "repo": "sphinx",
+  "id": "sphinx-doc__sphinx-7975",
+  "question": "Two sections called Symbols in index",
+  "files": [
+   "sphinx/environment/adapters/indexentries.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "index",
+   "Called to see if a member can be documented by this Documenter.",
+   "test_latex_obey_numfig_secnum_depth_is_two()",
+   "._add_symbols()",
+   "find_subsections()"
+  ],
+  "seed_files": [
+   "sphinx/addnodes.py",
+   "sphinx/ext/autodoc/__init__.py",
+   "tests/test_build_latex.py",
+   "sphinx/domains/cpp.py",
+   "sphinx/writers/texinfo.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "rationale": 1,
+   "test": 1
+  },
+  "gold_nodes": 11,
+  "best_gold_score_rank": 15,
+  "visited": 846,
+  "gold_terms_in_source": [
+   "index",
+   "symbols"
+  ],
+  "tokens": 2182,
+  "scorer_file_rank": 7,
+  "scorer_file_rank_no_tests": 7,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "sphinx",
+  "id": "sphinx-doc__sphinx-8273",
+  "question": "Generate man page section directories",
+  "files": [
+   "sphinx/builders/manpage.py"
+  ],
+  "rank": 7,
+  "cause": "late",
+  "seeds": [
+   "generate()",
+   "section",
+   "Generates a unique id for each section. Assigns the attribute ``node_name`` to\u2026",
+   "ManualPageTranslator",
+   "Remove temporary directories."
+  ],
+  "seed_files": [
+   "sphinx/cmd/quickstart.py",
+   "",
+   "sphinx/writers/texinfo.py",
+   "sphinx/writers/manpage.py",
+   "sphinx/theming.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "rationale": 2
+  },
+  "gold_nodes": 12,
+  "best_gold_score_rank": 6,
+  "visited": 680,
+  "gold_terms_in_source": [
+   "man",
+   "page",
+   "section"
+  ],
+  "tokens": 2197,
+  "scorer_file_rank": 4,
+  "scorer_file_rank_no_tests": 4,
+  "flags": [
+   "spread_or_budget"
+  ],
+  "primary": "A_scorer_had_it_render_lost_it"
+ },
+ {
+  "repo": "sphinx",
+  "id": "sphinx-doc__sphinx-8474",
+  "question": "v3.3 upgrade started generating \"WARNING: no number is assigned for table\" warnings",
+  "files": [
+   "sphinx/domains/std.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "warnings",
+   "warning()",
+   "Table",
+   "Generating content for autodoc using typehints",
+   "NumberedText",
+   "Footnotes that are collected are assigned this class.",
+   ".parse_pre_v3_type_definition()",
+   "AutoIndexUpgrader",
+   "underscore-1.13.1.js"
+  ],
+  "seed_files": [
+   "",
+   "sphinx/jinja2glue.py",
+   "sphinx/writers/text.py",
+   "sphinx/ext/autodoc/typehints.py",
+   "tests/roots/test-add_enumerable_node/enumerable_node.py",
+   "sphinx/writers/latex.py",
+   "sphinx/domains/c.py",
+   "sphinx/transforms/__init__.py",
+   "sphinx/themes/basic/static/underscore-1.13.1.js"
+  ],
+  "seed_kinds": {
+   "code": 6,
+   "rationale": 2,
+   "test": 1
+  },
+  "gold_nodes": 82,
+  "best_gold_score_rank": 101,
+  "visited": 2425,
+  "gold_terms_in_source": [
+   "3",
+   "assigned",
+   "number",
+   "table",
+   "warning",
+   "warnings"
+  ],
+  "tokens": 2236,
+  "scorer_file_rank": 60,
+  "scorer_file_rank_no_tests": 27,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "sphinx",
+  "id": "sphinx-doc__sphinx-8506",
+  "question": "Sphinx 3.2 complains about option:: syntax that earlier versions accepted",
+  "files": [
+   "sphinx/domains/std.py"
+  ],
+  "rank": 29,
+  "cause": "late",
+  "seeds": [
+   "Sphinx",
+   "bug2437/__init__.py",
+   "TODO: identify versions",
+   "Options",
+   "underscore-1.13.1.js",
+   "Do syntax checks, but no writing.",
+   "jinja2glue.py"
+  ],
+  "seed_files": [
+   "sphinx/application.py",
+   "tests/roots/test-ext-autodoc/bug2437/__init__.py",
+   "sphinx/themes/basic/static/jquery-3.6.0.js",
+   "sphinx/ext/autodoc/__init__.py",
+   "sphinx/themes/basic/static/underscore-1.13.1.js",
+   "sphinx/builders/dummy.py",
+   "sphinx/jinja2glue.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 1,
+   "rationale": 2
+  },
+  "gold_nodes": 82,
+  "best_gold_score_rank": 102,
+  "visited": 3779,
+  "gold_terms_in_source": [
+   "2",
+   "3",
+   "option",
+   "sphinx"
+  ],
+  "tokens": 2205,
+  "scorer_file_rank": 21,
+  "scorer_file_rank_no_tests": 18,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "D_shown_late_by_bfs_luck"
+ },
+ {
+  "repo": "sphinx",
+  "id": "sphinx-doc__sphinx-8627",
+  "question": "autodoc isn't able to resolve struct.Struct type annotations",
+  "files": [
+   "sphinx/util/typing.py"
+  ],
+  "rank": 19,
+  "cause": "late",
+  "seeds": [
+   "Struct",
+   "resolve()",
+   "type",
+   "isNewType()",
+   "autodoc/__init__.py",
+   "test_signature_annotations()",
+   "enumerable_node.py"
+  ],
+  "seed_files": [
+   "sphinx/testing/util.py",
+   "sphinx/themes/basic/static/jquery-3.6.0.js",
+   ".github/ISSUE_TEMPLATE/bug-report.yml",
+   "sphinx/util/inspect.py",
+   "sphinx/ext/autodoc/__init__.py",
+   "tests/test_util_inspect.py",
+   "tests/roots/test-add_enumerable_node/enumerable_node.py"
+  ],
+  "seed_kinds": {
+   "test": 3,
+   "code": 4
+  },
+  "gold_nodes": 23,
+  "best_gold_score_rank": 75,
+  "visited": 1738,
+  "gold_terms_in_source": [
+   "able",
+   "annotations",
+   "autodoc",
+   "struct",
+   "t",
+   "type"
+  ],
+  "tokens": 2194,
+  "scorer_file_rank": 32,
+  "scorer_file_rank_no_tests": 20,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "sphinx",
+  "id": "sphinx-doc__sphinx-8801",
+  "question": "autodoc: The annotation only member in superclass is treated as \"undocumented\"",
+  "files": [
+   "sphinx/ext/autodoc/importer.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "only",
+   "autodoc_skip_member()",
+   "annotation_option()",
+   "members_of()",
+   "autodoc/__init__.py",
+   "test_undocumented_uninitialized_attributes()",
+   "Warning, treated as error.",
+   "Builder superclass for all builders."
+  ],
+  "seed_files": [
+   "sphinx/addnodes.py",
+   "tests/test_ext_autodoc_events.py",
+   "sphinx/ext/autodoc/__init__.py",
+   "sphinx/ext/autosummary/generate.py",
+   "sphinx/ext/autodoc/__init__.py",
+   "tests/test_ext_autodoc_autoclass.py",
+   "sphinx/errors.py",
+   "sphinx/builders/__init__.py"
+  ],
+  "seed_kinds": {
+   "code": 4,
+   "test": 2,
+   "rationale": 2
+  },
+  "gold_nodes": 14,
+  "best_gold_score_rank": 64,
+  "visited": 1668,
+  "gold_terms_in_source": [
+   "annotation",
+   "autodoc",
+   "member",
+   "only",
+   "superclass"
+  ],
+  "tokens": 360,
+  "scorer_file_rank": 27,
+  "scorer_file_rank_no_tests": 12,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "xarray",
+  "id": "pydata__xarray-3364",
+  "question": "Ignore missing variables when concatenating datasets?",
+  "files": [
+   "xarray/core/concat.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "variables",
+   "ignore-paths",
+   "missing.py",
+   "Benchmark concatenating and merging large datasets",
+   "TestDatasetScatterPlots"
+  ],
+  "seed_files": [
+   "azure-pipelines.yml",
+   ".landscape.yml",
+   "xarray/core/missing.py",
+   "asv_bench/benchmarks/combine.py",
+   "xarray/tests/test_plot.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "rationale": 1,
+   "test": 1
+  },
+  "gold_nodes": 15,
+  "best_gold_score_rank": 14,
+  "visited": 981,
+  "gold_terms_in_source": [
+   "concatenating",
+   "datasets",
+   "ignore",
+   "missing",
+   "variables"
+  ],
+  "tokens": 2168,
+  "scorer_file_rank": 10,
+  "scorer_file_rank_no_tests": 8,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "xarray",
+  "id": "pydata__xarray-4094",
+  "question": "to_unstacked_dataset broken for single-dim variables",
+  "files": [
+   "xarray/core/dataarray.py"
+  ],
+  "rank": 6,
+  "cause": "late",
+  "seeds": [
+   "variables",
+   "Dataset",
+   "DatasetGroupBy object specialized to resampling a specified dimension",
+   "dim_summary()",
+   "to_netcdf()",
+   ".test_broken_accessor()",
+   ".to_unstacked_dataset()",
+   "IOReadSingleNetCDF4Dask"
+  ],
+  "seed_files": [
+   "azure-pipelines.yml",
+   "xarray/core/dataset.py",
+   "xarray/core/resample.py",
+   "xarray/core/formatting.py",
+   "xarray/backends/api.py",
+   "xarray/tests/test_extensions.py",
+   "xarray/core/dataarray.py",
+   "asv_bench/benchmarks/dataset_io.py"
+  ],
+  "seed_kinds": {
+   "code": 6,
+   "rationale": 1,
+   "test": 1
+  },
+  "gold_nodes": 217,
+  "best_gold_score_rank": 9,
+  "visited": 3006,
+  "gold_terms_in_source": [
+   "dataset",
+   "dim",
+   "single",
+   "to_unstacked_dataset",
+   "unstacked",
+   "variables"
+  ],
+  "tokens": 2228,
+  "scorer_file_rank": 6,
+  "scorer_file_rank_no_tests": 5,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ },
+ {
+  "repo": "xarray",
+  "id": "pydata__xarray-4248",
+  "question": "Feature request: show units in dataset overview",
+  "files": [
+   "xarray/core/formatting.py"
+  ],
+  "rank": null,
+  "cause": "budget_cut",
+  "seeds": [
+   "Dataset",
+   "show_versions()",
+   "PULL_REQUEST_TEMPLATE.md",
+   "integrate the array with the trapezoidal rule. .. note:: This feature is\u2026",
+   "infer_datetime_units()"
+  ],
+  "seed_files": [
+   "xarray/core/dataset.py",
+   "xarray/util/print_versions.py",
+   ".github/PULL_REQUEST_TEMPLATE.md",
+   "xarray/core/dataarray.py",
+   "xarray/coding/times.py"
+  ],
+  "seed_kinds": {
+   "code": 3,
+   "doc": 1,
+   "rationale": 1
+  },
+  "gold_nodes": 57,
+  "best_gold_score_rank": 10,
+  "visited": 2902,
+  "gold_terms_in_source": [
+   "dataset",
+   "request"
+  ],
+  "tokens": 2200,
+  "scorer_file_rank": 7,
+  "scorer_file_rank_no_tests": 5,
+  "flags": [
+   "spread_or_budget",
+   "vocab_gap"
+  ],
+  "primary": "E_vocab_gap_nobody_finds_it"
+ },
+ {
+  "repo": "xarray",
+  "id": "pydata__xarray-4493",
+  "question": "DataSet.update causes chunked dask DataArray to evalute its values eagerly",
+  "files": [
+   "xarray/core/variable.py"
+  ],
+  "rank": 5,
+  "cause": "late",
+  "seeds": [
+   "DataArray",
+   "dask",
+   "Dataset",
+   ".update()",
+   ".values()",
+   ".test_invalid_time_units_raises_eagerly()",
+   "Assert that chunksizes along chunked dimensions are equal. Parameters\u2026"
+  ],
+  "seed_files": [
+   "xarray/core/dataarray.py",
+   "",
+   "xarray/core/dataset.py",
+   "xarray/core/coordinates.py",
+   "xarray/core/dataarray.py",
+   "xarray/tests/test_conventions.py",
+   "xarray/testing.py"
+  ],
+  "seed_kinds": {
+   "code": 5,
+   "test": 1,
+   "rationale": 1
+  },
+  "gold_nodes": 172,
+  "best_gold_score_rank": 340,
+  "visited": 3671,
+  "gold_terms_in_source": [
+   "array",
+   "chunked",
+   "dask",
+   "data",
+   "dataarray",
+   "dataset",
+   "eagerly",
+   "set",
+   "update",
+   "values"
+  ],
+  "tokens": 2196,
+  "scorer_file_rank": 36,
+  "scorer_file_rank_no_tests": 27,
+  "flags": [
+   "names_only",
+   "spread_or_budget"
+  ],
+  "primary": "C_names_only_words_are_in_body"
+ }
+]

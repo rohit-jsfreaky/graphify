@@ -1,0 +1,116 @@
+{
+  "nodes": 13713,
+  "edges": 21696,
+  "questions": 6,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 0,
+  "hit_at_3": 1,
+  "hit_at_5": 1,
+  "found": 1,
+  "median_tokens": 2406,
+  "over_budget": 1,
+  "per_question": [
+    {
+      "question": "\"--notes\" option ignores note tags that are entirely punctuation",
+      "files": [
+        "pylint/checkers/misc.py"
+      ],
+      "rank": null,
+      "tokens": 2632,
+      "over_budget": false,
+      "files_shown": 12,
+      "top_files": [
+        "pylint/config/option.py",
+        "pylint/checkers/base/comparison_checker.py",
+        "pylint/checkers/similar.py",
+        "pylint/pyreverse/inspector.py",
+        "tests/functional/ext/docparams/return/missing_return_doc.py"
+      ]
+    },
+    {
+      "question": "Traceback printed for unrecognized option",
+      "files": [
+        "pylint/config/config_initialization.py"
+      ],
+      "rank": null,
+      "tokens": 2406,
+      "over_budget": false,
+      "files_shown": 10,
+      "top_files": [
+        "pylint/config/option.py",
+        "pylint/utils/pragma_parser.py",
+        "pylint/config/exceptions.py",
+        "pylint/config/option_manager_mixin.py",
+        "pylint/config/option_parser.py"
+      ]
+    },
+    {
+      "question": "`--recursive=y` ignores `ignore-paths`",
+      "files": [
+        "pylint/lint/expand_modules.py"
+      ],
+      "rank": null,
+      "tokens": 2017,
+      "over_budget": false,
+      "files_shown": 9,
+      "top_files": [
+        ".github/workflows/tests.yaml",
+        "pylint/testutils/reporter_for_tests.py",
+        ".github/workflows/primer-test.yaml",
+        "tests/functional/ext/docparams/return/missing_return_doc.py",
+        "pylint/testutils/checker_test_case.py"
+      ]
+    },
+    {
+      "question": "Linting fails if module contains module of the same name",
+      "files": [
+        "pylint/lint/expand_modules.py"
+      ],
+      "rank": null,
+      "tokens": 632,
+      "over_budget": false,
+      "files_shown": 4,
+      "top_files": [
+        "pylint/extensions/private_import.py",
+        "pylint/checkers/base/basic_error_checker.py",
+        "pylint/lint/pylinter.py",
+        "tests/functional/a/abstract/abstract_class_instantiated.py"
+      ]
+    },
+    {
+      "question": "rxg include '\\p{Han}' will throw error",
+      "files": [
+        "pylint/config/argument.py"
+      ],
+      "rank": null,
+      "tokens": 4548,
+      "over_budget": true,
+      "files_shown": 18,
+      "top_files": [
+        "pylint/checkers/variables.py",
+        "pylint/utils/docs.py",
+        "pylint/config/config_file_parser.py",
+        "pylint/checkers/utils.py",
+        "pylint/utils/pragma_parser.py"
+      ]
+    },
+    {
+      "question": "Using custom braces in message template does not work",
+      "files": [
+        "pylint/reporters/text.py"
+      ],
+      "rank": 1,
+      "tokens": 1042,
+      "over_budget": false,
+      "files_shown": 7,
+      "top_files": [
+        "pylint/message/message.py",
+        "pylint/reporters/text.py",
+        "tests/functional/s/string/string_formatting.py",
+        ".github/PULL_REQUEST_TEMPLATE.md",
+        "tests/functional/r/raising/raising_format_tuple.py"
+      ]
+    }
+  ]
+}

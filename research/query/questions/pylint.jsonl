@@ -1,0 +1,6 @@
+{"id": "pylint-dev__pylint-5859", "question": "\"--notes\" option ignores note tags that are entirely punctuation", "files": ["pylint/checkers/misc.py"]}
+{"id": "pylint-dev__pylint-6506", "question": "Traceback printed for unrecognized option", "files": ["pylint/config/config_initialization.py"]}
+{"id": "pylint-dev__pylint-7080", "question": "`--recursive=y` ignores `ignore-paths`", "files": ["pylint/lint/expand_modules.py"]}
+{"id": "pylint-dev__pylint-7114", "question": "Linting fails if module contains module of the same name", "files": ["pylint/lint/expand_modules.py"]}
+{"id": "pylint-dev__pylint-7228", "question": "rxg include '\\p{Han}' will throw error", "files": ["pylint/config/argument.py"]}
+{"id": "pylint-dev__pylint-7993", "question": "Using custom braces in message template does not work", "files": ["pylint/reporters/text.py"]}

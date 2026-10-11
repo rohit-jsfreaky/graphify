@@ -1,0 +1,72 @@
+{
+ "per_question": [
+  {
+   "question": "pairplot fails with hue_order not containing all hue values in seaborn 0.11.1",
+   "files": [
+    "seaborn/_oldcore.py"
+   ],
+   "rank": 8,
+   "tokens": 85837,
+   "tokens_paths": 37,
+   "top_files": [
+    "seaborn/_docstrings.py",
+    "seaborn/relational.py",
+    "seaborn/axisgrid.py",
+    "seaborn/distributions.py",
+    "seaborn/regression.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "PolyFit is not robust to missing data",
+   "files": [
+    "seaborn/_stats/regression.py"
+   ],
+   "rank": 3,
+   "tokens": 22239,
+   "tokens_paths": 42,
+   "top_files": [
+    "seaborn/regression.py",
+    "tests/test_regression.py",
+    "tests/_stats/test_regression.py",
+    "seaborn/_stats/regression.py",
+    "seaborn/objects.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "Color mapping fails with boolean data",
+   "files": [
+    "seaborn/_core/scales.py"
+   ],
+   "rank": 9,
+   "tokens": 64133,
+   "tokens_paths": 36,
+   "top_files": [
+    "seaborn/_core/data.py",
+    "seaborn/_core/properties.py",
+    "seaborn/relational.py",
+    "seaborn/_oldcore.py",
+    "tests/test_core.py"
+   ],
+   "over_budget": false
+  },
+  {
+   "question": "pairplot raises KeyError with MultiIndex DataFrame",
+   "files": [
+    "seaborn/axisgrid.py"
+   ],
+   "rank": 7,
+   "tokens": 45878,
+   "tokens_paths": 40,
+   "top_files": [
+    "tests/_core/test_data.py",
+    "seaborn/_core/groupby.py",
+    "seaborn/_oldcore.py",
+    "seaborn/matrix.py",
+    "tests/_stats/test_aggregation.py"
+   ],
+   "over_budget": false
+  }
+ ]
+}

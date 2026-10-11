@@ -1,0 +1,1941 @@
+{
+  "nodes": 46082,
+  "edges": 107431,
+  "questions": 114,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 31,
+  "hit_at_3": 39,
+  "hit_at_5": 40,
+  "found": 53,
+  "median_tokens": 2179,
+  "over_budget": 16,
+  "per_question": [
+    {
+      "question": "Set default FILE_UPLOAD_PERMISSION to 0o644.",
+      "files": [
+        "django/conf/global_settings.py"
+      ],
+      "rank": null,
+      "tokens": 2149,
+      "over_budget": false,
+      "files_shown": 13,
+      "top_files": [
+        "django/contrib/auth/models.py",
+        "django/template/defaultfilters.py",
+        "django/core/files/base.py",
+        "django/contrib/contenttypes/fields.py",
+        "django/core/files/uploadedfile.py"
+      ]
+    },
+    {
+      "question": "Allow FilePathField path to accept a callable.",
+      "files": [
+        "django/db/models/fields/__init__.py"
+      ],
+      "rank": 0,
+      "tokens": 3921,
+      "over_budget": true,
+      "files_shown": 14,
+      "top_files": [
+        "django/db/models/fields/__init__.py",
+        "django/middleware/csrf.py",
+        "tests/auth_tests/test_auth_backends.py",
+        "tests/dispatch/tests.py",
+        ".github/workflows/docs.yml"
+      ]
+    },
+    {
+      "question": "Incorrect removal of order_by clause created as multiline RawSQL",
+      "files": [
+        "django/db/models/sql/compiler.py"
+      ],
+      "rank": null,
+      "tokens": 2195,
+      "over_budget": false,
+      "files_shown": 25,
+      "top_files": [
+        "django/db/models/expressions.py",
+        "tests/extra_regress/models.py",
+        "tests/ordering/tests.py",
+        "django/http/request.py",
+        "tests/expressions_case/tests.py"
+      ]
+    },
+    {
+      "question": "Merging 3 or more media objects can throw unnecessary MediaOrderConflictWarnings",
+      "files": [
+        "django/forms/widgets.py"
+      ],
+      "rank": null,
+      "tokens": 2192,
+      "over_budget": false,
+      "files_shown": 26,
+      "top_files": [
+        "django/contrib/admin/widgets.py",
+        "django/template/context_processors.py",
+        "django/db/backends/sqlite3/base.py",
+        "tests/transactions/tests.py",
+        "tests/custom_migration_operations/more_operations.py"
+      ]
+    },
+    {
+      "question": "sqlmigrate wraps it's outpout in BEGIN/COMMIT even if the database doesn't support transactional DDL",
+      "files": [
+        "django/core/management/commands/sqlmigrate.py"
+      ],
+      "rank": 8,
+      "tokens": 2235,
+      "over_budget": false,
+      "files_shown": 23,
+      "top_files": [
+        "django/db/transaction.py",
+        "tests/migrations/test_commands.py",
+        "tests/backends/tests.py",
+        "tests/check_framework/urls/beginning_with_slash.py",
+        "django/core/checks/database.py"
+      ]
+    },
+    {
+      "question": "Correct expected format in invalid DurationField error message",
+      "files": [
+        "django/db/models/fields/__init__.py"
+      ],
+      "rank": 0,
+      "tokens": 2179,
+      "over_budget": false,
+      "files_shown": 9,
+      "top_files": [
+        "django/db/models/fields/__init__.py",
+        "django/contrib/messages/storage/base.py",
+        "django/utils/dateformat.py",
+        "tests/proxy_models/tests.py",
+        "django/core/checks/messages.py"
+      ]
+    },
+    {
+      "question": "UsernameValidator allows trailing newline in usernames",
+      "files": [
+        "django/contrib/auth/validators.py"
+      ],
+      "rank": 9,
+      "tokens": 1358,
+      "over_budget": false,
+      "files_shown": 12,
+      "top_files": [
+        "tests/auth_tests/test_validators.py",
+        "tests/logging_tests/tests.py",
+        "tests/model_fields/test_decimalfield.py",
+        "tests/generic_relations/models.py",
+        "tests/auth_tests/test_management.py"
+      ]
+    },
+    {
+      "question": "HttpResponse doesn't handle memoryview objects",
+      "files": [
+        "django/http/response.py"
+      ],
+      "rank": 0,
+      "tokens": 3690,
+      "over_budget": true,
+      "files_shown": 10,
+      "top_files": [
+        "django/http/response.py",
+        "tests/admin_scripts/tests.py",
+        "django/core/serializers/xml_serializer.py",
+        "tests/gis_tests/layermap/models.py",
+        "tests/httpwrappers/tests.py"
+      ]
+    },
+    {
+      "question": "delete() on instances of models without any dependencies doesn't clear PKs.",
+      "files": [
+        "django/db/models/deletion.py"
+      ],
+      "rank": null,
+      "tokens": 2248,
+      "over_budget": false,
+      "files_shown": 14,
+      "top_files": [
+        "django/db/models/fields/related_descriptors.py",
+        "django/contrib/sites/models.py",
+        "tests/delete/models.py",
+        "tests/save_delete_hooks/models.py",
+        "tests/migrations/migrations_test_apps/conflicting_app_with_dependencies/migrations/0002_second.py"
+      ]
+    },
+    {
+      "question": "Migration auth.0011_update_proxy_permissions fails for models recreated as a proxy.",
+      "files": [
+        "django/contrib/auth/migrations/0011_update_proxy_permissions.py"
+      ],
+      "rank": 0,
+      "tokens": 2219,
+      "over_budget": false,
+      "files_shown": 14,
+      "top_files": [
+        "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+        "tests/dispatch/tests.py",
+        "django/contrib/auth/context_processors.py",
+        "django/db/migrations/migration.py",
+        "django/db/models/fields/__init__.py"
+      ]
+    },
+    {
+      "question": "Autoreloader with StatReloader doesn't track changes in manage.py.",
+      "files": [
+        "django/utils/autoreload.py"
+      ],
+      "rank": 0,
+      "tokens": 2148,
+      "over_budget": false,
+      "files_shown": 20,
+      "top_files": [
+        "django/utils/autoreload.py",
+        "tests/gis_tests/geoapp/models.py",
+        "tests/template_tests/test_autoreloader.py",
+        "django/db/migrations/autodetector.py",
+        "tests/gis_tests/layermap/models.py"
+      ]
+    },
+    {
+      "question": "Add support for SCRIPT_NAME in STATIC_URL and MEDIA_URL",
+      "files": [
+        "django/conf/__init__.py"
+      ],
+      "rank": null,
+      "tokens": 1674,
+      "over_budget": false,
+      "files_shown": 17,
+      "top_files": [
+        "django/conf/urls/static.py",
+        "django/contrib/admin/widgets.py",
+        "django/template/context_processors.py",
+        "django/db/models/fields/related_descriptors.py",
+        "tests/responses/test_fileresponse.py"
+      ]
+    },
+    {
+      "question": "Auto-reloading with StatReloader very intermittently throws \"ValueError: embedded null byte\".",
+      "files": [
+        "django/utils/autoreload.py"
+      ],
+      "rank": 0,
+      "tokens": 2223,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "django/utils/autoreload.py",
+        "tests/utils_tests/test_autoreload.py",
+        "tests/migrations/test_autodetector.py",
+        "django/http/request.py",
+        "tests/template_tests/syntax_tests/test_basic.py"
+      ]
+    },
+    {
+      "question": "When DEBUG is True, raising Http404 in a path converter's to_python method does not result in a technical response",
+      "files": [
+        "django/views/debug.py"
+      ],
+      "rank": 9,
+      "tokens": 2189,
+      "over_budget": false,
+      "files_shown": 21,
+      "top_files": [
+        "django/http/response.py",
+        "django/contrib/staticfiles/storage.py",
+        "django/core/checks/messages.py",
+        "tests/admin_checks/tests.py",
+        ".github/workflows/docs.yml"
+      ]
+    },
+    {
+      "question": "Django throws error when different apps with different models have the same name table name.",
+      "files": [
+        "django/core/checks/model_checks.py"
+      ],
+      "rank": null,
+      "tokens": 2183,
+      "over_budget": false,
+      "files_shown": 18,
+      "top_files": [
+        "django/apps/registry.py",
+        "django/db/backends/ddl_references.py",
+        "django/core/checks/messages.py",
+        "tests/check_framework/template_test_apps/different_tags_app/apps.py",
+        "django/contrib/gis/gdal/geomtype.py"
+      ]
+    },
+    {
+      "question": "Add check to ensure max_length fits longest choice.",
+      "files": [
+        "django/db/models/fields/__init__.py"
+      ],
+      "rank": null,
+      "tokens": 2145,
+      "over_budget": false,
+      "files_shown": 18,
+      "top_files": [
+        "django/contrib/gis/db/models/functions.py",
+        "django/template/defaultfilters.py",
+        "django/db/models/aggregates.py",
+        "django/db/models/fields/related_descriptors.py",
+        "tests/admin_checks/tests.py"
+      ]
+    },
+    {
+      "question": "Filtering on query result overrides GROUP BY of internal query",
+      "files": [
+        "django/db/models/lookups.py"
+      ],
+      "rank": null,
+      "tokens": 2171,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "tests/queryset_pickle/models.py",
+        "tests/expressions/models.py",
+        "django/db/models/sql/query.py",
+        "tests/admin_filters/tests.py",
+        "tests/model_inheritance_regress/models.py"
+      ]
+    },
+    {
+      "question": "Migrations uses value of enum object instead of its name.",
+      "files": [
+        "django/db/migrations/serializer.py"
+      ],
+      "rank": null,
+      "tokens": 2152,
+      "over_budget": false,
+      "files_shown": 26,
+      "top_files": [
+        ".github/workflows/docs.yml",
+        "django/contrib/sessions/backends/signed_cookies.py",
+        "tests/migrations/test_commands.py",
+        "tests/responses/test_fileresponse.py",
+        "django/db/models/expressions.py"
+      ]
+    },
+    {
+      "question": "django.utils.http.parse_http_date two digit year check is incorrect",
+      "files": [
+        "django/utils/http.py"
+      ],
+      "rank": 0,
+      "tokens": 2213,
+      "over_budget": false,
+      "files_shown": 18,
+      "top_files": [
+        "django/utils/http.py",
+        "tests/admin_checks/tests.py",
+        "django/utils/datetime_safe.py",
+        "tests/inspectdb/models.py",
+        "django/contrib/gis/gdal/geomtype.py"
+      ]
+    },
+    {
+      "question": "Prevent using __isnull lookup with non-boolean value.",
+      "files": [
+        "django/db/models/lookups.py"
+      ],
+      "rank": 0,
+      "tokens": 2179,
+      "over_budget": false,
+      "files_shown": 13,
+      "top_files": [
+        "django/db/models/lookups.py",
+        "tests/forms_tests/widget_tests/test_checkboxinput.py",
+        "tests/model_fields/test_booleanfield.py",
+        "tests/check_framework/urls/non_unique_namespaces.py",
+        "tests/generic_relations_regress/models.py"
+      ]
+    },
+    {
+      "question": "ForeignKey's to_field parameter gets the old field's name when renaming a PrimaryKey.",
+      "files": [
+        "django/db/migrations/autodetector.py"
+      ],
+      "rank": null,
+      "tokens": 415,
+      "over_budget": false,
+      "files_shown": 10,
+      "top_files": [
+        "tests/deprecation/tests.py",
+        "django/db/models/fields/related.py",
+        "tests/prefetch_related/tests.py",
+        "django/db/models/fields/__init__.py",
+        "tests/file_storage/tests.py"
+      ]
+    },
+    {
+      "question": "The value of a TextChoices/IntegerChoices field has a differing type",
+      "files": [
+        "django/db/models/enums.py"
+      ],
+      "rank": 0,
+      "tokens": 244,
+      "over_budget": false,
+      "files_shown": 4,
+      "top_files": [
+        "django/db/models/enums.py",
+        "tests/auth_tests/test_forms.py",
+        "django/db/models/fields/__init__.py",
+        "django/db/models/expressions.py"
+      ]
+    },
+    {
+      "question": "Cannot override get_FOO_display() in Django 2.2+.",
+      "files": [
+        "django/db/models/fields/__init__.py"
+      ],
+      "rank": null,
+      "tokens": 4425,
+      "over_budget": true,
+      "files_shown": 20,
+      "top_files": [
+        "tests/admin_scripts/complex_app/models/foo.py",
+        "tests/model_inheritance/tests.py",
+        "django/utils/timezone.py",
+        "tests/migrations/test_executor.py",
+        "tests/csrf_tests/tests.py"
+      ]
+    },
+    {
+      "question": "admin_views.test_multidb fails with persistent test SQLite database.",
+      "files": [
+        "django/db/backends/sqlite3/creation.py"
+      ],
+      "rank": 16,
+      "tokens": 2204,
+      "over_budget": false,
+      "files_shown": 18,
+      "top_files": [
+        "tests/admin_views/test_multidb.py",
+        "tests/dispatch/tests.py",
+        "tests/admin_views/tests.py",
+        "tests/admin_views/admin.py",
+        "django/core/checks/database.py"
+      ]
+    },
+    {
+      "question": "makemigrations produces incorrect path for inner classes",
+      "files": [
+        "django/db/migrations/serializer.py"
+      ],
+      "rank": null,
+      "tokens": 2190,
+      "over_budget": false,
+      "files_shown": 36,
+      "top_files": [
+        "tests/admin_inlines/models.py",
+        "django/contrib/admin/sites.py",
+        ".github/workflows/docs.yml",
+        "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+        "django/contrib/admin/options.py"
+      ]
+    },
+    {
+      "question": "Optional URL params crash some view functions.",
+      "files": [
+        "django/urls/resolvers.py"
+      ],
+      "rank": null,
+      "tokens": 299,
+      "over_budget": false,
+      "files_shown": 7,
+      "top_files": [
+        "django/template/defaulttags.py",
+        "tests/check_framework/urls/bad_class_based_error_handlers.py",
+        "django/views/generic/base.py",
+        "tests/middleware/tests.py",
+        "django/db/models/functions/__init__.py"
+      ]
+    },
+    {
+      "question": "Model.get_FOO_display() does not work correctly with inherited choices.",
+      "files": [
+        "django/db/models/fields/__init__.py"
+      ],
+      "rank": null,
+      "tokens": 2165,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "tests/admin_scripts/complex_app/models/foo.py",
+        "tests/model_inheritance/tests.py",
+        "django/db/models/enums.py",
+        "tests/cache/tests.py",
+        "django/contrib/admin/decorators.py"
+      ]
+    },
+    {
+      "question": "translation.E004 shouldn't be raised on sublanguages when a base language is available.",
+      "files": [
+        "django/core/checks/translation.py"
+      ],
+      "rank": null,
+      "tokens": 5451,
+      "over_budget": true,
+      "files_shown": 16,
+      "top_files": [
+        "django/utils/translation/trans_real.py",
+        "tests/admin_views/models.py",
+        "django/templatetags/i18n.py",
+        "tests/template_tests/syntax_tests/i18n/test_get_available_languages.py",
+        "tests/select_related_regress/models.py"
+      ]
+    },
+    {
+      "question": "JSONField are not properly displayed in admin when they are readonly.",
+      "files": [
+        "django/contrib/admin/utils.py"
+      ],
+      "rank": null,
+      "tokens": 2186,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "django/contrib/postgres/fields/jsonb.py",
+        "tests/admin_views/admin.py",
+        "tests/modeladmin/test_checks.py",
+        "django/core/exceptions.py",
+        "tests/admin_views/tests.py"
+      ]
+    },
+    {
+      "question": "`TransactionTestCase.serialized_rollback` fails to restore objects due to ordering constraints",
+      "files": [
+        "django/db/backends/base/creation.py"
+      ],
+      "rank": null,
+      "tokens": 2218,
+      "over_budget": false,
+      "files_shown": 15,
+      "top_files": [
+        "django/test/testcases.py",
+        "tests/dispatch/tests.py",
+        "django/db/transaction.py",
+        "tests/constraints/tests.py",
+        "tests/template_tests/syntax_tests/test_autoescape.py"
+      ]
+    },
+    {
+      "question": "Inherited model doesn't correctly order by \"-pk\" when specified on Parent.Meta.ordering",
+      "files": [
+        "django/db/models/sql/compiler.py"
+      ],
+      "rank": null,
+      "tokens": 2233,
+      "over_budget": false,
+      "files_shown": 15,
+      "top_files": [
+        "tests/ordering/models.py",
+        "tests/distinct_on_fields/tests.py",
+        "tests/admin_changelist/models.py",
+        "tests/cache/tests.py",
+        "tests/gis_tests/layermap/models.py"
+      ]
+    },
+    {
+      "question": "Wrong hint about recursive relationship.",
+      "files": [
+        "django/db/models/fields/related.py"
+      ],
+      "rank": null,
+      "tokens": 2168,
+      "over_budget": false,
+      "files_shown": 25,
+      "top_files": [
+        "tests/m2m_through/models.py",
+        "tests/queries/tests.py",
+        "tests/m2m_recursive/tests.py",
+        "tests/i18n/patterns/urls/wrong_namespace.py",
+        "tests/m2m_recursive/models.py"
+      ]
+    },
+    {
+      "question": "Django 3.0: \"GROUP BY\" clauses error with tricky field annotation",
+      "files": [
+        "django/db/models/sql/query.py"
+      ],
+      "rank": null,
+      "tokens": 350,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "django/contrib/auth/models.py",
+        "tests/queries/models.py",
+        "django/core/checks/messages.py",
+        "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+        "django/db/backends/sqlite3/base.py"
+      ]
+    },
+    {
+      "question": "Settings are cleaned insufficiently.",
+      "files": [
+        "django/views/debug.py"
+      ],
+      "rank": null,
+      "tokens": 1295,
+      "over_budget": false,
+      "files_shown": 2,
+      "top_files": [
+        "tests/admin_scripts/configured_dynamic_settings_manage.py",
+        "django/forms/formsets.py"
+      ]
+    },
+    {
+      "question": "Migration crashes deleting an index_together if there is a unique_together on the same fields",
+      "files": [
+        "django/db/backends/base/schema.py"
+      ],
+      "rank": null,
+      "tokens": 575,
+      "over_budget": false,
+      "files_shown": 9,
+      "top_files": [
+        "tests/migrations/test_autodetector.py",
+        "django/db/models/indexes.py",
+        "tests/migrations/test_operations.py",
+        "tests/delete_regress/tests.py",
+        "tests/model_inheritance/test_abstract_inheritance.py"
+      ]
+    },
+    {
+      "question": "QuerySet.Delete - inconsistent result when zero objects deleted",
+      "files": [
+        "django/db/models/deletion.py"
+      ],
+      "rank": 12,
+      "tokens": 2209,
+      "over_budget": false,
+      "files_shown": 13,
+      "top_files": [
+        "tests/expressions/models.py",
+        "tests/delete/tests.py",
+        "django/db/models/query.py",
+        "tests/save_delete_hooks/models.py",
+        "tests/delete_regress/tests.py"
+      ]
+    },
+    {
+      "question": "Add check for fields of UniqueConstraints.",
+      "files": [
+        "django/db/models/base.py"
+      ],
+      "rank": null,
+      "tokens": 136,
+      "over_budget": false,
+      "files_shown": 3,
+      "top_files": [
+        "tests/model_inheritance/test_abstract_inheritance.py",
+        "django/contrib/contenttypes/fields.py",
+        "tests/admin_checks/tests.py"
+      ]
+    },
+    {
+      "question": "Union queryset should raise on distinct().",
+      "files": [
+        "django/db/models/query.py"
+      ],
+      "rank": 1,
+      "tokens": 2173,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "django/contrib/gis/db/models/aggregates.py",
+        "django/db/models/query.py",
+        "tests/distinct_on_fields/tests.py",
+        "django/utils/autoreload.py",
+        "django/db/models/expressions.py"
+      ]
+    },
+    {
+      "question": "Add get_response_async for ASGIStaticFilesHandler",
+      "files": [
+        "django/contrib/staticfiles/handlers.py"
+      ],
+      "rank": 0,
+      "tokens": 5406,
+      "over_budget": true,
+      "files_shown": 19,
+      "top_files": [
+        "django/contrib/staticfiles/handlers.py",
+        "tests/deprecation/test_middleware_mixin.py",
+        "django/core/handlers/asgi.py",
+        "django/db/models/fields/related_descriptors.py",
+        "django/utils/asyncio.py"
+      ]
+    },
+    {
+      "question": "Make django.utils.text.slugify() strip dashes and underscores",
+      "files": [
+        "django/utils/text.py"
+      ],
+      "rank": 0,
+      "tokens": 2210,
+      "over_budget": false,
+      "files_shown": 23,
+      "top_files": [
+        "django/utils/text.py",
+        "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+        "django/db/backends/utils.py",
+        "tests/basic/tests.py",
+        "django/contrib/gis/gdal/geomtype.py"
+      ]
+    },
+    {
+      "question": "Queryset raises NotSupportedError when RHS has filterable=False attribute.",
+      "files": [
+        "django/db/models/sql/query.py"
+      ],
+      "rank": 5,
+      "tokens": 2189,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "django/db/utils.py",
+        "tests/view_tests/views.py",
+        "django/db/models/query.py",
+        "django/contrib/postgres/fields/utils.py",
+        "tests/sessions_tests/tests.py"
+      ]
+    },
+    {
+      "question": "Self referencing foreign key doesn't correctly order by a relation \"_id\" field.",
+      "files": [
+        "django/db/models/sql/compiler.py"
+      ],
+      "rank": null,
+      "tokens": 2228,
+      "over_budget": false,
+      "files_shown": 20,
+      "top_files": [
+        "tests/model_fields/test_foreignkey.py",
+        "django/contrib/admin/widgets.py",
+        "tests/admin_widgets/tests.py",
+        "tests/cache/tests.py",
+        "tests/gis_tests/layermap/models.py"
+      ]
+    },
+    {
+      "question": "QuerySet.none() on combined queries returns all results.",
+      "files": [
+        "django/db/models/sql/query.py"
+      ],
+      "rank": null,
+      "tokens": 262,
+      "over_budget": false,
+      "files_shown": 5,
+      "top_files": [
+        "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+        "django/db/models/query.py",
+        "django/db/models/expressions.py",
+        "django/db/backends/base/base.py",
+        "tests/admin_scripts/tests.py"
+      ]
+    },
+    {
+      "question": "Allow ValidationErrors to equal each other when created identically",
+      "files": [
+        "django/core/exceptions.py"
+      ],
+      "rank": 15,
+      "tokens": 3614,
+      "over_budget": true,
+      "files_shown": 20,
+      "top_files": [
+        "tests/backends/test_utils.py",
+        "tests/auth_tests/test_auth_backends.py",
+        "tests/sites_tests/tests.py",
+        "tests/forms_tests/widget_tests/test_checkboxselectmultiple.py",
+        "tests/i18n/other/__init__.py"
+      ]
+    },
+    {
+      "question": "Add support for item_comments to syndication framework",
+      "files": [
+        "django/contrib/syndication/views.py"
+      ],
+      "rank": null,
+      "tokens": 2169,
+      "over_budget": false,
+      "files_shown": 15,
+      "top_files": [
+        "tests/backends/models.py",
+        "django/contrib/contenttypes/fields.py",
+        "django/contrib/auth/models.py",
+        "tests/template_tests/syntax_tests/test_comment.py",
+        "tests/forms_tests/tests/test_forms.py"
+      ]
+    },
+    {
+      "question": "AlterOrderWithRespectTo() with ForeignKey crash when _order is included in Index().",
+      "files": [
+        "django/db/migrations/autodetector.py"
+      ],
+      "rank": null,
+      "tokens": 2164,
+      "over_budget": false,
+      "files_shown": 15,
+      "top_files": [
+        "django/db/migrations/operations/models.py",
+        "tests/middleware/tests.py",
+        "django/db/models/fields/related.py",
+        "tests/urlpatterns_reverse/included_namespace_urls.py",
+        "django/db/models/indexes.py"
+      ]
+    },
+    {
+      "question": "limit_choices_to on a ForeignKey can render duplicate options in formfield",
+      "files": [
+        "django/forms/models.py"
+      ],
+      "rank": null,
+      "tokens": 2181,
+      "over_budget": false,
+      "files_shown": 12,
+      "top_files": [
+        "django/db/models/fields/related.py",
+        "tests/model_forms/tests.py",
+        "tests/admin_views/tests.py",
+        "django/db/models/enums.py",
+        "tests/check_framework/test_model_checks.py"
+      ]
+    },
+    {
+      "question": "Decoding an invalid session data crashes.",
+      "files": [
+        "django/contrib/sessions/backends/base.py"
+      ],
+      "rank": null,
+      "tokens": 1185,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "django/contrib/sessions/models.py",
+        "tests/gis_tests/layermap/models.py",
+        "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+        "tests/migrations/test_operations.py",
+        "django/contrib/sessions/base_session.py"
+      ]
+    },
+    {
+      "question": "Abstract model field should not be equal across models",
+      "files": [
+        "django/db/models/fields/__init__.py"
+      ],
+      "rank": 2,
+      "tokens": 358,
+      "over_budget": false,
+      "files_shown": 7,
+      "top_files": [
+        "tests/model_fields/tests.py",
+        "django/contrib/gis/db/models/fields.py",
+        "django/db/models/fields/__init__.py",
+        "tests/proxy_models/models.py",
+        "tests/invalid_models_tests/test_relative_fields.py"
+      ]
+    },
+    {
+      "question": "Added model class to app_list context",
+      "files": [
+        "django/contrib/admin/sites.py"
+      ],
+      "rank": null,
+      "tokens": 2172,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "django/template/context.py",
+        "tests/admin_inlines/models.py",
+        "tests/migrations/test_autodetector.py",
+        "django/apps/config.py",
+        "django/db/models/base.py"
+      ]
+    },
+    {
+      "question": "Test runner setup_databases crashes with \"TEST\": {\"MIGRATE\": False}.",
+      "files": [
+        "django/db/backends/base/creation.py"
+      ],
+      "rank": null,
+      "tokens": 2209,
+      "over_budget": false,
+      "files_shown": 20,
+      "top_files": [
+        "tests/backends/tests.py",
+        "tests/test_runner/tests.py",
+        "django/test/utils.py",
+        "tests/migrations/test_operations.py",
+        "django/db/utils.py"
+      ]
+    },
+    {
+      "question": "Changing user's email could invalidate password reset tokens",
+      "files": [
+        "django/contrib/auth/tokens.py"
+      ],
+      "rank": 5,
+      "tokens": 2202,
+      "over_budget": false,
+      "files_shown": 18,
+      "top_files": [
+        "django/contrib/admin/static/admin/js/actions.js",
+        "tests/auth_tests/test_views.py",
+        "django/db/migrations/questioner.py",
+        "tests/many_to_one/tests.py",
+        "django/contrib/auth/password_validation.py"
+      ]
+    },
+    {
+      "question": "Upgrading 2.2>3.0 causes named tuples used as arguments to __range to error.",
+      "files": [
+        "django/db/models/sql/query.py"
+      ],
+      "rank": null,
+      "tokens": 524,
+      "over_budget": false,
+      "files_shown": 10,
+      "top_files": [
+        "django/db/models/lookups.py",
+        "tests/multiple_database/tests.py",
+        "django/core/checks/messages.py",
+        "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+        "tests/migrations/test_executor.py"
+      ]
+    },
+    {
+      "question": "ManagementUtility instantiates CommandParser without passing already-computed prog argument",
+      "files": [
+        "django/core/management/__init__.py"
+      ],
+      "rank": 1,
+      "tokens": 461,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "django/core/management/base.py",
+        "django/core/management/__init__.py",
+        "tests/admin_scripts/tests.py",
+        "django/contrib/admin/sites.py",
+        "tests/admin_changelist/tests.py"
+      ]
+    },
+    {
+      "question": "shell command crashes when passing (with -c) the python code with functions.",
+      "files": [
+        "django/core/management/commands/shell.py"
+      ],
+      "rank": 2,
+      "tokens": 2206,
+      "over_budget": false,
+      "files_shown": 13,
+      "top_files": [
+        "django/core/management/commands/dbshell.py",
+        "tests/shell/tests.py",
+        "django/core/management/commands/shell.py",
+        "tests/migrations/test_operations.py",
+        "django/db/models/functions/__init__.py"
+      ]
+    },
+    {
+      "question": "Use Admin Inline verbose_name as default for Inline verbose_name_plural",
+      "files": [
+        "django/contrib/admin/options.py"
+      ],
+      "rank": null,
+      "tokens": 2208,
+      "over_budget": false,
+      "files_shown": 13,
+      "top_files": [
+        "tests/admin_inlines/models.py",
+        "tests/auth_tests/test_basic.py",
+        "tests/model_inheritance_regress/tests.py",
+        "tests/admin_views/admin.py",
+        "django/template/defaultfilters.py"
+      ]
+    },
+    {
+      "question": "Using __isnull=True on a KeyTransform should not match JSON null on SQLite and Oracle",
+      "files": [
+        "django/db/models/fields/json.py"
+      ],
+      "rank": 1,
+      "tokens": 2160,
+      "over_budget": false,
+      "files_shown": 17,
+      "top_files": [
+        "django/db/models/lookups.py",
+        "django/db/models/fields/json.py",
+        "django/http/request.py",
+        "tests/null_fk/tests.py",
+        "django/contrib/gis/db/backends/oracle/operations.py"
+      ]
+    },
+    {
+      "question": "Log exceptions handled in Signal.send_robust()",
+      "files": [
+        "django/dispatch/dispatcher.py"
+      ],
+      "rank": 0,
+      "tokens": 3578,
+      "over_budget": true,
+      "files_shown": 15,
+      "top_files": [
+        "django/dispatch/dispatcher.py",
+        "django/db/models/functions/math.py",
+        "tests/test_client_regress/tests.py",
+        "tests/template_tests/syntax_tests/test_exceptions.py",
+        "tests/file_uploads/tests.py"
+      ]
+    },
+    {
+      "question": "models.W042 is raised on inherited manually specified primary key.",
+      "files": [
+        "django/db/models/base.py"
+      ],
+      "rank": null,
+      "tokens": 2204,
+      "over_budget": false,
+      "files_shown": 16,
+      "top_files": [
+        "tests/defer/models.py",
+        ".github/workflows/docs.yml",
+        "tests/fixtures/models.py",
+        "tests/force_insert_update/models.py",
+        "django/db/backends/oracle/operations.py"
+      ]
+    },
+    {
+      "question": "ModelChoiceField does not provide value of invalid choice when raising ValidationError",
+      "files": [
+        "django/forms/models.py"
+      ],
+      "rank": 0,
+      "tokens": 2162,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "django/forms/models.py",
+        "django/core/exceptions.py",
+        "tests/model_forms/test_modelchoicefield.py",
+        "tests/gis_tests/layermap/models.py",
+        "django/contrib/gis/views.py"
+      ]
+    },
+    {
+      "question": "Saving parent object after setting on child leads to data loss for parents with non-numeric primary key.",
+      "files": [
+        "django/db/models/base.py"
+      ],
+      "rank": null,
+      "tokens": 2276,
+      "over_budget": false,
+      "files_shown": 27,
+      "top_files": [
+        "tests/many_to_one/models.py",
+        "tests/basic/models.py",
+        "tests/test_runner/test_parallel.py",
+        "tests/admin_inlines/models.py",
+        "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js"
+      ]
+    },
+    {
+      "question": "\"TypeError: cannot pickle\" when applying | operator to a Q object",
+      "files": [
+        "django/db/models/query_utils.py"
+      ],
+      "rank": null,
+      "tokens": 4190,
+      "over_budget": true,
+      "files_shown": 18,
+      "top_files": [
+        "tests/migrations/test_executor.py",
+        "tests/csrf_tests/tests.py",
+        "tests/auth_tests/test_auth_backends.py",
+        "django/test/utils.py",
+        "django/middleware/csrf.py"
+      ]
+    },
+    {
+      "question": "Q(...) & Exists(...) raises a TypeError",
+      "files": [
+        "django/db/models/query_utils.py"
+      ],
+      "rank": null,
+      "tokens": 1460,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "django/db/models/expressions.py",
+        "tests/view_tests/views.py",
+        "tests/auth_tests/test_auth_backends.py",
+        "django/views/debug.py",
+        "django/http/response.py"
+      ]
+    },
+    {
+      "question": "ResolverMatch.__repr__() doesn't handle functools.partial() nicely.",
+      "files": [
+        "django/urls/resolvers.py"
+      ],
+      "rank": 0,
+      "tokens": 3095,
+      "over_budget": true,
+      "files_shown": 17,
+      "top_files": [
+        "django/urls/resolvers.py",
+        "tests/admin_scripts/tests.py",
+        "tests/gis_tests/layermap/models.py",
+        "django/utils/timesince.py",
+        "tests/indexes/tests.py"
+      ]
+    },
+    {
+      "question": "DEFAULT_AUTO_FIELD subclass check fails for subclasses of BigAutoField and SmallAutoField.",
+      "files": [
+        "django/db/models/fields/__init__.py"
+      ],
+      "rank": 0,
+      "tokens": 2158,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "django/db/models/fields/__init__.py",
+        "django/db/models/query_utils.py",
+        "tests/migrations/test_autodetector.py",
+        "tests/admin_checks/tests.py",
+        "django/template/defaultfilters.py"
+      ]
+    },
+    {
+      "question": "django-admin startapp with trailing slash in directory name results in error",
+      "files": [
+        "django/core/management/templates.py"
+      ],
+      "rank": null,
+      "tokens": 2193,
+      "over_budget": false,
+      "files_shown": 22,
+      "top_files": [
+        "tests/admin_scripts/tests.py",
+        "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+        "tests/admin_views/admin.py",
+        "tests/file_uploads/tests.py",
+        "django/contrib/gis/gdal/geomtype.py"
+      ]
+    },
+    {
+      "question": "Label for ReadOnlyPasswordHashWidget points to non-labelable element.",
+      "files": [
+        "django/contrib/auth/forms.py"
+      ],
+      "rank": 0,
+      "tokens": 4126,
+      "over_budget": true,
+      "files_shown": 18,
+      "top_files": [
+        "django/contrib/auth/forms.py",
+        "django/test/html.py",
+        "tests/auth_tests/test_forms.py",
+        "django/db/models/enums.py",
+        "tests/check_framework/urls/non_unique_namespaces.py"
+      ]
+    },
+    {
+      "question": "BoundWidget.id_for_label ignores id set by ChoiceWidget.options",
+      "files": [
+        "django/forms/boundfield.py"
+      ],
+      "rank": 1,
+      "tokens": 2150,
+      "over_budget": false,
+      "files_shown": 10,
+      "top_files": [
+        "django/forms/widgets.py",
+        "django/forms/boundfield.py",
+        "tests/forms_tests/tests/test_forms.py",
+        ".pre-commit-config.yaml",
+        "tests/view_tests/views.py"
+      ]
+    },
+    {
+      "question": "Missing import statement in generated migration (NameError: name 'models' is not defined)",
+      "files": [
+        "django/db/migrations/serializer.py"
+      ],
+      "rank": null,
+      "tokens": 2362,
+      "over_budget": true,
+      "files_shown": 21,
+      "top_files": [
+        "django/db/backends/ddl_references.py",
+        "tests/db_functions/migrations/0002_create_test_models.py",
+        ".github/workflows/docs.yml",
+        "tests/deprecation/tests.py",
+        "tests/select_for_update/tests.py"
+      ]
+    },
+    {
+      "question": "Add `nonform` CSS class for non form errors in FormSets",
+      "files": [
+        "django/forms/formsets.py"
+      ],
+      "rank": 0,
+      "tokens": 2191,
+      "over_budget": false,
+      "files_shown": 22,
+      "top_files": [
+        "django/forms/formsets.py",
+        "tests/forms_tests/tests/test_formsets.py",
+        "django/db/models/fields/related_descriptors.py",
+        "tests/admin_inlines/models.py",
+        "django/forms/widgets.py"
+      ]
+    },
+    {
+      "question": "QuerySet.defer() doesn't clear deferred field when chaining with only().",
+      "files": [
+        "django/db/models/sql/query.py"
+      ],
+      "rank": null,
+      "tokens": 292,
+      "over_budget": false,
+      "files_shown": 6,
+      "top_files": [
+        "django/db/models/base.py",
+        "tests/template_tests/filter_tests/test_chaining.py",
+        "django/db/models/fields/related_descriptors.py",
+        "django/db/models/query.py",
+        "tests/gis_tests/layermap/models.py"
+      ]
+    },
+    {
+      "question": "Missing call `make_hashable` on `through_fields` in `ManyToManyRel`",
+      "files": [
+        "django/db/models/fields/reverse_related.py"
+      ],
+      "rank": 0,
+      "tokens": 254,
+      "over_budget": false,
+      "files_shown": 6,
+      "top_files": [
+        "django/db/models/fields/reverse_related.py",
+        "tests/test_runner/models.py",
+        "tests/model_inheritance/test_abstract_inheritance.py",
+        "django/utils/hashable.py",
+        "django/core/management/commands/makemessages.py"
+      ]
+    },
+    {
+      "question": "Prevent developers from defining a related_name on symmetrical ManyToManyFields",
+      "files": [
+        "django/db/models/fields/related.py"
+      ],
+      "rank": null,
+      "tokens": 752,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "tests/generic_relations_regress/models.py",
+        ".github/workflows/docs.yml",
+        "tests/responses/test_fileresponse.py",
+        "django/forms/widgets.py",
+        "tests/admin_views/tests.py"
+      ]
+    },
+    {
+      "question": "Refactor AutocompleteJsonView to support extra fields in autocomplete response",
+      "files": [
+        "django/contrib/admin/views/autocomplete.py"
+      ],
+      "rank": 0,
+      "tokens": 316,
+      "over_budget": false,
+      "files_shown": 7,
+      "top_files": [
+        "django/contrib/admin/views/autocomplete.py",
+        "django/core/management/__init__.py",
+        "django/db/models/query.py",
+        "tests/model_inheritance/test_abstract_inheritance.py",
+        "django/test/testcases.py"
+      ]
+    },
+    {
+      "question": "method_decorator() should preserve wrapper assignments",
+      "files": [
+        "django/utils/decorators.py"
+      ],
+      "rank": null,
+      "tokens": 425,
+      "over_budget": false,
+      "files_shown": 4,
+      "top_files": [
+        "tests/decorators/tests.py",
+        "django/contrib/admin/decorators.py",
+        "tests/test_client_regress/tests.py",
+        "django/test/testcases.py"
+      ]
+    },
+    {
+      "question": "Wrong URL generated by get_admin_url for readonly field in custom Admin Site",
+      "files": [
+        "django/contrib/admin/helpers.py"
+      ],
+      "rank": null,
+      "tokens": 425,
+      "over_budget": false,
+      "files_shown": 10,
+      "top_files": [
+        "django/contrib/admin/widgets.py",
+        "tests/admin_views/admin.py",
+        "django/contrib/sites/models.py",
+        ".github/FUNDING.yml",
+        "django/db/models/fields/__init__.py"
+      ]
+    },
+    {
+      "question": "ModelChoiceIteratorValue is not hashable.",
+      "files": [
+        "django/forms/models.py"
+      ],
+      "rank": 0,
+      "tokens": 584,
+      "over_budget": false,
+      "files_shown": 3,
+      "top_files": [
+        "django/forms/models.py",
+        "django/utils/hashable.py",
+        "django/utils/itercompat.py"
+      ]
+    },
+    {
+      "question": "Remaking table with unique constraint crashes on SQLite.",
+      "files": [
+        "django/db/backends/ddl_references.py"
+      ],
+      "rank": 0,
+      "tokens": 2193,
+      "over_budget": false,
+      "files_shown": 13,
+      "top_files": [
+        "django/db/backends/ddl_references.py",
+        "django/db/models/constraints.py",
+        "tests/constraints/tests.py",
+        "tests/migrations/test_operations.py",
+        "django/db/backends/sqlite3/base.py"
+      ]
+    },
+    {
+      "question": "RenameModel with db_table should be a noop.",
+      "files": [
+        "django/db/migrations/operations/models.py"
+      ],
+      "rank": 0,
+      "tokens": 3454,
+      "over_budget": true,
+      "files_shown": 6,
+      "top_files": [
+        "django/db/migrations/operations/models.py",
+        "tests/delete_regress/tests.py",
+        "django/db/backends/ddl_references.py",
+        "django/db/models/query.py",
+        "django/utils/functional.py"
+      ]
+    },
+    {
+      "question": "Remove \"for = ...\" from MultiWidget's <label>.",
+      "files": [
+        "django/forms/widgets.py"
+      ],
+      "rank": 0,
+      "tokens": 3650,
+      "over_budget": true,
+      "files_shown": 9,
+      "top_files": [
+        "django/forms/widgets.py",
+        "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+        "django/db/models/enums.py",
+        "django/utils/safestring.py",
+        "django/utils/datastructures.py"
+      ]
+    },
+    {
+      "question": "URLField throws ValueError instead of ValidationError on clean",
+      "files": [
+        "django/core/validators.py"
+      ],
+      "rank": 9,
+      "tokens": 3441,
+      "over_budget": true,
+      "files_shown": 11,
+      "top_files": [
+        "django/core/exceptions.py",
+        "django/db/models/fields/__init__.py",
+        "tests/forms_tests/tests/test_error_messages.py",
+        "django/contrib/sessions/backends/signed_cookies.py",
+        "tests/aggregation/tests.py"
+      ]
+    },
+    {
+      "question": "ExpressionWrapper for ~Q(pk__in=[]) crashes.",
+      "files": [
+        "django/db/models/fields/__init__.py"
+      ],
+      "rank": null,
+      "tokens": 2169,
+      "over_budget": false,
+      "files_shown": 14,
+      "top_files": [
+        "django/db/models/expressions.py",
+        "tests/migrations/test_operations.py",
+        "django/db/models/lookups.py",
+        "tests/custom_pk/tests.py",
+        "django/test/utils.py"
+      ]
+    },
+    {
+      "question": "MigrationRecorder does not obey db_router allow_migrate rules",
+      "files": [
+        "django/db/migrations/executor.py"
+      ],
+      "rank": 5,
+      "tokens": 2171,
+      "over_budget": false,
+      "files_shown": 21,
+      "top_files": [
+        "django/db/migrations/recorder.py",
+        "tests/admin_views/test_multidb.py",
+        "tests/migrations/test_multidb.py",
+        "tests/auth_tests/test_auth_backends.py",
+        "django/db/models/query.py"
+      ]
+    },
+    {
+      "question": "Subquery.as_sql() generates invalid SQL.",
+      "files": [
+        "django/db/models/expressions.py"
+      ],
+      "rank": 0,
+      "tokens": 2189,
+      "over_budget": false,
+      "files_shown": 19,
+      "top_files": [
+        "django/db/models/expressions.py",
+        "tests/gis_tests/layermap/models.py",
+        "tests/aggregation/tests.py",
+        "django/utils/asyncio.py",
+        "tests/model_fields/test_textfield.py"
+      ]
+    },
+    {
+      "question": "Messages framework incorrectly serializes/deserializes extra_tags when it's an empty string",
+      "files": [
+        "django/contrib/messages/storage/cookie.py"
+      ],
+      "rank": null,
+      "tokens": 5198,
+      "over_budget": true,
+      "files_shown": 21,
+      "top_files": [
+        "django/contrib/messages/context_processors.py",
+        "django/core/checks/registry.py",
+        "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+        "tests/empty/models.py",
+        "django/db/models/query.py"
+      ]
+    },
+    {
+      "question": "Dev Server fails to restart after adding BASE_DIR to TEMPLATES[0]['DIRS'] in settings",
+      "files": [
+        "django/template/autoreload.py"
+      ],
+      "rank": null,
+      "tokens": 2264,
+      "over_budget": false,
+      "files_shown": 25,
+      "top_files": [
+        "tests/dispatch/tests.py",
+        "tests/fixtures_regress/tests.py",
+        "django/contrib/auth/migrations/0011_update_proxy_permissions.py",
+        "django/db/migrations/questioner.py",
+        "tests/test_runner/test_parallel.py"
+      ]
+    },
+    {
+      "question": "SimpleLazyObject doesn't implement __radd__",
+      "files": [
+        "django/utils/functional.py"
+      ],
+      "rank": 0,
+      "tokens": 1380,
+      "over_budget": false,
+      "files_shown": 2,
+      "top_files": [
+        "django/utils/functional.py",
+        "tests/gis_tests/layermap/models.py"
+      ]
+    },
+    {
+      "question": "Fix handling empty string for If-Modified-Since header",
+      "files": [
+        "django/views/static.py"
+      ],
+      "rank": null,
+      "tokens": 2209,
+      "over_budget": false,
+      "files_shown": 15,
+      "top_files": [
+        "tests/empty/models.py",
+        "tests/queries/tests.py",
+        "tests/fixtures_regress/tests.py",
+        "tests/file_storage/tests.py",
+        "tests/mail/tests.py"
+      ]
+    },
+    {
+      "question": "RenameIndex() crashes when unnamed index is moving backward and forward.",
+      "files": [
+        "django/db/migrations/operations/models.py"
+      ],
+      "rank": null,
+      "tokens": 2210,
+      "over_budget": false,
+      "files_shown": 21,
+      "top_files": [
+        "django/db/models/indexes.py",
+        "django/contrib/sitemaps/views.py",
+        "django/db/migrations/graph.py",
+        "tests/migrations/test_operations.py",
+        "django/db/models/fields/related_descriptors.py"
+      ]
+    },
+    {
+      "question": "Models migration with change field foreign to many and deleting unique together.",
+      "files": [
+        "django/db/migrations/autodetector.py"
+      ],
+      "rank": null,
+      "tokens": 657,
+      "over_budget": false,
+      "files_shown": 9,
+      "top_files": [
+        "tests/model_fields/test_manytomanyfield.py",
+        "tests/model_fields/test_foreignkey.py",
+        "django/db/migrations/operations/models.py",
+        "tests/admin_changelist/tests.py",
+        "tests/delete_regress/tests.py"
+      ]
+    },
+    {
+      "question": "Customizable management command formatters.",
+      "files": [
+        "django/core/management/base.py"
+      ],
+      "rank": 4,
+      "tokens": 2158,
+      "over_budget": false,
+      "files_shown": 18,
+      "top_files": [
+        "django/contrib/auth/management/commands/changepassword.py",
+        "tests/user_commands/tests.py",
+        "tests/generic_views/test_base.py",
+        "tests/logging_tests/tests.py",
+        "django/core/management/base.py"
+      ]
+    },
+    {
+      "question": "Add an encoder parameter to django.utils.html.json_script().",
+      "files": [
+        "django/utils/html.py"
+      ],
+      "rank": null,
+      "tokens": 296,
+      "over_budget": false,
+      "files_shown": 6,
+      "top_files": [
+        "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+        "django/core/serializers/json.py",
+        "django/db/models/fields/related_descriptors.py",
+        "django/contrib/gis/gdal/geomtype.py",
+        "tests/urlpatterns/tests.py"
+      ]
+    },
+    {
+      "question": "check_for_template_tags_with_the_same_name with libraries in TEMPLATES",
+      "files": [
+        "django/core/checks/templates.py"
+      ],
+      "rank": 0,
+      "tokens": 521,
+      "over_budget": false,
+      "files_shown": 12,
+      "top_files": [
+        "django/core/checks/templates.py",
+        "tests/check_framework/test_templates.py",
+        "tests/view_tests/tests/test_i18n.py",
+        "tests/admin_checks/tests.py",
+        "tests/forms_tests/tests/test_forms.py"
+      ]
+    },
+    {
+      "question": "QuerySet.only() after select_related() crash on proxy models.",
+      "files": [
+        "django/db/models/sql/query.py"
+      ],
+      "rank": null,
+      "tokens": 2222,
+      "over_budget": false,
+      "files_shown": 14,
+      "top_files": [
+        "tests/auth_tests/models/proxy.py",
+        "tests/select_related/models.py",
+        "tests/select_related_regress/models.py",
+        "tests/test_runner/test_parallel.py",
+        "tests/middleware/tests.py"
+      ]
+    },
+    {
+      "question": "inspectdb should generate related_name on same relation links.",
+      "files": [
+        "django/core/management/commands/inspectdb.py"
+      ],
+      "rank": null,
+      "tokens": 2177,
+      "over_budget": false,
+      "files_shown": 14,
+      "top_files": [
+        "tests/many_to_one/models.py",
+        "tests/generic_relations_regress/models.py",
+        "tests/inspectdb/tests.py",
+        "tests/reserved_names/tests.py",
+        "tests/staticfiles_tests/test_management.py"
+      ]
+    },
+    {
+      "question": "dbshell additional parameters should be passed before dbname on PostgreSQL.",
+      "files": [
+        "django/db/backends/postgresql/client.py"
+      ],
+      "rank": null,
+      "tokens": 432,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "tests/dbshell/test_postgresql.py",
+        "tests/admin_scripts/custom_templates/project_template/additional_dir/additional_file.py",
+        "django/core/management/commands/dbshell.py",
+        "tests/migrations/test_migrations_run_before/0003_third.py",
+        "tests/dbshell/tests.py"
+      ]
+    },
+    {
+      "question": "\"default.html\" deprecation warning raised for ManagementForm's",
+      "files": [
+        "django/forms/formsets.py"
+      ],
+      "rank": 0,
+      "tokens": 2164,
+      "over_budget": false,
+      "files_shown": 19,
+      "top_files": [
+        "django/forms/formsets.py",
+        "django/core/checks/messages.py",
+        "django/contrib/messages/api.py",
+        "django/template/defaultfilters.py",
+        "django/utils/deprecation.py"
+      ]
+    },
+    {
+      "question": "Support for serialization of combination of Enum flags.",
+      "files": [
+        "django/db/migrations/serializer.py"
+      ],
+      "rank": null,
+      "tokens": 2162,
+      "over_budget": false,
+      "files_shown": 13,
+      "top_files": [
+        "tests/postgres_tests/test_search.py",
+        "tests/model_fields/test_field_flags.py",
+        "tests/timezones/tests.py",
+        "django/core/management/color.py",
+        "django/test/utils.py"
+      ]
+    },
+    {
+      "question": "Rendering empty_form crashes when empty_permitted is passed to form_kwargs",
+      "files": [
+        "django/forms/formsets.py"
+      ],
+      "rank": 11,
+      "tokens": 2218,
+      "over_budget": false,
+      "files_shown": 22,
+      "top_files": [
+        "tests/empty/models.py",
+        "tests/forms_tests/tests/test_formsets.py",
+        "django/forms/forms.py",
+        "tests/migrations/test_operations.py",
+        "tests/custom_migration_operations/operations.py"
+      ]
+    },
+    {
+      "question": "Fix numberformat.py \"string index out of range\" when null",
+      "files": [
+        "django/utils/numberformat.py"
+      ],
+      "rank": 5,
+      "tokens": 2155,
+      "over_budget": false,
+      "files_shown": 10,
+      "top_files": [
+        "django/db/models/lookups.py",
+        "django/db/models/indexes.py",
+        "django/contrib/sitemaps/views.py",
+        "tests/fixtures_regress/tests.py",
+        "tests/null_fk/tests.py"
+      ]
+    },
+    {
+      "question": "Accessing UserAdmin via to_field leads to link to PasswordResetForm being broken (404)",
+      "files": [
+        "django/contrib/auth/forms.py"
+      ],
+      "rank": 0,
+      "tokens": 2267,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "django/contrib/auth/forms.py",
+        "django/contrib/auth/admin.py",
+        "tests/admin_views/models.py",
+        "tests/view_tests/tests/test_defaults.py",
+        "tests/logging_tests/tests.py"
+      ]
+    },
+    {
+      "question": "ModelForm fields with callable defaults don't correctly propagate default values",
+      "files": [
+        "django/forms/boundfield.py"
+      ],
+      "rank": null,
+      "tokens": 442,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "tests/forms_tests/models.py",
+        "django/contrib/admin/static/admin/js/vendor/select2/select2.full.js",
+        "tests/forms_tests/tests/tests.py",
+        "tests/dispatch/tests.py",
+        "tests/cache/tests.py"
+      ]
+    },
+    {
+      "question": "Sitemaps without items raise ValueError on callable lastmod.",
+      "files": [
+        "django/contrib/sitemaps/__init__.py"
+      ],
+      "rank": 2,
+      "tokens": 2153,
+      "over_budget": false,
+      "files_shown": 17,
+      "top_files": [
+        "tests/dispatch/tests.py",
+        "tests/invalid_models_tests/test_ordinary_fields.py",
+        "django/contrib/sitemaps/__init__.py",
+        "django/utils/autoreload.py",
+        "tests/sitemaps_tests/test_http.py"
+      ]
+    },
+    {
+      "question": "FileBasedCache has_key is susceptible to race conditions",
+      "files": [
+        "django/core/cache/backends/filebased.py"
+      ],
+      "rank": 0,
+      "tokens": 2159,
+      "over_budget": false,
+      "files_shown": 20,
+      "top_files": [
+        "django/core/cache/backends/filebased.py",
+        ".github/workflows/docs.yml",
+        "tests/indexes/tests.py",
+        "django/contrib/auth/hashers.py",
+        "django/views/debug.py"
+      ]
+    },
+    {
+      "question": "migrate management command does not respect database parameter when adding Permissions.",
+      "files": [
+        "django/contrib/auth/management/__init__.py"
+      ],
+      "rank": null,
+      "tokens": 496,
+      "over_budget": false,
+      "files_shown": 9,
+      "top_files": [
+        "django/core/management/commands/migrate.py",
+        "tests/user_commands/tests.py",
+        "django/db/migrations/executor.py",
+        "django/db/migrations/questioner.py",
+        "django/core/checks/database.py"
+      ]
+    },
+    {
+      "question": "Multi-level FilteredRelation with select_related() may set wrong related object.",
+      "files": [
+        "django/db/models/sql/compiler.py"
+      ],
+      "rank": null,
+      "tokens": 2197,
+      "over_budget": false,
+      "files_shown": 24,
+      "top_files": [
+        "django/db/models/query_utils.py",
+        "django/forms/widgets.py",
+        "django/db/models/query.py",
+        "django/contrib/messages/storage/base.py",
+        "tests/multiple_database/tests.py"
+      ]
+    },
+    {
+      "question": "\"show_save_as_new\" in admin can add without this permission",
+      "files": [
+        "django/contrib/admin/templatetags/admin_modify.py"
+      ],
+      "rank": null,
+      "tokens": 2159,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "django/contrib/admin/static/admin/js/actions.js",
+        "tests/deprecation/tests.py",
+        "django/contrib/auth/models.py",
+        "django/db/models/fields/related_descriptors.py",
+        "tests/admin_views/admin.py"
+      ]
+    },
+    {
+      "question": "Migration optimizer does not reduce multiple AlterField",
+      "files": [
+        "django/db/migrations/operations/fields.py"
+      ],
+      "rank": 0,
+      "tokens": 2173,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "django/db/migrations/operations/fields.py",
+        "django/contrib/admin/migrations/0001_initial.py",
+        "django/db/migrations/optimizer.py",
+        "tests/multiple_database/tests.py",
+        "tests/migrations/test_optimizer.py"
+      ]
+    },
+    {
+      "question": "Error E108 does not cover some cases",
+      "files": [
+        "django/contrib/admin/checks.py"
+      ],
+      "rank": null,
+      "tokens": 4416,
+      "over_budget": true,
+      "files_shown": 13,
+      "top_files": [
+        "tests/queries/models.py",
+        "django/core/checks/messages.py",
+        "django/contrib/messages/api.py",
+        "tests/staticfiles_tests/cases.py",
+        "django/test/testcases.py"
+      ]
+    },
+    {
+      "question": "Squashing migrations with Meta.index_together -> indexes transition should remove deprecation warnings.",
+      "files": [
+        "django/db/migrations/operations/models.py"
+      ],
+      "rank": 7,
+      "tokens": 2232,
+      "over_budget": false,
+      "files_shown": 14,
+      "top_files": [
+        "tests/migrations/test_autodetector.py",
+        "django/contrib/admin/static/admin/js/vendor/jquery/jquery.js",
+        "django/utils/deprecation.py",
+        "django/db/models/indexes.py",
+        "tests/indexes/tests.py"
+      ]
+    },
+    {
+      "question": "Template filter `join` should not escape the joining string if `autoescape` is `off`",
+      "files": [
+        "django/template/defaultfilters.py"
+      ],
+      "rank": 2,
+      "tokens": 310,
+      "over_budget": false,
+      "files_shown": 7,
+      "top_files": [
+        "django/template/defaulttags.py",
+        "tests/template_tests/filter_tests/test_autoescape.py",
+        "django/template/defaultfilters.py",
+        "django/utils/html.py",
+        "django/db/models/sql/datastructures.py"
+      ]
+    },
+    {
+      "question": "QuerySet.only() doesn't work with select_related() on a reverse OneToOneField relation.",
+      "files": [
+        "django/db/models/sql/query.py"
+      ],
+      "rank": null,
+      "tokens": 2162,
+      "over_budget": false,
+      "files_shown": 13,
+      "top_files": [
+        "django/db/models/fields/related.py",
+        "tests/select_related_onetoone/tests.py",
+        "tests/gis_tests/layermap/models.py",
+        "django/db/models/query.py",
+        "tests/queries/models.py"
+      ]
+    },
+    {
+      "question": "Allow returning IDs in QuerySet.bulk_create() when updating conflicts.",
+      "files": [
+        "django/db/models/query.py"
+      ],
+      "rank": 0,
+      "tokens": 2194,
+      "over_budget": false,
+      "files_shown": 10,
+      "top_files": [
+        "django/db/models/query.py",
+        "django/contrib/contenttypes/fields.py",
+        "tests/bulk_create/tests.py",
+        "tests/auth_tests/test_auth_backends.py",
+        "tests/admin_views/tests.py"
+      ]
+    },
+    {
+      "question": "Class methods from nested classes cannot be used as Field.default.",
+      "files": [
+        "django/db/migrations/serializer.py"
+      ],
+      "rank": null,
+      "tokens": 2216,
+      "over_budget": false,
+      "files_shown": 10,
+      "top_files": [
+        "django/db/models/base.py",
+        "tests/model_fields/tests.py",
+        "django/core/cache/backends/base.py",
+        "tests/csrf_tests/tests.py",
+        "tests/admin_inlines/models.py"
+      ]
+    }
+  ]
+}

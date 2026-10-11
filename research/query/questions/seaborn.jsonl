@@ -1,0 +1,4 @@
+{"id": "mwaskom__seaborn-2848", "question": "pairplot fails with hue_order not containing all hue values in seaborn 0.11.1", "files": ["seaborn/_oldcore.py"]}
+{"id": "mwaskom__seaborn-3010", "question": "PolyFit is not robust to missing data", "files": ["seaborn/_stats/regression.py"]}
+{"id": "mwaskom__seaborn-3190", "question": "Color mapping fails with boolean data", "files": ["seaborn/_core/scales.py"]}
+{"id": "mwaskom__seaborn-3407", "question": "pairplot raises KeyError with MultiIndex DataFrame", "files": ["seaborn/axisgrid.py"]}

@@ -1,0 +1,17 @@
+{"id": "pytest-dev__pytest-11143", "question": "Rewrite fails when first expression of file is a number and mistaken as docstring", "files": ["src/_pytest/assertion/rewrite.py"]}
+{"id": "pytest-dev__pytest-11148", "question": "Module imported twice under import-mode=importlib", "files": ["src/_pytest/pathlib.py"]}
+{"id": "pytest-dev__pytest-5103", "question": "Unroll the iterable for all/any calls to get better reports", "files": ["src/_pytest/assertion/rewrite.py"]}
+{"id": "pytest-dev__pytest-5221", "question": "Display fixture scope with `pytest --fixtures`", "files": ["src/_pytest/python.py"]}
+{"id": "pytest-dev__pytest-5227", "question": "Improve default logging format", "files": ["src/_pytest/logging.py"]}
+{"id": "pytest-dev__pytest-5413", "question": "str() on the pytest.raises context variable doesn't behave same as normal exception catch", "files": ["src/_pytest/_code/code.py"]}
+{"id": "pytest-dev__pytest-5495", "question": "Confusing assertion rewriting message with byte strings", "files": ["src/_pytest/assertion/util.py"]}
+{"id": "pytest-dev__pytest-5692", "question": "Hostname and timestamp properties in generated JUnit XML reports", "files": ["src/_pytest/junitxml.py"]}
+{"id": "pytest-dev__pytest-6116", "question": "pytest --collect-only needs a one char shortcut command", "files": ["src/_pytest/main.py"]}
+{"id": "pytest-dev__pytest-7168", "question": "INTERNALERROR when exception in __repr__", "files": ["src/_pytest/_io/saferepr.py"]}
+{"id": "pytest-dev__pytest-7220", "question": "Wrong path to test file when directory changed in fixture", "files": ["src/_pytest/nodes.py"]}
+{"id": "pytest-dev__pytest-7373", "question": "Incorrect caching of skipif/xfail string condition evaluation", "files": ["src/_pytest/mark/evaluate.py"]}
+{"id": "pytest-dev__pytest-7432", "question": "skipping: --runxfail breaks pytest.mark.skip location reporting", "files": ["src/_pytest/skipping.py"]}
+{"id": "pytest-dev__pytest-7490", "question": "Pytest 6: Dynamically adding xfail marker in test no longer ignores failure", "files": ["src/_pytest/skipping.py"]}
+{"id": "pytest-dev__pytest-8365", "question": "tmpdir creation fails when the username contains illegal characters for directory names", "files": ["src/_pytest/tmpdir.py"]}
+{"id": "pytest-dev__pytest-8906", "question": "Improve handling of skip for module level", "files": ["src/_pytest/python.py"]}
+{"id": "pytest-dev__pytest-9359", "question": "Error message prints extra code line when using assert in python3.9", "files": ["src/_pytest/_code/source.py"]}

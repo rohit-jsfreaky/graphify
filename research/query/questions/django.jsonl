@@ -1,0 +1,114 @@
+{"id": "django__django-10914", "question": "Set default FILE_UPLOAD_PERMISSION to 0o644.", "files": ["django/conf/global_settings.py"]}
+{"id": "django__django-10924", "question": "Allow FilePathField path to accept a callable.", "files": ["django/db/models/fields/__init__.py"]}
+{"id": "django__django-11001", "question": "Incorrect removal of order_by clause created as multiline RawSQL", "files": ["django/db/models/sql/compiler.py"]}
+{"id": "django__django-11019", "question": "Merging 3 or more media objects can throw unnecessary MediaOrderConflictWarnings", "files": ["django/forms/widgets.py"]}
+{"id": "django__django-11039", "question": "sqlmigrate wraps it's outpout in BEGIN/COMMIT even if the database doesn't support transactional DDL", "files": ["django/core/management/commands/sqlmigrate.py"]}
+{"id": "django__django-11049", "question": "Correct expected format in invalid DurationField error message", "files": ["django/db/models/fields/__init__.py"]}
+{"id": "django__django-11099", "question": "UsernameValidator allows trailing newline in usernames", "files": ["django/contrib/auth/validators.py"]}
+{"id": "django__django-11133", "question": "HttpResponse doesn't handle memoryview objects", "files": ["django/http/response.py"]}
+{"id": "django__django-11179", "question": "delete() on instances of models without any dependencies doesn't clear PKs.", "files": ["django/db/models/deletion.py"]}
+{"id": "django__django-11283", "question": "Migration auth.0011_update_proxy_permissions fails for models recreated as a proxy.", "files": ["django/contrib/auth/migrations/0011_update_proxy_permissions.py"]}
+{"id": "django__django-11422", "question": "Autoreloader with StatReloader doesn't track changes in manage.py.", "files": ["django/utils/autoreload.py"]}
+{"id": "django__django-11564", "question": "Add support for SCRIPT_NAME in STATIC_URL and MEDIA_URL", "files": ["django/conf/__init__.py"]}
+{"id": "django__django-11583", "question": "Auto-reloading with StatReloader very intermittently throws \"ValueError: embedded null byte\".", "files": ["django/utils/autoreload.py"]}
+{"id": "django__django-11620", "question": "When DEBUG is True, raising Http404 in a path converter's to_python method does not result in a technical response", "files": ["django/views/debug.py"]}
+{"id": "django__django-11630", "question": "Django throws error when different apps with different models have the same name table name.", "files": ["django/core/checks/model_checks.py"]}
+{"id": "django__django-11742", "question": "Add check to ensure max_length fits longest choice.", "files": ["django/db/models/fields/__init__.py"]}
+{"id": "django__django-11797", "question": "Filtering on query result overrides GROUP BY of internal query", "files": ["django/db/models/lookups.py"]}
+{"id": "django__django-11815", "question": "Migrations uses value of enum object instead of its name.", "files": ["django/db/migrations/serializer.py"]}
+{"id": "django__django-11848", "question": "django.utils.http.parse_http_date two digit year check is incorrect", "files": ["django/utils/http.py"]}
+{"id": "django__django-11905", "question": "Prevent using __isnull lookup with non-boolean value.", "files": ["django/db/models/lookups.py"]}
+{"id": "django__django-11910", "question": "ForeignKey's to_field parameter gets the old field's name when renaming a PrimaryKey.", "files": ["django/db/migrations/autodetector.py"]}
+{"id": "django__django-11964", "question": "The value of a TextChoices/IntegerChoices field has a differing type", "files": ["django/db/models/enums.py"]}
+{"id": "django__django-11999", "question": "Cannot override get_FOO_display() in Django 2.2+.", "files": ["django/db/models/fields/__init__.py"]}
+{"id": "django__django-12113", "question": "admin_views.test_multidb fails with persistent test SQLite database.", "files": ["django/db/backends/sqlite3/creation.py"]}
+{"id": "django__django-12125", "question": "makemigrations produces incorrect path for inner classes", "files": ["django/db/migrations/serializer.py"]}
+{"id": "django__django-12184", "question": "Optional URL params crash some view functions.", "files": ["django/urls/resolvers.py"]}
+{"id": "django__django-12284", "question": "Model.get_FOO_display() does not work correctly with inherited choices.", "files": ["django/db/models/fields/__init__.py"]}
+{"id": "django__django-12286", "question": "translation.E004 shouldn't be raised on sublanguages when a base language is available.", "files": ["django/core/checks/translation.py"]}
+{"id": "django__django-12308", "question": "JSONField are not properly displayed in admin when they are readonly.", "files": ["django/contrib/admin/utils.py"]}
+{"id": "django__django-12453", "question": "`TransactionTestCase.serialized_rollback` fails to restore objects due to ordering constraints", "files": ["django/db/backends/base/creation.py"]}
+{"id": "django__django-12470", "question": "Inherited model doesn't correctly order by \"-pk\" when specified on Parent.Meta.ordering", "files": ["django/db/models/sql/compiler.py"]}
+{"id": "django__django-12497", "question": "Wrong hint about recursive relationship.", "files": ["django/db/models/fields/related.py"]}
+{"id": "django__django-12589", "question": "Django 3.0: \"GROUP BY\" clauses error with tricky field annotation", "files": ["django/db/models/sql/query.py"]}
+{"id": "django__django-12700", "question": "Settings are cleaned insufficiently.", "files": ["django/views/debug.py"]}
+{"id": "django__django-12708", "question": "Migration crashes deleting an index_together if there is a unique_together on the same fields", "files": ["django/db/backends/base/schema.py"]}
+{"id": "django__django-12747", "question": "QuerySet.Delete - inconsistent result when zero objects deleted", "files": ["django/db/models/deletion.py"]}
+{"id": "django__django-12856", "question": "Add check for fields of UniqueConstraints.", "files": ["django/db/models/base.py"]}
+{"id": "django__django-12908", "question": "Union queryset should raise on distinct().", "files": ["django/db/models/query.py"]}
+{"id": "django__django-12915", "question": "Add get_response_async for ASGIStaticFilesHandler", "files": ["django/contrib/staticfiles/handlers.py"]}
+{"id": "django__django-12983", "question": "Make django.utils.text.slugify() strip dashes and underscores", "files": ["django/utils/text.py"]}
+{"id": "django__django-13028", "question": "Queryset raises NotSupportedError when RHS has filterable=False attribute.", "files": ["django/db/models/sql/query.py"]}
+{"id": "django__django-13033", "question": "Self referencing foreign key doesn't correctly order by a relation \"_id\" field.", "files": ["django/db/models/sql/compiler.py"]}
+{"id": "django__django-13158", "question": "QuerySet.none() on combined queries returns all results.", "files": ["django/db/models/sql/query.py"]}
+{"id": "django__django-13220", "question": "Allow ValidationErrors to equal each other when created identically", "files": ["django/core/exceptions.py"]}
+{"id": "django__django-13230", "question": "Add support for item_comments to syndication framework", "files": ["django/contrib/syndication/views.py"]}
+{"id": "django__django-13265", "question": "AlterOrderWithRespectTo() with ForeignKey crash when _order is included in Index().", "files": ["django/db/migrations/autodetector.py"]}
+{"id": "django__django-13315", "question": "limit_choices_to on a ForeignKey can render duplicate options in formfield", "files": ["django/forms/models.py"]}
+{"id": "django__django-13321", "question": "Decoding an invalid session data crashes.", "files": ["django/contrib/sessions/backends/base.py"]}
+{"id": "django__django-13401", "question": "Abstract model field should not be equal across models", "files": ["django/db/models/fields/__init__.py"]}
+{"id": "django__django-13447", "question": "Added model class to app_list context", "files": ["django/contrib/admin/sites.py"]}
+{"id": "django__django-13448", "question": "Test runner setup_databases crashes with \"TEST\": {\"MIGRATE\": False}.", "files": ["django/db/backends/base/creation.py"]}
+{"id": "django__django-13551", "question": "Changing user's email could invalidate password reset tokens", "files": ["django/contrib/auth/tokens.py"]}
+{"id": "django__django-13590", "question": "Upgrading 2.2>3.0 causes named tuples used as arguments to __range to error.", "files": ["django/db/models/sql/query.py"]}
+{"id": "django__django-13658", "question": "ManagementUtility instantiates CommandParser without passing already-computed prog argument", "files": ["django/core/management/__init__.py"]}
+{"id": "django__django-13660", "question": "shell command crashes when passing (with -c) the python code with functions.", "files": ["django/core/management/commands/shell.py"]}
+{"id": "django__django-13710", "question": "Use Admin Inline verbose_name as default for Inline verbose_name_plural", "files": ["django/contrib/admin/options.py"]}
+{"id": "django__django-13757", "question": "Using __isnull=True on a KeyTransform should not match JSON null on SQLite and Oracle", "files": ["django/db/models/fields/json.py"]}
+{"id": "django__django-13768", "question": "Log exceptions handled in Signal.send_robust()", "files": ["django/dispatch/dispatcher.py"]}
+{"id": "django__django-13925", "question": "models.W042 is raised on inherited manually specified primary key.", "files": ["django/db/models/base.py"]}
+{"id": "django__django-13933", "question": "ModelChoiceField does not provide value of invalid choice when raising ValidationError", "files": ["django/forms/models.py"]}
+{"id": "django__django-13964", "question": "Saving parent object after setting on child leads to data loss for parents with non-numeric primary key.", "files": ["django/db/models/base.py"]}
+{"id": "django__django-14016", "question": "\"TypeError: cannot pickle\" when applying | operator to a Q object", "files": ["django/db/models/query_utils.py"]}
+{"id": "django__django-14017", "question": "Q(...) & Exists(...) raises a TypeError", "files": ["django/db/models/query_utils.py"]}
+{"id": "django__django-14155", "question": "ResolverMatch.__repr__() doesn't handle functools.partial() nicely.", "files": ["django/urls/resolvers.py"]}
+{"id": "django__django-14238", "question": "DEFAULT_AUTO_FIELD subclass check fails for subclasses of BigAutoField and SmallAutoField.", "files": ["django/db/models/fields/__init__.py"]}
+{"id": "django__django-14382", "question": "django-admin startapp with trailing slash in directory name results in error", "files": ["django/core/management/templates.py"]}
+{"id": "django__django-14411", "question": "Label for ReadOnlyPasswordHashWidget points to non-labelable element.", "files": ["django/contrib/auth/forms.py"]}
+{"id": "django__django-14534", "question": "BoundWidget.id_for_label ignores id set by ChoiceWidget.options", "files": ["django/forms/boundfield.py"]}
+{"id": "django__django-14580", "question": "Missing import statement in generated migration (NameError: name 'models' is not defined)", "files": ["django/db/migrations/serializer.py"]}
+{"id": "django__django-14608", "question": "Add `nonform` CSS class for non form errors in FormSets", "files": ["django/forms/formsets.py"]}
+{"id": "django__django-14667", "question": "QuerySet.defer() doesn't clear deferred field when chaining with only().", "files": ["django/db/models/sql/query.py"]}
+{"id": "django__django-14672", "question": "Missing call `make_hashable` on `through_fields` in `ManyToManyRel`", "files": ["django/db/models/fields/reverse_related.py"]}
+{"id": "django__django-14730", "question": "Prevent developers from defining a related_name on symmetrical ManyToManyFields", "files": ["django/db/models/fields/related.py"]}
+{"id": "django__django-14752", "question": "Refactor AutocompleteJsonView to support extra fields in autocomplete response", "files": ["django/contrib/admin/views/autocomplete.py"]}
+{"id": "django__django-14787", "question": "method_decorator() should preserve wrapper assignments", "files": ["django/utils/decorators.py"]}
+{"id": "django__django-14855", "question": "Wrong URL generated by get_admin_url for readonly field in custom Admin Site", "files": ["django/contrib/admin/helpers.py"]}
+{"id": "django__django-14915", "question": "ModelChoiceIteratorValue is not hashable.", "files": ["django/forms/models.py"]}
+{"id": "django__django-14997", "question": "Remaking table with unique constraint crashes on SQLite.", "files": ["django/db/backends/ddl_references.py"]}
+{"id": "django__django-14999", "question": "RenameModel with db_table should be a noop.", "files": ["django/db/migrations/operations/models.py"]}
+{"id": "django__django-15061", "question": "Remove \"for = ...\" from MultiWidget's <label>.", "files": ["django/forms/widgets.py"]}
+{"id": "django__django-15202", "question": "URLField throws ValueError instead of ValidationError on clean", "files": ["django/core/validators.py"]}
+{"id": "django__django-15213", "question": "ExpressionWrapper for ~Q(pk__in=[]) crashes.", "files": ["django/db/models/fields/__init__.py"]}
+{"id": "django__django-15252", "question": "MigrationRecorder does not obey db_router allow_migrate rules", "files": ["django/db/migrations/executor.py"]}
+{"id": "django__django-15320", "question": "Subquery.as_sql() generates invalid SQL.", "files": ["django/db/models/expressions.py"]}
+{"id": "django__django-15347", "question": "Messages framework incorrectly serializes/deserializes extra_tags when it's an empty string", "files": ["django/contrib/messages/storage/cookie.py"]}
+{"id": "django__django-15388", "question": "Dev Server fails to restart after adding BASE_DIR to TEMPLATES[0]['DIRS'] in settings", "files": ["django/template/autoreload.py"]}
+{"id": "django__django-15400", "question": "SimpleLazyObject doesn't implement __radd__", "files": ["django/utils/functional.py"]}
+{"id": "django__django-15498", "question": "Fix handling empty string for If-Modified-Since header", "files": ["django/views/static.py"]}
+{"id": "django__django-15695", "question": "RenameIndex() crashes when unnamed index is moving backward and forward.", "files": ["django/db/migrations/operations/models.py"]}
+{"id": "django__django-15738", "question": "Models migration with change field foreign to many and deleting unique together.", "files": ["django/db/migrations/autodetector.py"]}
+{"id": "django__django-15781", "question": "Customizable management command formatters.", "files": ["django/core/management/base.py"]}
+{"id": "django__django-15789", "question": "Add an encoder parameter to django.utils.html.json_script().", "files": ["django/utils/html.py"]}
+{"id": "django__django-15790", "question": "check_for_template_tags_with_the_same_name with libraries in TEMPLATES", "files": ["django/core/checks/templates.py"]}
+{"id": "django__django-15814", "question": "QuerySet.only() after select_related() crash on proxy models.", "files": ["django/db/models/sql/query.py"]}
+{"id": "django__django-15819", "question": "inspectdb should generate related_name on same relation links.", "files": ["django/core/management/commands/inspectdb.py"]}
+{"id": "django__django-15851", "question": "dbshell additional parameters should be passed before dbname on PostgreSQL.", "files": ["django/db/backends/postgresql/client.py"]}
+{"id": "django__django-15902", "question": "\"default.html\" deprecation warning raised for ManagementForm's", "files": ["django/forms/formsets.py"]}
+{"id": "django__django-15996", "question": "Support for serialization of combination of Enum flags.", "files": ["django/db/migrations/serializer.py"]}
+{"id": "django__django-16041", "question": "Rendering empty_form crashes when empty_permitted is passed to form_kwargs", "files": ["django/forms/formsets.py"]}
+{"id": "django__django-16046", "question": "Fix numberformat.py \"string index out of range\" when null", "files": ["django/utils/numberformat.py"]}
+{"id": "django__django-16139", "question": "Accessing UserAdmin via to_field leads to link to PasswordResetForm being broken (404)", "files": ["django/contrib/auth/forms.py"]}
+{"id": "django__django-16229", "question": "ModelForm fields with callable defaults don't correctly propagate default values", "files": ["django/forms/boundfield.py"]}
+{"id": "django__django-16255", "question": "Sitemaps without items raise ValueError on callable lastmod.", "files": ["django/contrib/sitemaps/__init__.py"]}
+{"id": "django__django-16379", "question": "FileBasedCache has_key is susceptible to race conditions", "files": ["django/core/cache/backends/filebased.py"]}
+{"id": "django__django-16400", "question": "migrate management command does not respect database parameter when adding Permissions.", "files": ["django/contrib/auth/management/__init__.py"]}
+{"id": "django__django-16408", "question": "Multi-level FilteredRelation with select_related() may set wrong related object.", "files": ["django/db/models/sql/compiler.py"]}
+{"id": "django__django-16527", "question": "\"show_save_as_new\" in admin can add without this permission", "files": ["django/contrib/admin/templatetags/admin_modify.py"]}
+{"id": "django__django-16595", "question": "Migration optimizer does not reduce multiple AlterField", "files": ["django/db/migrations/operations/fields.py"]}
+{"id": "django__django-16816", "question": "Error E108 does not cover some cases", "files": ["django/contrib/admin/checks.py"]}
+{"id": "django__django-16820", "question": "Squashing migrations with Meta.index_together -> indexes transition should remove deprecation warnings.", "files": ["django/db/migrations/operations/models.py"]}
+{"id": "django__django-16873", "question": "Template filter `join` should not escape the joining string if `autoescape` is `off`", "files": ["django/template/defaultfilters.py"]}
+{"id": "django__django-16910", "question": "QuerySet.only() doesn't work with select_related() on a reverse OneToOneField relation.", "files": ["django/db/models/sql/query.py"]}
+{"id": "django__django-17051", "question": "Allow returning IDs in QuerySet.bulk_create() when updating conflicts.", "files": ["django/db/models/query.py"]}
+{"id": "django__django-17087", "question": "Class methods from nested classes cannot be used as Field.default.", "files": ["django/db/migrations/serializer.py"]}
