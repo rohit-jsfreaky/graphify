@@ -1,0 +1,112 @@
+{
+ "project": "AutoMapper",
+ "table": {
+  "same": {
+   "links": 314,
+   "st:found": 250,
+   "found_strict": 250,
+   "found": 289,
+   "subkind:": 0,
+   "st:caller_node_missing": 10,
+   "st:found_other_overload": 39,
+   "st:missing": 15
+  },
+  "inherited": {
+   "links": 30,
+   "st:found": 20,
+   "found_strict": 20,
+   "found": 23,
+   "subkind:": 0,
+   "st:missing": 6,
+   "st:found_other_overload": 3,
+   "st:caller_node_missing": 1,
+   "class_fallback": 1
+  },
+  "static": {
+   "links": 36,
+   "st:found": 29,
+   "found_strict": 29,
+   "found": 31,
+   "subkind:": 0,
+   "st:caller_node_missing": 1,
+   "st:missing": 4,
+   "st:found_other_overload": 2
+  },
+  "typed": {
+   "links": 185,
+   "st:missing": 55,
+   "subkind:": 0,
+   "st:found": 113,
+   "found_strict": 113,
+   "found": 116,
+   "st:caller_node_missing": 14,
+   "class_fallback": 12,
+   "st:found_other_overload": 3
+  },
+  "extension": {
+   "links": 269,
+   "st:missing": 253,
+   "subkind:": 0,
+   "st:caller_node_missing": 15,
+   "st:found_other_overload": 1,
+   "found": 1
+  },
+  "interface": {
+   "links": 81,
+   "st:found_other_overload": 4,
+   "found": 52,
+   "subkind:": 0,
+   "st:found": 48,
+   "found_strict": 48,
+   "st:missing": 26,
+   "st:caller_node_missing": 3,
+   "class_fallback": 2
+  },
+  "generic": {
+   "links": 19,
+   "st:missing": 8,
+   "subkind:": 0,
+   "st:found": 10,
+   "found_strict": 10,
+   "found": 11,
+   "st:found_other_overload": 1
+  },
+  "ctor": {
+   "links": 196,
+   "st:missing": 95,
+   "subkind:": 0,
+   "st:found": 86,
+   "found_strict": 86,
+   "found": 88,
+   "st:found_other_overload": 2,
+   "st:caller_node_missing": 13,
+   "class_fallback": 20
+  },
+  "other": {
+   "links": 48,
+   "st:missing": 6,
+   "subkind:receiver_other:RangeVariable": 1,
+   "subkind:receiver_method_group": 6,
+   "st:found": 41,
+   "found_strict": 41,
+   "found": 41,
+   "subkind:bare_using_static": 41,
+   "st:caller_node_missing": 1
+  }
+ },
+ "wrong_calls": {
+  "external_target|other": 51,
+  "right_target_other_caller|typed": 13,
+  "right_target_other_caller|same": 7,
+  "wrong_own_target|inherited": 6,
+  "wrong_own_target|same": 6,
+  "no_call_with_that_name_at_line|?": 4,
+  "external_target|generic": 3,
+  "external_target|inherited": 2,
+  "right_target_other_caller|static": 1,
+  "right_target_other_caller|ctor": 1,
+  "right_target_other_caller|interface": 1,
+  "right_target_other_caller|inherited": 1
+ },
+ "graphify_calls_edges_in_scope": 685
+}

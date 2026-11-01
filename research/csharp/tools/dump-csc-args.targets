@@ -1,0 +1,6 @@
+<Project>
+  <!-- Injected via -p:CustomAfterMicrosoftCommonTargets=...; writes the exact csc arguments of CoreCompile to $(CscDumpDir). -->
+  <Target Name="DumpCscArgs" AfterTargets="CoreCompile" Condition="'$(CscDumpDir)' != '' and '@(CscCommandLineArgs)' != ''">
+    <WriteLinesToFile File="$(CscDumpDir)/$(MSBuildProjectName).$(TargetFramework).rsp" Lines="@(CscCommandLineArgs)" Overwrite="true" />
+  </Target>
+</Project>

@@ -1,0 +1,25 @@
+=== 1-extension
+--- compiler (Roslyn) call edges:
+[compile] trees=2 refs=163 generators=0 errors=0
+  Greeter.Greet (method, Greeter.cs:L5)  ->  StringExt.Shout (StringExt.cs:L5)   site L7 kind=extension
+  Greeter.GreetStatic (method, Greeter.cs:L10)  ->  StringExt.Shout (StringExt.cs:L5)   site L12 kind=static
+--- graphify (upstream/v8) edges:
+  calls      Greeter.GreetStatic() [Greeter.cs:L10]  ->  StringExt.Shout() [StringExt.cs:L5]   (site L12, ctx=call)
+=== 2-non-method-callers
+--- compiler (Roslyn) call edges:
+[compile] trees=2 refs=163 generators=0 errors=0
+  Money.Money (ctor, Money.cs:L7)  ->  Check.Positive (Check.cs:L5)   site L9 kind=static
+  Money.Rounded (accessor_get, Money.cs:L12)  ->  Check.Round (Check.cs:L6)   site L12 kind=static
+  Money.operator decimal (conversion, Money.cs:L14)  ->  Check.Half (Check.cs:L7)   site L14 kind=static
+  Money.Local (local_function, Money.cs:L19)  ->  Check.Twice (Check.cs:L8)   site L19 kind=static
+--- graphify (upstream/v8) edges:
+  calls      Money [Money.cs:L3]  ->  Check.Positive() [Check.cs:L5]   (site L9, ctx=call)
+  calls      Money.Doubled() [Money.cs:L16]  ->  Check.Twice() [Check.cs:L8]   (site L19, ctx=call)
+=== 3-preprocessor
+--- compiler (Roslyn) call edges:
+[compile] trees=2 refs=163 generators=0 errors=0
+  Writer.Flush (method, Writer.cs:L41)  ->  Writer.Prepare (Writer.cs:L47)   site L43 kind=same
+  Writer.Flush (method, Writer.cs:L41)  ->  Buffer.Append (Buffer.cs:L5)   site L44 kind=typed
+--- graphify (upstream/v8) edges:
+  references Writer [Writer.cs:L3]  ->  Buffer [Buffer.cs:L3]   (site L5, ctx=field)
+  calls      Flush() [Writer.cs:L41]  ->  Prepare() [Writer.cs:L47]   (site L43, ctx=call)

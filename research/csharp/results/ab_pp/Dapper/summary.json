@@ -1,0 +1,87 @@
+{
+ "project": "Dapper",
+ "table": {
+  "same": {
+   "links": 262,
+   "st:caller_node_missing": 14,
+   "subkind:": 0,
+   "st:found": 231,
+   "found_strict": 231,
+   "found": 242,
+   "st:found_other_overload": 11,
+   "st:missing": 6
+  },
+  "inherited": {
+   "links": 2,
+   "st:missing": 2,
+   "subkind:": 0
+  },
+  "static": {
+   "links": 33,
+   "st:missing": 5,
+   "subkind:": 0,
+   "st:found": 22,
+   "found_strict": 22,
+   "found": 22,
+   "st:caller_node_missing": 6
+  },
+  "typed": {
+   "links": 44,
+   "st:caller_node_missing": 2,
+   "subkind:": 0,
+   "st:found": 30,
+   "found_strict": 30,
+   "found": 30,
+   "st:missing": 12
+  },
+  "extension": {
+   "links": 24,
+   "st:missing": 24,
+   "subkind:": 0
+  },
+  "interface": {
+   "links": 16,
+   "st:found": 8,
+   "found_strict": 8,
+   "found": 8,
+   "subkind:": 0,
+   "st:caller_node_missing": 3,
+   "st:missing": 5
+  },
+  "generic": {
+   "links": 185,
+   "st:found_other_overload": 13,
+   "found": 177,
+   "subkind:": 0,
+   "st:found": 164,
+   "found_strict": 164,
+   "st:missing": 6,
+   "st:caller_node_missing": 2
+  },
+  "ctor": {
+   "links": 116,
+   "st:missing": 31,
+   "subkind:": 0,
+   "st:found": 83,
+   "found_strict": 83,
+   "found": 83,
+   "st:caller_node_missing": 2
+  },
+  "other": {
+   "links": 24,
+   "st:found_other_overload": 4,
+   "found": 24,
+   "subkind:receiver_expr:ParenthesizedExpression": 4,
+   "st:found": 20,
+   "found_strict": 20,
+   "subkind:bare_outer_type": 20
+  }
+ },
+ "wrong_calls": {
+  "right_target_other_caller|static": 6,
+  "right_target_other_caller|same": 3,
+  "right_target_other_caller|generic": 1,
+  "right_target_other_caller|ctor": 1
+ },
+ "graphify_calls_edges_in_scope": 577
+}

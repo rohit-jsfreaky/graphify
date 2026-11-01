@@ -1,0 +1,210 @@
+cause                                                                                      Dapper AutoMapper Newtonsoft      total
+1 extension-method call                                                                        24        268        578        870
+2 caller is accessor (no graphify function node)                                                9         22         78        109
+2 caller is conversion (no graphify function node)                                              1          0        148        149
+2 caller is ctor (no graphify function node)                                                    9         24        104        137
+2 caller is local_function (no graphify function node)                                          2         17          3         22
+3 call after a tree-sitter ERROR in the file (#if/#endif)                                      24         18        344        386
+4 caller method has no node (merged overload / explicit interface impl)                        20         11          5         36
+5 target-typed new()                                                                            0         65          0         65
+6 target has the caller's own name (base.X() in override X / overload forwarding)               4         29         79        112
+7 other: ctor via new                                                                          20          7         22         49
+7 other: generic via bare                                                                       1          0          0          1
+7 other: generic via local                                                                      0          3          1          4
+7 other: generic via method_group                                                               3          0          1          4
+7 other: generic via parameter                                                                  0          3          0          3
+7 other: generic via property                                                                   1          1          7          9
+7 other: inherited via bare                                                                     0          0         12         12
+7 other: interface via conditional_method_group                                                 0          1          0          1
+7 other: interface via conditional_property                                                     0          1          0          1
+7 other: interface via field                                                                    0          0          3          3
+7 other: interface via local                                                                    0          2          0          2
+7 other: interface via parameter                                                                0         12          0         12
+7 other: interface via property                                                                 0          2          3          5
+7 other: other via bare                                                                         0          1          0          1
+7 other: other via method_group                                                                 0          2          3          5
+7 other: other via other                                                                        0          1          0          1
+7 other: same via bare                                                                          2          0         11         13
+7 other: static via type                                                                        4          0         15         19
+7 other: typed via field                                                                        0          1         11         12
+7 other: typed via local                                                                        1         17         11         29
+7 other: typed via parameter                                                                    1         15         41         57
+7 other: typed via property                                                                     7          3          7         17
+ALL MISSED                                                                                    133        526       1487       2146
+
+## 1 extension-method call
+    Dapper: Dapper/SqlMapper.Async.cs:429 SqlMapper.QueryAsync -> Dapper.SqlMapper.TrySetupAsyncCommand(Dapper.CommandDefinition, System.Data.IDbConnection, System.Ac  [command.TrySetupAsyncCommand(cnn, info.ParamReader)]
+    Dapper: Dapper/SqlMapper.Async.cs:433 SqlMapper.QueryAsync -> Dapper.SqlMapper.TryOpenAsync(System.Data.IDbConnection, System.Threading.CancellationToken)  [cnn.TryOpenAsync(cancel)]
+    Dapper: Dapper/SqlMapper.Async.cs:484 SqlMapper.QueryRowAsync -> Dapper.SqlMapper.TrySetupAsyncCommand(Dapper.CommandDefinition, System.Data.IDbConnection, System.Ac  [command.TrySetupAsyncCommand(cnn, info.ParamReader)]
+    Dapper: Dapper/SqlMapper.Async.cs:488 SqlMapper.QueryRowAsync -> Dapper.SqlMapper.TryOpenAsync(System.Data.IDbConnection, System.Threading.CancellationToken)  [cnn.TryOpenAsync(cancel)]
+    Dapper: Dapper/SqlMapper.Async.cs:567 SqlMapper.ExecuteMultiImplAsync -> Dapper.SqlMapper.TryOpenAsync(System.Data.IDbConnection, System.Threading.CancellationToken)  [cnn.TryOpenAsync(command.CancellationToken)]
+    Dapper: Dapper/SqlMapper.Async.cs:583 SqlMapper.ExecuteMultiImplAsync -> Dapper.SqlMapper.TrySetupAsyncCommand(Dapper.CommandDefinition, System.Data.IDbConnection, System.Ac  [command.TrySetupAsyncCommand(cnn, null)]
+## 2 caller is accessor (no graphify function node)
+    Dapper: Dapper/SqlMapper.DapperRow.cs:162 DapperRow.this[] -> Dapper.SqlMapper.DapperRow.TryGetValue(string, out object?)  [TryGetValue(key, out object? val)]
+    Dapper: Dapper/SqlMapper.DapperRow.cs:163 DapperRow.this[] -> Dapper.SqlMapper.DapperRow.SetValue(string, object?, bool)  [SetValue(key, value, false)]
+    Dapper: Dapper/SqlMapper.DapperRow.cs:234 DapperRow.this[] -> Dapper.SqlMapper.DapperRow.TryGetValue(string, out object?)  [TryGetValue(key, out object? val)]
+    Dapper: Dapper/SqlMapper.GridReader.cs:48 GridReader.Identity -> Dapper.SqlMapper.GridReader.CreateIdentity()  [CreateIdentity()]
+    Dapper: Dapper/SqlMapper.Settings.cs:30 Settings.UseSingleResultOptimization -> Dapper.SqlMapper.Settings.SetAllowedCommandBehaviors(System.Data.CommandBehavior, bool)  [SetAllowedCommandBehaviors(CommandBehavior.SingleResult, val]
+    Dapper: Dapper/SqlMapper.Settings.cs:39 Settings.UseSingleRowOptimization -> Dapper.SqlMapper.Settings.SetAllowedCommandBehaviors(System.Data.CommandBehavior, bool)  [SetAllowedCommandBehaviors(CommandBehavior.SingleRow, value)]
+## 2 caller is conversion (no graphify function node)
+    Dapper: Dapper/SqlMapper.cs:199 TypeMapEntry.operator TypeMapEntry -> Dapper.SqlMapper.TypeMapEntry.TypeMapEntry(System.Data.DbType, Dapper.SqlMapper.TypeMapEntryFlags)  [new(dbType, TypeMapEntryFlags.SetType)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Linq/JToken.cs:570 JToken.operator bool -> Newtonsoft.Json.Linq.JToken.EnsureValue(Newtonsoft.Json.Linq.JToken)  [EnsureValue(value)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Linq/JToken.cs:571 JToken.operator bool -> Newtonsoft.Json.Linq.JToken.ValidateToken(Newtonsoft.Json.Linq.JToken, Newtonsoft.Json.Linq.JTokenTy  [ValidateToken(v, BooleanTypes, false)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Linq/JToken.cs:573 JToken.operator bool -> Newtonsoft.Json.Linq.JToken.GetType(Newtonsoft.Json.Linq.JToken)  [GetType(value)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Linq/JToken.cs:594 JToken.operator DateTimeOffset -> Newtonsoft.Json.Linq.JToken.EnsureValue(Newtonsoft.Json.Linq.JToken)  [EnsureValue(value)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Linq/JToken.cs:595 JToken.operator DateTimeOffset -> Newtonsoft.Json.Linq.JToken.ValidateToken(Newtonsoft.Json.Linq.JToken, Newtonsoft.Json.Linq.JTokenTy  [ValidateToken(v, DateTimeTypes, false)]
+## 2 caller is ctor (no graphify function node)
+    Dapper: Dapper/CommandDefinition.cs:93 CommandDefinition.CommandDefinition -> Dapper.CommandDefinition.InferCommandType(string)  [InferCommandType(commandText)]
+    Dapper: Dapper/DefaultTypeMap.cs:26 DefaultTypeMap.DefaultTypeMap -> Dapper.DefaultTypeMap.GetSettableFields(System.Type)  [GetSettableFields(type)]
+    Dapper: Dapper/DefaultTypeMap.cs:27 DefaultTypeMap.DefaultTypeMap -> Dapper.DefaultTypeMap.GetSettableProps(System.Type)  [GetSettableProps(type)]
+    Dapper: Dapper/DynamicParameters.cs:39 DynamicParameters.DynamicParameters -> Dapper.DynamicParameters.AddDynamicParams(object?)  [AddDynamicParams(template)]
+    Dapper: Dapper/SqlMapper.GridReader.cs:44 GridReader.GridReader -> Dapper.SqlMapper.IParameterCallbacks.OnCompleted()  [((IParameterCallbacks)state!).OnCompleted()]
+    Dapper: Dapper/SqlMapper.Identity.cs:59 IdentityWithTypes.IdentityWithTypes -> Dapper.SqlMapper.IdentityWithTypes.HashTypes(System.Type[])  [HashTypes(otherTypes)]
+## 2 caller is local_function (no graphify function node)
+    Dapper: Dapper/SqlMapper.Async.cs:1299 SqlMapper.Impl -> Dapper.SqlMapper.Identity.Identity(string, System.Data.CommandType?, System.Data.IDbConnection, Syst  [new Identity(command.CommandText, command.CommandTypeDirect,]
+    Dapper: Dapper/SqlMapper.IDataReader.cs:123 SqlMapper.Wrap -> Dapper.SqlMapper.GetDbDataReader(System.Data.IDataReader)  [GetDbDataReader(reader)]
+    AutoMapper: src/AutoMapper/Configuration/ConfigurationValidator.cs:62 ConfigurationValidator.DryRunTypeMap -> AutoMapper.Configuration.ValidationContext.ValidationContext(AutoMapper.Internal.TypePair, AutoMappe  [new(types, memberMap, configExceptions, typeMap)]
+    AutoMapper: src/AutoMapper/Configuration/ConfigurationValidator.cs:96 ConfigurationValidator.CheckPropertyMaps -> AutoMapper.Internal.TypePair.TypePair(System.Type, System.Type)  [new(sourceType, memberMap.DestinationType)]
+    AutoMapper: src/AutoMapper/Configuration/MapperConfiguration.cs:136 MapperConfiguration.ValidateLicense -> AutoMapper.Licensing.LicenseValidator.LicenseValidator(Microsoft.Extensions.Logging.ILoggerFactory)  [new LicenseValidator(_loggerFactory)]
+    AutoMapper: src/AutoMapper/Configuration/MapperConfiguration.cs:137 MapperConfiguration.ValidateLicense -> AutoMapper.Licensing.LicenseValidator.Validate(AutoMapper.Licensing.License)  [validator.Validate(_licenseAccessor.Current)]
+## 3 call after a tree-sitter ERROR in the file (#if/#endif)
+    Dapper: Dapper/SqlMapper.cs:307 SqlMapper.AddTypeMap -> Dapper.SqlMapper.TypeMapEntry.Equals(Dapper.SqlMapper.TypeMapEntry)  [oldValue.Equals(value)]
+    Dapper: Dapper/SqlMapper.cs:664 SqlMapper.ExecuteImpl -> Dapper.SqlMapper.Identity.Identity(string, System.Data.CommandType?, System.Data.IDbConnection, Syst  [new Identity(command.CommandText, cmd.CommandType, cnn, null]
+    Dapper: Dapper/SqlMapper.cs:1148 SqlMapper.QueryMultipleImpl -> Dapper.SqlMapper.Identity.Identity(string, System.Data.CommandType?, System.Data.IDbConnection, Syst  [new Identity(command.CommandText, command.CommandTypeDirect,]
+    Dapper: Dapper/SqlMapper.cs:1160 SqlMapper.QueryMultipleImpl -> Dapper.SqlMapper.GridReader.GridReader(System.Data.IDbCommand, System.Data.Common.DbDataReader, Dapp  [new GridReader(cmd, reader, identity, command.Parameters as ]
+    Dapper: Dapper/SqlMapper.cs:1207 SqlMapper.QueryImpl -> Dapper.SqlMapper.Identity.Identity(string, System.Data.CommandType?, System.Data.IDbConnection, Syst  [new Identity(command.CommandText, command.CommandTypeDirect,]
+    Dapper: Dapper/SqlMapper.cs:1300 SqlMapper.QueryRowImpl -> Dapper.SqlMapper.Identity.Identity(string, System.Data.CommandType?, System.Data.IDbConnection, Syst  [new Identity(command.CommandText, command.CommandTypeDirect,]
+## 4 caller method has no node (merged overload / explicit interface impl)
+    Dapper: Dapper/DynamicParameters.cs:184 DynamicParameters.AddParameters -> Dapper.SqlMapper.GetLiteralTokens(string)  [SqlMapper.GetLiteralTokens(identity.Sql)]
+    Dapper: Dapper/DynamicParameters.cs:190 DynamicParameters.AddParameters -> Dapper.SqlMapper.Identity.ForDynamicParameters(System.Type)  [identity.ForDynamicParameters(template.GetType())]
+    Dapper: Dapper/DynamicParameters.cs:197 DynamicParameters.AddParameters -> Dapper.SqlMapper.CreateParamInfoGenerator(Dapper.SqlMapper.Identity, bool, bool, System.Collections.  [SqlMapper.CreateParamInfoGenerator(newIdent, true, RemoveUnu]
+    Dapper: Dapper/DynamicParameters.cs:214 DynamicParameters.AddParameters -> Dapper.DynamicParameters.ParamInfo.ParamInfo()  [new ParamInfo                         {                   ]
+    Dapper: Dapper/DynamicParameters.cs:237 DynamicParameters.AddParameters -> Dapper.DynamicParameters.Clean(string)  [Clean(param.Name)]
+    Dapper: Dapper/DynamicParameters.cs:244 DynamicParameters.AddParameters -> Dapper.SqlMapper.LookupDbType(System.Type, string, bool, out Dapper.SqlMapper.ITypeHandler?)  [SqlMapper.LookupDbType(val.GetType(), name, true, out handle]
+## 5 target-typed new()
+    AutoMapper: src/AutoMapper/Configuration/MapperConfiguration.cs:199 MapperConfiguration.Validator -> AutoMapper.Configuration.ConfigurationValidator.ConfigurationValidator(AutoMapper.Internal.IGlobalCo  [new(this)]
+    AutoMapper: src/AutoMapper/Configuration/MapperConfiguration.cs:209 MapperConfiguration.BuildExecutionPlan -> AutoMapper.Internal.MapRequest.MapRequest(AutoMapper.Internal.TypePair)  [new(new(sourceType, destinationType))]
+    AutoMapper: src/AutoMapper/Configuration/MapperConfiguration.cs:209 MapperConfiguration.BuildExecutionPlan -> AutoMapper.Internal.TypePair.TypePair(System.Type, System.Type)  [new(sourceType, destinationType)]
+    AutoMapper: src/AutoMapper/Configuration/MapperConfiguration.cs:263 MapperConfiguration.CreateProjectionBuilder -> AutoMapper.QueryableExtensions.Impl.ProjectionBuilder.ProjectionBuilder(AutoMapper.Internal.IGlobalC  [new(this, [.. ConfigurationExpression.ProjectionMappers])]
+    AutoMapper: src/AutoMapper/Configuration/MapperConfiguration.cs:280 MapperConfiguration.ConvertParameterReplaceVisitor -> AutoMapper.Execution.ConvertParameterReplaceVisitor.ConvertParameterReplaceVisitor()  [new()]
+    AutoMapper: src/AutoMapper/Configuration/MapperConfiguration.cs:281 MapperConfiguration.ParameterReplaceVisitor -> AutoMapper.Execution.ParameterReplaceVisitor.ParameterReplaceVisitor()  [new()]
+## 6 target has the caller's own name (base.X() in override X / overload forwarding)
+    Dapper: Dapper/SqlMapper.DapperRow.cs:184 DapperRow.SetValue -> Dapper.SqlMapper.DapperRow.SetValue(int, object?)  [SetValue(index, value)]
+    Dapper: Dapper/SqlMapper.Identity.cs:51 Identity.GetType -> Dapper.SqlMapper.Identity.GetType(int)  [base.GetType(index)]
+    Dapper: Dapper/SqlMapper.TypeDeserializerCache.cs:50 TypeDeserializerCache.GetReader -> Dapper.SqlMapper.TypeDeserializerCache.GetReader(System.Data.Common.DbDataReader, int, int, bool)  [found.GetReader(reader, startBound, length, returnNullIfFirs]
+    Dapper: Dapper/XmlHandlers.cs:11 XmlTypeHandler.SetValue -> Dapper.SqlMapper.StringTypeHandler<T>.SetValue(System.Data.IDbDataParameter, T?)  [base.SetValue(parameter, value)]
+    AutoMapper: src/AutoMapper/Configuration/Conventions.cs:58 MemberConfiguration.Merge -> AutoMapper.Configuration.Conventions.ISourceToDestinationNameMapper.Merge(AutoMapper.Configuration.C  [nameToMemberMapper.Merge(otherMapper)]
+    AutoMapper: src/AutoMapper/Configuration/CtorParamConfigurationExpression.cs:44 CtorParamConfigurationExpression.MapFrom -> AutoMapper.MemberMap.MapFrom(System.Linq.Expressions.LambdaExpression)  [cpm.MapFrom(sourceMember)]
+## 7 other: ctor via new
+    Dapper: Dapper/CommandDefinition.cs:16 CommandDefinition.ForCallback -> Dapper.CommandDefinition.CommandDefinition(object?, Dapper.CommandFlags)  [new CommandDefinition(parameters is DynamicParameters ? para]
+    Dapper: Dapper/DynamicParameters.cs:96 DynamicParameters.Add -> Dapper.DynamicParameters.ParamInfo.ParamInfo()  [new ParamInfo             {                 Name = name, ]
+    Dapper: Dapper/DynamicParameters.cs:118 DynamicParameters.Add -> Dapper.DynamicParameters.ParamInfo.ParamInfo()  [new ParamInfo             {                 Name = name, ]
+    Dapper: Dapper/DynamicParameters.cs:162 DynamicParameters.AddParameters -> Dapper.SqlMapper.Identity.Identity(string, System.Data.CommandType?, System.Data.IDbConnection, Syst  [new SqlMapper.Identity(                 command.CommandText]
+    Dapper: Dapper/SqlMapper.Async.cs:425 SqlMapper.QueryAsync -> Dapper.SqlMapper.Identity.Identity(string, System.Data.CommandType?, System.Data.IDbConnection, Syst  [new Identity(command.CommandText, command.CommandTypeDirect,]
+    Dapper: Dapper/SqlMapper.Async.cs:480 SqlMapper.QueryRowAsync -> Dapper.SqlMapper.Identity.Identity(string, System.Data.CommandType?, System.Data.IDbConnection, Syst  [new Identity(command.CommandText, command.CommandTypeDirect,]
+## 7 other: generic via bare
+    Dapper: Dapper/SqlMapper.Async.cs:1250 SqlMapper.ExecuteScalarImplAsync -> Dapper.SqlMapper.Parse<T>(object?)  [Parse<T>(result)]
+## 7 other: generic via local
+    AutoMapper: src/AutoMapper/Configuration/Annotations/SourceMemberAttribute.cs:17 SourceMemberAttribute.ApplyConfiguration -> AutoMapper.Internal.ReflectionHelper.Has<TAttribute>(System.Reflection.MemberInfo)  [destinationMember.Has<ValueConverterAttribute>()]
+    AutoMapper: src/AutoMapper/Execution/ExpressionBuilder.cs:244 ExpressionBuilder.GetChain -> AutoMapper.Internal.ReflectionHelper.Has<TAttribute>(System.Reflection.MemberInfo)  [extensionMethod.Has<ExtensionAttribute>()]
+    AutoMapper: src/AutoMapper/TypeMap.cs:48 TypeMap.CheckRecord -> AutoMapper.Internal.ReflectionHelper.Has<TAttribute>(System.Reflection.MemberInfo)  [ctor.Has<CompilerGeneratedAttribute>()]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Linq/Extensions.cs:181 Extensions.Value -> Newtonsoft.Json.Linq.Extensions.Convert<T, U>(T)  [token.Convert<JToken, U>()]
+## 7 other: generic via method_group
+    Dapper: Dapper/SqlMapper.Async.cs:1098 SqlMapper.ExecuteReaderAsync -> Dapper.Extensions.CastResult<TFrom, TTo>(System.Threading.Tasks.Task<TFrom>)  [ExecuteWrappedReaderImplAsync(cnn, new CommandDefinition(sql]
+    Dapper: Dapper/SqlMapper.Async.cs:1124 SqlMapper.ExecuteReaderAsync -> Dapper.Extensions.CastResult<TFrom, TTo>(System.Threading.Tasks.Task<TFrom>)  [ExecuteWrappedReaderImplAsync(cnn, command, CommandBehavior.]
+    Dapper: Dapper/SqlMapper.Async.cs:1146 SqlMapper.ExecuteReaderAsync -> Dapper.Extensions.CastResult<TFrom, TTo>(System.Threading.Tasks.Task<TFrom>)  [ExecuteWrappedReaderImplAsync(cnn, command, commandBehavior)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Linq/Extensions.cs:243 Extensions.Children -> Newtonsoft.Json.Linq.Extensions.Convert<T, U>(System.Collections.Generic.IEnumerable<T>)  [source.SelectMany(c => c.Children()).Convert<JToken, U>()]
+## 7 other: generic via parameter
+    AutoMapper: src/AutoMapper/Configuration/Profile.cs:184 Profile.IncludeSourceExtensionMethods -> AutoMapper.Internal.ReflectionHelper.Has<TAttribute>(System.Reflection.MemberInfo)  [m.Has<ExtensionAttribute>()]
+    AutoMapper: src/AutoMapper/QueryableExtensions/Extensions.cs:24 Extensions.ProjectTo -> AutoMapper.QueryableExtensions.Extensions.ToCore<TResult>(System.Linq.IQueryable, AutoMapper.IConfig  [source.ToCore<TDestination>(configuration, parameters, membe]
+    AutoMapper: src/AutoMapper/QueryableExtensions/Extensions.cs:47 Extensions.ProjectTo -> AutoMapper.QueryableExtensions.Extensions.ToCore<TResult>(System.Linq.IQueryable, AutoMapper.IConfig  [source.ToCore<TDestination>(configuration, parameters, membe]
+## 7 other: generic via property
+    Dapper: Dapper/SqlMapper.GridReader.cs:242 GridReader.MultiReadInternal -> Dapper.SqlMapper.Identity.ForGrid<TFirst, TSecond, TThird, TFourth, TFifth, TSixth, TSeventh>(System  [Identity.ForGrid<TFirst, TSecond, TThird, TFourth, TFifth, T]
+    AutoMapper: src/AutoMapper/QueryableExtensions/ProjectionBuilder.cs:407 ParameterVisitor.VisitMember -> AutoMapper.Internal.ReflectionHelper.Has<TAttribute>(System.Reflection.MemberInfo)  [member.DeclaringType.Has<CompilerGeneratedAttribute>()]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Converters/UnionConverter.cs:144 UnionConverter.CreateUnion -> Newtonsoft.Json.Utilities.ReflectionDelegateFactory.CreateGet<T>(System.Reflection.PropertyInfo)  [JsonTypeReflector.ReflectionDelegateFactory.CreateGet<object]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Serialization/DynamicValueProvider.cs:71 DynamicValueProvider.SetValue -> Newtonsoft.Json.Utilities.ReflectionDelegateFactory.CreateSet<T>(System.Reflection.MemberInfo)  [DynamicReflectionDelegateFactory.Instance.CreateSet<object>(]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Serialization/DynamicValueProvider.cs:102 DynamicValueProvider.GetValue -> Newtonsoft.Json.Utilities.ReflectionDelegateFactory.CreateGet<T>(System.Reflection.MemberInfo)  [DynamicReflectionDelegateFactory.Instance.CreateGet<object>(]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Serialization/ExpressionValueProvider.cs:72 ExpressionValueProvider.SetValue -> Newtonsoft.Json.Utilities.ReflectionDelegateFactory.CreateSet<T>(System.Reflection.MemberInfo)  [ExpressionReflectionDelegateFactory.Instance.CreateSet<objec]
+## 7 other: inherited via bare
+    Newtonsoft.Json: Src/Newtonsoft.Json/Bson/BsonReader.cs:215 BsonReader.Read -> Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken)  [SetToken(JsonToken.None)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Bson/BsonReader.cs:251 BsonReader.ReadCodeWScope -> Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken, object?)  [SetToken(JsonToken.PropertyName, "$code")]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Bson/BsonReader.cs:269 BsonReader.ReadCodeWScope -> Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken)  [SetToken(JsonToken.StartObject)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Bson/BsonReader.cs:301 BsonReader.ReadReference -> Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken, object?)  [SetToken(JsonToken.PropertyName, JsonTypeReflector.RefProper]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Bson/BsonReader.cs:332 BsonReader.ReadReference -> Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken)  [SetToken(JsonToken.EndObject)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Bson/BsonReader.cs:355 BsonReader.ReadNormal -> Newtonsoft.Json.JsonReader.SetToken(Newtonsoft.Json.JsonToken)  [SetToken(token)]
+## 7 other: interface via conditional_method_group
+    AutoMapper: src/AutoMapper/Configuration/MapperConfiguration.cs:305 MapperConfiguration.ResolveAssociatedTypeMap -> AutoMapper.Internal.Mappers.IObjectMapper.GetAssociatedTypes(AutoMapper.Internal.TypePair)  [.GetAssociatedTypes(types)]
+## 7 other: interface via conditional_property
+    AutoMapper: src/AutoMapper/Execution/TypeMapPlanBuilder.cs:538 TypeMapPlanBuilder.BuildValueResolverFunc -> AutoMapper.Execution.IValueResolver.GetExpression(AutoMapper.Internal.IGlobalConfiguration, AutoMapp  [.GetExpression(_configuration, memberMap, customSource, _des]
+## 7 other: interface via field
+    Newtonsoft.Json: Src/Newtonsoft.Json/Serialization/JsonSerializerInternalReader.cs:75 JsonSerializerInternalReader.Populate -> Newtonsoft.Json.Serialization.IContractResolver.ResolveContract(System.Type)  [Serializer._contractResolver.ResolveContract(objectType)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Serialization/JsonSerializerInternalReader.cs:149 JsonSerializerInternalReader.GetContract -> Newtonsoft.Json.Serialization.IContractResolver.ResolveContract(System.Type)  [Serializer._contractResolver.ResolveContract(type)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Serialization/JsonSerializerInternalWriter.cs:133 JsonSerializerInternalWriter.GetContract -> Newtonsoft.Json.Serialization.IContractResolver.ResolveContract(System.Type)  [Serializer._contractResolver.ResolveContract(value.GetType()]
+## 7 other: interface via local
+    AutoMapper: src/AutoMapper/Configuration/Conventions.cs:167 ConventionsNameSplitMember.IsMatch -> AutoMapper.INamingConvention.Split(string)  [destinationNamingConvention.Split(nameToSearch)]
+    AutoMapper: src/AutoMapper/Features.cs:86 FeatureExtensions.ReverseTo -> AutoMapper.Features.IMappingFeature.Reverse()  [feature.Reverse()]
+## 7 other: interface via parameter
+    AutoMapper: src/AutoMapper/Configuration/Annotations/AutoMapAttribute.cs:82 AutoMapAttribute.ApplyConfiguration -> AutoMapper.IMappingExpressionBase<TSource, TDestination, TMappingExpression>.ConvertUsing(System.Typ  [mappingExpression.ConvertUsing(TypeConverter)]
+    AutoMapper: src/AutoMapper/Configuration/Annotations/IgnoreAttribute.cs:14 IgnoreAttribute.ApplyConfiguration -> AutoMapper.IProjectionMemberConfiguration<TSource, TDestination, TMember>.Ignore()  [memberConfigurationExpression.Ignore()]
+    AutoMapper: src/AutoMapper/Configuration/Annotations/MapAtRuntimeAttribute.cs:15 MapAtRuntimeAttribute.ApplyConfiguration -> AutoMapper.IMemberConfigurationExpression<TSource, TDestination, TMember>.MapAtRuntime()  [memberConfigurationExpression.MapAtRuntime()]
+    AutoMapper: src/AutoMapper/Configuration/Annotations/MappingOrderAttribute.cs:16 MappingOrderAttribute.ApplyConfiguration -> AutoMapper.IMemberConfigurationExpression<TSource, TDestination, TMember>.SetMappingOrder(int)  [memberConfigurationExpression.SetMappingOrder(Value)]
+    AutoMapper: src/AutoMapper/Configuration/Annotations/NullSubstituteAttribute.cs:19 NullSubstituteAttribute.ApplyConfiguration -> AutoMapper.IProjectionMemberConfiguration<TSource, TDestination, TMember>.NullSubstitute(object)  [memberConfigurationExpression.NullSubstitute(Value)]
+    AutoMapper: src/AutoMapper/Configuration/Annotations/UseExistingValueAttribute.cs:14 UseExistingValueAttribute.ApplyConfiguration -> AutoMapper.IMemberConfigurationExpression<TSource, TDestination, TMember>.UseDestinationValue()  [memberConfigurationExpression.UseDestinationValue()]
+## 7 other: interface via property
+    AutoMapper: src/AutoMapper/MemberMap.cs:80 MemberMap.ApplyInheritedMap -> AutoMapper.Execution.IValueResolver.CloseGenerics(AutoMapper.TypeMap)  [inheritedMap.Resolver.CloseGenerics(TypeMap)]
+    AutoMapper: src/AutoMapper/QueryableExtensions/Extensions.cs:72 Extensions.ToCore -> AutoMapper.QueryableExtensions.Impl.IProjectionBuilder.GetProjection(System.Type, System.Type, objec  [configuration.Internal().ProjectionBuilder.GetProjection(sou]
+    Newtonsoft.Json: Src/Newtonsoft.Json/JsonSerializer.cs:832 JsonSerializer.PopulateInternal -> Newtonsoft.Json.Serialization.ITraceWriter.Trace(System.Diagnostics.TraceLevel, string, System.Excep  [TraceWriter!.Trace(TraceLevel.Verbose, traceJsonReader.GetDe]
+    Newtonsoft.Json: Src/Newtonsoft.Json/JsonSerializer.cs:910 JsonSerializer.DeserializeInternal -> Newtonsoft.Json.Serialization.ITraceWriter.Trace(System.Diagnostics.TraceLevel, string, System.Excep  [TraceWriter!.Trace(TraceLevel.Verbose, traceJsonReader.GetDe]
+    Newtonsoft.Json: Src/Newtonsoft.Json/JsonSerializer.cs:1152 JsonSerializer.SerializeInternal -> Newtonsoft.Json.Serialization.ITraceWriter.Trace(System.Diagnostics.TraceLevel, string, System.Excep  [TraceWriter!.Trace(TraceLevel.Verbose, traceJsonWriter.GetSe]
+## 7 other: other via bare
+    AutoMapper: src/AutoMapper/Execution/ExpressionBuilder.cs:274 ExpressionBuilder.MemberAccessLambda -> AutoMapper.Internal.ReflectionHelper.GetMemberPath(System.Type, string, AutoMapper.TypeMap)  [GetMemberPath(type, memberPath, typeMap)]
+## 7 other: other via method_group
+    AutoMapper: src/AutoMapper/Configuration/MapperConfiguration.cs:198 MapperConfiguration.AssertConfigurationIsValid -> AutoMapper.Configuration.ConfigurationValidator.AssertConfigurationExpressionIsValid(AutoMapper.Type  [Validator().AssertConfigurationExpressionIsValid([.. _config]
+    AutoMapper: src/AutoMapper/QueryableExtensions/Extensions.cs:72 Extensions.ToCore -> AutoMapper.QueryableExtensions.Impl.QueryExpressions.Chain<T>(T, System.Func<T, System.Linq.Expressi  [configuration.Internal().ProjectionBuilder.GetProjection(sou]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Serialization/DefaultReferenceResolver.cs:55 DefaultReferenceResolver.ResolveReference -> Newtonsoft.Json.Utilities.BidirectionalDictionary<TFirst, TSecond>.TryGetByFirst(TFirst, out TSecond  [GetMappings(context).TryGetByFirst(reference, out object? va]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Serialization/DefaultReferenceResolver.cs:75 DefaultReferenceResolver.AddReference -> Newtonsoft.Json.Utilities.BidirectionalDictionary<TFirst, TSecond>.Set(TFirst, TSecond)  [GetMappings(context).Set(reference, value)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Serialization/DefaultReferenceResolver.cs:80 DefaultReferenceResolver.IsReferenced -> Newtonsoft.Json.Utilities.BidirectionalDictionary<TFirst, TSecond>.TryGetBySecond(TSecond, out TFirs  [GetMappings(context).TryGetBySecond(value, out _)]
+## 7 other: other via other
+    AutoMapper: src/AutoMapper/Configuration/ConfigurationValidator.cs:29 ConfigurationValidator.AssertConfigurationIsValid -> AutoMapper.TypeMap.GetUnmappedPropertyNames()  [typeMap.GetUnmappedPropertyNames()]
+## 7 other: same via bare
+    Dapper: Dapper/SqlDataRecordListTVPParameter.cs:35 SqlDataRecordListTVPParameter.AddParameter -> Dapper.SqlDataRecordListTVPParameter<T>.Set(System.Data.IDbDataParameter, System.Collections.Generic  [Set(param, data, typeName)]
+    Dapper: Dapper/TableValuedParameter.cs:34 TableValuedParameter.AddParameter -> Dapper.TableValuedParameter.Set(System.Data.IDbDataParameter, System.Data.DataTable?, string?)  [Set(param, table, typeName)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Converters/ExpandoObjectConverter.cs:77 ExpandoObjectConverter.ReadValue -> Newtonsoft.Json.Converters.ExpandoObjectConverter.ReadObject(Newtonsoft.Json.JsonReader)  [ReadObject(reader)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Converters/ExpandoObjectConverter.cs:79 ExpandoObjectConverter.ReadValue -> Newtonsoft.Json.Converters.ExpandoObjectConverter.ReadList(Newtonsoft.Json.JsonReader)  [ReadList(reader)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Linq/JTokenReader.cs:181 JTokenReader.SetEnd -> Newtonsoft.Json.Linq.JTokenReader.ReadOver(Newtonsoft.Json.Linq.JToken)  [ReadOver(c)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Schema/JsonSchemaModelBuilder.cs:93 JsonSchemaModelBuilder.AddSchema -> Newtonsoft.Json.Schema.JsonSchemaModelBuilder.AddItem(Newtonsoft.Json.Schema.JsonSchemaNode, int, Ne  [AddItem(currentNode, i, schema.Items[i])]
+## 7 other: static via type
+    Dapper: Dapper/CommandDefinition.cs:145 CommandDefinition.ResetCommandInitCache -> Dapper.SqlMapper.Link<TKey, TValue>.Clear(ref Dapper.SqlMapper.Link<TKey, TValue>?)  [SqlMapper.Link<Type, Action<IDbCommand>>.Clear(ref commandIn]
+    Dapper: Dapper/CommandDefinition.cs:151 CommandDefinition.GetInit -> Dapper.SqlMapper.Link<TKey, TValue>.TryGet(Dapper.SqlMapper.Link<TKey, TValue>?, TKey, out TValue?)  [SqlMapper.Link<Type, Action<IDbCommand>>.TryGet(commandInitC]
+    Dapper: Dapper/CommandDefinition.cs:197 CommandDefinition.GetInit -> Dapper.SqlMapper.Link<TKey, TValue>.TryAdd(ref Dapper.SqlMapper.Link<TKey, TValue>?, TKey, ref TValu  [SqlMapper.Link<Type, Action<IDbCommand>>.TryAdd(ref commandI]
+    Dapper: Dapper/SqlDataRecordHandler.cs:17 SqlDataRecordHandler.SetValue -> Dapper.SqlDataRecordListTVPParameter<T>.Set(System.Data.IDbDataParameter, System.Collections.Generic  [SqlDataRecordListTVPParameter<T>.Set(parameter, value as IEn]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Linq/JContainer.Async.cs:146 JContainer.ReadContentFromAsync -> Newtonsoft.Json.Linq.JValue.CreateComment(string?)  [JValue.CreateComment(reader.Value!.ToString())]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Linq/JContainer.Async.cs:152 JContainer.ReadContentFromAsync -> Newtonsoft.Json.Linq.JValue.CreateNull()  [JValue.CreateNull()]
+## 7 other: typed via field
+    AutoMapper: src/AutoMapper/Configuration/TypeMapConfiguration.cs:341 MappingExpressionBase.ConvertUsing -> AutoMapper.Internal.TypePair.ITypeConverter()  [tm.Types.ITypeConverter()]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Converters/DiscriminatedUnionConverter.cs:143 DiscriminatedUnionConverter.WriteJson -> Newtonsoft.Json.Utilities.FSharpFunction.Invoke(params object[])  [union.TagReader.Invoke(value)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/Converters/DiscriminatedUnionConverter.cs:252 DiscriminatedUnionConverter.ReadJson -> Newtonsoft.Json.Utilities.FSharpFunction.Invoke(params object[])  [caseInfo.Constructor.Invoke(args)]
+    Newtonsoft.Json: Src/Newtonsoft.Json/JsonTextReader.Async.cs:925 JsonTextReader.ParseConstructorAsync -> Newtonsoft.Json.Utilities.StringReference.ToString()  [_stringReference.ToString()]
+    Newtonsoft.Json: Src/Newtonsoft.Json/JsonTextReader.Async.cs:1011 JsonTextReader.ParsePropertyAsync -> Newtonsoft.Json.Utilities.StringReference.ToString()  [_stringReference.ToString()]
+    Newtonsoft.Json: Src/Newtonsoft.Json/JsonTextReader.Async.cs:1466 JsonTextReader.DoReadAsBooleanAsync -> Newtonsoft.Json.Utilities.StringReference.ToString()  [_stringReference.ToString()]
+## 7 other: typed via local
+    Dapper: Dapper/SqlMapper.cs:156 SqlMapper.GetHashCollissions -> Dapper.SqlMapper.Identity.GetHashCode()  [key.GetHashCode()]
+    AutoMapper: src/AutoMapper/Configuration/MapperConfigurationExpression.cs:198 MapperConfigurationExpression.AddMapsCore -> AutoMapper.Configuration.MappingExpression.ForMember(System.Reflection.MemberInfo, System.Action<Aut  [mappingExpression.ForMember(memberInfo, memberConfigurationP]
+    AutoMapper: src/AutoMapper/Configuration/MapperConfigurationExpression.cs:202 MapperConfigurationExpression.AddMapsCore -> AutoMapper.AutoMapAttribute.ApplyConfiguration(AutoMapper.IMappingExpression)  [autoMapAttribute.ApplyConfiguration(mappingExpression)]
+    AutoMapper: src/AutoMapper/Configuration/MappingExpression.cs:134 MappingExpression.ReverseMap -> AutoMapper.Configuration.MappingExpression<TSource, TDestination>.IncludeMembersCore(System.Linq.Exp  [reverseMap.IncludeMembersCore(MapToSourceMembers().Select(m ]
+    AutoMapper: src/AutoMapper/Configuration/TypeMapConfiguration.cs:186 TypeMapConfiguration.ReverseSourceMembers -> AutoMapper.MemberMap.MapFrom(System.Linq.Expressions.LambdaExpression)  [pathMap.MapFrom(customExpression)]
+    AutoMapper: src/AutoMapper/Execution/ExpressionBuilder.cs:72 ExpressionBuilder.MapExpression -> AutoMapper.TypeMap.CheckProjection()  [typeMap.CheckProjection()]
+## 7 other: typed via parameter
+    Dapper: Dapper/SqlMapper.Identity.cs:277 Identity.TypesEqual -> Dapper.SqlMapper.Identity.GetType(int)  [x.GetType(i)]
+    AutoMapper: src/AutoMapper/Configuration/CtorParamConfigurationExpression.cs:48 CtorParamConfigurationExpression.MapFrom -> AutoMapper.MemberMap.SetResolver(AutoMapper.Execution.IValueResolver)  [cpm.SetResolver(new FuncResolver(resolverExpression))]
+    AutoMapper: src/AutoMapper/Configuration/MappingExpression.cs:145 MappingExpression.IgnoreDestinationMember -> AutoMapper.Configuration.MemberConfigurationExpression<TSource, TDestination, TMember>.Ignore(bool)  [options.Ignore(ignorePaths)]
+    AutoMapper: src/AutoMapper/Configuration/PathConfigurationExpression.cs:36 PathConfigurationExpression.MapFromUntyped -> AutoMapper.MemberMap.MapFrom(System.Linq.Expressions.LambdaExpression)  [pm.MapFrom(sourceExpression)]
+    AutoMapper: src/AutoMapper/Configuration/TypeMapConfiguration.cs:185 TypeMapConfiguration.ReverseSourceMembers -> AutoMapper.TypeMap.FindOrCreatePathMapFor(System.Linq.Expressions.LambdaExpression, AutoMapper.Inter  [reverseTypeMap.FindOrCreatePathMapFor(forPathLambda, memberP]
+    AutoMapper: src/AutoMapper/Configuration/TypeMapConfiguration.cs:204 TypeMapConfiguration.IncludeCore -> AutoMapper.TypeMap.IncludeDerivedTypes(AutoMapper.Internal.TypePair)  [tm.IncludeDerivedTypes(derivedTypes)]
+## 7 other: typed via property
+    Dapper: Dapper/SqlMapper.GridReader.Async.cs:184 GridReader.ValidateAndMarkConsumed -> Dapper.SqlMapper.Identity.ForGrid(System.Type, int)  [Identity.ForGrid(type, index)]
+    Dapper: Dapper/SqlMapper.GridReader.Async.cs:204 GridReader.ReadRowAsyncImpl -> Dapper.SqlMapper.Identity.ForGrid(System.Type, int)  [Identity.ForGrid(type, index)]
+    Dapper: Dapper/SqlMapper.GridReader.cs:194 GridReader.ReadImpl -> Dapper.SqlMapper.Identity.ForGrid(System.Type, int)  [Identity.ForGrid(type, index)]
+    Dapper: Dapper/SqlMapper.GridReader.cs:215 GridReader.ReadRow -> Dapper.SqlMapper.Identity.ForGrid(System.Type, int)  [Identity.ForGrid(type, index)]
+    Dapper: Dapper/SqlMapper.GridReader.cs:260 GridReader.MultiReadInternal -> Dapper.SqlMapper.Identity.ForGrid(System.Type, System.Type[], int)  [Identity.ForGrid(typeof(TReturn), types, index)]
+    Dapper: Dapper/SqlMapper.cs:77 SqlMapper.CollectCacheGarbage -> Dapper.SqlMapper.CacheInfo.GetHitCount()  [pair.Value.GetHitCount()]
