@@ -4,6 +4,7 @@ Full release notes with details on each version: [GitHub Releases](https://githu
 
 ## 0.9.101 (unreleased)
 
+- Fix: **solidity** `emit E(..)`, `revert Err(..)` and `require(c, Err(..))` link the enclosing function/modifier to the event/error declaration with a `calls` edge (like Python `raise Err()`), whether it is declared in the same contract, a base contract (through the C3 linearization), or reached as `Errors.Err` through a library/contract the file declares or imports (ambiguous names stay unbound); an error's parameters now count toward its arity. Previously none of these produced an edge.
 - Fix: **python** a bare call inside a method (`do_thing()`) no longer wrongly self-binds to a same-named method on the class; it resolves to the imported or module-level function it actually names, and a bare call with no such target emits no edge (#4933, thanks @nothariharan).
 - Fix: **python** imports resolve across PEP 420 namespace packages split over multiple `src/` roots (no `__init__.py`), while a module ambiguously provided by two roots stays unresolved and loose/stdlib-named modules are left alone (#4929, thanks @nothariharan).
 - Fix: **go** a method value reached through a receiver field (`m.UseMiddleware(hs.handler.Middleware)`) is linked as an `indirect_call`, extending the method-value-as-argument handling to field chains rooted at the method's own receiver (#1566, #4931, thanks @nothariharan).
