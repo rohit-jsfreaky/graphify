@@ -40,7 +40,9 @@ PARAMS = {"demote": 0.3, "label_w": 2, "pool": 0.3, "pool_n": 5, "top_files": 5,
           "k1": 1.2, "b": 0.75,
           # Part A additions (variant bm25b_ff2): whole-file BM25 weight in the file ranking,
           # strict test words, and demotion of non-source nodes.
-          "file_w": 0.0, "strict_test_words": False, "demote_nonsource": False}
+          "file_w": 0.0, "strict_test_words": False, "demote_nonsource": False,
+          # Part B: storage form of the body words (see shrink_body); None = full / _set suffix
+          "body_mode": None}
 
 STRICT_TEST_WORDS = {"test", "tests", "testing", "testcase", "unittest"}
 NONSOURCE_EXT = (".yml", ".yaml", ".toml", ".cfg", ".ini", ".json", ".txt", ".rst", ".md", ".in", ".lock")
@@ -82,32 +84,79 @@ def _line(loc):
 UNIQUE_BODY = False  # variant *_set: body stored as a set of unique terms (what graph.json would hold)
 
 
-def node_docs(G, repo_dir, body=True):
+# Python/JS keywords and very common English words: never worth storing.
+CODE_STOP = set("""def class self cls return if else elif for while in not and or is none true false import from as
+with try except finally raise pass break continue lambda yield global nonlocal assert del async await
+function var let const new this null undefined typeof instanceof switch case default
+a an the of to in on for and or is are be with by from as at it this that not no when if into
+does do should can use using used via its than then we you he she they them our your their
+was were been being has have had will would could may might must shall also only just
+str int bool dict list tuple set object kwargs args""".split())
+
+
+def body_terms(G, read):
+    """{node id: body token list} — the tokens of the node's own source lines
+    (start line up to the next node's start, max 150 lines). This is what an
+    extractor would store per node."""
     by_file = defaultdict(list)
     for nid, d in G.nodes(data=True):
         by_file[d.get("source_file") or ""].append(nid)
-    docs = {}
+    out = {}
     for f, nids in by_file.items():
-        lines = None
-        if body and f:
-            if callable(repo_dir):  # reader(path) -> text | None (e.g. git cat-file at a commit)
-                txt = repo_dir(f)
-                lines = txt.splitlines() if txt is not None else None
-            else:
-                p = Path(repo_dir) / f
-                if p.is_file():
-                    lines = p.read_text(errors="replace").splitlines()
+        if not f:
+            continue
+        if callable(read):  # reader(path) -> text | None (e.g. git cat-file at a commit)
+            txt = read(f)
+        else:
+            p = Path(read) / f
+            txt = p.read_text(errors="replace") if p.is_file() else None
+        if txt is None:
+            continue
+        lines = txt.splitlines()
         starts = sorted({_line(G.nodes[n].get("source_location")) for n in nids} - {None})
         for nid in nids:
             d = G.nodes[nid]
-            doc = tokens(d.get("label") or "") * PARAMS["label_w"] + tokens(f)
             st = _line(d.get("source_location"))
-            if lines is not None and st is not None and d.get("file_type") != "rationale":
-                nxt = next((x for x in starts if x > st), len(lines) + 1)
-                body = tokens("\n".join(lines[st - 1:min(nxt - 1, st + 149)]))
-                doc += sorted(set(body)) if UNIQUE_BODY else body
-            docs[nid] = doc
-    return docs
+            if st is None or d.get("file_type") == "rationale":
+                continue
+            nxt = next((x for x in starts if x > st), len(lines) + 1)
+            out[nid] = tokens("\n".join(lines[st - 1:min(nxt - 1, st + 149)]))
+    return out
+
+
+def shrink_body(G, bodies, mode):
+    """Storage forms of the body words.
+      full            token list with repeats (term counts)
+      set             unique tokens
+      nostop          unique tokens minus CODE_STOP and 1-character tokens
+      lean            unique tokens minus CODE_STOP and minus tokens already in the
+                      node's own label or path (those are indexed anyway)
+      lean_capK       lean, then keep only the K rarest tokens per node (document
+                      frequency over the graph's nodes, ties by token)"""
+    if mode == "full":
+        return bodies
+    sets = {}
+    for nid, b in bodies.items():
+        u = set(b)
+        if mode == "nostop":
+            u = {t for t in u if t not in CODE_STOP and len(t) > 1}
+        elif mode != "set":
+            d = G.nodes[nid]
+            own = set(tokens(d.get("label") or "")) | set(tokens(d.get("source_file") or ""))
+            u = {t for t in u if t not in CODE_STOP and t not in own and len(t) > 1}
+        sets[nid] = u
+    if mode.startswith("lean_cap"):
+        k = int(mode[len("lean_cap"):])
+        df = Counter(t for u in sets.values() for t in u)
+        sets = {nid: set(sorted(u, key=lambda t: (df[t], t))[:k]) for nid, u in sets.items()}
+    return {nid: sorted(u) for nid, u in sets.items()}
+
+
+def node_docs(G, repo_dir, body=True):
+    mode = PARAMS.get("body_mode") or ("set" if UNIQUE_BODY else "full")
+    bodies = shrink_body(G, body_terms(G, repo_dir), mode) if body else {}
+    return {nid: tokens(d.get("label") or "") * PARAMS["label_w"] + tokens(d.get("source_file") or "") + bodies.get(nid, [])
+            for nid, d in G.nodes(data=True)}
 
 
 class NodeBM25:

@@ -1,0 +1,99 @@
+4592	2026-11-02	_render_query 	fix(query): discard heuristic context filters that isolate seeds
+4682	2026-11-01	_subgraph_to_text 	feat(qml): add Qt 6/QML static analysis and member coverage
+4576	2026-10-30	_query_graph_text _render_query _subgraph_to_text 	fix: render node rationale in query, get_node and explain output (#282
+2617	2026-10-26	_pick_seeds _query_graph_text _render_query _score_query 	fix(php): consolidated PHP support — member-call resolution, use-imp
+4601	2026-10-20	_score_query 	fix(query): weight seed scoring by file type so captions don't drown o
+4505	2026-10-16	_query_graph_text _render_query 	fix(mcp): graph tools name importers, callers and callees (#985)
+4481	2026-10-14	_query_graph_text _subgraph_to_text 	feat(query): a natural-language question leads with its best-matching 
+4478	2026-10-14	_query_graph_text _render_query _subgraph_to_text 	feat(query): --learned starts from nodes that past useful answers to a
+4470	2026-10-14	_query_graph_text _render_query _subgraph_to_text 	feat(query): --compact writes the same answer in ~1.7x fewer tokens (#
+3866	2026-10-13	_pick_seeds _score_query _subgraph_to_text 	feat(mcp): improve retrieval quality with phrase bonus, community cohe
+3636	2026-10-10	_score_query 	feat(query): add a body attribute tier so query seeding can reach non-
+4111	2026-10-04	_subgraph_to_text 	feat(qml): add bounded Qt 6 and QML static analysis
+3837	2026-10-04	_pick_seeds _query_graph_text _score_query 	feat: add efficient correctness-aware graph retrieval
+3856	2026-09-25	_query_graph_text 	feat(serve): add JEV two-stage semantic search, smart BFS pruning, and
+3417	2026-09-07	_query_graph_text _score_query _subgraph_to_text 	fix(query): emit the ranking it already computes — ANSWER block, cam
+2394	2026-09-05	_score_query 	Enhance benchmarks
+3245	2026-08-30	_subgraph_to_text 	Fix #3026: expose node.description and community_name on query surface
+3284	2026-08-30	_query_graph_text _subgraph_to_text 	fix(query): rank same-hop nodes by query relevance before degree under
+3285	2026-08-30	_query_graph_text _subgraph_to_text 	feat(query): surface bridge nodes reached from two or more seeds
+2134	2026-08-24	_query_graph_text _subgraph_to_text 	feat(cluster): cluster graphs — link multiple repos into one connect
+2975	2026-08-20	_score_query 	fix(query): downweight rationale prefix seeds
+2958	2026-08-20	_query_graph_text 	Add opt-in Japanese query tokenization
+2830	2026-08-17	_query_graph_text _subgraph_to_text 	fix: render rationale in graph read surfaces
+2578	2026-08-15	_score_query _subgraph_to_text 	Feature/jcode integration
+2470	2026-08-05	_subgraph_to_text 	Fixed src file path in the output for accessibility
+2376	2026-08-01	_subgraph_to_text 	fix(serve): reserve budget for EDGE lines so query answers keep relati
+2403	2026-08-01	_query_graph_text _score_nodes _score_query 	feat(query): exclude test paths from default seeds
+2377	2026-08-01	_query_graph_text 	feat: temporal session-memory hand-off + experiential god-node weights
+1379	2026-07-29	_query_graph_text _score_query _subgraph_to_text 	FalkorDB backend (server + embedded Lite), replacing NetworkX
+2294	2026-07-28	_score_query 	fix(query): score the `rationale` attribute, not just labels (#2293)
+2178	2026-07-25	_subgraph_to_text 	fix: classify repeated edge occurrences
+2177	2026-07-25	_subgraph_to_text 	feat: preserve parallel relations with MultiDiGraph
+2131	2026-07-22	_pick_seeds _query_graph_text _score_nodes _score_query _subgraph_to_text 	Use embedded Helix for bounded atomic graph persistence
+2113	2026-07-22	_pick_seeds 	fix: bound per-term query seed recovery
+1993	2026-07-20	_pick_seeds _query_graph_text _score_nodes _score_query _subgraph_to_text 	feat: integrate public Helix embedded runtime
+1783	2026-07-17	_query_graph_text 	feat(query): accept external seed files for traversal
+1970	2026-07-17	_pick_seeds _query_graph_text _score_nodes _score_query _subgraph_to_text 	Fix/explain ambiguity #1969
+1782	2026-07-10	_query_graph_text _subgraph_to_text 	feat: relevance ranking, evals, chronicle, embeddings, skill drift-che
+1658	2026-07-01	_pick_seeds _query_graph_text _score_nodes _subgraph_to_text 	fix: correct query/explain/path resolution failures on natural-languag
+107	2026-04-08	_subgraph_to_text 	refactor: 13 code quality and feature improvements
+297	2026-04-08	_subgraph_to_text 	Add hierarchical clustering: L0 topics → L1 communities → L2 nodes
+460	2026-04-08	_score_nodes _subgraph_to_text 	worked: churn-agent (LangGraph + Groq + SHAP, 74 nodes, 79 edges)
+400	2026-04-08	_score_nodes _subgraph_to_text 	worked: add opencode TypeScript corpus (406 files, 12.6x reduction, ho
+397	2026-04-08	_score_nodes _subgraph_to_text 	fix: cross-file call resolution — preserve N-way collision signal
+376	2026-04-08	_score_nodes _subgraph_to_text 	fix: ask user before proceeding when corpus fits in context window
+335	2026-04-08	_score_nodes _subgraph_to_text 	fix(viz): draw hyperedges in network coords to fix HiDPI offset
+402	2026-04-08	_score_nodes _subgraph_to_text 	fix(serve): better MCP tool descriptions, depth default 1, filename gu
+330	2026-04-08	_score_nodes _subgraph_to_text 	fix(rust): resolve `use crate::...` into real cross-file edges
+420	2026-04-08	_score_nodes _subgraph_to_text 	fix(objc): add cross-file call resolution and unary message parsing
+329	2026-04-08	_score_nodes _subgraph_to_text 	fix(extract): use full path instead of stem for within-file node IDs
+264	2026-04-08	_score_nodes _subgraph_to_text 	feat:Hierarchical Knowledge Aggregation for Graphify
+424	2026-04-08	_score_nodes _subgraph_to_text 	feat: semantic query via sentence-transformers embeddings
+357	2026-04-08	_score_nodes _subgraph_to_text 	feat: persistent cross-file edge overlays
+456	2026-04-08	_score_nodes _subgraph_to_text 	feat: incremental graph updates, git diff mode, community auto-naming,
+347	2026-04-08	_score_nodes _subgraph_to_text 	feat: hierarchical Leiden community detection + community summaries + 
+406	2026-04-08	_score_nodes _subgraph_to_text 	feat: full Dart language + Flutter ecosystem support
+506	2026-04-08	_score_nodes _subgraph_to_text 	feat: add nanobot platform support for graphify install
+381	2026-04-08	_score_nodes _subgraph_to_text 	feat: add additional document extensions for detection
+411	2026-04-08	_score_nodes _subgraph_to_text 	feat: add VS Code (GitHub Copilot) platform support
+458	2026-04-08	_score_nodes _subgraph_to_text 	feat: add SQL language extractor (.sql)
+314	2026-04-08	_score_nodes _subgraph_to_text 	feat: add Qoder platform support (install/uninstall, skill, rules, Pre
+457	2026-04-08	_score_nodes _subgraph_to_text 	feat: add LSP/static analysis enhancement for complete call graphs
+322	2026-04-08	_score_nodes _subgraph_to_text 	feat: add Kiro CLI platform support
+339	2026-04-08	_score_nodes _subgraph_to_text 	feat: ArkTS (.ets) and HarmonyOS project config support
+489	2026-04-08	_score_nodes _subgraph_to_text 	feat(extract): add Lean 4 AST support via tree-sitter-language-pack
+398	2026-04-08	_score_nodes _subgraph_to_text 	enhance(perfomance): add rustworkx adapter implementation, benchmark s
+399	2026-04-08	_score_nodes _subgraph_to_text 	enhance (cost + performance) adding weights to graphs derived from con
+331	2026-04-08	_score_nodes _subgraph_to_text 	add groovy support
+363	2026-04-08	_score_nodes _subgraph_to_text 	[codex] fix: restrict graph commands to graphify-out
+362	2026-04-08	_score_nodes _subgraph_to_text 	[codex] fix: prevent cluster-only report crash
+359	2026-04-08	_score_nodes _subgraph_to_text 	[codex] fix: preserve non-code graph knowledge on watch rebuild
+358	2026-04-08	_score_nodes _subgraph_to_text 	[codex] fix: pin safe fetch to vetted public IPs
+364	2026-04-08	_score_nodes _subgraph_to_text 	[codex] fix: mark graph stale on doc-only hook commits
+361	2026-04-08	_score_nodes _subgraph_to_text 	[codex] fix: harden secret ingestion and query memory
+360	2026-04-08	_score_nodes _subgraph_to_text 	[codex] fix: escape yaml frontmatter and obsidian tags
+465	2026-04-08	_score_nodes _subgraph_to_text 	Support git hook installation from worktree checkouts
+468	2026-04-08	_score_nodes _subgraph_to_text 	Remove empty line from README.md
+384	2026-04-08	_score_nodes _subgraph_to_text 	README: add pipx tip for macOS externally-managed-environment error
+487	2026-04-08	_score_nodes _subgraph_to_text 	Native Distributed Sub-graph Architecture and Iterative AST Traversal
+343	2026-04-08	_score_nodes _subgraph_to_text 	Improve Windows source-checkout CLI ergonomics
+318	2026-04-08	_score_nodes _subgraph_to_text 	Fix cross-platform manifest paths (backslash vs forward-slash)
+417	2026-04-08	_score_nodes _subgraph_to_text 	Fix 5 issues: .mjs imports, cache path, installer idempotency, Windows
+452	2026-04-08	_score_nodes _subgraph_to_text 	Enhance README with additional installation methods
+355	2026-04-08	_score_nodes _subgraph_to_text 	Add type-aware cross-file resolver for C#
+404	2026-04-08	_score_nodes _subgraph_to_text 	Add first-class Pi support
+518	2026-04-08	_score_nodes _subgraph_to_text 	Add Mermaid export for graph visualization
+315	2026-04-08	_score_nodes _subgraph_to_text 	 fix: resolve cross-file call edges via global symbol table 
+310	2026-04-08	_score_nodes 	Update export.py
+166	2026-04-08	_score_nodes 	Add hybrid semantic graph retrieval
+371	2026-04-04	_subgraph_to_text 	perf: use igraph C backend for betweenness centrality (~100x speedup)
+2901	2026-04-04	_subgraph_to_text 	i18n: honor source-content language for extraction labels
+4762	2026-04-04	_subgraph_to_text 	fix(skill): stop substituting the scan path into code and commands
+4763	2026-04-04	_subgraph_to_text 	fix(skill): require consent before installing graphifyy, never touch s
+494	2026-04-04	_subgraph_to_text 	fix(build): prevent partial-chunk overwrite with build_merge() and nod
+1216	2026-04-04	_subgraph_to_text 	feat: extract markdown links as first-class edges
+880	2026-04-04	_subgraph_to_text 	feat: emit '<external>' sentinel for cross-corpus source_file
+493	2026-04-04	_subgraph_to_text 	feat(skill): add Cline support for graphify (#480)
+190	2026-04-04	_subgraph_to_text 	feat(extract): add node_type and modifiers to AST-extracted nodes
+879	2026-04-04	_score_nodes _subgraph_to_text 	fix(serve): prefer exact label match in MCP shortest_path / query_grap

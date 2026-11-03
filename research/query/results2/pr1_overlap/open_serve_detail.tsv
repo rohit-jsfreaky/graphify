@@ -1,0 +1,152 @@
+4592	2026-11-02	 5	92 insertions(+), 4 deletions(-)	fix(query): discard heuristic context filters that isolate seeds
+4960	2026-11-02	 5	5 insertions(+), 5 deletions(-)	perf(load): do not hold graph.json rows and the graph at once
+4682	2026-11-01	 887	53 insertions(+), 25 deletions(-)	feat(qml): add Qt 6/QML static analysis and member coverage
+4576	2026-10-30	 8	60 insertions(+), 9 deletions(-)	fix: render node rationale in query, get_node and explain output (#2821)
+2617	2026-10-26	 32	253 insertions(+), 60 deletions(-)	fix(php): consolidated PHP support — member-call resolution, use-import handli
+4758	2026-10-23	 21	4 insertions(+)	feat(swift): resolve type references across files through a Swift type index
+4601	2026-10-20	 2	13 insertions(+)	fix(query): weight seed scoring by file type so captions don't drown out code
+4504	2026-10-16	 5	37 insertions(+), 3 deletions(-)	fix(search): find a symbol by its docstring (#985)
+4505	2026-10-16	 4	228 insertions(+), 22 deletions(-)	fix(mcp): graph tools name importers, callers and callees (#985)
+4478	2026-10-14	 4	80 insertions(+), 1 deletion(-)	feat(query): --learned starts from nodes that past useful answers to a similar q
+4470	2026-10-14	 4	74 insertions(+), 3 deletions(-)	feat(query): --compact writes the same answer in ~1.7x fewer tokens (#4469)
+4481	2026-10-14	 2	47 insertions(+)	feat(query): a natural-language question leads with its best-matching file (#448
+3866	2026-10-13	 2	84 insertions(+), 4 deletions(-)	feat(mcp): improve retrieval quality with phrase bonus, community coherence, and
+3636	2026-10-10	 5	54 insertions(+), 2 deletions(-)	feat(query): add a body attribute tier so query seeding can reach non-extraction
+4111	2026-10-04	 434	35 insertions(+), 19 deletions(-)	feat(qml): add bounded Qt 6 and QML static analysis
+3837	2026-10-04	 109	647 insertions(+), 55 deletions(-)	feat: add efficient correctness-aware graph retrieval
+3856	2026-09-25	 6	67 insertions(+), 4 deletions(-)	feat(serve): add JEV two-stage semantic search, smart BFS pruning, and blast rad
+3738	2026-09-20	 7	73 insertions(+), 25 deletions(-)	fix: preserve case-colliding TypeScript symbols
+3656	2026-09-16	 2	22 insertions(+), 7 deletions(-)	fix(serve): revalidate graph identity before caching contexts
+3417	2026-09-07	 5	516 insertions(+), 29 deletions(-)	fix(query): emit the ranking it already computes — ANSWER block, camelCase sub
+2394	2026-09-05	 92	26 insertions(+), 104 deletions(-)	Enhance benchmarks
+2725	2026-09-05	 2	12 insertions(+), 2 deletions(-)	Set isError on MCP tool-level failures
+2099	2026-08-30	 9	501 insertions(+), 119 deletions(-)	feat(serve): add multi-graph support to MCP server (#581)
+3245	2026-08-30	 4	75 insertions(+), 20 deletions(-)	Fix #3026: expose node.description and community_name on query surfaces
+3285	2026-08-30	 2	71 insertions(+), 4 deletions(-)	feat(query): surface bridge nodes reached from two or more seeds
+3227	2026-08-30	 2	4 insertions(+), 1 deletion(-)	fix(mcp): sanitize god node labels
+3284	2026-08-30	 2	27 insertions(+), 3 deletions(-)	fix(query): rank same-hop nodes by query relevance before degree under the budge
+3271	2026-08-30	 2	199 insertions(+)	perf(serve): persist the trigram index and add an exact-id fast path
+3273	2026-08-30	 1	50 insertions(+), 1 deletion(-)	feat(mcp): log every tool read, not just query_graph
+3042	2026-08-25	 3	22 insertions(+), 1 deletion(-)	fix(serve): MCP orientation refreshes the strict hook's freshness stamp
+3044	2026-08-25	 3	16 insertions(+), 2 deletions(-)	fix(serve): include the learning sidecar in the graph-context cache key
+2134	2026-08-24	 67	112 insertions(+), 53 deletions(-)	feat(cluster): cluster graphs — link multiple repos into one connected graph (
+3055	2026-08-24	 3	16 insertions(+), 6 deletions(-)	fix(path): resolve exact node IDs before fuzzy matching
+2958	2026-08-20	 8	82 insertions(+), 20 deletions(-)	Add opt-in Japanese query tokenization
+2975	2026-08-20	 2	9 insertions(+), 3 deletions(-)	fix(query): downweight rationale prefix seeds
+3021	2026-08-20	 2	7 insertions(+), 1 deletion(-)	docs(mcp): use graphify-mcp entrypoint for Windows/uv/pipx installs (#2987)
+2895	2026-08-19	 9	46 insertions(+)	feat: NeuG embedded graph DB, Cypher CLI, and GDS Leiden clustering (opt-in)
+2830	2026-08-17	 7	55 insertions(+), 7 deletions(-)	fix: render rationale in graph read surfaces
+2578	2026-08-15	 11	20 insertions(+), 2 deletions(-)	Feature/jcode integration
+2716	2026-08-13	 3	25 insertions(+), 8 deletions(-)	fix(sql/mcp): robust bracketed identifier parsing and mcp error flagging
+2715	2026-08-13	 1	13 insertions(+), 6 deletions(-)	fix(mcp): return isError=True on tool failures
+2470	2026-08-05	 1	3 insertions(+), 3 deletions(-)	Fixed src file path in the output for accessibility
+2403	2026-08-01	 6	91 insertions(+), 2 deletions(-)	feat(query): exclude test paths from default seeds
+2367	2026-08-01	 4	98 insertions(+), 14 deletions(-)	feat(mcp): add named project discovery
+2377	2026-08-01	 28	37 insertions(+), 2 deletions(-)	feat: temporal session-memory hand-off + experiential god-node weights
+2376	2026-08-01	 2	41 insertions(+), 20 deletions(-)	fix(serve): reserve budget for EDGE lines so query answers keep relations
+1379	2026-07-29	 114	388 insertions(+), 171 deletions(-)	FalkorDB backend (server + embedded Lite), replacing NetworkX
+2294	2026-07-28	 2	47 insertions(+), 2 deletions(-)	fix(query): score the `rationale` attribute, not just labels (#2293)
+2177	2026-07-25	 94	67 insertions(+), 38 deletions(-)	feat: preserve parallel relations with MultiDiGraph
+2178	2026-07-25	 103	85 insertions(+), 38 deletions(-)	fix: classify repeated edge occurrences
+2144	2026-07-22	 6	28 insertions(+), 30 deletions(-)	Add GitLab merge request support
+2131	2026-07-22	 456	410 insertions(+), 442 deletions(-)	Use embedded Helix for bounded atomic graph persistence
+2113	2026-07-22	 2	36 insertions(+), 24 deletions(-)	fix: bound per-term query seed recovery
+1993	2026-07-20	 455	407 insertions(+), 420 deletions(-)	feat: integrate public Helix embedded runtime
+1783	2026-07-17	 36	8 insertions(+), 9 deletions(-)	feat(query): accept external seed files for traversal
+1970	2026-07-17	 12	19 insertions(+), 1821 deletions(-)	Fix/explain ambiguity #1969
+1549	2026-07-13	 126	11 insertions(+), 11 deletions(-)	Improve local Ollama fallback for low-resource machines
+1842	2026-07-10	 2	186 insertions(+), 5 deletions(-)	Merge/read source mcp tool
+1782	2026-07-10	 107	172 insertions(+), 10 deletions(-)	feat: relevance ranking, evals, chronicle, embeddings, skill drift-check
+1658	2026-07-01	 7	135 insertions(+), 14 deletions(-)	fix: correct query/explain/path resolution failures on natural-language input
+794	2026-05-09	 150	41 insertions(+), 23 deletions(-)	change pull request test rule
+793	2026-05-09	 150	41 insertions(+), 23 deletions(-)	Devel
+561	2026-04-25	 20	12 insertions(+), 4 deletions(-)	refactor: configurable home dir + unified pathspec ignore
+489	2026-04-08	 91	65 insertions(+), 14 deletions(-)	feat(extract): add Lean 4 AST support via tree-sitter-language-pack
+506	2026-04-08	 90	65 insertions(+), 14 deletions(-)	feat: add nanobot platform support for graphify install
+420	2026-04-08	 89	65 insertions(+), 14 deletions(-)	fix(objc): add cross-file call resolution and unary message parsing
+487	2026-04-08	 89	65 insertions(+), 14 deletions(-)	Native Distributed Sub-graph Architecture and Iterative AST Traversal
+406	2026-04-08	 80	65 insertions(+), 14 deletions(-)	feat: full Dart language + Flutter ecosystem support
+264	2026-04-08	 72	157 insertions(+), 16 deletions(-)	feat:Hierarchical Knowledge Aggregation for Graphify
+457	2026-04-08	 64	65 insertions(+), 14 deletions(-)	feat: add LSP/static analysis enhancement for complete call graphs
+398	2026-04-08	 64	65 insertions(+), 14 deletions(-)	enhance(perfomance): add rustworkx adapter implementation, benchmark suite, and 
+460	2026-04-08	 63	65 insertions(+), 14 deletions(-)	worked: churn-agent (LangGraph + Groq + SHAP, 74 nodes, 79 edges)
+397	2026-04-08	 63	65 insertions(+), 14 deletions(-)	fix: cross-file call resolution — preserve N-way collision signal
+400	2026-04-08	 62	65 insertions(+), 14 deletions(-)	worked: add opencode TypeScript corpus (406 files, 12.6x reduction, honest revie
+456	2026-04-08	 61	65 insertions(+), 14 deletions(-)	feat: incremental graph updates, git diff mode, community auto-naming, smarter g
+424	2026-04-08	 60	65 insertions(+), 14 deletions(-)	feat: semantic query via sentence-transformers embeddings
+458	2026-04-08	 60	65 insertions(+), 14 deletions(-)	feat: add SQL language extractor (.sql)
+518	2026-04-08	 60	65 insertions(+), 14 deletions(-)	Add Mermaid export for graph visualization
+399	2026-04-08	 60	131 insertions(+), 25 deletions(-)	enhance (cost + performance) adding weights to graphs derived from confidence sc
+314	2026-04-08	 59	65 insertions(+), 14 deletions(-)	feat: add Qoder platform support (install/uninstall, skill, rules, PreToolUse ho
+404	2026-04-08	 59	65 insertions(+), 14 deletions(-)	Add first-class Pi support
+411	2026-04-08	 58	65 insertions(+), 14 deletions(-)	feat: add VS Code (GitHub Copilot) platform support
+465	2026-04-08	 58	65 insertions(+), 14 deletions(-)	Support git hook installation from worktree checkouts
+468	2026-04-08	 58	65 insertions(+), 14 deletions(-)	Remove empty line from README.md
+417	2026-04-08	 58	65 insertions(+), 14 deletions(-)	Fix 5 issues: .mjs imports, cache path, installer idempotency, Windows docs, Win
+452	2026-04-08	 58	65 insertions(+), 14 deletions(-)	Enhance README with additional installation methods
+402	2026-04-08	 58	134 insertions(+), 27 deletions(-)	fix(serve): better MCP tool descriptions, depth default 1, filename guard
+339	2026-04-08	 55	64 insertions(+), 13 deletions(-)	feat: ArkTS (.ets) and HarmonyOS project config support
+343	2026-04-08	 55	64 insertions(+), 13 deletions(-)	Improve Windows source-checkout CLI ergonomics
+330	2026-04-08	 55	63 insertions(+), 12 deletions(-)	fix(rust): resolve `use crate::...` into real cross-file edges
+357	2026-04-08	 54	64 insertions(+), 13 deletions(-)	feat: persistent cross-file edge overlays
+347	2026-04-08	 54	183 insertions(+), 12 deletions(-)	feat: hierarchical Leiden community detection + community summaries + relevance-
+376	2026-04-08	 53	64 insertions(+), 13 deletions(-)	fix: ask user before proceeding when corpus fits in context window
+381	2026-04-08	 53	64 insertions(+), 13 deletions(-)	feat: add additional document extensions for detection
+360	2026-04-08	 53	64 insertions(+), 13 deletions(-)	[codex] fix: escape yaml frontmatter and obsidian tags
+384	2026-04-08	 53	64 insertions(+), 13 deletions(-)	README: add pipx tip for macOS externally-managed-environment error
+362	2026-04-08	 52	64 insertions(+), 13 deletions(-)	[codex] fix: prevent cluster-only report crash
+359	2026-04-08	 52	64 insertions(+), 13 deletions(-)	[codex] fix: preserve non-code graph knowledge on watch rebuild
+358	2026-04-08	 52	64 insertions(+), 13 deletions(-)	[codex] fix: pin safe fetch to vetted public IPs
+361	2026-04-08	 52	64 insertions(+), 13 deletions(-)	[codex] fix: harden secret ingestion and query memory
+331	2026-04-08	 52	63 insertions(+), 12 deletions(-)	add groovy support
+363	2026-04-08	 52	61 insertions(+), 13 deletions(-)	[codex] fix: restrict graph commands to graphify-out
+364	2026-04-08	 51	64 insertions(+), 13 deletions(-)	[codex] fix: mark graph stale on doc-only hook commits
+355	2026-04-08	 51	64 insertions(+), 13 deletions(-)	Add type-aware cross-file resolver for C#
+335	2026-04-08	 51	63 insertions(+), 12 deletions(-)	fix(viz): draw hyperedges in network coords to fix HiDPI offset
+329	2026-04-08	 51	63 insertions(+), 12 deletions(-)	fix(extract): use full path instead of stem for within-file node IDs
+322	2026-04-08	 51	63 insertions(+), 12 deletions(-)	feat: add Kiro CLI platform support
+107	2026-04-08	 51	33 insertions(+), 10 deletions(-)	refactor: 13 code quality and feature improvements
+213	2026-04-08	 51	16 insertions(+), 5 deletions(-)	Fix: unify AST and semantic graphs with entity resolution and worked example
+318	2026-04-08	 50	63 insertions(+), 12 deletions(-)	Fix cross-platform manifest paths (backslash vs forward-slash)
+315	2026-04-08	 50	63 insertions(+), 12 deletions(-)	 fix: resolve cross-file call edges via global symbol table 
+310	2026-04-08	 49	60 insertions(+), 10 deletions(-)	Update export.py
+283	2026-04-08	 45	43 insertions(+), 4 deletions(-)	Secure graph path validation in _load_graph
+233	2026-04-08	 45	16 insertions(+), 5 deletions(-)	feat(php): capture static method calls as uses_static edges
+231	2026-04-08	 45	16 insertions(+), 5 deletions(-)	feat(php): capture class constant access as uses_const edges
+247	2026-04-08	 45	16 insertions(+), 5 deletions(-)	docs: add Turkish README translation (README.tr-TR.md)
+297	2026-04-08	 44	94 insertions(+), 8 deletions(-)	Add hierarchical clustering: L0 topics → L1 communities → L2 nodes
+286	2026-04-08	 44	47 insertions(+), 5 deletions(-)	Implement global Cursor install (as user guide)
+312	2026-04-08	 44	30 insertions(+), 5 deletions(-)	fix: fail fast when graphify.serve is launched interactively
+313	2026-04-08	 44	16 insertions(+), 5 deletions(-)	fix: make cache keys portable across roots
+262	2026-04-08	 44	16 insertions(+), 5 deletions(-)	add --max-nodes param to raise HTML viz node limit above default 5000
+155	2026-04-08	 43	15 insertions(+), 4 deletions(-)	feat: resolve TypeScript tsconfig path aliases in import edges
+2432	2026-04-08	 42	15 insertions(+), 4 deletions(-)	syncing 
+158	2026-04-08	 42	15 insertions(+), 4 deletions(-)	feat: expose graph diff as graphify diff CLI command
+157	2026-04-08	 42	15 insertions(+), 4 deletions(-)	feat: add graphify dry-run command
+119	2026-04-08	 42	15 insertions(+), 4 deletions(-)	feat: add OB-1 platform support
+194	2026-04-08	 42	15 insertions(+), 4 deletions(-)	feat: add .gitignore support with cascading nested ignore files
+225	2026-04-08	 42	15 insertions(+), 4 deletions(-)	feat: add --3d flag for 3D HTML visualization
+167	2026-04-08	 42	15 insertions(+), 4 deletions(-)	feat: Dart/Flutter language support
+192	2026-04-08	 40	15 insertions(+), 4 deletions(-)	feat: Add Haskell language support (.hs, .lhs)
+183	2026-04-08	 39	15 insertions(+), 4 deletions(-)	feat: 第一次修改
+179	2026-04-08	 38	15 insertions(+), 4 deletions(-)	docs: update README.ja-JP.md and README.ko-KR.md
+166	2026-04-08	 36	69 insertions(+), 5 deletions(-)	Add hybrid semantic graph retrieval
+172	2026-04-08	 35	4 insertions(+), 1 deletion(-)	Add Common Lisp support (language #21)
+159	2026-04-08	 33	4 insertions(+), 1 deletion(-)	Migrate project workflow to uv
+135	2026-04-08	 32	4 insertions(+), 1 deletion(-)	refactor: remove platform config from __main__
+164	2026-04-08	 32	4 insertions(+), 1 deletion(-)	feat: expose graph_diff in public API + add worked example to README
+161	2026-04-08	 32	4 insertions(+), 1 deletion(-)	feat: add F# language support (.fs/.fsx)
+141	2026-04-08	 32	4 insertions(+), 1 deletion(-)	Add Hermes Agent platform support
+142	2026-04-08	 31	4 insertions(+), 1 deletion(-)	Update
+124	2026-04-08	 26	4 insertions(+), 1 deletion(-)	Fix installation requirements URL for Trae
+106	2026-04-08	 25	4 insertions(+), 1 deletion(-)	Update processor.py
+880	2026-04-04	 82	133 insertions(+), 139 deletions(-)	feat: emit '<external>' sentinel for cross-corpus source_file
+1216	2026-04-04	 80	133 insertions(+), 139 deletions(-)	feat: extract markdown links as first-class edges
+493	2026-04-04	 80	133 insertions(+), 139 deletions(-)	feat(skill): add Cline support for graphify (#480)
+879	2026-04-04	 79	196 insertions(+), 139 deletions(-)	fix(serve): prefer exact label match in MCP shortest_path / query_graph
+371	2026-04-04	 79	133 insertions(+), 139 deletions(-)	perf: use igraph C backend for betweenness centrality (~100x speedup)
+2901	2026-04-04	 79	133 insertions(+), 139 deletions(-)	i18n: honor source-content language for extraction labels
+4762	2026-04-04	 79	133 insertions(+), 139 deletions(-)	fix(skill): stop substituting the scan path into code and commands
+4763	2026-04-04	 79	133 insertions(+), 139 deletions(-)	fix(skill): require consent before installing graphifyy, never touch system Pyth
+494	2026-04-04	 79	133 insertions(+), 139 deletions(-)	fix(build): prevent partial-chunk overwrite with build_merge() and node-count gu
+190	2026-04-04	 79	133 insertions(+), 139 deletions(-)	feat(extract): add node_type and modifiers to AST-extracted nodes
