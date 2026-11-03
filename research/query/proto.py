@@ -35,6 +35,17 @@ from graphify.security import sanitize_label
 from bench_driver import _score_answer
 from bm25_files import tokens
 
+# Tunable weights (set once in the first study; Part A may tune them on Django only).
+PARAMS = {"demote": 0.3, "label_w": 2, "pool": 0.3, "pool_n": 5, "top_files": 5, "node_cap": 30,
+          "k1": 1.2, "b": 0.75,
+          # Part A additions (variant bm25b_ff2): whole-file BM25 weight in the file ranking,
+          # strict test words, and demotion of non-source nodes.
+          "file_w": 0.0, "strict_test_words": False, "demote_nonsource": False}
+
+STRICT_TEST_WORDS = {"test", "tests", "testing", "testcase", "unittest"}
+NONSOURCE_EXT = (".yml", ".yaml", ".toml", ".cfg", ".ini", ".json", ".txt", ".rst", ".md", ".in", ".lock")
+NONSOURCE_DIRS = {"doc", "docs", "example", "examples"}
+
 TEST_WORDS = {"test", "tests", "testing", "pytest", "unittest", "testcase", "fixture", "fixtures"}
 DOC_WORDS = {"doc", "docs", "documentation", "readme", "rst"}
 
@@ -51,10 +62,15 @@ def is_doc(p, d):
 
 def demote_factor(G, nid, qwords):
     d = G.nodes[nid]; p = d.get("source_file") or ""
-    if is_test(p) and not (qwords & TEST_WORDS):
-        return 0.3
+    tw = STRICT_TEST_WORDS if PARAMS["strict_test_words"] else TEST_WORDS
+    if PARAMS["demote_nonsource"] and not (qwords & DOC_WORDS):
+        parts = p.lower().split("/")
+        if not p or p.lower().endswith(NONSOURCE_EXT) or any(x in NONSOURCE_DIRS for x in parts[:-1]):
+            return PARAMS["demote"]
+    if is_test(p) and not (qwords & tw):
+        return PARAMS["demote"]
     if is_doc(p, d) and not (qwords & DOC_WORDS):
-        return 0.3
+        return PARAMS["demote"]
     return 1.0
 
 
@@ -74,13 +90,17 @@ def node_docs(G, repo_dir, body=True):
     for f, nids in by_file.items():
         lines = None
         if body and f:
-            p = Path(repo_dir) / f
-            if p.is_file():
-                lines = p.read_text(errors="replace").splitlines()
+            if callable(repo_dir):  # reader(path) -> text | None (e.g. git cat-file at a commit)
+                txt = repo_dir(f)
+                lines = txt.splitlines() if txt is not None else None
+            else:
+                p = Path(repo_dir) / f
+                if p.is_file():
+                    lines = p.read_text(errors="replace").splitlines()
         starts = sorted({_line(G.nodes[n].get("source_location")) for n in nids} - {None})
         for nid in nids:
             d = G.nodes[nid]
-            doc = tokens(d.get("label") or "") * 2 + tokens(f)
+            doc = tokens(d.get("label") or "") * PARAMS["label_w"] + tokens(f)
             st = _line(d.get("source_location"))
             if lines is not None and st is not None and d.get("file_type") != "rationale":
                 nxt = next((x for x in starts if x > st), len(lines) + 1)
@@ -91,7 +111,9 @@ def node_docs(G, repo_dir, body=True):
 
 
 class NodeBM25:
-    def __init__(self, docs, k1=1.2, b=0.75):
+    def __init__(self, docs, k1=None, b=None):
+        k1 = PARAMS["k1"] if k1 is None else k1
+        b = PARAMS["b"] if b is None else b
         self.ids = list(docs)
         self.post = defaultdict(list)
         self.len = {}
@@ -110,6 +132,20 @@ class NodeBM25:
             for nid, f in self.post.get(t, ()):
                 out[nid] += self.idf[t] * f * (self.k1 + 1) / (f + self.k1 * (1 - self.b + self.b * self.len[nid] / self.avg))
         return out
+
+
+class Index:
+    """Node BM25 plus a file BM25 whose document is all node docs of that file."""
+    def __init__(self, G, docs):
+        self.node = NodeBM25(docs)
+        per = defaultdict(list)
+        for nid, d in docs.items():
+            per[G.nodes[nid].get("source_file") or ""].extend(d)
+        per.pop("", None)
+        self.file = NodeBM25(dict(per))
+
+    def score(self, q):
+        return self.node.score(q)
 
 
 def render(G, ordered, budget=2000, header=""):
@@ -150,7 +186,7 @@ def relevance_answer(G, scores, seeds, hops=1, budget=2000):
         frontier = nxt
     rest = sorted(set(dist) - set(seeds), key=lambda n: (-scores.get(n, 0.0), dist[n], -G.degree(n), str(n)))
     # cap the node list so edges among them still fit under the budget
-    ordered = list(seeds) + rest[:max(0, 30 - len(seeds))]
+    ordered = list(seeds) + rest[:max(0, PARAMS["node_cap"] - len(seeds))]
     return render(G, ordered, budget, header=f"Start: {[G.nodes[n].get('label') for n in seeds]}\n\n")
 
 
@@ -186,12 +222,28 @@ def answer(variant, G, question, index):
     demote = not variant.endswith("_tests")
     if demote:
         sc = {n: v * demote_factor(G, n, qwords) for n, v in sc.items()}
+    if variant == "bm25b_ff2":
+        per_file = defaultdict(list)
+        for n, v in sc.items():
+            per_file[G.nodes[n].get("source_file") or ""].append((v, n))
+        P, N, W = PARAMS["pool"], PARAMS["pool_n"], PARAMS["file_w"]
+        fsc = index.file.score(tokens(question)) if W else {}
+        def fkey(f):
+            vals = sorted(v for v, _ in per_file[f])
+            base = vals[-1] + P * sum(vals[:-1][-N:]) if N else vals[-1]
+            # the whole-file score gets the same test/doc demotion as the file's nodes
+            dem = demote_factor(G, max(per_file[f])[1], qwords) if demote else 1.0
+            return -(base + W * fsc.get(f, 0.0) * dem)
+        frank = sorted(per_file, key=fkey)
+        seeds = [max(per_file[f])[1] for f in frank[:PARAMS["top_files"]]]
+        return relevance_answer(G, sc, seeds, hops=1)
     if variant == "bm25b_filefirst":
         per_file = defaultdict(list)
         for n, v in sc.items():
             per_file[G.nodes[n].get("source_file") or ""].append((v, n))
-        frank = sorted(per_file, key=lambda f: -(max(per_file[f])[0] + 0.3 * sum(v for v, _ in sorted(per_file[f])[:-1][-5:])))
-        seeds = [max(per_file[f])[1] for f in frank[:5]]
+        P, N = PARAMS["pool"], PARAMS["pool_n"]
+        frank = sorted(per_file, key=lambda f: -(max(per_file[f])[0] + P * sum(v for v, _ in sorted(per_file[f])[:-1][-N:])))
+        seeds = [max(per_file[f])[1] for f in frank[:PARAMS["top_files"]]]
         return relevance_answer(G, sc, seeds, hops=1)
     seeds = pick(sc, G)
     if not seeds:
