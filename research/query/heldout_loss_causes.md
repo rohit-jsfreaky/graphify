@@ -38,3 +38,31 @@ On these 63 questions BM25-files wins 9, the prototype wins 6.
    "pytest" and "fixture(s)" are feature words in a test-runner repo.
 3. Demote non-source nodes too: no source file, config/data files (.yml, .yaml, .toml,
    .cfg, .ini, .json, .txt) and doc/example folders.
+
+## After tuning (post-hoc: written after the single held-out run; nothing was changed after it)
+
+Tuned prototype (`results2/final-proto-tuned.jsonl`) vs BM25-files (`final-bm25files.jsonl`)
+on all 179 held-out questions: BM25-files wins 11, the prototype wins 21. Facts from `loss_after.py`.
+
+| Question | Cause (one line) |
+|---|---|
+| pylint-6506 "Traceback printed for unrecognized option" (Lite) | Small gold file (3 nodes); prototype has it 6th, just outside the top 5. |
+| pytest-7168 "INTERNALERROR when exception in __repr__" (Lite) | Small gold file (13 nodes), generic words; same as before tuning. |
+| requests-2317 "method = builtin_str(method) problem" (Lite) | Vendored code (`requests/packages/urllib3/...`, `six.py`) takes top-5 places; big gold file. |
+| requests-863 "Allow lists in the dict values of the hooks argument" (Lite) | Vendored `packages/urllib3/packages/ordered_dict.py` in the top 5; big gold file (78 nodes). |
+| sphinx-8627 "autodoc isn't able to resolve struct.Struct type annotations" (Lite) | Big unrelated files (domains/c.py, cpp.py) still take top-5 places. |
+| xarray-4493 "DataSet.update causes chunked dask DataArray to evaluate eagerly" (Lite) | Huge gold file (172 nodes) with the words spread out; prototype has it 6th. |
+| pylint-4661 "Make pylint XDG Base Directory Specification compliant" (Verified) | Gold includes `setup.cfg` (config, demoted by design) and a 6-node file; few matching words. |
+| requests-2931 "Request with binary payload fails due to calling to_native_string" (Verified) | Vendored urllib3 files in the top 5; big gold file (78 nodes). |
+| sphinx-9230 "Doc rendering is incorrect when :param has datatype dict(str,str)" (Verified) | Vendored minified `jquery-3.5.1.js` is the prototype's 1st file. |
+| sphinx-9281 "Python Enum values ... are rendered ugly" (Verified) | Vendored `jquery-3.5.1.js` and `underscore-1.13.1.js` take two top-5 places. |
+| xarray-4687 "xr.where not preserving attributes" (Verified) | Big gold file (76 nodes, ~2,000 lines), only 3 question words. |
+
+Counted (main cause): vendored / minified third-party code in the top 5: **5**
+(2317, 863, 2931, 9230, 9281); big file effects (gold words spread, or big unrelated
+files): **3** (8627, 4493, 4687); small gold file just missed: **2** (6506, 7168);
+gold is a demoted config file: **1** (4661).
+
+Not fixed in this round: a fix would be tuned after looking at held-out losses. The
+next step would be to demote vendored paths (`packages/`, `vendor/`, `static/`,
+`*.min.js`, minified files) — tuned on Django, then checked on new questions.

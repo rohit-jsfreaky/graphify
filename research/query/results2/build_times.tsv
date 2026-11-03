@@ -1,0 +1,10 @@
+repo	build_s	graph_bytes
+django	100.3	48262621
+pytest	7.4	4443850
+sphinx	19.9	10379916
+astropy	60.5	31191015
+requests	3.1	1201835
+pylint	19.0	11380324
+xarray	10.0	6256121
+seaborn	6.5	3313889
+flask	3.2	1562286

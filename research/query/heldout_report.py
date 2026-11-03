@@ -56,6 +56,17 @@ def main():
                 rid = [i for i in common if systems[next(iter(systems))][i]["repo"] == repo]
                 cells = [f"{100*sum(hit(s[i]['rank']) for i in rid)/len(rid):.0f}% ({sum(hit(s[i]['rank']) for i in rid)})" for s in systems.values()]
                 L.append(f"| {repo} | {len(rid)} | " + " | ".join(cells) + " |")
+            if pairs:
+                L += ["", f"Per repo ({name}), McNemar on top-5 (A only / B only, p):", "",
+                      "| repo | " + " | ".join(f"{x} vs {y}" for x, y in pairs) + " |", "|---|" + "---|" * len(pairs)]
+                for repo in repos:
+                    rid = [i for i in common if systems[next(iter(systems))][i]["repo"] == repo]
+                    cells = []
+                    for x, y in pairs:
+                        bo = sum(1 for i in rid if hit(systems[x][i]["rank"]) and not hit(systems[y][i]["rank"]))
+                        co = sum(1 for i in rid if hit(systems[y][i]["rank"]) and not hit(systems[x][i]["rank"]))
+                        cells.append(f"{bo}/{co}, p={mcnemar(bo, co):.2g}")
+                    L.append(f"| {repo} | " + " | ".join(cells) + " |")
     Path(out).write_text("\n".join(L) + "\n"); print("\n".join(L))
 
 if __name__ == "__main__":

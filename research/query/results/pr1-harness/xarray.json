@@ -1,0 +1,100 @@
+{
+  "nodes": 5815,
+  "edges": 15677,
+  "questions": 5,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 1,
+  "hit_at_3": 1,
+  "hit_at_5": 3,
+  "found": 3,
+  "median_tokens": 2205,
+  "over_budget": 0,
+  "per_question": [
+    {
+      "question": "Ignore missing variables when concatenating datasets?",
+      "files": [
+        "xarray/core/concat.py"
+      ],
+      "rank": 4,
+      "tokens": 2209,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "azure-pipelines.yml",
+        "xarray/core/missing.py",
+        "xarray/core/variable.py",
+        "asv_bench/benchmarks/combine.py",
+        "xarray/core/concat.py"
+      ]
+    },
+    {
+      "question": "to_unstacked_dataset broken for single-dim variables",
+      "files": [
+        "xarray/core/dataarray.py"
+      ],
+      "rank": 3,
+      "tokens": 2203,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "xarray/core/dataset.py",
+        "xarray/core/resample.py",
+        "xarray/core/parallel.py",
+        "xarray/core/dataarray.py",
+        "xarray/backends/api.py"
+      ]
+    },
+    {
+      "question": "Feature request: show units in dataset overview",
+      "files": [
+        "xarray/core/formatting.py"
+      ],
+      "rank": null,
+      "tokens": 2190,
+      "over_budget": false,
+      "files_shown": 5,
+      "top_files": [
+        "xarray/core/dataset.py",
+        "xarray/util/print_versions.py",
+        "xarray/core/dataarray.py",
+        "versioneer.py",
+        "xarray/coding/times.py"
+      ]
+    },
+    {
+      "question": "DataSet.update causes chunked dask DataArray to evalute its values eagerly",
+      "files": [
+        "xarray/core/variable.py"
+      ],
+      "rank": null,
+      "tokens": 2236,
+      "over_budget": false,
+      "files_shown": 5,
+      "top_files": [
+        "xarray/core/dataarray.py",
+        "xarray/core/dataset.py",
+        "xarray/testing.py",
+        "xarray/core/coordinates.py",
+        "xarray/tests/test_conventions.py"
+      ]
+    },
+    {
+      "question": "Trailing whitespace in DatasetGroupBy text representation",
+      "files": [
+        "xarray/core/groupby.py"
+      ],
+      "rank": 0,
+      "tokens": 2205,
+      "over_budget": false,
+      "files_shown": 23,
+      "top_files": [
+        "xarray/core/groupby.py",
+        "xarray/coding/cftimeindex.py",
+        "xarray/core/accessor_str.py",
+        "xarray/core/variable.py",
+        "xarray/tests/test_plot.py"
+      ]
+    }
+  ]
+}

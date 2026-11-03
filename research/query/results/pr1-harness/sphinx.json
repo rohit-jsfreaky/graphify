@@ -1,0 +1,282 @@
+{
+  "nodes": 10663,
+  "edges": 25466,
+  "questions": 16,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 3,
+  "hit_at_3": 6,
+  "hit_at_5": 9,
+  "found": 10,
+  "median_tokens": 2196,
+  "over_budget": 0,
+  "per_question": [
+    {
+      "question": "inherited-members should support more than one class",
+      "files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ],
+      "rank": 0,
+      "tokens": 2196,
+      "over_budget": false,
+      "files_shown": 23,
+      "top_files": [
+        "sphinx/ext/autodoc/__init__.py",
+        "tests/roots/test-ext-autosummary/autosummary_class_module.py",
+        "sphinx/search/non-minified-js/turkish-stemmer.js",
+        "sphinx/ext/napoleon/__init__.py",
+        "sphinx/ext/autosummary/generate.py"
+      ]
+    },
+    {
+      "question": "Fix duplicated *args and **kwargs with autodoc_typehints",
+      "files": [
+        "sphinx/ext/autodoc/typehints.py"
+      ],
+      "rank": 0,
+      "tokens": 2215,
+      "over_budget": false,
+      "files_shown": 7,
+      "top_files": [
+        "sphinx/ext/autodoc/typehints.py",
+        "sphinx/ext/autodoc/__init__.py",
+        "sphinx/ext/autodoc/directive.py",
+        "sphinx/ext/napoleon/docstring.py",
+        "sphinx/themes/basic/static/jquery-3.6.0.js"
+      ]
+    },
+    {
+      "question": "Using rst_prolog removes top level headings containing a domain directive",
+      "files": [
+        "sphinx/util/rst.py"
+      ],
+      "rank": null,
+      "tokens": 2267,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "sphinx/domains/__init__.py",
+        "sphinx/domains/rst.py",
+        "sphinx/directives/__init__.py",
+        "sphinx/util/docutils.py",
+        "sphinx/ext/autosummary/__init__.py"
+      ]
+    },
+    {
+      "question": "autosummary: The members variable for module template contains imported members",
+      "files": [
+        "sphinx/ext/autosummary/generate.py"
+      ],
+      "rank": 2,
+      "tokens": 2187,
+      "over_budget": false,
+      "files_shown": 40,
+      "top_files": [
+        "sphinx/themes/basic/static/underscore-1.13.1.js",
+        "sphinx/ext/autosummary/__init__.py",
+        "sphinx/ext/autosummary/generate.py",
+        "sphinx/pycode/parser.py",
+        "sphinx/pycode/__init__.py"
+      ]
+    },
+    {
+      "question": "overescaped trailing underscore on attribute with napoleon",
+      "files": [
+        "sphinx/ext/napoleon/docstring.py"
+      ],
+      "rank": null,
+      "tokens": 2159,
+      "over_budget": false,
+      "files_shown": 4,
+      "top_files": [
+        "sphinx/ext/autodoc/importer.py",
+        "sphinx/ext/napoleon/__init__.py",
+        "sphinx/themes/basic/static/underscore-1.13.1.js",
+        "sphinx/domains/cpp.py"
+      ]
+    },
+    {
+      "question": "Two sections called Symbols in index",
+      "files": [
+        "sphinx/environment/adapters/indexentries.py"
+      ],
+      "rank": 4,
+      "tokens": 2178,
+      "over_budget": false,
+      "files_shown": 18,
+      "top_files": [
+        "sphinx/addnodes.py",
+        "sphinx/util/__init__.py",
+        "sphinx/domains/cpp.py",
+        "sphinx/writers/texinfo.py",
+        "sphinx/environment/adapters/indexentries.py"
+      ]
+    },
+    {
+      "question": "Generate man page section directories",
+      "files": [
+        "sphinx/builders/manpage.py"
+      ],
+      "rank": 4,
+      "tokens": 2192,
+      "over_budget": false,
+      "files_shown": 5,
+      "top_files": [
+        "sphinx/cmd/quickstart.py",
+        "sphinx/writers/texinfo.py",
+        "sphinx/writers/manpage.py",
+        "sphinx/theming.py",
+        "sphinx/builders/manpage.py"
+      ]
+    },
+    {
+      "question": "autodoc_typehints does not effect to overloaded callables",
+      "files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ],
+      "rank": 1,
+      "tokens": 2174,
+      "over_budget": false,
+      "files_shown": 3,
+      "top_files": [
+        "sphinx/ext/autodoc/typehints.py",
+        "sphinx/ext/autodoc/__init__.py",
+        "sphinx/ext/autodoc/directive.py"
+      ]
+    },
+    {
+      "question": "autodoc_type_aliases does not effect to variables and attributes",
+      "files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ],
+      "rank": 2,
+      "tokens": 2202,
+      "over_budget": false,
+      "files_shown": 4,
+      "top_files": [
+        ".github/ISSUE_TEMPLATE/bug-report.yml",
+        "sphinx/util/inspect.py",
+        "sphinx/ext/autodoc/__init__.py",
+        "sphinx/builders/latex/__init__.py"
+      ]
+    },
+    {
+      "question": "v3.3 upgrade started generating \"WARNING: no number is assigned for table\" warnings",
+      "files": [
+        "sphinx/domains/std.py"
+      ],
+      "rank": null,
+      "tokens": 2229,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "sphinx/jinja2glue.py",
+        "sphinx/writers/latex.py",
+        "sphinx/domains/c.py",
+        "sphinx/transforms/__init__.py",
+        "sphinx/themes/basic/static/underscore-1.13.1.js"
+      ]
+    },
+    {
+      "question": "Sphinx 3.2 complains about option:: syntax that earlier versions accepted",
+      "files": [
+        "sphinx/domains/std.py"
+      ],
+      "rank": null,
+      "tokens": 2206,
+      "over_budget": false,
+      "files_shown": 6,
+      "top_files": [
+        "sphinx/application.py",
+        "sphinx/themes/basic/static/jquery-3.6.0.js",
+        "sphinx/jinja2glue.py",
+        "sphinx/themes/basic/static/underscore-1.13.1.js",
+        "sphinx/builders/dummy.py"
+      ]
+    },
+    {
+      "question": "autodoc: empty __all__ attribute is ignored",
+      "files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ],
+      "rank": 3,
+      "tokens": 2168,
+      "over_budget": false,
+      "files_shown": 4,
+      "top_files": [
+        "sphinx/ext/autodoc/importer.py",
+        "tests/roots/test-ext-coverage/coverage_ignored.py",
+        "tests/test_application.py",
+        "sphinx/ext/autodoc/__init__.py"
+      ]
+    },
+    {
+      "question": "autodoc isn't able to resolve struct.Struct type annotations",
+      "files": [
+        "sphinx/util/typing.py"
+      ],
+      "rank": null,
+      "tokens": 2166,
+      "over_budget": false,
+      "files_shown": 7,
+      "top_files": [
+        "sphinx/themes/basic/static/jquery-3.6.0.js",
+        "sphinx/util/inspect.py",
+        "sphinx/testing/util.py",
+        ".github/ISSUE_TEMPLATE/bug-report.yml",
+        "sphinx/ext/autodoc/__init__.py"
+      ]
+    },
+    {
+      "question": "napoleon_use_param should also affect \"other parameters\" section",
+      "files": [
+        "sphinx/ext/napoleon/docstring.py"
+      ],
+      "rank": 0,
+      "tokens": 2227,
+      "over_budget": false,
+      "files_shown": 5,
+      "top_files": [
+        "sphinx/ext/napoleon/docstring.py",
+        "sphinx/testing/fixtures.py",
+        "sphinx/ext/napoleon/__init__.py",
+        "sphinx/directives/other.py",
+        "sphinx/util/smartypants.py"
+      ]
+    },
+    {
+      "question": "viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`",
+      "files": [
+        "sphinx/ext/viewcode.py"
+      ],
+      "rank": 5,
+      "tokens": 2211,
+      "over_budget": false,
+      "files_shown": 10,
+      "top_files": [
+        "sphinx/cmd/make_mode.py",
+        "sphinx/builders/dirhtml.py",
+        "sphinx/testing/fixtures.py",
+        "sphinx/builders/_epub_base.py",
+        "sphinx/ext/githubpages.py"
+      ]
+    },
+    {
+      "question": "autodoc: The annotation only member in superclass is treated as \"undocumented\"",
+      "files": [
+        "sphinx/ext/autodoc/importer.py"
+      ],
+      "rank": null,
+      "tokens": 315,
+      "over_budget": false,
+      "files_shown": 6,
+      "top_files": [
+        "sphinx/addnodes.py",
+        "sphinx/ext/autodoc/__init__.py",
+        "sphinx/ext/autosummary/generate.py",
+        "sphinx/errors.py",
+        "sphinx/builders/__init__.py"
+      ]
+    }
+  ]
+}
