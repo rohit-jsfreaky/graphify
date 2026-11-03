@@ -1,0 +1,83 @@
+{
+  "nodes": 3481,
+  "edges": 8353,
+  "questions": 4,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 2,
+  "hit_at_3": 2,
+  "hit_at_5": 4,
+  "found": 4,
+  "median_tokens": 2178,
+  "over_budget": 0,
+  "per_question": [
+    {
+      "question": "pairplot fails with hue_order not containing all hue values in seaborn 0.11.1",
+      "files": [
+        "seaborn/_oldcore.py"
+      ],
+      "rank": 4,
+      "tokens": 2178,
+      "over_budget": false,
+      "files_shown": 16,
+      "top_files": [
+        "seaborn/axisgrid.py",
+        "pyproject.toml",
+        "tests/test_matrix.py",
+        "tests/_core/test_plot.py",
+        "seaborn/_oldcore.py"
+      ]
+    },
+    {
+      "question": "PolyFit is not robust to missing data",
+      "files": [
+        "seaborn/_stats/regression.py"
+      ],
+      "rank": 0,
+      "tokens": 2138,
+      "over_budget": false,
+      "files_shown": 12,
+      "top_files": [
+        "seaborn/_stats/regression.py",
+        "tests/_core/test_groupby.py",
+        "seaborn/_core/data.py",
+        "tests/conftest.py",
+        "tests/test_regression.py"
+      ]
+    },
+    {
+      "question": "Color mapping fails with boolean data",
+      "files": [
+        "seaborn/_core/scales.py"
+      ],
+      "rank": 3,
+      "tokens": 2181,
+      "over_budget": false,
+      "files_shown": 9,
+      "top_files": [
+        "seaborn/_core/properties.py",
+        "seaborn/_oldcore.py",
+        "seaborn/_core/data.py",
+        "seaborn/_core/scales.py",
+        "seaborn/_core/typing.py"
+      ]
+    },
+    {
+      "question": "pairplot raises KeyError with MultiIndex DataFrame",
+      "files": [
+        "seaborn/axisgrid.py"
+      ],
+      "rank": 0,
+      "tokens": 2162,
+      "over_budget": false,
+      "files_shown": 10,
+      "top_files": [
+        "seaborn/axisgrid.py",
+        "tests/_core/test_plot.py",
+        "seaborn/_core/plot.py",
+        "seaborn/distributions.py",
+        "seaborn/_core/scales.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,285 @@
+{
+  "nodes": 10663,
+  "edges": 25466,
+  "questions": 16,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 2,
+  "hit_at_3": 3,
+  "hit_at_5": 5,
+  "found": 8,
+  "median_tokens": 2168,
+  "over_budget": 0,
+  "per_question": [
+    {
+      "question": "inherited-members should support more than one class",
+      "files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ],
+      "rank": 1,
+      "tokens": 2165,
+      "over_budget": false,
+      "files_shown": 20,
+      "top_files": [
+        "tests/roots/test-ext-autosummary/autosummary_class_module.py",
+        "sphinx/ext/autodoc/__init__.py",
+        "sphinx/search/non-minified-js/turkish-stemmer.js",
+        "sphinx/ext/autosummary/generate.py",
+        "sphinx/builders/html/__init__.py"
+      ]
+    },
+    {
+      "question": "Fix duplicated *args and **kwargs with autodoc_typehints",
+      "files": [
+        "sphinx/ext/autodoc/typehints.py"
+      ],
+      "rank": null,
+      "tokens": 2185,
+      "over_budget": false,
+      "files_shown": 15,
+      "top_files": [
+        "sphinx/testing/fixtures.py",
+        "sphinx/themes/basic/static/jquery-3.6.0.js",
+        "sphinx/domains/cpp.py",
+        "tests/test_ext_autodoc_configs.py",
+        "tests/roots/test-toctree-duplicated/conf.py"
+      ]
+    },
+    {
+      "question": "Using rst_prolog removes top level headings containing a domain directive",
+      "files": [
+        "sphinx/util/rst.py"
+      ],
+      "rank": null,
+      "tokens": 2248,
+      "over_budget": false,
+      "files_shown": 21,
+      "top_files": [
+        "sphinx/domains/__init__.py",
+        "sphinx/directives/__init__.py",
+        "tests/test_ext_intersphinx.py",
+        "tests/test_ext_apidoc.py",
+        "sphinx/ext/autodoc/__init__.py"
+      ]
+    },
+    {
+      "question": "autosummary: The members variable for module template contains imported members",
+      "files": [
+        "sphinx/ext/autosummary/generate.py"
+      ],
+      "rank": 3,
+      "tokens": 446,
+      "over_budget": false,
+      "files_shown": 6,
+      "top_files": [
+        "sphinx/themes/basic/static/underscore-1.13.1.js",
+        "sphinx/ext/autosummary/__init__.py",
+        "tests/roots/test-ext-autosummary-imported_members/conf.py",
+        "sphinx/ext/autosummary/generate.py",
+        "tests/roots/test-apidoc-trailing-underscore/package_/module_.py"
+      ]
+    },
+    {
+      "question": "overescaped trailing underscore on attribute with napoleon",
+      "files": [
+        "sphinx/ext/napoleon/docstring.py"
+      ],
+      "rank": 8,
+      "tokens": 2141,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "sphinx/ext/autodoc/importer.py",
+        "sphinx/ext/napoleon/__init__.py",
+        "sphinx/domains/cpp.py",
+        "sphinx/themes/basic/static/underscore-1.13.1.js",
+        "sphinx/application.py"
+      ]
+    },
+    {
+      "question": "Two sections called Symbols in index",
+      "files": [
+        "sphinx/environment/adapters/indexentries.py"
+      ],
+      "rank": null,
+      "tokens": 694,
+      "over_budget": false,
+      "files_shown": 5,
+      "top_files": [
+        "sphinx/addnodes.py",
+        "sphinx/ext/autodoc/__init__.py",
+        "sphinx/writers/texinfo.py",
+        "sphinx/domains/cpp.py",
+        "tests/test_build_latex.py"
+      ]
+    },
+    {
+      "question": "Generate man page section directories",
+      "files": [
+        "sphinx/builders/manpage.py"
+      ],
+      "rank": null,
+      "tokens": 2191,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "sphinx/cmd/quickstart.py",
+        "sphinx/writers/texinfo.py",
+        "sphinx/theming.py",
+        "sphinx/writers/manpage.py",
+        "sphinx/testing/path.py"
+      ]
+    },
+    {
+      "question": "autodoc_typehints does not effect to overloaded callables",
+      "files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ],
+      "rank": 0,
+      "tokens": 959,
+      "over_budget": false,
+      "files_shown": 6,
+      "top_files": [
+        "sphinx/ext/autodoc/__init__.py",
+        "tests/test_ext_autodoc_configs.py",
+        "tests/test_ext_autodoc.py",
+        "sphinx/pycode/__init__.py",
+        "sphinx/ext/autodoc/importer.py"
+      ]
+    },
+    {
+      "question": "autodoc_type_aliases does not effect to variables and attributes",
+      "files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ],
+      "rank": null,
+      "tokens": 635,
+      "over_budget": false,
+      "files_shown": 3,
+      "top_files": [
+        ".github/ISSUE_TEMPLATE/bug-report.yml",
+        "tests/test_ext_autodoc_configs.py",
+        "tests/test_ext_autodoc.py"
+      ]
+    },
+    {
+      "question": "v3.3 upgrade started generating \"WARNING: no number is assigned for table\" warnings",
+      "files": [
+        "sphinx/domains/std.py"
+      ],
+      "rank": null,
+      "tokens": 2193,
+      "over_budget": false,
+      "files_shown": 13,
+      "top_files": [
+        "sphinx/themes/basic/static/underscore-1.13.1.js",
+        "sphinx/writers/latex.py",
+        "sphinx/ext/autodoc/typehints.py",
+        "tests/roots/test-add_enumerable_node/enumerable_node.py",
+        "sphinx/writers/text.py"
+      ]
+    },
+    {
+      "question": "Sphinx 3.2 complains about option:: syntax that earlier versions accepted",
+      "files": [
+        "sphinx/domains/std.py"
+      ],
+      "rank": null,
+      "tokens": 2168,
+      "over_budget": false,
+      "files_shown": 27,
+      "top_files": [
+        "sphinx/application.py",
+        "tests/roots/test-ext-autodoc/bug2437/__init__.py",
+        "sphinx/themes/basic/static/jquery-3.6.0.js",
+        "sphinx/jinja2glue.py",
+        "sphinx/themes/basic/static/underscore-1.13.1.js"
+      ]
+    },
+    {
+      "question": "autodoc: empty __all__ attribute is ignored",
+      "files": [
+        "sphinx/ext/autodoc/__init__.py"
+      ],
+      "rank": 4,
+      "tokens": 2172,
+      "over_budget": false,
+      "files_shown": 21,
+      "top_files": [
+        "tests/roots/test-ext-coverage/coverage_ignored.py",
+        "tests/test_application.py",
+        "sphinx/ext/autodoc/importer.py",
+        "tests/test_ext_autosummary.py",
+        "sphinx/ext/autodoc/__init__.py"
+      ]
+    },
+    {
+      "question": "autodoc isn't able to resolve struct.Struct type annotations",
+      "files": [
+        "sphinx/util/typing.py"
+      ],
+      "rank": 16,
+      "tokens": 2168,
+      "over_budget": false,
+      "files_shown": 24,
+      "top_files": [
+        "sphinx/testing/util.py",
+        "sphinx/themes/basic/static/jquery-3.6.0.js",
+        ".github/ISSUE_TEMPLATE/bug-report.yml",
+        "tests/roots/test-add_enumerable_node/enumerable_node.py",
+        "tests/test_util_inspect.py"
+      ]
+    },
+    {
+      "question": "napoleon_use_param should also affect \"other parameters\" section",
+      "files": [
+        "sphinx/ext/napoleon/docstring.py"
+      ],
+      "rank": 0,
+      "tokens": 2156,
+      "over_budget": false,
+      "files_shown": 21,
+      "top_files": [
+        "sphinx/ext/napoleon/docstring.py",
+        "sphinx/directives/other.py",
+        "sphinx/testing/fixtures.py",
+        "sphinx/application.py",
+        "sphinx/util/docutils.py"
+      ]
+    },
+    {
+      "question": "viewcode creates pages for epub even if `viewcode_enable_epub=False` on `make html epub`",
+      "files": [
+        "sphinx/ext/viewcode.py"
+      ],
+      "rank": 7,
+      "tokens": 2180,
+      "over_budget": false,
+      "files_shown": 24,
+      "top_files": [
+        "sphinx/cmd/make_mode.py",
+        "sphinx/testing/fixtures.py",
+        "sphinx/themes/basic/static/underscore-1.13.1.js",
+        "sphinx/builders/_epub_base.py",
+        "sphinx/events.py"
+      ]
+    },
+    {
+      "question": "autodoc: The annotation only member in superclass is treated as \"undocumented\"",
+      "files": [
+        "sphinx/ext/autodoc/importer.py"
+      ],
+      "rank": null,
+      "tokens": 360,
+      "over_budget": false,
+      "files_shown": 7,
+      "top_files": [
+        "sphinx/addnodes.py",
+        "tests/test_ext_autodoc_events.py",
+        "sphinx/ext/autodoc/__init__.py",
+        "sphinx/ext/autosummary/generate.py",
+        "sphinx/builders/__init__.py"
+      ]
+    }
+  ]
+}

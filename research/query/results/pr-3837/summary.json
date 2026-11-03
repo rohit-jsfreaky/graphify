@@ -1,0 +1,9 @@
+{
+ "n": 177,
+ "top1": 40,
+ "top3": 57,
+ "top5": 66,
+ "found": 85,
+ "median_tokens": 2158,
+ "over_budget": 3
+}

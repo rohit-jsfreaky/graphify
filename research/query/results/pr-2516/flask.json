@@ -1,0 +1,66 @@
+{
+  "nodes": 2214,
+  "edges": 3379,
+  "questions": 3,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 2,
+  "hit_at_3": 2,
+  "hit_at_5": 2,
+  "found": 3,
+  "median_tokens": 2203,
+  "over_budget": 0,
+  "per_question": [
+    {
+      "question": "Raise error when blueprint name contains a dot",
+      "files": [
+        "src/flask/blueprints.py"
+      ],
+      "rank": 0,
+      "tokens": 2157,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "src/flask/blueprints.py",
+        ".github/ISSUE_TEMPLATE/config.yml",
+        "tests/test_blueprints.py",
+        "src/flask/ctx.py",
+        "tests/test_cli.py"
+      ]
+    },
+    {
+      "question": "Add a file mode parameter to flask.Config.from_file()",
+      "files": [
+        "src/flask/config.py"
+      ],
+      "rank": 0,
+      "tokens": 2203,
+      "over_budget": false,
+      "files_shown": 14,
+      "top_files": [
+        "src/flask/config.py",
+        "src/flask/app.py",
+        "examples/celery/src/task_app/tasks.py",
+        ".pre-commit-config.yaml",
+        "tests/test_basic.py"
+      ]
+    },
+    {
+      "question": "Flask routes to return domain/sub-domains information",
+      "files": [
+        "src/flask/cli.py"
+      ],
+      "rank": 6,
+      "tokens": 2211,
+      "over_budget": false,
+      "files_shown": 16,
+      "top_files": [
+        "tests/test_reqctx.py",
+        "src/flask/app.py",
+        "tests/test_apps/subdomaintestmodule/__init__.py",
+        "tests/test_blueprints.py",
+        "src/flask/ctx.py"
+      ]
+    }
+  ]
+}

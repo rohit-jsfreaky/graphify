@@ -1,0 +1,117 @@
+{
+  "nodes": 31180,
+  "edges": 66845,
+  "questions": 6,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 2,
+  "hit_at_3": 4,
+  "hit_at_5": 4,
+  "found": 5,
+  "median_tokens": 2206,
+  "over_budget": 0,
+  "per_question": [
+    {
+      "question": "Modeling's `separability_matrix` does not compute separability correctly for nested CompoundModels",
+      "files": [
+        "astropy/modeling/separable.py"
+      ],
+      "rank": 1,
+      "tokens": 2206,
+      "over_budget": false,
+      "files_shown": 43,
+      "top_files": [
+        "astropy/coordinates/tests/test_transformations.py",
+        "astropy/modeling/separable.py",
+        "astropy/modeling/polynomial.py",
+        "astropy/stats/src/compute_bounds.c",
+        "astropy/extern/configobj/configobj.py"
+      ]
+    },
+    {
+      "question": "Please support header rows in RestructuredText output",
+      "files": [
+        "astropy/io/ascii/rst.py"
+      ],
+      "rank": 1,
+      "tokens": 2189,
+      "over_budget": false,
+      "files_shown": 28,
+      "top_files": [
+        "astropy/io/fits/header.py",
+        "astropy/io/ascii/rst.py",
+        "astropy/io/votable/converters.py",
+        "astropy/io/fits/hdu/image.py",
+        "astropy/table/table.py"
+      ]
+    },
+    {
+      "question": "ascii.qdp Table format assumes QDP commands are upper case",
+      "files": [
+        "astropy/io/ascii/qdp.py"
+      ],
+      "rank": 0,
+      "tokens": 2187,
+      "over_budget": false,
+      "files_shown": 31,
+      "top_files": [
+        "astropy/io/ascii/qdp.py",
+        "astropy/visualization/time.py",
+        "astropy/io/votable/tree.py",
+        "astropy/io/fits/column.py",
+        "astropy/coordinates/baseframe.py"
+      ]
+    },
+    {
+      "question": "In v5.3, NDDataRef mask propagation fails when one of the operand does not have a mask",
+      "files": [
+        "astropy/nddata/mixins/ndarithmetic.py"
+      ],
+      "rank": 9,
+      "tokens": 2256,
+      "over_budget": false,
+      "files_shown": 27,
+      "top_files": [
+        "astropy/nddata/nddata_withmixins.py",
+        "astropy/utils/masked/function_helpers.py",
+        "astropy/coordinates/representation.py",
+        "astropy/coordinates/tests/test_representation_arithmetic.py",
+        "astropy/table/table.py"
+      ]
+    },
+    {
+      "question": "Possible bug in io.fits related to D exponents",
+      "files": [
+        "astropy/io/fits/fitsrec.py"
+      ],
+      "rank": null,
+      "tokens": 2196,
+      "over_budget": false,
+      "files_shown": 32,
+      "top_files": [
+        "astropy/units/format/fits.py",
+        "astropy/extern/ply/yacc.py",
+        "astropy/io/ascii/tests/test_c_reader.py",
+        "astropy/units/quantity.py",
+        "astropy/wcs/tests/test_utils.py"
+      ]
+    },
+    {
+      "question": "Issue when passing empty lists/arrays to WCS transformations",
+      "files": [
+        "astropy/wcs/wcs.py"
+      ],
+      "rank": 0,
+      "tokens": 2261,
+      "over_budget": false,
+      "files_shown": 37,
+      "top_files": [
+        "astropy/wcs/wcs.py",
+        "astropy/wcs/tests/test_wcs.py",
+        "astropy/io/fits/column.py",
+        "astropy/io/registry/tests/test_registries.py",
+        "astropy/coordinates/tests/test_regression.py"
+      ]
+    }
+  ]
+}

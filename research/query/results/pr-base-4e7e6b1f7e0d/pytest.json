@@ -1,0 +1,297 @@
+{
+  "nodes": 5954,
+  "edges": 9181,
+  "questions": 17,
+  "depth": 3,
+  "token_budget": 2000,
+  "hit_at_1": 4,
+  "hit_at_3": 6,
+  "hit_at_5": 7,
+  "found": 9,
+  "median_tokens": 2155,
+  "over_budget": 0,
+  "per_question": [
+    {
+      "question": "Rewrite fails when first expression of file is a number and mistaken as docstring",
+      "files": [
+        "src/_pytest/assertion/rewrite.py"
+      ],
+      "rank": 5,
+      "tokens": 2155,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "testing/test_assertrewrite.py",
+        "src/_pytest/nodes.py",
+        "src/_pytest/python.py",
+        "testing/code/test_source.py",
+        "testing/test_cacheprovider.py"
+      ]
+    },
+    {
+      "question": "Module imported twice under import-mode=importlib",
+      "files": [
+        "src/_pytest/pathlib.py"
+      ],
+      "rank": null,
+      "tokens": 260,
+      "over_budget": false,
+      "files_shown": 5,
+      "top_files": [
+        "testing/python/setup_only.py",
+        "src/_pytest/outcomes.py",
+        "src/_pytest/assertion/rewrite.py",
+        "src/_pytest/python.py",
+        "testing/test_junitxml.py"
+      ]
+    },
+    {
+      "question": "Unroll the iterable for all/any calls to get better reports",
+      "files": [
+        "src/_pytest/assertion/rewrite.py"
+      ],
+      "rank": null,
+      "tokens": 403,
+      "over_budget": false,
+      "files_shown": 5,
+      "top_files": [
+        "src/_pytest/python.py",
+        "src/_pytest/reports.py",
+        "testing/acceptance_test.py",
+        "testing/test_assertion.py",
+        "src/_pytest/config/__init__.py"
+      ]
+    },
+    {
+      "question": "Display fixture scope with `pytest --fixtures`",
+      "files": [
+        "src/_pytest/python.py"
+      ],
+      "rank": 4,
+      "tokens": 2171,
+      "over_budget": false,
+      "files_shown": 20,
+      "top_files": [
+        "src/_pytest/fixtures.py",
+        "testing/python/metafunc.py",
+        "src/_pytest/assertion/rewrite.py",
+        "src/pytest.py",
+        "src/_pytest/python.py"
+      ]
+    },
+    {
+      "question": "Improve default logging format",
+      "files": [
+        "src/_pytest/logging.py"
+      ],
+      "rank": 1,
+      "tokens": 95,
+      "over_budget": false,
+      "files_shown": 2,
+      "top_files": [
+        "testing/test_parseopt.py",
+        "src/_pytest/logging.py"
+      ]
+    },
+    {
+      "question": "str() on the pytest.raises context variable doesn't behave same as normal exception catch",
+      "files": [
+        "src/_pytest/_code/code.py"
+      ],
+      "rank": null,
+      "tokens": 2239,
+      "over_budget": false,
+      "files_shown": 25,
+      "top_files": [
+        "src/_pytest/python_api.py",
+        "src/_pytest/warnings.py",
+        "testing/test_doctest.py",
+        "src/_pytest/logging.py",
+        "src/_pytest/monkeypatch.py"
+      ]
+    },
+    {
+      "question": "Confusing assertion rewriting message with byte strings",
+      "files": [
+        "src/_pytest/assertion/util.py"
+      ],
+      "rank": null,
+      "tokens": 2202,
+      "over_budget": false,
+      "files_shown": 8,
+      "top_files": [
+        "src/_pytest/assertion/rewrite.py",
+        "testing/test_assertion.py",
+        "azure-pipelines.yml",
+        "src/_pytest/logging.py",
+        "src/_pytest/config/argparsing.py"
+      ]
+    },
+    {
+      "question": "Hostname and timestamp properties in generated JUnit XML reports",
+      "files": [
+        "src/_pytest/junitxml.py"
+      ],
+      "rank": 0,
+      "tokens": 224,
+      "over_budget": false,
+      "files_shown": 4,
+      "top_files": [
+        "src/_pytest/junitxml.py",
+        "testing/python/collect.py",
+        "testing/test_junitxml.py",
+        "src/_pytest/reports.py"
+      ]
+    },
+    {
+      "question": "pytest --collect-only needs a one char shortcut command",
+      "files": [
+        "src/_pytest/main.py"
+      ],
+      "rank": 11,
+      "tokens": 2233,
+      "over_budget": false,
+      "files_shown": 22,
+      "top_files": [
+        "src/_pytest/runner.py",
+        "testing/example_scripts/config/collect_pytest_prefix/conftest.py",
+        "testing/example_scripts/config/collect_pytest_prefix/test_foo.py",
+        "testing/test_assertrewrite.py",
+        "src/_pytest/python.py"
+      ]
+    },
+    {
+      "question": "INTERNALERROR when exception in __repr__",
+      "files": [
+        "src/_pytest/_io/saferepr.py"
+      ],
+      "rank": null,
+      "tokens": 475,
+      "over_budget": false,
+      "files_shown": 3,
+      "top_files": [
+        "doc/en/example/assertion/failure_demo.py",
+        "testing/test_terminal.py",
+        "src/_pytest/terminal.py"
+      ]
+    },
+    {
+      "question": "Wrong path to test file when directory changed in fixture",
+      "files": [
+        "src/_pytest/nodes.py"
+      ],
+      "rank": 0,
+      "tokens": 2163,
+      "over_budget": false,
+      "files_shown": 9,
+      "top_files": [
+        "src/_pytest/nodes.py",
+        "src/_pytest/fixtures.py",
+        "testing/test_cacheprovider.py",
+        "src/_pytest/config/__init__.py",
+        "src/_pytest/_code/code.py"
+      ]
+    },
+    {
+      "question": "Incorrect caching of skipif/xfail string condition evaluation",
+      "files": [
+        "src/_pytest/mark/evaluate.py"
+      ],
+      "rank": null,
+      "tokens": 770,
+      "over_budget": false,
+      "files_shown": 6,
+      "top_files": [
+        "azure-pipelines.yml",
+        "testing/test_assertrewrite.py",
+        "testing/test_conftest.py",
+        "src/_pytest/outcomes.py",
+        "src/_pytest/_code/source.py"
+      ]
+    },
+    {
+      "question": "skipping: --runxfail breaks pytest.mark.skip location reporting",
+      "files": [
+        "src/_pytest/skipping.py"
+      ],
+      "rank": 0,
+      "tokens": 2220,
+      "over_budget": false,
+      "files_shown": 23,
+      "top_files": [
+        "src/_pytest/skipping.py",
+        "testing/example_scripts/unittest/test_setup_skip_class.py",
+        "testing/example_scripts/unittest/test_setup_skip.py",
+        "testing/test_monkeypatch.py",
+        "src/_pytest/nodes.py"
+      ]
+    },
+    {
+      "question": "Pytest 6: Dynamically adding xfail marker in test no longer ignores failure",
+      "files": [
+        "src/_pytest/skipping.py"
+      ],
+      "rank": null,
+      "tokens": 2246,
+      "over_budget": false,
+      "files_shown": 28,
+      "top_files": [
+        "src/_pytest/outcomes.py",
+        "src/_pytest/nodes.py",
+        "testing/test_config.py",
+        "testing/test_junitxml.py",
+        "src/_pytest/hookspec.py"
+      ]
+    },
+    {
+      "question": "tmpdir creation fails when the username contains illegal characters for directory names",
+      "files": [
+        "src/_pytest/tmpdir.py"
+      ],
+      "rank": 0,
+      "tokens": 1564,
+      "over_budget": false,
+      "files_shown": 11,
+      "top_files": [
+        "src/_pytest/tmpdir.py",
+        "testing/python/metafunc.py",
+        "testing/test_assertrewrite.py",
+        "src/_pytest/config/__init__.py",
+        "src/_pytest/config/argparsing.py"
+      ]
+    },
+    {
+      "question": "Improve handling of skip for module level",
+      "files": [
+        "src/_pytest/python.py"
+      ],
+      "rank": 1,
+      "tokens": 302,
+      "over_budget": false,
+      "files_shown": 4,
+      "top_files": [
+        "src/_pytest/outcomes.py",
+        "src/_pytest/python.py",
+        "testing/code/test_code.py",
+        "testing/example_scripts/fixtures/fill_fixtures/test_funcarg_lookup_modulelevel.py"
+      ]
+    },
+    {
+      "question": "Error message prints extra code line when using assert in python3.9",
+      "files": [
+        "src/_pytest/_code/source.py"
+      ],
+      "rank": null,
+      "tokens": 2267,
+      "over_budget": false,
+      "files_shown": 16,
+      "top_files": [
+        "src/_pytest/_code/code.py",
+        "src/_pytest/pytester.py",
+        "testing/test_assertion.py",
+        "testing/example_scripts/issue_519.py",
+        "src/_pytest/assertion/rewrite.py"
+      ]
+    }
+  ]
+}
