@@ -1,0 +1,7 @@
+{"id": "psf__requests-1142", "question": "requests.get is ALWAYS sending content length", "files": ["requests/models.py"], "commit": "22623bd8c265b78b161542663ee980738441c307"}
+{"id": "psf__requests-1724", "question": "Unicode method names cause UnicodeDecodeError for some requests in Python 2.7.2", "files": ["requests/sessions.py"], "commit": "1ba83c47ce7b177efe90d5f51f7760680f72eda0"}
+{"id": "psf__requests-1766", "question": "quote qop options in Digest Auth", "files": ["requests/auth.py"], "commit": "847735553aeda6e6633f2b32e14ba14ba86887a4"}
+{"id": "psf__requests-1921", "question": "Removing a default header of a session", "files": ["requests/sessions.py"], "commit": "3c88e520da24ae6f736929a750876e7654accc3d"}
+{"id": "psf__requests-2931", "question": "Request with binary payload fails due to calling to_native_string", "files": ["requests/models.py"], "commit": "5f7a3a74aab1625c2bb65f643197ee885e3da576"}
+{"id": "psf__requests-5414", "question": "Getting http://.example.com raises UnicodeError", "files": ["requests/models.py"], "commit": "39d0fdd9096f7dceccbc8f82e1eda7dd64717a8e"}
+{"id": "psf__requests-6028", "question": "Proxy authentication bug", "files": ["requests/utils.py"], "commit": "0192aac24123735b3eaf9b08df46429bb770c283"}

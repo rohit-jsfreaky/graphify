@@ -1,0 +1,2 @@
+{"id": "mwaskom__seaborn-3069", "question": "Nominal scale should be drawn the same way as categorical scales", "files": ["seaborn/_core/plot.py"], "commit": "54cab15bdacfaa05a88fbc5502a5b322d99f148e"}
+{"id": "mwaskom__seaborn-3187", "question": "Wrong legend values of large ranges", "files": ["seaborn/_core/scales.py", "seaborn/utils.py"], "commit": "22cdfb0c93f8ec78492d87edb810f10cb7f57a31"}

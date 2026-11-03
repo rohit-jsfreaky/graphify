@@ -1,0 +1,21 @@
+{"id": "pydata__xarray-2905", "question": "Variable.__setitem__ coercing types on objects with a values property", "files": ["xarray/core/variable.py"], "commit": "7c4e2ac83f7b4306296ff9b7b51aaf016e5ad614"}
+{"id": "pydata__xarray-3095", "question": "REGRESSION: copy(deep=True) casts unicode indices to object", "files": ["xarray/core/indexing.py", "xarray/core/variable.py"], "commit": "1757dffac2fa493d7b9a074b84cf8c830a706688"}
+{"id": "pydata__xarray-3151", "question": "xr.combine_by_coords raises ValueError if identical coordinates are non-monotonic", "files": ["xarray/core/combine.py"], "commit": "118f4d996e7711c9aced916e6049af9f28d5ec66"}
+{"id": "pydata__xarray-3305", "question": "DataArray.quantile does not honor `keep_attrs`", "files": ["xarray/core/dataset.py", "xarray/core/variable.py"], "commit": "69c7e01e5167a3137c285cb50d1978252bb8bcbf"}
+{"id": "pydata__xarray-3677", "question": "Merging dataArray into dataset using dataset method fails", "files": ["xarray/core/dataset.py"], "commit": "ef6e6a7b86f8479b9a1fecf15ad5b88a2326b31e"}
+{"id": "pydata__xarray-3993", "question": "DataArray.integrate has a 'dim' arg, but Dataset.integrate has a 'coord' arg", "files": ["xarray/core/dataarray.py", "xarray/core/dataset.py"], "commit": "8cc34cb412ba89ebca12fc84f76a9e452628f1bc"}
+{"id": "pydata__xarray-4075", "question": "[bug] when passing boolean weights to weighted mean", "files": ["xarray/core/weighted.py"], "commit": "19b088636eb7d3f65ab7a1046ac672e0689371d8"}
+{"id": "pydata__xarray-4356", "question": "sum: min_count is not available for reduction with more than one dimensions", "files": ["xarray/core/nanops.py"], "commit": "e05fddea852d08fc0845f954b79deb9e9f9ff883"}
+{"id": "pydata__xarray-4629", "question": "merge(combine_attrs='override') does not copy attrs but instead references attrs from the first object", "files": ["xarray/core/merge.py"], "commit": "a41edc7bf5302f2ea327943c0c48c532b12009bc"}
+{"id": "pydata__xarray-4687", "question": "xr.where not preserving attributes", "files": ["xarray/core/computation.py"], "commit": "d3b6aa6d8b997df115a53c001d00222a0f92f63a"}
+{"id": "pydata__xarray-4695", "question": "Naming a dimension \"method\" throws error when calling \".loc\"", "files": ["xarray/core/dataarray.py"], "commit": "51ef2a66c4e0896eab7d2b03e3dfb3963e338e3c"}
+{"id": "pydata__xarray-4966", "question": "Handling of signed bytes from OPeNDAP via pydap", "files": ["xarray/coding/variables.py"], "commit": "37522e991a32ee3c0ad1a5ff8afe8e3eb1885550"}
+{"id": "pydata__xarray-6461", "question": "xr.where with scalar as second argument fails with keep_attrs=True", "files": ["xarray/core/computation.py"], "commit": "851dadeb0338403e5021c3fbe80cbc9127ee672d"}
+{"id": "pydata__xarray-6599", "question": "`polyval` with timedelta64 coordinates produces wrong results", "files": ["xarray/core/computation.py"], "commit": "6bb2b855498b5c68d7cca8cceb710365d58e6048"}
+{"id": "pydata__xarray-6721", "question": "Accessing chunks on zarr backed xarray seems to load entire array into memory", "files": ["xarray/core/common.py"], "commit": "cc183652bf6e1273e985e1c4b3cba79c896c1193"}
+{"id": "pydata__xarray-6744", "question": "\"center\" kwarg ignored when manually iterating over DataArrayRolling", "files": ["xarray/core/rolling.py"], "commit": "7cc6cc991e586a6158bb656b8001234ccda25407"}
+{"id": "pydata__xarray-6938", "question": "`.swap_dims()` can modify original object", "files": ["xarray/core/dataset.py", "xarray/core/variable.py"], "commit": "c4e40d991c28be51de9ac560ce895ac7f9b14924"}
+{"id": "pydata__xarray-6992", "question": "index refactor: more `_coord_names` than `_variables` on Dataset", "files": ["xarray/core/dataset.py", "xarray/core/indexes.py"], "commit": "45c0a114e2b7b27b83c9618bc05b36afac82183c"}
+{"id": "pydata__xarray-7229", "question": "`xr.where(..., keep_attrs=True)` overwrites coordinate attributes", "files": ["xarray/core/computation.py"], "commit": "3aa75c8d00a4a2d4acf10d80f76b937cadb666b7"}
+{"id": "pydata__xarray-7233", "question": "ds.Coarsen.construct demotes non-dimensional coordinates to variables", "files": ["xarray/core/rolling.py"], "commit": "51d37d1be95547059251076b3fadaa317750aab3"}
+{"id": "pydata__xarray-7393", "question": "stack casts int32 dtype coordinate to int64", "files": ["xarray/core/indexing.py"], "commit": "41fef6f1352be994cd90056d47440fe9aa4c068f"}

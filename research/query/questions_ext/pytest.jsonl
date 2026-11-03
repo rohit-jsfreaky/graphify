@@ -1,0 +1,17 @@
+{"id": "pytest-dev__pytest-10051", "question": "caplog.get_records and caplog.clear conflict", "files": ["src/_pytest/logging.py"], "commit": "aa55975c7d3f6c9f6d7f68accc41bb7cadf0eb9a"}
+{"id": "pytest-dev__pytest-10081", "question": "unittest.TestCase.tearDown executed for classes marked with `unittest.skip` when running --pdb", "files": ["src/_pytest/unittest.py"], "commit": "da9a2b584eb7a6c7e924b2621ed0ddaeca0a7bea"}
+{"id": "pytest-dev__pytest-10356", "question": "Consider MRO when obtaining marks for classes", "files": ["src/_pytest/mark/structures.py"], "commit": "3c1534944cbd34e8a41bc9e76818018fadefc9a1"}
+{"id": "pytest-dev__pytest-5262", "question": "_pytest.capture.EncodedFile mode should not include `b` (binary)", "files": ["src/_pytest/capture.py"], "commit": "58e6a09db49f34886ff13f3b7520dd0bcd7063cd"}
+{"id": "pytest-dev__pytest-5631", "question": "ValueError when collecting tests that patch an array", "files": ["src/_pytest/compat.py"], "commit": "cb828ebe70b4fa35cd5f9a7ee024272237eab351"}
+{"id": "pytest-dev__pytest-5787", "question": "exception serialization should include chained exceptions", "files": ["src/_pytest/reports.py"], "commit": "955e54221008aba577ecbaefa15679f6777d3bf8"}
+{"id": "pytest-dev__pytest-5809", "question": "Lexer \"python3\" in --pastebin feature causes HTTP errors", "files": ["src/_pytest/pastebin.py"], "commit": "8aba863a634f40560e25055d179220f0eefabe9a"}
+{"id": "pytest-dev__pytest-5840", "question": "5.1.2 ImportError while loading conftest (windows import folder casing issues)", "files": ["src/_pytest/config/__init__.py", "src/_pytest/pathlib.py"], "commit": "73c5b7f4b11a81e971f7d1bb18072e06a87060f4"}
+{"id": "pytest-dev__pytest-6197", "question": "Regression in 5.2.3: pytest tries to collect random __init__.py files", "files": ["src/_pytest/python.py"], "commit": "e856638ba086fcf5bebf1bebea32d5cf78de87b4"}
+{"id": "pytest-dev__pytest-6202", "question": "'.['  replaced with '[' in the headline shown of the test report", "files": ["src/_pytest/python.py"], "commit": "3a668ea6ff24b0c8f00498c3144c63bac561d925"}
+{"id": "pytest-dev__pytest-7205", "question": "BytesWarning when using --setup-show with bytes parameter", "files": ["src/_pytest/setuponly.py"], "commit": "5e7f1ab4bf58e473e5d7f878eb2b499d7deabd29"}
+{"id": "pytest-dev__pytest-7236", "question": "unittest.TestCase.tearDown executed on skipped tests when running --pdb", "files": ["src/_pytest/unittest.py"], "commit": "c98bc4cd3d687fe9b392d8eecd905627191d4f06"}
+{"id": "pytest-dev__pytest-7324", "question": "Pytest crashes the interpreter on debug build for 3.8+", "files": ["src/_pytest/mark/expression.py"], "commit": "19ad5889353c7f5f2b65cc2acd346b7a9e95dfcd"}
+{"id": "pytest-dev__pytest-7521", "question": "pytest 6.0.0rc1: capfd.readouterr() converts \\r to \\n", "files": ["src/_pytest/capture.py"], "commit": "41d211c24a6781843b174379d6d6538f5c17adb9"}
+{"id": "pytest-dev__pytest-7571", "question": "caplog fixture doesn't restore log level after test", "files": ["src/_pytest/logging.py"], "commit": "422685d0bdc110547535036c1ff398b5e1c44145"}
+{"id": "pytest-dev__pytest-7982", "question": "Symlinked directories not collected since pytest 6.1.0", "files": ["src/_pytest/pathlib.py"], "commit": "a7e38c5c61928033a2dc1915cbee8caa8544a4d0"}
+{"id": "pytest-dev__pytest-8399", "question": "Starting v6.2.0, unittest setUpClass fixtures are no longer \"private\"", "files": ["src/_pytest/python.py", "src/_pytest/unittest.py"], "commit": "6e7dc8bac831cd8cf7a53b08efa366bd84f0c0fe"}
