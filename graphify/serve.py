@@ -349,6 +349,21 @@ _SOURCE_MATCH_BONUS = 0.5
 # an exact-label tier it did not earn.
 _RATIONALE_MATCH_BONUS = 0.75
 _ATTRIBUTE_MATCH_BONUS = 0.75
+# Body tier (`query` only): a query word found among the words of a node's own
+# source lines (`body_terms`, written at extraction). Below every name tier, so
+# per term a name match still outranks a body match; it feeds the per-term seed
+# score like the other tiers (weighted by how rare the word is among bodies) and
+# never counts toward term coverage.
+_BODY_MATCH_BONUS = 0.9
+# Body ranking (`query` only, see `_body_rank_files`): BM25 over each node's
+# words, pooled per file. It adds `_QUERY_BODY_SEEDS` start nodes after the name
+# seeds, and the answer's file order fuses the name and body file rankings by
+# reciprocal rank (constant `_QUERY_FUSE_K`). Chosen on the 114 SWE-bench Lite
+# Django questions only; the 179 other questions were held out.
+_QUERY_BODY_SEEDS = 3
+_QUERY_FUSE_K = 10.0
+_BODY_FILE_POOL = 0.1
+_BODY_FILE_WEIGHT = 1.0
 
 
 def _flatten_attr_text(val, parts: list[str]) -> None:
@@ -402,6 +417,128 @@ def _compute_idf(G: nx.Graph, terms: list[str]) -> dict[str, float]:
         for t in uncached:
             cache[t] = math.log(1 + N / (1 + df[t]))
     return {t: cache.get(t, math.log(1 + N)) for t in terms}
+
+
+def _get_body_index(G: nx.Graph) -> dict:
+    """{"sets": node id -> frozenset of its `body_terms`, "postings": word ->
+    node ids}, built once per graph object and cached on `G.graph` like the
+    trigram index (a hot reload swaps in a fresh `G`)."""
+    idx = G.graph.get("_body_index")
+    if idx is not None:
+        return idx
+    sets: dict[str, frozenset[str]] = {}
+    postings: dict[str, list[str]] = {}
+    for nid, data in G.nodes(data=True):
+        raw = data.get("body_terms")
+        if not raw or not isinstance(raw, str):
+            continue
+        words = frozenset(raw.split())
+        sets[nid] = words
+        for w in words:
+            postings.setdefault(w, []).append(nid)
+    idx = {"sets": sets, "postings": postings, "n": max(G.number_of_nodes(), 1)}
+    G.graph["_body_index"] = idx
+    return idx
+
+
+def _body_rank_files(G: nx.Graph, terms: list[str], path_weight) -> list[tuple[str, str]]:
+    """Body ranking for `query`: BM25 over each node's words (label, path and
+    `body_terms`, each word counted once), demoted like the name ranking, pooled
+    per file: best node + `_BODY_FILE_POOL` x its next five, plus
+    `_BODY_FILE_WEIGHT` x the file's own BM25 over all its nodes' words, so a file
+    whose words are spread over many functions still ranks. The word index is
+    built once per graph object and cached on `G.graph`. Returns
+    [(file, best node)], best first."""
+    bidx = _get_body_index(G)
+    docs = G.graph.get("_body_docs")
+    if docs is None:
+        docs = {}
+        for nid, data in G.nodes(data=True):
+            words = set(_search_tokens(data.get("label") or "")) | set(_search_tokens(data.get("source_file") or ""))
+            words |= bidx["sets"].get(nid, frozenset())
+            if words:
+                docs[nid] = words
+        post: dict[str, list[str]] = {}
+        for nid, words in docs.items():
+            for w in words:
+                post.setdefault(w, []).append(nid)
+        files: dict[str, dict[str, int]] = {}
+        for nid, words in docs.items():
+            f = str(G.nodes[nid].get("source_file") or "")
+            if f:
+                tf = files.setdefault(f, {})
+                for w in words:
+                    tf[w] = tf.get(w, 0) + 1
+        fpost: dict[str, list[str]] = {}
+        for f, tf in files.items():
+            for w in tf:
+                fpost.setdefault(w, []).append(f)
+        docs = {"docs": docs, "post": post, "avg": sum(len(w) for w in docs.values()) / max(len(docs), 1),
+                "files": files, "fpost": fpost, "favg": sum(sum(tf.values()) for tf in files.values()) / max(len(files), 1),
+                "flen": {f: sum(tf.values()) for f, tf in files.items()}}
+        G.graph["_body_docs"] = docs
+    k1, b = 1.2, 0.75
+    q = list(dict.fromkeys(tok for t in terms for tok in _search_tokens(t)))
+    n_docs = max(len(docs["docs"]), 1)
+    node_score: dict[str, float] = {}
+    for t in q:
+        plist = docs["post"].get(t, ())
+        if not plist:
+            continue
+        idf = math.log(1 + (n_docs - len(plist) + 0.5) / (len(plist) + 0.5))
+        for nid in plist:
+            norm = k1 * (1 - b + b * len(docs["docs"][nid]) / docs["avg"])
+            node_score[nid] = node_score.get(nid, 0.0) + idf * (k1 + 1) / (1 + norm)
+    n_files = max(len(docs["files"]), 1)
+    file_bm: dict[str, float] = {}
+    for t in q:
+        flist = docs["fpost"].get(t, ())
+        if not flist:
+            continue
+        idf = math.log(1 + (n_files - len(flist) + 0.5) / (len(flist) + 0.5))
+        for f in flist:
+            tf = docs["files"][f][t]
+            norm = k1 * (1 - b + b * docs["flen"][f] / docs["favg"])
+            file_bm[f] = file_bm.get(f, 0.0) + idf * tf * (k1 + 1) / (tf + norm)
+    per_file: dict[str, list[tuple[float, str]]] = {}
+    for nid, sc in node_score.items():
+        sc *= path_weight(G.nodes[nid]) if path_weight is not None else 1.0
+        f = str(G.nodes[nid].get("source_file") or "")
+        per_file.setdefault(f, []).append((sc, nid))
+    ranked = []
+    for f, vals in per_file.items():
+        vals.sort(key=lambda v: (-v[0], v[1]))
+        wgt = path_weight(G.nodes[vals[0][1]]) if path_weight is not None else 1.0
+        fs = vals[0][0] + _BODY_FILE_POOL * sum(v for v, _ in vals[1:6]) + _BODY_FILE_WEIGHT * file_bm.get(f, 0.0) * wgt
+        ranked.append((fs, f, vals[0][1]))
+    ranked.sort(key=lambda r: (-r[0], r[1]))
+    return [(f, nid) for _, f, nid in ranked]
+
+
+def _fused_file_scores(G: nx.Graph, ranked: list[tuple[float, str]], body_files: list[tuple[str, str]]) -> dict[str, float]:
+    """Render scores whose file-first order is the reciprocal-rank fusion of the
+    name ranking (files by their best-scoring node in `ranked`) and the body
+    ranking. Each node gets its file's fused score; a vanishing tie-break keeps
+    nodes inside one file in name-score order, and each body-ranked file's best
+    node just ahead of them. Only the top 200 files of each ranking count."""
+    name_files: dict[str, int] = {}
+    for _sc, nid in ranked:
+        f = str(G.nodes[nid].get("source_file") or "")
+        if f not in name_files:
+            name_files[f] = len(name_files)
+            if len(name_files) >= 200:
+                break
+    fused: dict[str, float] = {}
+    for f, r in name_files.items():
+        fused[f] = fused.get(f, 0.0) + 1.0 / (_QUERY_FUSE_K + r)
+    for r, (f, _nid) in enumerate(body_files[:200]):
+        fused[f] = fused.get(f, 0.0) + 1.0 / (_QUERY_FUSE_K + r)
+    best = max((sc for sc, _ in ranked), default=1.0) or 1.0
+    scores = {nid: fused.get(str(G.nodes[nid].get("source_file") or ""), 0.0) + 1e-9 * sc / best
+              for sc, nid in ranked}
+    for f, nid in body_files[:200]:
+        scores[nid] = max(scores.get(nid, 0.0), fused.get(f, 0.0) + 2e-9)
+    return scores
 
 
 def _trigrams(text: str) -> set[str]:
@@ -576,12 +713,20 @@ _QUERY_TEST_WORDS = frozenset({"test", "tests", "testing", "testcase", "unittest
 _QUERY_DOC_WORDS = frozenset({"doc", "docs", "documentation", "readme"})
 _QUERY_DOC_SUFFIXES = (".md", ".rst", ".txt", ".yml", ".yaml", ".toml", ".cfg", ".ini", ".json")
 _QUERY_DOC_DIRS = frozenset({"doc", "docs", "example", "examples"})
+# Third-party code copied into a repo (jQuery in a theme's static folder,
+# urllib3 under requests/packages/) repeats common words in hundreds of
+# functions and crowds out the project's own source. A `packages` folder counts
+# only when nested: a top-level `packages/` is a monorepo's own source.
+_QUERY_VENDOR_DIRS = frozenset({"vendor", "vendored", "_vendor", "third_party", "thirdparty",
+                                "node_modules", "bower_components", "site-packages"})
+_QUERY_VENDOR_FILE_RE = re.compile(r"(\.min\.(js|css)$)|(-\d+(\.\d+)+(\.min)?\.js$)")
 
 
 def _query_path_weight(terms: list[str]):
-    """Score multiplier per node for `query`: tests, docs, config files and nodes
-    without a source file count `_QUERY_DEMOTE_WEIGHT`, unless the question itself
-    asks about tests (or docs); everything else counts 1.0."""
+    """Score multiplier per node for `query`: vendored third-party files count
+    `_QUERY_DEMOTE_WEIGHT`; so do tests, docs, config files and nodes without a
+    source file, unless the question itself asks about tests (or docs);
+    everything else counts 1.0."""
     words = {tok for t in terms for tok in _search_tokens(t)}
     keep_tests = bool(words & _QUERY_TEST_WORDS)
     keep_docs = bool(words & _QUERY_DOC_WORDS)
@@ -590,6 +735,12 @@ def _query_path_weight(terms: list[str]):
         path = str(data.get("source_file") or "").replace("\\", "/")
         parts = path.lower().split("/")
         if not keep_tests and (_is_test_path(path) or "testing" in parts[:-1] or parts[-1] == "conftest.py"):
+            return _QUERY_DEMOTE_WEIGHT
+        if (
+            any(p in _QUERY_VENDOR_DIRS for p in parts[:-1])
+            or "packages" in parts[1:-1]
+            or _QUERY_VENDOR_FILE_RE.search(parts[-1])
+        ):
             return _QUERY_DEMOTE_WEIGHT
         if not keep_docs and (
             not path
@@ -615,7 +766,7 @@ def _score_nodes(G: nx.Graph, terms: list[str]) -> list[tuple[float, str]]:
 
 
 def _score_query(
-    G: nx.Graph, terms: list[str], *, collect_per_term_seeds: bool, path_weight=None
+    G: nx.Graph, terms: list[str], *, collect_per_term_seeds: bool, path_weight=None, body: bool = False
 ) -> _QueryScores:
     """Single-pass combined scorer that optionally also records the best seed
     for each normalized query token.
@@ -660,6 +811,21 @@ def _score_query(
     # identical either way — the per-node scoring below is unchanged and a
     # non-candidate node always scores 0. (IDF above stays a whole-graph statistic.)
     candidate_ids = _trigram_candidates(G, norm_terms + ([joined] if joined else []))
+    # Body tier (`query` only): nodes whose body words hold a query word are
+    # candidates too; the trigram index covers names, paths and attributes only.
+    body_sets: dict[str, frozenset[str]] = {}
+    body_w: dict[str, float] = {}
+    if body:
+        bidx = _get_body_index(G)
+        body_sets = bidx["sets"]
+        for t in norm_terms:
+            df = len(bidx["postings"].get(t, ()))
+            body_w[t] = math.log(1 + bidx["n"] / (1 + df))
+        if candidate_ids is not None and body_sets:
+            extra = {nid for t in norm_terms for nid in bidx["postings"].get(t, ())}
+            if extra:
+                seen = set(candidate_ids)
+                candidate_ids = list(candidate_ids) + [nid for nid in G.nodes if nid in extra and nid not in seen]
     node_iter = (
         G.nodes(data=True) if candidate_ids is None
         else ((nid, G.nodes[nid]) for nid in candidate_ids)
@@ -695,6 +861,8 @@ def _score_query(
         # the combined score and the per-term singleton alike, so the per-term
         # seed guarantee still holds but prefers a source node for each term.
         weight = path_weight(data) if path_weight is not None else 1.0
+        own_body = body_sets.get(nid, frozenset()) if body else frozenset()
+        body_hits = [t for t in norm_terms if t in own_body] if own_body else []
         score = 0.0
         # Full-query tier: a multi-word query that equals (or prefixes) the whole
         # label must dominate the per-token bag-of-words sums below, so `path`/
@@ -760,6 +928,10 @@ def _score_query(
             if attr_norm and (t in attr_norm or t in attr_tokens):
                 attr_value = _ATTRIBUTE_MATCH_BONUS * w
                 score += attr_value
+            body_value = 0.0
+            if body_hits and t in own_body:
+                body_value = _BODY_MATCH_BONUS * body_w.get(t, 1.0)
+                score += body_value
             tiered += tier_value
             if collect_per_term_seeds and best_by_term is not None:
                 # Singleton score for [t] on this node, mirroring
@@ -779,6 +951,7 @@ def _score_query(
                 else:
                     singleton = 0.0
                 singleton += tier_value + substr_value + source_value + rationale_value + attr_value
+                singleton += body_value
                 singleton *= weight
                 if singleton > 0:
                     # Tie-break key mirrors the legacy sort+max(degree):
@@ -1543,7 +1716,7 @@ def _query_graph_text(
     # — one combined + one per query token — re-walking the whole graph each
     # time; on a 100k-node, three-term benchmark ~71% of scoring time was
     # spent in those redundant per-term passes.
-    qs = _score_query(G, terms, collect_per_term_seeds=True, path_weight=_query_path_weight(terms))
+    qs = _score_query(G, terms, collect_per_term_seeds=True, path_weight=_query_path_weight(terms), body=True)
     # Relational-intent verbs ("calls", "uses", ...) describe the relation the
     # question asks about, not a symbol to seed from; drop them from the
     # per-term seed GUARANTEE so an incidental verb match cannot seat a decoy
@@ -1560,9 +1733,18 @@ def _query_graph_text(
     start_nodes = _pick_seeds(qs.ranked, G=G, best_seed_by_term=best_seed_by_term, term_order=qs.term_order)
     if not start_nodes:
         return _QUERY_NO_MATCH
+    render_scores = {nid: sc for sc, nid in qs.ranked}
+    body_files = _body_rank_files(G, terms, _query_path_weight(terms)) if _get_body_index(G)["sets"] else []
+    if body_files:
+        # Name seeds (and the per-term guarantee) come first; the best node of
+        # each of the top body-ranked files is added after them.
+        for _f, nid in body_files[:_QUERY_BODY_SEEDS]:
+            if nid not in start_nodes:
+                start_nodes.append(nid)
+        render_scores = _fused_file_scores(G, qs.ranked, body_files)
     return _render_query(G, question, start_nodes, mode=mode, depth=depth, token_budget=token_budget,
                          context_filters=context_filters, graph_path=graph_path,
-                         scores={nid: sc for sc, nid in qs.ranked})
+                         scores=render_scores)
 
 
 def _render_query(
