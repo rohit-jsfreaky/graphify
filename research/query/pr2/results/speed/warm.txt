@@ -1,0 +1,6 @@
+v8 warm: median 249 ms over 114 questions
+before warm: median 489 ms over 114 questions
+after warm: median 282 ms over 114 questions
+v8 warm: median 231 ms over 114 questions
+before warm: median 439 ms over 114 questions
+after warm: median 264 ms over 114 questions

@@ -1,0 +1,6 @@
+v8 run1: load 1.33s q0 total 2.86s  _get_trigram_index=2.13  _query_name_refusal=2.13  _score_query=0.19  _traversal_view=0.48  _render_query=0.54 
+before run1: load 1.26s q0 total 4.71s  _get_trigram_index=1.89  _query_name_refusal=1.89  _get_body_index=0.34  _score_query=0.63  _body_rank_files=1.38  _fused_file_scores=0.01  _traversal_view=0.74  _render_query=0.80 
+after run1: load 1.28s q0 total 3.16s  _get_trigram_index=1.84  _query_name_refusal=1.85  _get_body_index=0.04  _score_query=0.25  _body_doc_stats=0.33  _body_rank_files=0.39  _fused_file_scores=0.01  _traversal_view=0.58  _render_query=0.66 
+v8 run2: load 1.19s q0 total 2.65s  _get_trigram_index=1.94  _query_name_refusal=1.95  _score_query=0.17  _traversal_view=0.48  _render_query=0.54 
+before run2: load 1.33s q0 total 4.94s  _get_trigram_index=2.09  _query_name_refusal=2.10  _get_body_index=0.37  _score_query=0.69  _body_rank_files=1.38  _fused_file_scores=0.01  _traversal_view=0.70  _render_query=0.76 
+after run2: load 1.27s q0 total 2.93s  _get_trigram_index=1.70  _query_name_refusal=1.71  _get_body_index=0.04  _score_query=0.24  _body_doc_stats=0.32  _body_rank_files=0.37  _fused_file_scores=0.01  _traversal_view=0.54  _render_query=0.61 

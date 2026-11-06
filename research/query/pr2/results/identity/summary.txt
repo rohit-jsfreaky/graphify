@@ -1,0 +1,4 @@
+before vs after, PYTHONHASHSEED=0: 586 answers (228 Django, 358 held-out; depth 2 and 3), full text differs 0, NODE files or their order differ 0
+before vs after, random hash seed: 586 answers (228 Django, 358 held-out; depth 2 and 3), full text differs 9, NODE files or their order differ 0
+v8 run 1 vs v8 run 2, random hash seed: 586 answers (228 Django, 358 held-out; depth 2 and 3), full text differs 21, NODE files or their order differ 0
+graphify benchmark --questions, 24d81d2d (final2-pr2) vs this commit (final3-pr2fast): 293 questions, rank/tokens/top files differ for 0
