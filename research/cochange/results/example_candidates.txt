@@ -1,0 +1,178 @@
+# WINS: co-change top-10 finds a true file that v8 depth-2 never returns (any rank)
+
+[caddy] 873fac5fc0 'caddyfile: treat quoted braces as literal arguments (#7875)'
+  seed=caddyconfig/caddyfile/parse_test.go
+  truth=['caddyconfig/caddyfile/dispenser.go', 'caddyconfig/caddyfile/dispenser_test.go', 'caddyconfig/caddyfile/formatter_test.go', 'caddyconfig/caddyfile/lexer.go', 'caddyconfig/caddyfile/parse.go']
+  v8_d2 top10=['caddyconfig/httpcaddyfile/addresses.go', 'caddyconfig/httpcaddyfile/builtins.go', 'caddyconfig/httpcaddyfile/builtins_test.go', 'caddyconfig/httpcaddyfile/directives.go', 'caddyconfig/httpcaddyfile/httptype.go', 'caddyconfig/httpcaddyfile/httptype_test.go', 'caddyconfig/httpcaddyfile/options.go', 'caddyconfig/httpcaddyfile/options_test.go', 'caddyconfig/httpcaddyfile/pkiapp.go', 'caddyconfig/httpcaddyfile/pkiapp_test.go']
+  v8_d2 returns 128 files, true among them: []
+  cc top10 (conf)=[('caddyconfig/caddyfile/parse.go', 0.6), ('caddyconfig/caddyfile/dispenser_test.go', 0.2), ('caddyconfig/caddyfile/importargs.go', 0.2), ('caddyconfig/httpcaddyfile/directives.go', 0.2), ('caddyconfig/httpcaddyfile/httptype.go', 0.2), ('caddytest/integration/caddyfile_test.go', 0.2)]
+  cc-only true hits=['caddyconfig/caddyfile/parse.go', 'caddyconfig/caddyfile/dispenser_test.go']
+
+[caddy] df77f8bde1 'chore(deps): bump cel-go and switch import to new url (#8030)'
+  seed=modules/caddyhttp/fileserver/matcher.go
+  truth=['go.mod', 'modules/caddyhttp/celmatcher.go', 'modules/caddyhttp/ip_matchers.go', 'modules/caddyhttp/matchers.go', 'modules/caddyhttp/vars.go']
+  v8_d2 top10=['modules/caddyhttp/reverseproxy/fastcgi/caddyfile.go', 'modules/caddyhttp/standard/imports.go', 'modules/standard/imports.go', 'modules/caddyhttp/fileserver/matcher_test.go']
+  v8_d2 returns 4 files, true among them: []
+  cc top10 (conf)=[('modules/caddyhttp/fileserver/matcher_test.go', 0.455), ('modules/caddyhttp/celmatcher.go', 0.273), ('modules/caddyhttp/fileserver/staticfiles.go', 0.273), ('caddy.go', 0.182), ('caddyconfig/httpcaddyfile/builtins.go', 0.182), ('caddyconfig/httpcaddyfile/httptype.go', 0.182), ('context.go', 0.182), ('go.mod', 0.182), ('internal/filesystems/map.go', 0.182), ('modules/caddyfs/filesystem.go', 0.182)]
+  cc-only true hits=['modules/caddyhttp/celmatcher.go', 'go.mod']
+
+[django] 9d4ee17b26 'Fixed #37074 -- Synced admin calendar today highlight with server time.'
+  seed=django/contrib/admin/static/admin/js/admin/DateTimeShortcuts.js
+  truth=['django/contrib/admin/static/admin/js/calendar.js', 'js_tests/admin/DateTimeShortcuts.test.js']
+  v8_d2 top10=[]
+  v8_d2 returns 0 files, true among them: []
+  cc top10 (conf)=[('js_tests/admin/DateTimeShortcuts.test.js', 0.6), ('tests/admin_views/tests.py', 0.6), ('tests/auth_tests/test_views.py', 0.6), ('django/contrib/admin/static/admin/css/base.css', 0.4), ('django/contrib/admin/static/admin/css/forms.css', 0.4), ('django/contrib/admin/static/admin/css/responsive.css', 0.4), ('django/contrib/admin/static/admin/css/widgets.css', 0.4), ('django/contrib/admin/static/admin/js/calendar.js', 0.4), ('django/contrib/admin/templates/admin/auth/user/change_password.html', 0.4), ('django/contrib/admin/templates/admin/includes/fieldset.html', 0.4)]
+  cc-only true hits=['js_tests/admin/DateTimeShortcuts.test.js', 'django/contrib/admin/static/admin/js/calendar.js']
+
+[django] 122f0b62a1 'Refs #36593 -- Deprecated setting ModelAdmin.list_select_related to True.'
+  seed=tests/modeladmin/test_checks.py
+  truth=['django/contrib/admin/checks.py', 'django/contrib/admin/options.py', 'docs/internals/deprecation.txt', 'docs/ref/contrib/admin/index.txt', 'docs/releases/6.0.txt', 'docs/releases/6.1.txt', 'tests/modeladmin/tests.py']
+  v8_d2 top10=[]
+  v8_d2 returns 0 files, true among them: []
+  cc top10 (conf)=[('django/contrib/admin/checks.py', 0.875), ('docs/ref/checks.txt', 0.375), ('AUTHORS', 0.25), ('django/contrib/admin/utils.py', 0.25), ('docs/ref/contrib/admin/index.txt', 0.25), ('tests/admin_checks/tests.py', 0.25)]
+  cc-only true hits=['django/contrib/admin/checks.py', 'docs/ref/contrib/admin/index.txt']
+
+[django] f30acb184f 'Fixed #12090 -- Added admin actions to the admin change form.'
+  seed=tests/admin_views/models.py
+  truth=['django/contrib/admin/__init__.py', 'django/contrib/admin/checks.py', 'django/contrib/admin/decorators.py', 'django/contrib/admin/options.py', 'django/contrib/admin/static/admin/css/base.css', 'django/contrib/admin/static/admin/css/changelists.css', 'django/contrib/admin/static/admin/css/responsive.css', 'django/contrib/admin/static/admin/css/responsive_rtl.css', 'django/contrib/admin/templates/admin/change_form.html', 'django/contrib/admin/templatetags/admin_modify.py', 'docs/internals/deprecation.txt', 'docs/ref/contrib/admin/actions.txt', 'docs/ref/contrib/admin/index.txt', 'docs/releases/6.1.txt', 'tests/admin_views/admin.py', 'tests/admin_views/test_actions.py', 'tests/modeladmin/test_actions.py']
+  v8_d2 top10=['tests/admin_views/admin.py', 'tests/admin_views/forms.py', 'tests/admin_views/test_actions.py', 'tests/admin_views/test_adminsite.py', 'tests/admin_views/test_autocomplete_view.py', 'tests/admin_views/test_history_view.py', 'tests/admin_views/test_multidb.py', 'tests/admin_views/test_nav_sidebar.py', 'tests/admin_views/test_related_object_lookups.py', 'tests/admin_views/test_skip_link_to_content.py']
+  v8_d2 returns 20 files, true among them: ['tests/admin_views/admin.py', 'tests/admin_views/test_actions.py']
+  cc top10 (conf)=[('tests/admin_views/tests.py', 0.636), ('tests/admin_views/admin.py', 0.545), ('django/contrib/admin/static/admin/css/responsive.css', 0.273), ('docs/intro/_images/admin05t.png', 0.273), ('tests/admin_widgets/tests.py', 0.273), ('django/contrib/admin/static/admin/css/base.css', 0.182), ('django/contrib/admin/static/admin/css/forms.css', 0.182), ('django/contrib/admin/static/admin/css/responsive_rtl.css', 0.182), ('django/contrib/admin/static/admin/css/rtl.css', 0.182), ('django/contrib/admin/static/admin/css/widgets.css', 0.182)]
+  cc-only true hits=['django/contrib/admin/static/admin/css/responsive.css', 'django/contrib/admin/static/admin/css/base.css', 'django/contrib/admin/static/admin/css/responsive_rtl.css']
+
+[django] 672cfaa53c 'Made PR quality check require tickets for new contributors.'
+  seed=scripts/pr_quality/tests/test_check_pr.py
+  truth=['scripts/pr_quality/check_pr.py', 'scripts/pr_quality/errors.py']
+  v8_d2 top10=[]
+  v8_d2 returns 0 files, true among them: []
+  cc top10 (conf)=[('scripts/pr_quality/check_pr.py', 1.0), ('scripts/pr_quality/errors.py', 0.667)]
+  cc-only true hits=['scripts/pr_quality/check_pr.py', 'scripts/pr_quality/errors.py']
+
+[flask] 8285adf5a4 'update dev dependencies'
+  seed=src/flask/json/provider.py
+  truth=['.github/workflows/lock.yaml', '.github/workflows/pre-commit.yaml', '.github/workflows/publish.yaml', '.github/workflows/tests.yaml', '.github/workflows/zizmor.yaml', '.pre-commit-config.yaml', 'src/flask/cli.py']
+  v8_d2 top10=['src/flask/json/__init__.py', 'src/flask/sansio/app.py', 'tests/test_json.py', 'src/flask/__init__.py', 'src/flask/json/tag.py', 'tests/test_testing.py', 'src/flask/wrappers.py', 'src/flask/app.py', 'src/flask/config.py', 'src/flask/debughelpers.py']
+  v8_d2 returns 13 files, true among them: []
+  cc top10 (conf)=[('src/flask/sansio/app.py', 0.75), ('src/flask/helpers.py', 0.625), ('pyproject.toml', 0.5), ('src/flask/app.py', 0.5), ('src/flask/sessions.py', 0.5), ('src/flask/views.py', 0.5), ('.pre-commit-config.yaml', 0.375), ('CHANGES.rst', 0.375), ('src/flask/cli.py', 0.375), ('src/flask/debughelpers.py', 0.375)]
+  cc-only true hits=['.pre-commit-config.yaml', 'src/flask/cli.py']
+
+[flask] 7689f98403 'drop support for Python 3.10'
+  seed=src/flask/cli.py
+  truth=['.github/workflows/tests.yaml', 'CHANGES.rst', 'docs/installation.rst', 'pyproject.toml', 'src/flask/helpers.py', 'src/flask/sessions.py', 'tests/test_appctx.py', 'tests/test_basic.py', 'tests/test_config.py', 'tests/test_json_tag.py']
+  v8_d2 top10=['src/flask/__main__.py', 'src/flask/blueprints.py', 'src/flask/testing.py', 'tests/test_cli.py', 'tests/test_testing.py', 'src/flask/app.py', 'src/flask/__init__.py', 'src/flask/debughelpers.py', 'src/flask/sansio/app.py', 'tests/test_appctx.py']
+  v8_d2 returns 17 files, true among them: ['src/flask/sessions.py', 'tests/test_appctx.py', 'tests/test_basic.py']
+  cc top10 (conf)=[('CHANGES.rst', 0.769), ('pyproject.toml', 0.462), ('tests/test_cli.py', 0.462), ('src/flask/testing.py', 0.385), ('src/flask/sansio/app.py', 0.308), ('src/flask/config.py', 0.231), ('src/flask/helpers.py', 0.231), ('src/flask/json/provider.py', 0.231), ('src/flask/json/tag.py', 0.231), ('src/flask/typing.py', 0.231)]
+  cc-only true hits=['CHANGES.rst', 'pyproject.toml', 'src/flask/helpers.py']
+
+[flask] 7689f98403 'drop support for Python 3.10'
+  seed=tests/test_appctx.py
+  truth=['.github/workflows/tests.yaml', 'CHANGES.rst', 'docs/installation.rst', 'pyproject.toml', 'src/flask/cli.py', 'src/flask/helpers.py', 'src/flask/sessions.py', 'tests/test_basic.py', 'tests/test_config.py', 'tests/test_json_tag.py']
+  v8_d2 top10=[]
+  v8_d2 returns 0 files, true among them: []
+  cc top10 (conf)=[('src/flask/app.py', 1.0), ('src/flask/helpers.py', 1.0), ('tests/test_basic.py', 1.0), ('tests/test_blueprints.py', 1.0), ('tests/test_testing.py', 1.0), ('.gitignore', 0.667), ('.pre-commit-config.yaml', 0.667), ('examples/celery/pyproject.toml', 0.667), ('examples/javascript/js_example/views.py', 0.667), ('examples/javascript/pyproject.toml', 0.667)]
+  cc-only true hits=['src/flask/helpers.py', 'tests/test_basic.py']
+
+[hono] e2f252a874 'fix(stream): upgrade `@hono/node-server` to v2 and fix abort handling (#4940)'
+  seed=runtime-tests/node/index.test.ts
+  truth=['.github/workflows/ci.yml', 'package.json', 'src/utils/stream.ts']
+  v8_d2 top10=[]
+  v8_d2 returns 0 files, true among them: []
+  cc top10 (conf)=[('runtime-tests/bun/index.test.tsx', 0.556), ('package.json', 0.444), ('src/context.ts', 0.444), ('runtime-tests/deno/hono.test.ts', 0.333), ('runtime-tests/deno/stream.test.ts', 0.222), ('src/context.test.ts', 0.222), ('src/helper/streaming/sse.ts', 0.222), ('src/helper/streaming/stream.ts', 0.222), ('src/utils/stream.ts', 0.222)]
+  cc-only true hits=['package.json', 'src/utils/stream.ts']
+
+[hono] c831020fb1 'Merge commit from fork'
+  seed=src/middleware/ip-restriction/index.test.ts
+  truth=['src/middleware/ip-restriction/index.ts', 'src/utils/ipaddr.test.ts', 'src/utils/ipaddr.ts']
+  v8_d2 top10=[]
+  v8_d2 returns 0 files, true among them: []
+  cc top10 (conf)=[('src/utils/ipaddr.ts', 1.0), ('src/middleware/ip-restriction/index.ts', 0.667), ('src/utils/ipaddr.test.ts', 0.667)]
+  cc-only true hits=['src/utils/ipaddr.ts', 'src/middleware/ip-restriction/index.ts', 'src/utils/ipaddr.test.ts']
+
+[jsoup] 3a767deb3f 'Refactor `classNames` scanner and add `classList` (#2500)'
+  seed=src/test/java/org/jsoup/nodes/ElementTest.java
+  truth=['CHANGES.md', 'src/main/java/org/jsoup/nodes/Element.java']
+  v8_d2 top10=[]
+  v8_d2 returns 0 files, true among them: []
+  cc top10 (conf)=[('CHANGES.md', 0.625), ('src/main/java/org/jsoup/nodes/Element.java', 0.531), ('change-archive.txt', 0.188), ('src/main/java/org/jsoup/nodes/Node.java', 0.156), ('pom.xml', 0.125), ('src/main/java/org/jsoup/parser/Tag.java', 0.125), ('src/main/java/org/jsoup/select/QueryParser.java', 0.125), ('src/test/java/org/jsoup/select/SelectorTest.java', 0.125), ('src/main/java/org/jsoup/nodes/Attributes.java', 0.094), ('src/main/java/org/jsoup/nodes/Document.java', 0.094)]
+  cc-only true hits=['CHANGES.md', 'src/main/java/org/jsoup/nodes/Element.java']
+
+[jsoup] 4e3811479f 'Fix HTTP redirect method handling to match RFC 9110'
+  seed=src/test/java/org/jsoup/helper/HttpConnectionTest.java
+  truth=['CHANGES.md', 'src/main/java/org/jsoup/helper/HttpConnection.java', 'src/test/java/org/jsoup/integration/ConnectTest.java']
+  v8_d2 top10=[]
+  v8_d2 returns 0 files, true among them: []
+  cc top10 (conf)=[('src/main/java/org/jsoup/helper/HttpConnection.java', 0.5), ('change-archive.txt', 0.4), ('src/test/java/org/jsoup/integration/ConnectTest.java', 0.4), ('src/main/java/org/jsoup/Connection.java', 0.3), ('src/main/java/org/jsoup/helper/UrlBuilder.java', 0.3), ('CHANGES.md', 0.2)]
+  cc-only true hits=['src/main/java/org/jsoup/helper/HttpConnection.java', 'src/test/java/org/jsoup/integration/ConnectTest.java', 'CHANGES.md']
+
+
+# NOISE: v8 hit@10 but co-change top-10 is all wrong / fusion lost the hit
+
+[caddy] 5e76b5ee43 'tls: add alpn to managed HTTPS records (#7653)'
+  seed=modules/caddytls/connpolicy.go
+  truth=['modules/caddyhttp/app.go', 'modules/caddyhttp/autohttps.go', 'modules/caddyhttp/autohttps_test.go', 'modules/caddyhttp/server.go', 'modules/caddytls/ech.go', 'modules/caddytls/tls.go']
+  v8 top10 true=['modules/caddyhttp/app.go', 'modules/caddyhttp/autohttps.go'] fusion top10 true=['modules/caddyhttp/autohttps.go']
+  cc top10 (conf)=[('go.mod', 0.207), ('caddyconfig/httpcaddyfile/builtins.go', 0.172), ('modules/caddytls/acmeissuer.go', 0.172), ('modules/caddytls/tls.go', 0.172), ('caddyconfig/httpcaddyfile/httptype.go', 0.138), ('caddyconfig/httpcaddyfile/options.go', 0.138), ('caddyconfig/httpcaddyfile/tlsapp.go', 0.138), ('modules/caddyhttp/reverseproxy/httptransport.go', 0.138), ('modules/caddytls/automation.go', 0.138), ('modules/caddytls/ech.go', 0.138)]
+  fusion top10=['caddyconfig/httpcaddyfile/builtins.go', 'caddyconfig/httpcaddyfile/httptype.go', 'caddyconfig/httpcaddyfile/options.go', 'caddyconfig/httpcaddyfile/tlsapp.go', 'modules/caddyhttp/reverseproxy/httptransport.go', 'modules/caddyhttp/autohttps.go', 'modules/caddyhttp/reverseproxy/fastcgi/fastcgi.go', 'modules/caddytls/capools.go', 'modules/caddytls/certselection.go', 'modules/caddytls/matchers.go']
+
+[caddy] 5e76b5ee43 'tls: add alpn to managed HTTPS records (#7653)'
+  seed=modules/caddytls/tls.go
+  truth=['modules/caddyhttp/app.go', 'modules/caddyhttp/autohttps.go', 'modules/caddyhttp/autohttps_test.go', 'modules/caddyhttp/server.go', 'modules/caddytls/connpolicy.go', 'modules/caddytls/ech.go']
+  v8 top10 true=['modules/caddyhttp/app.go', 'modules/caddyhttp/autohttps.go'] fusion top10 true=['modules/caddyhttp/autohttps.go']
+  cc top10 (conf)=[('modules/caddytls/automation.go', 0.4), ('caddyconfig/httpcaddyfile/options.go', 0.3), ('modules/caddyhttp/autohttps.go', 0.3), ('caddyconfig/httpcaddyfile/tlsapp.go', 0.25), ('go.mod', 0.25), ('modules/caddytls/acmeissuer.go', 0.25), ('modules/caddytls/connpolicy.go', 0.25), ('modules/caddytls/ech.go', 0.2), ('caddytest/integration/caddyfile_adapt/global_options.caddyfiletest', 0.15), ('context.go', 0.15)]
+  fusion top10=['modules/caddytls/automation.go', 'caddyconfig/httpcaddyfile/options.go', 'modules/caddyhttp/autohttps.go', 'caddyconfig/httpcaddyfile/tlsapp.go', 'modules/caddyhttp/reverseproxy/httptransport.go', 'caddyconfig/httpcaddyfile/builtins.go', 'caddyconfig/httpcaddyfile/httptype.go', 'modules/caddypki/acmeserver/acmeserver.go', 'caddyconfig/httpcaddyfile/options_test.go', 'caddyconfig/httpcaddyfile/tlsapp_test.go']
+
+[caddy] 7e82a6b528 'admin: fix warnings and status code in /load API (#7267)'
+  seed=admin.go
+  truth=['caddyconfig/configadapters.go', 'caddyconfig/load.go']
+  v8 top10 true=['caddyconfig/configadapters.go'] fusion top10 true=[]
+  cc top10 (conf)=[('admin_test.go', 0.214), ('caddy.go', 0.179), ('context.go', 0.179), ('go.mod', 0.143), ('modules/caddyhttp/app.go', 0.143), ('caddyconfig/httpcaddyfile/options.go', 0.107), ('caddyconfig/httpcaddyfile/tlsapp.go', 0.107), ('cmd/commandfuncs.go', 0.107), ('modules/caddyhttp/autohttps.go', 0.107), ('modules/caddyhttp/reverseproxy/httptransport.go', 0.107)]
+  fusion top10=['admin_test.go', 'caddy.go', 'modules/caddyhttp/app.go', 'caddyconfig/httpcaddyfile/options.go', 'caddyconfig/httpcaddyfile/tlsapp.go', 'cmd/commandfuncs.go', 'modules/caddyhttp/autohttps.go', 'modules/caddyhttp/reverseproxy/httptransport.go', 'modules/caddytls/automation.go', 'caddyconfig/httpcaddyfile/builtins.go']
+
+[django] 512b92a493 'Fixed #30949 -- Deprecated django.utils.functional.cached_property.'
+  seed=django/db/models/query.py
+  truth=['django/contrib/admindocs/views.py', 'django/utils/functional.py', 'docs/internals/deprecation.txt', 'docs/ref/utils.txt', 'tests/admin_docs/models.py', 'tests/admin_docs/test_views.py', 'tests/prefetch_related/models.py', 'tests/prefetch_related/tests.py', 'tests/utils_tests/test_functional.py']
+  v8 top10 true=['tests/prefetch_related/models.py', 'tests/prefetch_related/tests.py'] fusion top10 true=['tests/prefetch_related/tests.py']
+  cc top10 (conf)=[('docs/ref/models/querysets.txt', 0.143), ('tests/composite_pk/tests.py', 0.127), ('django/contrib/contenttypes/fields.py', 0.111), ('django/db/models/base.py', 0.111), ('django/db/models/fields/related_descriptors.py', 0.095), ('tests/prefetch_related/tests.py', 0.095), ('django/db/models/query_utils.py', 0.079), ('django/db/models/sql/compiler.py', 0.079), ('tests/bulk_create/tests.py', 0.079), ('tests/lookup/tests.py', 0.079)]
+  fusion top10=['django/contrib/contenttypes/fields.py', 'django/db/models/base.py', 'django/db/models/fields/related_descriptors.py', 'tests/prefetch_related/tests.py', 'django/db/models/sql/query.py', 'tests/basic/tests.py', 'tests/generic_relations/tests.py', 'django/db/models/__init__.py', 'django/contrib/contenttypes/prefetch.py', 'django/db/models/manager.py']
+
+[hono] fab3b13639 'Merge commit from fork'
+  seed=src/jsx/base.ts
+  truth=['src/jsx/components.test.tsx', 'src/jsx/components.ts', 'src/jsx/context.ts', 'src/jsx/index.test.tsx', 'src/jsx/streaming.test.tsx', 'src/jsx/streaming.ts']
+  v8 top10 true=['src/jsx/components.ts', 'src/jsx/context.ts'] fusion top10 true=['src/jsx/index.test.tsx']
+  cc top10 (conf)=[('src/jsx/index.test.tsx', 0.615), ('src/jsx/dom/render.ts', 0.269), ('src/jsx/dom/index.test.tsx', 0.231), ('src/jsx/dom/index.ts', 0.192), ('src/jsx/index.ts', 0.192), ('src/jsx/utils.ts', 0.192), ('src/jsx/dom/jsx-dev-runtime.ts', 0.154), ('src/jsx/streaming.test.tsx', 0.154), ('src/jsx/utils.test.ts', 0.154), ('src/jsx/base.test.tsx', 0.115)]
+  fusion top10=['src/jsx/index.test.tsx', 'src/jsx/dom/render.ts', 'src/jsx/dom/index.test.tsx', 'src/jsx/dom/index.ts', 'src/jsx/index.ts', 'src/jsx/dom/jsx-dev-runtime.ts', 'src/jsx/base.test.tsx', 'src/jsx/dom/context.ts', 'src/jsx/intrinsic-element/components.ts', 'src/jsx/types.ts']
+
+[hono] 2b8ed402cd 'Merge commit from fork'
+  seed=src/jsx/streaming.ts
+  truth=['src/jsx/base.test.tsx', 'src/jsx/base.ts', 'src/jsx/components.test.tsx', 'src/jsx/components.ts', 'src/jsx/context.ts', 'src/jsx/dom/server.test.tsx', 'src/jsx/dom/server.ts', 'src/jsx/index.test.tsx', 'src/jsx/intrinsic-element/components.test.tsx', 'src/jsx/intrinsic-element/components.ts', 'src/jsx/streaming.test.tsx']
+  v8 top10 true=['src/jsx/components.test.tsx', 'src/jsx/components.ts', 'src/jsx/dom/server.ts', 'src/jsx/index.test.tsx', 'src/jsx/streaming.test.tsx'] fusion top10 true=['src/jsx/components.test.tsx', 'src/jsx/components.ts', 'src/jsx/index.test.tsx', 'src/jsx/streaming.test.tsx']
+  cc top10 (conf)=[('src/jsx/streaming.test.tsx', 0.727), ('src/jsx/components.ts', 0.409), ('src/jsx/index.ts', 0.364), ('src/jsx/components.test.tsx', 0.273), ('package.json', 0.227), ('src/jsx/dom/render.ts', 0.227), ('src/jsx/index.test.tsx', 0.227), ('src/helper/html/index.ts', 0.182), ('src/jsx/dom/components.test.tsx', 0.182), ('src/jsx/dom/index.test.tsx', 0.182)]
+  fusion top10=['src/jsx/streaming.test.tsx', 'src/jsx/components.ts', 'src/jsx/index.ts', 'src/jsx/components.test.tsx', 'src/jsx/index.test.tsx', 'src/jsx/dom/components.test.tsx', 'runtime-tests/deno-jsx/jsx.test.tsx', 'src/helper/css/index.test.tsx', 'src/middleware/jsx-renderer/index.test.tsx', 'src/middleware/jsx-renderer/index.ts']
+
+[jsoup] 209151fddc 'Share namespace scope tracking with W3CDom (#2559)'
+  seed=src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+  truth=['CHANGES.md', 'src/main/java/org/jsoup/helper/W3CDom.java', 'src/test/java/org/jsoup/helper/W3CDomTest.java', 'src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java']
+  v8 top10 true=['src/test/java/org/jsoup/helper/W3CDomTest.java', 'src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java'] fusion top10 true=['src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java']
+  cc top10 (conf)=[('src/main/java/org/jsoup/parser/HtmlTreeBuilder.java', 0.632), ('src/main/java/org/jsoup/parser/TreeBuilder.java', 0.579), ('CHANGES.md', 0.421), ('src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java', 0.421), ('src/main/java/org/jsoup/parser/Token.java', 0.368), ('src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java', 0.263), ('src/main/java/org/jsoup/parser/Tag.java', 0.263), ('src/main/java/org/jsoup/nodes/Element.java', 0.211), ('src/main/java/org/jsoup/parser/Parser.java', 0.211), ('src/main/java/org/jsoup/parser/Tokeniser.java', 0.211)]
+  fusion top10=['src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java', 'src/main/java/org/jsoup/parser/Parser.java', 'src/test/java/org/jsoup/integration/ConnectTest.java', 'src/test/java/org/jsoup/parser/HtmlParserTest.java', 'src/test/java/org/jsoup/parser/PositionTest.java', 'src/main/java/org/jsoup/parser/HtmlTreeBuilder.java', 'src/main/java/org/jsoup/helper/HttpConnection.java', 'src/test/java/org/jsoup/nodes/ElementTest.java', 'src/test/java/org/jsoup/parser/StreamParserTest.java', 'src/main/java/org/jsoup/parser/TreeBuilder.java']
+
+[jsoup] aff65074ac 'Simplify HTML and XML name normalization'
+  seed=src/main/java/org/jsoup/internal/StringUtil.java
+  truth=['CHANGES.md', 'src/main/java/org/jsoup/helper/W3CDom.java', 'src/main/java/org/jsoup/internal/Normalizer.java', 'src/main/java/org/jsoup/nodes/Attribute.java', 'src/main/java/org/jsoup/nodes/Attributes.java', 'src/main/java/org/jsoup/nodes/Element.java', 'src/test/java/org/jsoup/internal/StringUtilTest.java', 'src/test/java/org/jsoup/nodes/AttributesTest.java', 'src/test/java/org/jsoup/nodes/ElementTest.java', 'src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java']
+  v8 top10 true=['src/main/java/org/jsoup/helper/W3CDom.java', 'src/main/java/org/jsoup/nodes/Attribute.java', 'src/main/java/org/jsoup/nodes/Attributes.java'] fusion top10 true=['src/main/java/org/jsoup/nodes/Element.java']
+  cc top10 (conf)=[('CHANGES.md', 0.375), ('pom.xml', 0.375), ('src/main/java/org/jsoup/parser/XmlTreeBuilder.java', 0.375), ('src/main/java/org/jsoup/internal/SharedConstants.java', 0.25), ('src/main/java/org/jsoup/nodes/Element.java', 0.25), ('src/main/java/org/jsoup/parser/CharacterReader.java', 0.25), ('src/main/java/org/jsoup/parser/HtmlTreeBuilder.java', 0.25), ('src/main/java/org/jsoup/parser/Tag.java', 0.25), ('src/main/java/org/jsoup/parser/Tokeniser.java', 0.25), ('src/main/java/org/jsoup/parser/TokeniserState.java', 0.25)]
+  fusion top10=['src/main/java/org/jsoup/nodes/Element.java', 'src/main/java/org/jsoup/parser/CharacterReader.java', 'src/main/java/org/jsoup/parser/HtmlTreeBuilder.java', 'src/main/java/org/jsoup/parser/Tokeniser.java', 'src/main/java/org/jsoup/parser/TokeniserState.java', 'src/test/java/org/jsoup/parser/HtmlParserTest.java', 'src/main/java/org/jsoup/examples/HtmlToPlainText.java', 'src/main/java/org/jsoup/helper/CookieUtil.java', 'src/main/java/org/jsoup/helper/DataUtil.java', 'src/main/java/org/jsoup/helper/HttpConnection.java']
+
+[jsoup] ccd90e9cfc 'Align text-state tokenization with the HTML spec (#2577)'
+  seed=src/main/java/org/jsoup/parser/Tag.java
+  truth=['CHANGES.md', 'src/main/java/org/jsoup/parser/CharacterReader.java', 'src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java', 'src/main/java/org/jsoup/parser/Tokeniser.java', 'src/main/java/org/jsoup/parser/TokeniserState.java', 'src/test/java/org/jsoup/parser/CharacterReaderTest.java', 'src/test/java/org/jsoup/parser/HtmlParserTest.java', 'src/test/java/org/jsoup/parser/TagTest.java', 'src/test/java/org/jsoup/parser/TokeniserStateTest.java', 'src/test/java/org/jsoup/safety/CleanerTest.java']
+  v8 top10 true=['src/test/java/org/jsoup/safety/CleanerTest.java'] fusion top10 true=[]
+  cc top10 (conf)=[('CHANGES.md', 0.476), ('src/main/java/org/jsoup/parser/HtmlTreeBuilder.java', 0.286), ('src/test/java/org/jsoup/parser/TagTest.java', 0.286), ('src/main/java/org/jsoup/parser/XmlTreeBuilder.java', 0.238), ('src/main/java/org/jsoup/nodes/Attribute.java', 0.19), ('src/main/java/org/jsoup/nodes/Element.java', 0.19), ('src/main/java/org/jsoup/parser/TagSet.java', 0.19), ('src/main/java/org/jsoup/parser/TreeBuilder.java', 0.19), ('src/test/java/org/jsoup/nodes/ElementTest.java', 0.19), ('src/main/java/org/jsoup/nodes/Document.java', 0.143)]
+  fusion top10=['src/test/java/org/jsoup/nodes/ElementTest.java', 'src/main/java/org/jsoup/nodes/Element.java', 'src/main/java/org/jsoup/parser/TagSet.java', 'src/main/java/org/jsoup/parser/TreeBuilder.java', 'src/main/java/org/jsoup/nodes/Document.java', 'src/main/java/org/jsoup/nodes/PseudoTextElement.java', 'src/main/java/org/jsoup/nodes/Printer.java', 'src/test/java/org/jsoup/integration/SessionTest.java', 'src/test/java/org/jsoup/nodes/DocumentTest.java', 'src/test/java/org/jsoup/nodes/NodeTest.java']
+
+[jsoup] 17bb839aa5 'Fix source tracking through HTML repair and malformed EOF (#2582)'
+  seed=src/main/java/org/jsoup/nodes/Range.java
+  truth=['CHANGES.md', 'src/main/java/org/jsoup/nodes/NodeInternals.java', 'src/main/java/org/jsoup/parser/CharacterReader.java', 'src/main/java/org/jsoup/parser/HtmlTreeBuilder.java', 'src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java', 'src/main/java/org/jsoup/parser/TreeBuilder.java', 'src/test/java/org/jsoup/parser/CharacterReaderTest.java', 'src/test/java/org/jsoup/parser/HtmlParserTest.java', 'src/test/java/org/jsoup/parser/PositionTest.java', 'src/test/java/org/jsoup/parser/TokeniserStateTest.java']
+  v8 top10 true=['src/main/java/org/jsoup/nodes/NodeInternals.java', 'src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java', 'src/main/java/org/jsoup/parser/TreeBuilder.java', 'src/test/java/org/jsoup/parser/PositionTest.java'] fusion top10 true=['src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java', 'src/main/java/org/jsoup/parser/TreeBuilder.java', 'src/test/java/org/jsoup/parser/PositionTest.java']
+  cc top10 (conf)=[('src/main/java/org/jsoup/nodes/Attributes.java', 0.75), ('src/main/java/org/jsoup/nodes/Attribute.java', 0.5), ('src/main/java/org/jsoup/nodes/Element.java', 0.5), ('src/main/java/org/jsoup/parser/TreeBuilder.java', 0.5), ('src/test/java/org/jsoup/parser/PositionTest.java', 0.5), ('src/main/java/org/jsoup/internal/SharedConstants.java', 0.375), ('src/main/java/org/jsoup/nodes/LeafNode.java', 0.375), ('src/main/java/org/jsoup/nodes/Node.java', 0.375), ('src/main/java/org/jsoup/parser/Token.java', 0.375), ('src/main/java/org/jsoup/parser/XmlTreeBuilder.java', 0.375)]
+  fusion top10=['src/test/java/org/jsoup/parser/PositionTest.java', 'src/main/java/org/jsoup/nodes/Element.java', 'src/main/java/org/jsoup/parser/Token.java', 'src/main/java/org/jsoup/nodes/Node.java', 'src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java', 'src/main/java/org/jsoup/safety/Cleaner.java', 'src/test/java/org/jsoup/safety/CleanerTest.java', 'src/main/java/org/jsoup/parser/TreeBuilder.java', 'src/main/java/org/jsoup/nodes/Attributes.java', 'src/main/java/org/jsoup/nodes/Attribute.java']

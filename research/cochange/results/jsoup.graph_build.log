@@ -1,0 +1,13 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+Updating code graph in . (no LLM needed)...
+[graphify watch] 67 file(s) not classified (no supported extension or shebang), skipped: .git, .gitattributes, .gitignore, 1538.html.gz, 1539.html.gz, 1542.html.gz (+61 more)
+[graphify watch] warning: 67 of 302 files seen (22%) have no supported extractor and are missing from this graph entirely. It may look complete while representing only part of the codebase.
+  AST cache: 0/204 files served from cache (0%); 204 to extract
+  AST extraction: 100/204 uncached files (49%) [4 workers]
+  AST extraction: 200/204 uncached files (98%) [4 workers]
+  AST extraction: 204/204 uncached files (100%) [4 workers]
+  warning: 11 code file(s) yielded no symbols (0.02 MB) — a data file, or source this extractor models no symbols for: pom.xml, src/main/java/org/jsoup/examples/package-info.java, src/main/java/org/jsoup/helper/package-info.java, src/main/java/org/jsoup/internal/package-info.java, src/main/java/org/jsoup/nodes/package-info.java (+6 more)
+[graphify watch] Rebuilt (no clustering): 5093 nodes, 21633 edges
+[graphify watch] graph.json updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.

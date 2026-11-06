@@ -1,0 +1,49 @@
+{
+  "cost": {
+    "bulk_skipped_1y": 0,
+    "bulk_skipped_3m": 0,
+    "bulk_skipped_3y": 0,
+    "commits_used_1y": 84,
+    "commits_used_3m": 56,
+    "commits_used_3y": 210,
+    "count_seconds_1y": 0.0,
+    "count_seconds_3m": 0.0,
+    "count_seconds_3y": 0.0,
+    "files_with_history_1y": 44,
+    "files_with_history_3m": 41,
+    "files_with_history_3y": 87,
+    "git_log_seconds_3y": 0.01,
+    "graph_edges": 2547,
+    "graph_nodes": 1434,
+    "mine_total_seconds_3y": 0.01,
+    "pairs_support1_1y": 204,
+    "pairs_support1_3m": 184,
+    "pairs_support1_3y": 679,
+    "pairs_support2_1y": 22,
+    "pairs_support2_3m": 14,
+    "pairs_support2_3y": 131,
+    "predict_seconds_all_queries": 0.3,
+    "seed_resolution": {
+      "resolve_seed": 19
+    },
+    "store_bytes_3y": 11263,
+    "store_bytes_gz_3y": 1438,
+    "train_commits_listed_3y": 218
+  },
+  "cut": "6ec76b4a36fba4a32fb72f5f9ba04e632635e477",
+  "files_at_t": 126,
+  "graph_build_seconds": 1.3,
+  "graphify_commit": "16218bfc80d4ca2799734d045039f7ed1a5fa9fb",
+  "head": "3c7baaa05ab4aa49cc819ce3a819d260de19c157",
+  "n_queries": 47,
+  "repo": "requests",
+  "stats": {
+    "commits_in_size": 26,
+    "commits_no_code_seed": 9,
+    "commits_out_of_size": 28,
+    "commits_total": 54,
+    "commits_used": 14,
+    "queries_no_predictable_truth": 3
+  },
+  "t_ts": 1777302498
+}
