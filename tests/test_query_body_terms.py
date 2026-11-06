@@ -11,6 +11,7 @@ after the name seeds and is fused into the answer's file order. `path`,
 """
 from __future__ import annotations
 
+import re
 import textwrap
 from pathlib import Path
 
@@ -135,3 +136,38 @@ def test_vendored_and_minified_files_are_weighted_down():
         assert weight({"source_file": path}) == _QUERY_DEMOTE_WEIGHT, path
     for path in ("packages/core/src/index.ts", "requests/models.py", "pkg/static/theme.js"):
         assert weight({"source_file": path}) == 1.0, path
+
+
+def test_body_word_lookup_by_search_and_by_index_agree(monkeypatch):
+    # A one-shot query finds a word's nodes by substring search; a long-running
+    # process switches to an index over every word. Both must give the same nodes.
+    import graphify.serve as serve
+
+    def graph():
+        G = nx.Graph()
+        G.add_node("a", label="a()", source_file="p/a.py", body_terms="alpha beta gamma")
+        G.add_node("b", label="b()", source_file="p/b.py", body_terms="beta delta")
+        G.add_node("c", label="c()", source_file="p/c.py", body_terms="betamax")
+        G.add_node("d", label="d()", source_file="p/d.py")
+        return G
+
+    words = ["beta", "alpha", "delta", "gamma", "betamax", "missing", "bet"]
+    by_search = {w: serve._body_word_nodes(serve._get_body_index(graph()), w) for w in words}
+    monkeypatch.setattr(serve, "_BODY_WORD_INDEX_AFTER", 0)
+    bidx = serve._get_body_index(graph())
+    by_index = {w: serve._body_word_nodes(bidx, w) for w in words}
+    assert "postings" in bidx
+    assert by_search == by_index
+    assert by_search["beta"] == {"a", "b"} and by_search["bet"] == frozenset()
+
+
+def test_cached_search_tokens_match_and_are_fresh_lists():
+    import graphify.serve as serve
+
+    for text in ("UsernameValidator.validate()", "café_au_lait", "Résumé…", "", "a_b-c d"):
+        first = serve._search_tokens(text)
+        assert first == re.findall(r"[^\W_]+", serve._strip_diacritics(text).lower())  # same as uncached
+        first.append("mutated")
+        assert "mutated" not in serve._search_tokens(text)
+    assert serve._search_tokens("Café") == ["cafe"]
+    assert serve._search_tokens("Résumé… parse") == ["resume", "parse"]
