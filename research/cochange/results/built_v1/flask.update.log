@@ -1,0 +1,13 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+Uninstalled 1 package in 2ms
+Installed 1 package in 3ms
+Updating code graph in . (no LLM needed)...
+[graphify watch] 13 file(s) not classified (no supported extension or shebang), skipped: .editorconfig, .flaskenv, .git, .gitignore, Makefile, config.toml (+7 more)
+  AST cache: 0/106 files served from cache (0%); 106 to extract
+  AST extraction: 100/106 uncached files (94%) [4 workers]
+  AST extraction: 106/106 uncached files (100%) [4 workers]
+  warning: 23 code file(s) yielded no symbols (0.02 MB) — a data file, or source this extractor models no symbols for: examples/celery/make_celery.py, examples/celery/pyproject.toml, examples/javascript/js_example/__init__.py, examples/javascript/pyproject.toml, examples/tutorial/pyproject.toml (+18 more)
+[graphify watch] Rebuilt (no clustering): 2346 nodes, 3913 edges
+[graphify watch] graph.json updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.

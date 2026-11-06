@@ -1,0 +1,10 @@
+v8 warm, nothing changed, run 1: 4.79
+branch warm, nothing changed, run 1: 3.02
+v8 warm, nothing changed, run 2: 2.79
+branch warm, nothing changed, run 2: 2.78
+v8 warm, nothing changed, run 3: 2.86
+branch warm, nothing changed, run 3: 2.84
+branch warm, cochange.json deleted (forces mining with corpus filter), run 1: 4.01
+branch warm, cochange.json deleted (forces mining with corpus filter), run 2: 4.11
+branch warm, cochange.json deleted (forces mining with corpus filter), run 3: 3.96
+cochange.json bytes 317078

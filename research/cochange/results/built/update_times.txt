@@ -1,6 +1,6 @@
-django update_seconds=85.2
-flask update_seconds=2.5
-requests update_seconds=2.0
-hono update_seconds=6.2
-jsoup update_seconds=4.0
-caddy update_seconds=3.6
+django update_seconds=6.8
+flask update_seconds=1.3
+requests update_seconds=1.8
+hono update_seconds=2.6
+jsoup update_seconds=1.2
+caddy update_seconds=1.4

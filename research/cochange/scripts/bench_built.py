@@ -10,10 +10,9 @@ Test commits, seeds and truth are replayed exactly as in evaluate.py.
 
 Rows (top-k files):
   before            graph items only (v8 behaviour; must equal the study's v8 row)
-  after_printed     the order the text report prints: graph items, then the
-                    co-change section
-  after_cc_first    co-change items first, then graph items (merge by the
-                    `source` tag, the ranking the study found best)
+  after             the shipped order (text and JSON): the co-change section,
+                    then the code links
+  old_graph_first   the first build's layout: code links, then the section
   section_view      first k graph files PLUS the whole co-change section
                     (what a reader sees when reading k graph lines and the
                     section); it shows up to k + 10 files, see `shown`
@@ -46,7 +45,7 @@ def main() -> None:
     cochange = load_cochange(wt / "graphify-out" / FILE_NAME)
     assert cochange is not None and cochange["rev"].startswith(T[:7]), "cochange.json missing or not at T"
 
-    rows: dict[str, list] = {r: [] for r in ("before", "after_printed", "after_cc_first", "section_view")}
+    rows: dict[str, list] = {r: [] for r in ("before", "after", "old_graph_first", "section_view")}
     per_query = []
     stats = Counter()
     t0 = time.perf_counter()
@@ -83,11 +82,11 @@ def main() -> None:
                             target.append(f)
                     cache[seed_file] = (g, co)
             g, co = cache[seed_file]
-            printed = g + [f for f in co if f not in g]
-            cc_first = co + [f for f in g if f not in co]
+            old = g + [f for f in co if f not in g]
+            after = co + [f for f in g if f not in co]
             ts = set(truth)
             vals = {}
-            for row, lst in (("before", g), ("after_printed", printed), ("after_cc_first", cc_first)):
+            for row, lst in (("before", g), ("after", after), ("old_graph_first", old)):
                 v = []
                 for k in KS:
                     h = sum(1 for f in lst[:k] if f in ts)

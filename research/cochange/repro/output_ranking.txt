@@ -1,0 +1,21 @@
+$ graphify affected core.py    # v8
+Affected nodes for core.py
+Relations: calls, indirect_call, references, imports, imports_from, dynamic_import, re_exports, inherits, extends, implements, uses, mixes_in, embeds, defines, requires
+Depth: 2
+- aaa.py [imports] aaa.py:L1
+- zzz.py [imports_from] zzz.py:L1
+- reset() [calls] zzz.py:L8
+- sync() [calls] zzz.py:L4
+- helper.py [imports_from] helper.py:L1
+- run() [calls] helper.py:L4
+
+$ graphify affected core.py    # branch
+Affected nodes for core.py
+Relations: calls, indirect_call, references, imports, imports_from, dynamic_import, re_exports, inherits, extends, implements, uses, mixes_in, embeds, defines, requires
+Depth: 2
+- zzz.py [imports_from] zzz.py:L1
+- sync() [calls] zzz.py:L4
+- reset() [calls] zzz.py:L8
+- aaa.py [imports] aaa.py:L1
+- helper.py [imports_from] helper.py:L1
+- run() [calls] helper.py:L4

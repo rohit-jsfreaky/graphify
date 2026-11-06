@@ -7,8 +7,8 @@ REPOS = ["django", "flask", "requests", "hono", "jsoup", "caddy"]
 d = Path(sys.argv[1])
 res = {r: json.loads((d / f"{r}.built.json").read_text()) for r in REPOS if (d / f"{r}.built.json").exists()}
 rows = [("before", "v8 `affected` (graph items only)"),
-        ("after_printed", "built, printed order (graph, then co-change section)"),
-        ("after_cc_first", "built, co-change items first (by `source` tag)"),
+        ("after", "built: co-change section, then code links (shipped order)"),
+        ("old_graph_first", "first build's layout: code links, then section"),
         ("section_view", "built, first k graph files + whole co-change section")]
 md = ["| row | " + " | ".join(f"{r} R@10 / hit@10" for r in res) + " | ALL R@5 | ALL R@10 | ALL R@20 | ALL hit@10 | ALL P@10 or shown@10 |",
       "|---|" + "---|" * (len(res) + 5)]

@@ -1,0 +1,7 @@
+PASSED test_affected_ranking.py::test_the_result_set_and_depths_are_unchanged
+FAILED test_affected_ranking.py::test_hits_are_ranked_by_distance_then_link_strength_then_path
+FAILED test_affected_ranking.py::test_order_does_not_depend_on_how_the_graph_was_built
+FAILED test_affected_ranking.py::test_rank_hits_keeps_every_hit_and_is_idempotent
+FAILED test_affected_ranking.py::test_same_order_across_hash_seeds
+FAILED test_affected_ranking.py::test_cli_text_lists_hits_in_ranked_order
+5 failed, 1 passed in 22.93s

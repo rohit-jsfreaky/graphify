@@ -1,0 +1,26 @@
+PASSED ../../..test_affected_cochange.py::test_graph_results_are_unchanged_by_cochange
+FAILED ../../..test_affected_cochange.py::test_counts_support_and_confidence
+FAILED ../../..test_affected_cochange.py::test_confidence_threshold_hides_weak_pairs
+FAILED ../../..test_affected_cochange.py::test_renames_are_followed_and_pure_renames_add_nothing
+FAILED ../../..test_affected_cochange.py::test_bulk_commits_are_skipped_at_the_boundary
+FAILED ../../..test_affected_cochange.py::test_lockfiles_generated_and_untracked_files_are_dropped
+FAILED ../../..test_affected_cochange.py::test_partner_cap_and_sorting
+FAILED ../../..test_affected_cochange.py::test_size_cap_raises_the_support_floor
+FAILED ../../..test_affected_cochange.py::test_window_is_anchored_on_head_not_the_wall_clock
+FAILED ../../..test_affected_cochange.py::test_subdirectory_root_uses_relative_paths
+FAILED ../../..test_affected_cochange.py::test_same_output_twice_and_across_hash_seeds
+FAILED ../../..test_affected_cochange.py::test_no_git_repository_is_skipped_with_one_note
+FAILED ../../..test_affected_cochange.py::test_git_not_installed
+FAILED ../../..test_affected_cochange.py::test_shallow_clone_uses_what_is_there_and_says_so
+FAILED ../../..test_affected_cochange.py::test_refresh_is_a_no_op_when_head_has_not_moved
+FAILED ../../..test_affected_cochange.py::test_env_switch_turns_the_step_off
+FAILED ../../..test_affected_cochange.py::test_corpus_filter_drops_ignored_excluded_and_sensitive_files_but_keeps_docs_configs_tests
+FAILED ../../..test_affected_cochange.py::test_changed_ignore_rules_re_mine_at_the_same_head
+FAILED ../../..test_affected_cochange.py::test_update_writes_cochange_json
+FAILED ../../..test_affected_cochange.py::test_update_outside_git_prints_one_note_and_writes_nothing
+FAILED ../../..test_affected_cochange.py::test_affected_puts_the_labelled_cochange_section_before_the_code_links
+FAILED ../../..test_affected_cochange.py::test_affected_hides_pairs_below_the_threshold
+FAILED ../../..test_affected_cochange.py::test_section_comes_first_even_when_there_are_no_code_links
+FAILED ../../..test_affected_cochange.py::test_shallow_note_is_shown
+FAILED ../../..test_affected_cochange.py::test_json_output_tags_every_item
+24 failed, 1 passed, 1 warning in 1.32s

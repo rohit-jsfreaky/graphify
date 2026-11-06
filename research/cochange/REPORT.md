@@ -494,7 +494,7 @@ defaults: depth 2, confidence ≥ 0.2, at most 10 co-change items.
 
 ### 8.1 Before/after on the built code (`scripts/run_all_built.sh`)
 
-Same 6 repos, cut commits and 2,070 queries as above. `results/built/`.
+Same 6 repos, cut commits and 2,070 queries as above. First build (section printed after the graph list), files in `results/built_v1/`; the current build is in §9.3 and `results/built/`.
 
 | row | django | flask | requests | hono | jsoup | caddy | ALL R@5 | ALL R@10 | ALL R@20 | ALL hit@10 |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -602,6 +602,125 @@ YAML rate table it reads by name, its docs page and the changelog. `repro/run_re
 prints `graphify affected app/pricing.py` from v8 and from the branch;
 `repro/output.txt` is the result.
 
+## 9. Second round: section first, corpus filter, and a ranking PR
+
+### 9.1 What changed in `claude/affected-cochange`
+
+- **Layout.** The text report now prints the co-change section (at most 10
+  lines) BEFORE the code links, under the same label, followed by a
+  `Code links:` label and the full, unchanged graph list. JSON lists the same
+  items in the same order (co-change first), each tagged `source: graph |
+  cochange`; no second "ranked" field, so text and JSON can never disagree and
+  a consumer that only wants code links filters on the tag. Without
+  cochange.json or with `--no-cochange` the text is byte-identical to v8.
+- **Corpus filter.** A partner must be tracked at HEAD AND pass
+  `corpus_filter`: `detect.ignored_predicate` (the scan's own "would `graphify
+  update` exclude this path?": .graphifyignore/.gitignore chain including
+  nested files, persisted `--exclude` patterns read from the build config,
+  noise dirs, skipped names) plus `detect._is_sensitive`, plus the miner's
+  lockfile/generated/vendored rules. Tracked docs, configs and tests stay.
+  cochange.json records the corpus settings and a hash of the root
+  .graphifyignore/.gitignore, so changing them re-mines at the same HEAD.
+  On Django the filter removed one file
+  (`admin/templates/admin/auth/user/change_password.html`, which graphify's
+  sensitive-name rule also skips in the scan).
+
+### 9.2 Why "section first" (`scripts/layout_choice.py`)
+
+Flat top-10 orders scored on both answer keys with the built feature:
+
+| layout (flat top 10) | commits R@10 / hit@10 | mutants R@10: click / flask / httpx | mutants R@10 / hit@10 (repo mean) |
+|---|---|---|---|
+| graph only (v8) | 0.179 / 0.340 | 0.223 / 0.262 / 0.027 | 0.171 / 0.385 |
+| section capped at 3, then graph | 0.434 / 0.707 | 0.271 / 0.288 / 0.087 | 0.215 / 0.485 |
+| section capped at 5, then graph | 0.454 / 0.721 | 0.277 / 0.282 / 0.080 | 0.213 / 0.486 |
+| **section (≤ 10), then graph — shipped** | **0.482 / 0.748** | 0.281 / **0.214** / 0.189 | 0.228 / **0.589** |
+| interleave graph / co-change | 0.473 / 0.734 | 0.277 / 0.265 / 0.173 | **0.238** / 0.510 |
+| graph, then section (first build) | 0.373 / 0.612 | 0.223 / 0.262 / 0.027 | 0.171 / 0.385 |
+
+The shipped layout is best on the commit key and on mutant hit@10. Interleaving
+is a near-tie on recall (0.238 vs 0.228 on mutants) and spares flask, but it
+would mix history lines into the code-link list, which breaks the "separate,
+labelled section" requirement. Capping the section at 3–5 helps flask a little
+and costs httpx most of its gain. I did not tune further: these are the test
+sets. **Cost: flask's failing-tests recall@10 drops from 0.262 to 0.214** because up
+to 10 history lines push its graph hits past line 10.
+
+### 9.3 Re-measured, built code, new layout
+
+Commit key (`scripts/run_all_built.sh`, 2,070 queries), recall@10 / hit@10:
+
+| repo | queries | v8 | built (section, then code links) |
+|---|---|---|---|
+| django | 760 | 0.114 / 0.250 | 0.322 / 0.566 |
+| flask | 31 | 0.058 / 0.161 | 0.415 / 0.677 |
+| requests | 47 | 0.365 / 0.681 | 0.519 / 0.830 |
+| hono | 473 | 0.318 / 0.414 | 0.698 / 0.888 |
+| jsoup | 297 | 0.117 / 0.337 | 0.514 / 0.902 |
+| caddy | 462 | 0.103 / 0.197 | 0.422 / 0.626 |
+| **repo mean** | 2,070 | **0.179 / 0.340** | **0.482 / 0.748** |
+
+Paired hit@10: 860 vs 7, p ≈ 2e-244. Django moved from 0.326 to 0.322 vs the first
+build because the corpus filter now drops a few files.
+
+Failing-tests key (`scripts/mutation_rescore.py cochange_v2`, 107 killed mutants;
+truth unchanged, predictions recomputed with the built code):
+
+| repo | mutants | v8 R@10 / R@20 / hit@10 | built R@10 / R@20 / hit@10 |
+|---|---|---|---|
+| click | 35 | 0.223 / 0.359 / 0.543 | 0.281 / 0.396 / 0.743 |
+| **flask** | 33 | 0.262 / 0.297 / 0.485 | **0.214** / 0.309 / 0.485 |
+| httpx | 39 | 0.027 / 0.209 / 0.128 | 0.189 / 0.253 / 0.538 |
+| **pooled** | 107 | **0.164 / 0.285 / 0.374** | **0.227 / 0.317 / 0.589** |
+
+Paired hit@10: 29 vs 6, p = 0.0001. Flask is worse on recall@10 and equal on hit@10.
+
+### 9.4 Ranking PR (`claude/affected-ranking`, independent of the co-change PR)
+
+`affected_nodes` now returns its hits sorted by (depth, −edges from the hit's
+file into the files one step closer to the seed, path, line, id). Same set,
+depths and relations. v8 has no `affected` JSON or MCP tool, so only the CLI
+text changes. Measured with `scripts/bench_order.py` (same 2,070 queries, run
+under v8 and under the branch) and `scripts/mutation_rescore.py ranking`:
+
+| repo | queries | v8 R@10 / hit@10 | ranked R@10 / hit@10 | same set |
+|---|---|---|---|---|
+| django | 760 | 0.114 / 0.250 | 0.151 / 0.303 | 760/760 |
+| flask | 31 | 0.058 / 0.161 | 0.145 / 0.258 | 31/31 |
+| requests | 47 | 0.365 / 0.681 | 0.369 / 0.681 | 47/47 |
+| hono | 473 | 0.318 / 0.414 | 0.337 / 0.436 | 473/473 |
+| jsoup | 297 | 0.117 / 0.337 | 0.156 / 0.407 | 297/297 |
+| caddy | 462 | 0.103 / 0.197 | 0.165 / 0.284 | 462/462 |
+| **repo mean** | 2,070 | **0.179 / 0.340** | **0.221 / 0.395** | |
+
+Paired hit@10 122 vs 8, p ≈ 3e-27.
+
+| mutants | v8 R@10 / R@20 / hit@10 | ranked R@10 / R@20 / hit@10 |
+|---|---|---|
+| click (35) | 0.223 / 0.359 / 0.543 | 0.223 / 0.368 / 0.571 |
+| flask (33) | 0.262 / 0.297 / 0.485 | 0.288 / 0.322 / 0.515 |
+| httpx (39) | 0.027 / 0.209 / 0.128 | 0.022 / 0.174 / 0.205 |
+| **pooled (107)** | **0.164 / 0.285 / 0.374** | **0.170 / 0.283 / 0.421** |
+
+Paired hit@10 8 vs 3, p = 0.23 (not significant); httpx recall@20 drops. The set is
+identical for 107/107.
+
+### 9.5 Checks and cost (second round)
+
+- New tests: co-change 25 pass on the branch, 24 fail on v8 source (the one that
+  passes is the "graph results unchanged" guard); ranking 6 pass, 5 fail on v8
+  (the one that passes is the "set and depths unchanged" guard).
+  `results/feature_checks_v2/`.
+- Full suite, `PYTHONPATH="$PWD" uv run --frozen pytest tests -q -p no:cacheprovider`,
+  every tree synced with `uv sync --all-extras --frozen`: clean v8 10,198 passed;
+  co-change branch 10,226 passed; ranking branch 10,204 passed; each with 21 skipped,
+  1 xfailed and **0 failed**, so no file needed a lone re-run.
+- `ruff check .` clean on both branches; pyright on changed files: no new errors.
+- Django `graphify update .` (warm): nothing changed 2.8 s on both v8 and the
+  branch; when HEAD moved (cochange.json re-mined with the corpus filter) about
+  4.0 s, so the filter made re-mining cost about 1.2 s instead of 0.5 s
+  (filter set-up 0.25 s, the rest per-path ignore checks). cochange.json 317 KB.
+
 ## Files
 
 - `scripts/prepare.sh` — pick T, make a worktree, build the v8 graph at T.
@@ -619,4 +738,9 @@ prints `graphify affected app/pricing.py` from v8 and from the branch;
   `scripts/mutation_ranking.py` → `results/mutation/` — failing-tests answer key.
 - `scripts/ranking_only.py` → `results/ranking_only.{md,json}` — sort-only experiment.
 - `results/feature_checks/` — test, suite, lint/type and Django timing evidence.
-- `repro/` — the tiny before/after repro.
+- `repro/` — the tiny before/after repros (`run_repro.sh` for co-change,
+  `run_repro_ranking.sh` for the ranking PR) and their outputs.
+- `scripts/layout_choice.py` → `results/tables_layout_choice.md`; `scripts/mutation_rescore.py`
+  → `results/mutation/tables_{cochange_v2,ranking}.md`; `scripts/bench_order.py`,
+  `scripts/bench_order_compare.py` → `results/tables_order_v8_vs_ranked.md`;
+  `results/built_v1/` keeps the first build's numbers.

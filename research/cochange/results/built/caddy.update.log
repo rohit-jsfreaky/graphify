@@ -1,16 +1,9 @@
 warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
-Uninstalled 1 package in 2ms
-Installed 1 package in 4ms
+Uninstalled 1 package in 3ms
+Installed 1 package in 2ms
 Updating code graph in . (no LLM needed)...
 [graphify watch] 230 file(s) not classified (no supported extension or shebang), skipped: .editorconfig, .git, .gitattributes, .gitignore, AUTHORS, LICENSE (+224 more)
 [graphify watch] warning: 230 of 604 files seen (38%) have no supported extractor and are missing from this graph entirely. It may look complete while representing only part of the codebase.
-  AST cache: 0/336 files served from cache (0%); 336 to extract
-  AST extraction: 100/336 uncached files (29%) [4 workers]
-  AST extraction: 200/336 uncached files (59%) [4 workers]
-  AST extraction: 300/336 uncached files (89%) [4 workers]
-  AST extraction: 336/336 uncached files (100%) [4 workers]
-  warning: 9 code file(s) yielded no symbols (0.01 MB) — a data file, or source this extractor models no symbols for: cmd/x509rootsfallback.go, go.mod, listen_unix_setopt.go, listen_unix_setopt_freebsd.go, modules/caddyhttp/fileserver/testdata/foo.php.php/index.php (+4 more)
-[graphify watch] Rebuilt (no clustering): 4698 nodes, 21512 edges
-[graphify watch] graph.json updated in graphify-out
+[graphify watch] No relevant changes; graphify-out left untouched.
 Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
 Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.

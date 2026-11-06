@@ -1,12 +1,9 @@
 warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
-Uninstalled 1 package in 3ms
+Uninstalled 1 package in 2ms
 Installed 1 package in 3ms
 Updating code graph in . (no LLM needed)...
 [graphify watch] 32 file(s) not classified (no supported extension or shebang), skipped: .coveragerc, .git, .git-blame-ignore-revs, .gitignore, .nojekyll, CODEOWNERS (+26 more)
 [graphify watch] warning: 32 of 117 files seen (27%) have no supported extractor and are missing from this graph entirely. It may look complete while representing only part of the codebase.
-  AST cache: 0/60 files served from cache (0%); 60 to extract
-  warning: 8 code file(s) yielded no symbols (0.08 MB) — a data file, or source this extractor models no symbols for: docs/conf.py, pyproject.toml, setup.py, src/requests/__version__.py, src/requests/packages.py (+3 more)
-[graphify watch] Rebuilt (no clustering): 1434 nodes, 2547 edges
-[graphify watch] graph.json updated in graphify-out
+[graphify watch] No relevant changes; graphify-out left untouched.
 Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
 Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.

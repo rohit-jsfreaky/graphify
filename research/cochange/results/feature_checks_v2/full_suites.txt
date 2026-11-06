@@ -1,0 +1,7 @@
+# PYTHONPATH=$PWD uv run --frozen pytest tests -q -p no:cacheprovider (all three synced with --all-extras --frozen)
+## clean v8 16218bfc
+10198 passed, 21 skipped, 1 xfailed, 369 warnings in 659.96s (0:10:59)
+## A claude/affected-cochange 626e2236
+10226 passed, 21 skipped, 1 xfailed, 369 warnings in 914.02s (0:15:14)
+## B claude/affected-ranking 8bbbf41b
+10204 passed, 21 skipped, 1 xfailed, 369 warnings in 599.45s (0:09:59)

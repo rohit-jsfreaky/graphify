@@ -9,14 +9,14 @@ from report import binom_two_sided  # noqa: E402
 
 d = Path(sys.argv[1])
 lines = []
-for view in ("after_cc_first", "section_view", "after_printed"):
+for view in ("after", "section_view", "old_graph_first"):
     a = b = 0
     for r in ["django", "flask", "requests", "hono", "jsoup", "caddy"]:
         for q in (json.loads(x) for x in gzip.open(d / f"{r}.built_queries.jsonl.gz", "rt")):
             t, g, co = set(q["truth"]), q["graph"], q["cochange"]
-            lst = {"after_cc_first": (co + [f for f in g if f not in co])[:10],
+            lst = {"after": (co + [f for f in g if f not in co])[:10],
                    "section_view": list(dict.fromkeys(g[:10] + co)),
-                   "after_printed": (g + [f for f in co if f not in g])[:10]}[view]
+                   "old_graph_first": (g + [f for f in co if f not in g])[:10]}[view]
             new, old = bool(t & set(lst)), bool(t & set(g[:10]))
             a += new and not old
             b += old and not new
