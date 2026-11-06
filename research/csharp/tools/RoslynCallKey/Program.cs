@@ -16,7 +16,13 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Diagnostics;
+using Microsoft.CodeAnalysis.Operations;
 
+// Optional: `--members <out.jsonl>` (last two args) writes a SECOND key with the links the call key does
+// not cover: constructor initializers (`: base(...)` / `: this(...)`), property / indexer accessor uses
+// (get, set, both for `+=` / `++`), and user-defined operators / conversions. The main key is unchanged.
+string? membersOut = null;
+if (args.Length >= 6 && args[^2] == "--members") { membersOut = args[^1]; args = args[..^2]; }
 if (args.Length != 4 && args.Length != 6)
 {
     Console.Error.WriteLine("usage: RoslynCallKey <csc.rsp> <projectDir> <repoRoot> <out.jsonl> [--write-preprocessed <copyRoot>]");
@@ -436,6 +442,104 @@ foreach (var tree in ownTrees.OrderBy(t => t.FilePath))
         };
         w.WriteLine(rec.ToJsonString(jsonOpts));
         Bump("kept." + kind);
+    }
+}
+if (membersOut != null)
+{
+    using var wm = new StreamWriter(membersOut);
+    void Emit(SyntaxNode site, SemanticModel model, ISymbol tsym, SyntaxNode? tdecl, string tname, string kind, JsonObject extra)
+    {
+        var caller = FindCaller(site, model, outer: false);
+        if (caller == null) { Bump("m.skip.not_in_method"); return; }
+        if (tdecl == null || !ownTrees.Contains(tdecl.SyntaxTree)) { Bump("m.skip.not_own"); return; }
+        var callerType = caller.Value.sym.ContainingType;
+        var targetType = tsym.ContainingType;
+        var outer = caller.Value.kind == "local_function" ? FindCaller(caller.Value.decl, model, outer: true) : null;
+        var rec = new JsonObject
+        {
+            ["caller"] = DeclInfo(caller.Value.decl, caller.Value.name, caller.Value.kind, callerType),
+            ["caller_outer"] = outer == null ? null : DeclInfo(outer.Value.decl, outer.Value.name, outer.Value.kind, outer.Value.sym.ContainingType),
+            ["caller_type_decls"] = callerType == null ? null : TypeDecls(callerType),
+            ["target"] = DeclInfo(tdecl, tname, kind, targetType),
+            ["target_type"] = TypeDecls(targetType),
+            ["target_type_name"] = targetType.Name,
+            ["call_line"] = Line(site.SyntaxTree, site.SpanStart),
+            ["call_file"] = Rel(site.SyntaxTree.FilePath),
+            ["kind"] = kind,
+            ["subkind"] = "",
+            ["receiver"] = "",
+            ["receiver_text"] = "",
+            ["rel"] = SymbolEqualityComparer.Default.Equals(targetType.OriginalDefinition, callerType?.OriginalDefinition) ? "same_type" : "other_type",
+            ["target_static"] = tsym.IsStatic,
+            ["target_sig"] = tsym.OriginalDefinition.ToDisplayString(),
+            ["target_arity"] = tsym is IMethodSymbol ms ? ms.Parameters.Length : tsym is IPropertySymbol ps ? ps.Parameters.Length : 0,
+            ["target_type_kind"] = targetType.TypeKind.ToString(),
+            ["call_text"] = site.ToString().Length > 120 ? site.ToString()[..120] : site.ToString(),
+        };
+        foreach (var kv in extra) rec[kv.Key] = kv.Value?.DeepClone();
+        wm.WriteLine(rec.ToJsonString(jsonOpts));
+        Bump("m.kept." + kind);
+    }
+    SyntaxNode? DeclOf(ISymbol s) => s.OriginalDefinition.DeclaringSyntaxReferences.FirstOrDefault(r => ownTrees.Contains(r.SyntaxTree))?.GetSyntax();
+    foreach (var tree in ownTrees.OrderBy(t => t.FilePath))
+    {
+        var model = compilation.GetSemanticModel(tree);
+        var seenOps = new HashSet<(int, int, string)>();
+        foreach (var node in tree.GetRoot().DescendantNodes())
+        {
+            if (node is ConstructorInitializerSyntax ci)
+            {
+                if (model.GetSymbolInfo(ci).Symbol is IMethodSymbol cm && DeclOf(cm) is { } cd)
+                    Emit(ci, model, cm, cd, cm.ContainingType.Name, "ctor_init",
+                         new JsonObject { ["init"] = ci.ThisOrBaseKeyword.Text, ["argc"] = ci.ArgumentList.Arguments.Count });
+                continue;
+            }
+            if (node.Ancestors().Any(a => a is InvocationExpressionSyntax inv && inv.Expression is IdentifierNameSyntax { Identifier.Text: "nameof" })) continue;
+            var op = model.GetOperation(node);
+            if (op == null || !seenOps.Add((op.Syntax.SpanStart, op.Syntax.Span.Length, op.Kind.ToString()))) continue;
+            switch (op)
+            {
+                case IPropertyReferenceOperation pr:
+                {
+                    var prop = pr.Property.OriginalDefinition;
+                    if (prop.IsImplicitlyDeclared || DeclOf(prop) is not { } pd) break;
+                    var parent = pr.Parent;
+                    bool set = false, get = true;
+                    if (parent is ISimpleAssignmentOperation sa && sa.Target == pr) { set = true; get = false; }
+                    else if (parent is ICompoundAssignmentOperation ca && ca.Target == pr) set = true;
+                    else if (parent is IIncrementOrDecrementOperation) set = true;
+                    else if (parent is ICoalesceAssignmentOperation coa && coa.Target == pr) set = true;
+                    bool auto = pd is PropertyDeclarationSyntax pds && pds.ExpressionBody == null
+                        && pds.AccessorList != null && pds.AccessorList.Accessors.All(a => a.Body == null && a.ExpressionBody == null);
+                    string baseKind = prop.IsIndexer ? "indexer" : "property";
+                    string tname = prop.IsIndexer ? "this[]" : prop.Name;
+                    var extra = new JsonObject { ["auto_property"] = auto, ["receiver_implicit"] = pr.Instance == null || pr.Instance.IsImplicit,
+                        ["in_object_initializer"] = parent?.Parent is IObjectOrCollectionInitializerOperation };
+                    if (get) Emit(pr.Syntax, model, prop, pd, tname, baseKind + "_get", extra);
+                    if (set) Emit(pr.Syntax, model, prop, pd, tname, baseKind + "_set", extra);
+                    break;
+                }
+                case IBinaryOperation { OperatorMethod: { } om }:
+                case IUnaryOperation { OperatorMethod: { } om2 }:
+                case ICompoundAssignmentOperation { OperatorMethod: { } om3 }:
+                case IIncrementOrDecrementOperation { OperatorMethod: { } om4 }:
+                {
+                    var m = (op switch { IBinaryOperation b => b.OperatorMethod, IUnaryOperation u => u.OperatorMethod,
+                        ICompoundAssignmentOperation c => c.OperatorMethod, IIncrementOrDecrementOperation i => i.OperatorMethod, _ => null })!.OriginalDefinition;
+                    if (m.IsImplicitlyDeclared || DeclOf(m) is not { } md) break;
+                    Emit(op.Syntax, model, m, md, md is OperatorDeclarationSyntax ods ? "operator " + ods.OperatorToken.Text : m.Name, "operator", new JsonObject());
+                    break;
+                }
+                case IConversionOperation { OperatorMethod: { } cm2 } conv:
+                {
+                    var m = cm2.OriginalDefinition;
+                    if (m.IsImplicitlyDeclared || DeclOf(m) is not { } md) break;
+                    Emit(op.Syntax, model, m, md, md is ConversionOperatorDeclarationSyntax cds ? "operator " + cds.Type : m.Name, "conversion",
+                         new JsonObject { ["implicit_in_source"] = conv.IsImplicit });
+                    break;
+                }
+            }
+        }
     }
 }
 foreach (var kv in stats.OrderBy(k => k.Key)) Console.Error.WriteLine($"[stat] {kv.Key} = {kv.Value}");
