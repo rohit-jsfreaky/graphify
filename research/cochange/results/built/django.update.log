@@ -1,0 +1,45 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+Uninstalled 1 package in 1ms
+Installed 1 package in 3ms
+Updating code graph in . (no LLM needed)...
+[graphify watch] 2764 file(s) not classified (no supported extension or shebang), skipped: .coveragerc, .dot-file, .editorconfig, .flake8, .git, .git-blame-ignore-revs (+2758 more)
+[graphify watch] warning: 2764 of 7040 files seen (39%) have no supported extractor and are missing from this graph entirely. It may look complete while representing only part of the codebase.
+  AST cache: 0/3104 files served from cache (0%); 3104 to extract
+  AST extraction: 100/3104 uncached files (3%) [4 workers]
+  AST extraction: 200/3104 uncached files (6%) [4 workers]
+  AST extraction: 300/3104 uncached files (9%) [4 workers]
+  AST extraction: 400/3104 uncached files (12%) [4 workers]
+  AST extraction: 500/3104 uncached files (16%) [4 workers]
+  AST extraction: 600/3104 uncached files (19%) [4 workers]
+  AST extraction: 700/3104 uncached files (22%) [4 workers]
+  AST extraction: 800/3104 uncached files (25%) [4 workers]
+  AST extraction: 900/3104 uncached files (28%) [4 workers]
+  AST extraction: 1000/3104 uncached files (32%) [4 workers]
+  AST extraction: 1100/3104 uncached files (35%) [4 workers]
+  AST extraction: 1200/3104 uncached files (38%) [4 workers]
+  AST extraction: 1300/3104 uncached files (41%) [4 workers]
+  AST extraction: 1400/3104 uncached files (45%) [4 workers]
+  AST extraction: 1500/3104 uncached files (48%) [4 workers]
+  AST extraction: 1600/3104 uncached files (51%) [4 workers]
+  AST extraction: 1700/3104 uncached files (54%) [4 workers]
+  AST extraction: 1800/3104 uncached files (57%) [4 workers]
+  AST extraction: 1900/3104 uncached files (61%) [4 workers]
+  AST extraction: 2000/3104 uncached files (64%) [4 workers]
+  AST extraction: 2100/3104 uncached files (67%) [4 workers]
+  AST extraction: 2200/3104 uncached files (70%) [4 workers]
+  AST extraction: 2300/3104 uncached files (74%) [4 workers]
+  AST extraction: 2400/3104 uncached files (77%) [4 workers]
+  AST extraction: 2500/3104 uncached files (80%) [4 workers]
+  AST extraction: 2600/3104 uncached files (83%) [4 workers]
+  AST extraction: 2700/3104 uncached files (86%) [4 workers]
+  AST extraction: 2800/3104 uncached files (90%) [4 workers]
+  AST extraction: 2900/3104 uncached files (93%) [4 workers]
+  AST extraction: 3000/3104 uncached files (96%) [4 workers]
+  AST extraction: 3100/3104 uncached files (99%) [4 workers]
+  AST extraction: 3104/3104 uncached files (100%) [4 workers]
+  warning: 1 file(s) had syntax errors and may be partially extracted: django/views/templates/i18n_catalog.js (error region at line 1, no symbols extracted)
+  warning: 362 code file(s) yielded no symbols (0.36 MB) — a data file, or source this extractor models no symbols for: Gruntfile.js, django/apps/__init__.py, django/conf/locale/ar/formats.py, django/conf/locale/ar_DZ/formats.py, django/conf/locale/az/formats.py (+357 more)
+[graphify watch] Rebuilt (no clustering): 54035 nodes, 130789 edges
+[graphify watch] graph.json updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.

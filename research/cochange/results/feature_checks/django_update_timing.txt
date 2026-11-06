@@ -1,0 +1,15 @@
+v8 cold full build: 127.99
+branch cold full build: 126.34
+v8 warm, nothing changed, run 1: 2.92
+branch warm, nothing changed, run 1: 2.77
+v8 warm, nothing changed, run 2: 2.97
+branch warm, nothing changed, run 2: 2.8
+v8 warm, nothing changed, run 3: 2.81
+branch warm, nothing changed, run 3: 3.04
+branch warm, cochange.json deleted (forces mining), run 1: 3.43
+branch warm, cochange.json deleted (forces mining), run 2: 3.47
+branch warm, cochange.json deleted (forces mining), run 3: 3.09
+mine_cochange on django HEAD, 5 runs: min 0.31s median 0.32s; commits_used 2922, bulk_skipped 36, files 897, partner lists 897, bytes 315336
+written file == fresh mine (same bytes): True
+distinct outputs across PYTHONHASHSEED 0/1/4242: 1
+graph.json v8 vs branch: nodes identical True (55328), edges identical True (131856)

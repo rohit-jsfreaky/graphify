@@ -1,0 +1,6 @@
+# branch claude/affected-cochange 08dcdd42, same command
+10223 passed, 21 skipped, 1 xfailed, 369 warnings in 551.79s (0:09:11)
+
+real	9m15.624s
+user	4m57.652s
+sys	1m47.060s

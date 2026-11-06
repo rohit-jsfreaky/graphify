@@ -1,0 +1,12 @@
+{
+ "baseline_failing_tests": [],
+ "baseline_seconds": 1.8,
+ "candidates": 344,
+ "cochange_commits_used": 213,
+ "cochange_rev": "d04a0c15a83c78186cf31dc5d226b3110321b9e5",
+ "commit": "49943b5a94413a530761350f04e896f76e8d620e",
+ "mine_seconds": 0.04,
+ "repo": "flask",
+ "sampled": 40,
+ "test_files": 22
+}

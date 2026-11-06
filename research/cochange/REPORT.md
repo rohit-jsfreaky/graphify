@@ -484,6 +484,124 @@ byte-identical across two runs at the same HEAD.
 - **Mining time** was measured on mid-size repos. A monorepo with 100k commits in 3 years
   needs the `--max-count` cap; I did not measure one.
 
+## 8. Follow-up: the built feature and two extra measurements
+
+The feature is on branch `claude/affected-cochange` (one commit on upstream `v8`
+`16218bf`). Nothing in this section uses the study's own predictors: the numbers
+come from the shipped code (`graphify update` writes `cochange.json`;
+`affected_payload` is what `graphify affected --json` prints) with the shipped
+defaults: depth 2, confidence ≥ 0.2, at most 10 co-change items.
+
+### 8.1 Before/after on the built code (`scripts/run_all_built.sh`)
+
+Same 6 repos, cut commits and 2,070 queries as above. `results/built/`.
+
+| row | django | flask | requests | hono | jsoup | caddy | ALL R@5 | ALL R@10 | ALL R@20 | ALL hit@10 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| **before**: v8 `affected` (graph items) | 0.114 / 0.250 | 0.058 / 0.161 | 0.365 / 0.681 | 0.318 / 0.414 | 0.117 / 0.337 | 0.103 / 0.197 | 0.137 | **0.179** | 0.221 | **0.340** |
+| after, printed order (graph lines, then the section) | 0.268 / 0.499 | 0.271 / 0.452 | 0.395 / 0.723 | 0.663 / 0.844 | 0.410 / 0.801 | 0.235 / 0.359 | 0.285 | 0.374 | 0.454 | 0.613 |
+| **after, co-change items first** (merge by the `source` tag) | 0.326 / 0.574 | 0.415 / 0.677 | 0.519 / 0.830 | 0.698 / 0.888 | 0.514 / 0.902 | 0.422 / 0.626 | 0.399 | **0.483** | 0.510 | **0.749** |
+| after, first k graph lines + the whole section | 0.331 / 0.578 | 0.422 / 0.677 | 0.536 / 0.830 | 0.710 / 0.892 | 0.538 / 0.906 | 0.426 / 0.628 | 0.469 | 0.494 | 0.519 | 0.752 |
+
+(Per-repo cells are recall@10 / hit@10.) The last row shows on average 8.4 files at k = 10,
+because v8 returns nothing for many seeds.
+
+Paired hit@10 vs before: co-change first 866 vs 7 (p ≈ 2e-246); first 10 graph
+lines + section 866 vs 0; printed order 616 vs 0. The "before" row reproduces the
+study's v8 row (0.179 vs 0.180; the 0.001 is 7 seeds the study resolved with a
+fallback and the CLI does not). Compared with the study's unthresholded
+co-change-first (0.521), the 0.2 floor and the 10-item cap cost about 0.04 recall@10
+on this answer key.
+
+### 8.2 A non-circular answer key: failing tests (`scripts/run_mutation.sh`)
+
+click (`ac0e297`), flask (`49943b5`), httpx (`b5addb6`). 40 functions sampled per
+repo (seed 2026) from the package source, skipping one-line defs, stubs, nested
+helpers and `@overload`/`@abstractmethod`. One at a time, `raise RuntimeError("mut")`
+is inserted as the first line of the body and the repo's full test suite runs
+(its own pytest config; proxy variables removed for httpx; tests that fail on
+clean code are ignored). Truth = the test files with new failures. Seed = the
+mutated file. Co-change is mined with the built miner from `C^` (strictly before
+the tested commit). `results/mutation/`.
+
+| repo | killed mutants (of 40) | failing test files per mutant | v8 R@10 | v8 + co-change, co-change first R@10 | first 10 graph lines + section R | v8 R@20 | co-change first R@20 | v8 hit@10 | co-change first hit@10 | first 10 + section hit |
+|---|---|---|---|---|---|---|---|---|---|---|
+| click | 35 | 7.9 | 0.223 | 0.281 | 0.294 | 0.359 | 0.396 | 0.543 | 0.743 | 0.743 |
+| flask | 33 | 5.8 | 0.262 | 0.214 | 0.306 | 0.297 | 0.309 | 0.485 | 0.485 | 0.576 |
+| httpx | 39 | 7.3 | 0.027 | 0.189 | 0.209 | 0.209 | 0.253 | 0.128 | 0.538 | 0.615 |
+| **pooled** | **107** | | **0.164** | **0.227** | 0.267 | 0.285 | 0.317 | **0.374** | **0.589** | 0.645 |
+
+- Paired hit@10, co-change first vs v8: 29 vs 6, p = 0.0001. First 10 graph lines +
+  section vs v8 top 10: 29 vs 0, p ≈ 4e-9 (that view shows more lines: 11.8 / 14.3 / 15.6 files on average for click / flask / httpx, against 10).
+- The printed order equals v8 at k = 10 and 20 here: v8 returns 16–68 files, so the
+  section starts after line 20.
+- **What this says about the bias worry.** The gain is real but much smaller than on
+  the commit key (+0.06 recall@10 instead of +0.30), it comes from click and httpx,
+  and on flask co-change does not help (recall@10 drops with co-change first; a
+  plain naming rule, "test file named after the module", beats everything there at 0.328).
+- **Why.** For "what breaks", the graph already *reaches* most failing tests (recall
+  over v8's whole list: click 0.96, httpx 0.76, flask 0.34); it ranks them badly.
+  Co-change finds almost no new failing files (0.000 / 0.018 / 0.066 recall found only
+  by the section); it works as a better ordering. For "what else gets edited" (the
+  commit key) it finds files the graph never reaches (docs, configs).
+- Small sample: 107 mutants, 3 Python repos, one commit each.
+
+### 8.3 Ranking only (not built)
+
+Same v8 result SET (reverse edges only, depth 2), only the order changes: by graph
+distance, then by the number of linking edges from the candidate file into the
+files one step closer to the seed, then path. `scripts/ranking_only.py`,
+`scripts/mutation_ranking.py`.
+
+| answer key | v8 order R@10 | sorted R@10 | v8 order hit@10 | sorted hit@10 |
+|---|---|---|---|---|
+| commits, 2,070 queries (repo mean) | 0.180 | 0.221 | 0.341 | 0.395 |
+| failing tests, 107 mutants (pooled) | 0.164 | 0.168 | 0.374 | 0.421 |
+
+Per repo on the commit key, sorting helps most in caddy (0.107 → 0.170) and django
+(0.114 → 0.151), and does nothing in requests. Sorting alone is a modest, cheap gain
+(+0.04 recall@10, +0.05 hit@10), well below co-change (+0.30 on commits, +0.06 on
+failing tests). Worth a second small PR only if it stays this cheap; on the
+failing-tests key it does not fix v8's ordering problem. Variants (distinct linking
+nodes; edges into the seed only) are in `results/ranking_only.md`.
+
+### 8.4 Cost on Django (HEAD `d9d05f1`, 4-core VM, `graphify update .`)
+
+| | v8 | branch |
+|---|---|---|
+| cold full build | 128.0 s | 126.3 s |
+| warm, nothing changed (3 runs) | 2.92 / 2.97 / 2.81 s | 2.77 / 2.80 / 3.04 s |
+| warm, cochange.json deleted so it must re-mine (3 runs) | — | 3.43 / 3.47 / 3.09 s |
+| `mine_cochange` alone (5 runs) | — | 0.31 s min, 0.32 s median |
+
+The branch's cochange.json for Django: 2,922 commits used, 36 bulk commits skipped,
+897 files, 315 KB (38 KB gzipped). Byte-identical across PYTHONHASHSEED 0/1/4242, and
+the written file equals a fresh mine. The graph itself is identical to v8's
+(55,328 nodes, 131,856 edges). When HEAD has not moved the step costs one
+`git rev-parse` plus reading the JSON.
+
+### 8.5 Tests and checks
+
+- New tests `tests/test_affected_cochange.py`: 22 pass on the branch; on v8 source
+  21 fail and 1 passes (the regression guard "graph results are unchanged", which
+  should pass on both). `results/feature_checks/new_tests_on_*.txt`.
+- Full suite, `PYTHONPATH="$PWD" uv run --frozen pytest tests -q -p no:cacheprovider`,
+  same environment (`uv sync --all-extras --frozen`): v8 10,198 passed, 21 skipped,
+  1 xfailed, 0 failed; branch 10,223 passed, 21 skipped, 1 xfailed, 0 failed (+22 new
+  tests, +3 from `test_architecture_doc.py`, which imports every symbol named in the
+  ARCHITECTURE.md table). A first v8 run in a worktree synced without
+  `--all-extras` showed 7 failures in `test_ext_tagged_id_clash.py`; they come from
+  that environment, not the code.
+- `ruff check .` clean; pyright on changed files: no new errors (the files' existing
+  errors are unchanged; the new module and test file have 0).
+
+### 8.6 Repro
+
+`repro/make_repo.sh` builds a 7-commit repo where `app/pricing.py` changes with a
+YAML rate table it reads by name, its docs page and the changelog. `repro/run_repro.sh`
+prints `graphify affected app/pricing.py` from v8 and from the branch;
+`repro/output.txt` is the result.
+
 ## Files
 
 - `scripts/prepare.sh` — pick T, make a worktree, build the v8 graph at T.
@@ -495,3 +613,10 @@ byte-identical across two runs at the same HEAD.
   top-20 list of every predictor.
 - `results/<repo>.run.json` — cut, counts, cost, seed resolution.
 - `results/<repo>.meta.json`, `results/<repo>.graph_build.log` — graph build at T.
+- `scripts/run_all_built.sh`, `scripts/bench_built.py`, `scripts/bench_built_report.py`,
+  `scripts/bench_built_tests.py` → `results/built/` — before/after on the built feature.
+- `scripts/run_mutation.sh`, `scripts/mutation.py`, `scripts/mutation_report.py`,
+  `scripts/mutation_ranking.py` → `results/mutation/` — failing-tests answer key.
+- `scripts/ranking_only.py` → `results/ranking_only.{md,json}` — sort-only experiment.
+- `results/feature_checks/` — test, suite, lint/type and Django timing evidence.
+- `repro/` — the tiny before/after repro.

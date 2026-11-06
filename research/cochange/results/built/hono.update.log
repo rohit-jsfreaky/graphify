@@ -1,0 +1,17 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+Uninstalled 1 package in 19ms
+Installed 1 package in 7ms
+Updating code graph in . (no LLM needed)...
+[graphify watch] 27 file(s) not classified (no supported extension or shebang), skipped: .editorconfig, .git, .gitignore, .gitkeep, .prettierrc, .tool-versions (+21 more)
+  AST cache: 0/446 files served from cache (0%); 446 to extract
+  AST extraction: 100/446 uncached files (22%) [4 workers]
+  AST extraction: 200/446 uncached files (44%) [4 workers]
+  AST extraction: 300/446 uncached files (67%) [4 workers]
+  AST extraction: 400/446 uncached files (89%) [4 workers]
+  AST extraction: 446/446 uncached files (100%) [4 workers]
+  warning: 6 file(s) had syntax errors and may be partially extracted: src/context.ts (error region at line 97, 51 symbol(s) extracted), src/helper/factory/index.ts (error region at line 26, 7 symbol(s) extracted), src/helper/ssg/middleware.ts (error region at line 33, 11 symbol(s) extracted), src/jsx/hooks/index.ts (error region at line 179, 34 symbol(s) extracted), src/types.ts (error region at line 1, 19 symbol(s) extracted) (+1 more)
+  warning: 102 code file(s) yielded no symbols (0.47 MB) — a data file, or source this extractor models no symbols for: benchmarks/query-param/src/bench.mts, benchmarks/query-param/src/hono.mts, runtime-tests/bun/color.test.ts, runtime-tests/deno-jsx/jsx.test.tsx, runtime-tests/deno/hono.test.ts (+97 more)
+[graphify watch] Rebuilt (no clustering): 3332 nodes, 6984 edges
+[graphify watch] graph.json updated in graphify-out
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.

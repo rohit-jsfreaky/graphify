@@ -1,0 +1,16 @@
+# clean v8 16218bfc, uv sync --all-extras --frozen, PYTHONPATH=$PWD uv run --frozen pytest tests -q -p no:cacheprovider
+10198 passed, 21 skipped, 1 xfailed, 369 warnings in 659.96s (0:10:59)
+
+real	11m3.989s
+user	4m59.345s
+sys	1m49.418s
+
+# first v8 run, worktree venv WITHOUT --all-extras (not comparable; shows the 7 env-only failures)
+FAILED tests/test_ext_tagged_id_clash.py::test_variable_named_like_the_sibling_extension_keeps_its_own_node[relative]
+FAILED tests/test_ext_tagged_id_clash.py::test_variable_named_like_the_sibling_extension_keeps_its_own_node[absolute]
+FAILED tests/test_ext_tagged_id_clash.py::test_the_file_node_is_still_found_by_label_after_build
+FAILED tests/test_ext_tagged_id_clash.py::test_edges_follow_the_right_node_when_x_mjs_also_imports_x_sql
+FAILED tests/test_ext_tagged_id_clash.py::test_controls_with_a_sibling_keep_todays_ids[other name-import postgres from "postgres";\nconst db = postgres(1);\nfunction prueba(){ return db }\n-expect0]
+FAILED tests/test_ext_tagged_id_clash.py::test_controls_with_a_sibling_keep_todays_ids[literal-const sql = 1;\nfunction prueba(){ return sql }\n-expect1]
+FAILED tests/test_ext_tagged_id_clash.py::test_a_swift_type_named_like_the_sibling_extension_keeps_both_file_nodes
+7 failed, 9867 passed, 230 skipped, 1 xfailed, 307 warnings in 742.67s (0:12:22)

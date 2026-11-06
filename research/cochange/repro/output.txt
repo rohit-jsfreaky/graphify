@@ -1,0 +1,23 @@
+$ graphify affected app/pricing.py    # v8
+Affected nodes for pricing.py
+Relations: calls, indirect_call, references, imports, imports_from, dynamic_import, re_exports, inherits, extends, implements, uses, mixes_in, embeds, defines, requires
+Depth: 2
+- checkout.py [imports_from] app/checkout.py:L1
+- test_pricing.py [imports_from] tests/test_pricing.py:L1
+- total() [calls] app/checkout.py:L4
+- test_price() [calls] tests/test_pricing.py:L4
+
+$ graphify affected app/pricing.py    # branch
+Affected nodes for pricing.py
+Relations: calls, indirect_call, references, imports, imports_from, dynamic_import, re_exports, inherits, extends, implements, uses, mixes_in, embeds, defines, requires
+Depth: 2
+- checkout.py [imports_from] app/checkout.py:L1
+- test_pricing.py [imports_from] tests/test_pricing.py:L1
+- total() [calls] app/checkout.py:L4
+- test_price() [calls] tests/test_pricing.py:L4
+
+Changed together in git history (not code links):
+- CHANGELOG.md [co-change 0.83, 5 of 6 commits]
+- config/rates.yaml [co-change 0.83, 5 of 6 commits]
+- docs/pricing.md [co-change 0.83, 5 of 6 commits]
+- tests/test_pricing.py [co-change 0.33, 2 of 6 commits] (also a code link)

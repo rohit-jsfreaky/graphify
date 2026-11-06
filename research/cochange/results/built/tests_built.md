@@ -1,0 +1,3 @@
+- after_cc_first vs before, hit@10: only after_cc_first hits 866, only before hits 7, McNemar p = 2.4e-246
+- section_view vs before, hit@10: only section_view hits 866, only before hits 0, McNemar p = 4.1e-261
+- after_printed vs before, hit@10: only after_printed hits 616, only before hits 0, McNemar p = 7.4e-186

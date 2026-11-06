@@ -1,0 +1,8 @@
+warning: The `UV_NATIVE_TLS` environment variable is deprecated and will be removed in a future release. Use `UV_SYSTEM_CERTS` instead.
+Uninstalled 1 package in 2ms
+Installed 1 package in 3ms
+Updating code graph in . (no LLM needed)...
+[graphify watch] 17 file(s) not classified (no supported extension or shebang), skipped: .editorconfig, .gitignore, README, aliases.ini, py.typed, uv.lock (+11 more)
+[graphify watch] No relevant changes; graphify-out left untouched.
+Code graph updated. For doc/paper/image changes run /graphify --update in your AI assistant.
+Tip: set GEMINI_API_KEY or GOOGLE_API_KEY to use Gemini for semantic extraction.

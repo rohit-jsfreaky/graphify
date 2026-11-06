@@ -1,0 +1,6 @@
+== graphify/watch.py: errors on branch not on v8:
+== graphify/affected.py: errors on branch not on v8:
+== graphify/cli.py: errors on branch not on v8:
+== graphify/__main__.py: errors on branch not on v8:
+== new files: 0 errors, 0 warnings, 0 informations
+ruff check .: All checks passed!
