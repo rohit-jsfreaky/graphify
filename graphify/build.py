@@ -294,6 +294,18 @@ def edge_evidence(d: dict) -> list[dict]:
     return [d, *(a for a in also if isinstance(a, dict))] if isinstance(also, list) else [d]
 
 
+def _evidence_key(ev: dict) -> tuple | None:
+    """A hashable key equal for two ``_evidence`` dicts exactly when they are ==.
+
+    None when a value is a float NaN: NaN != NaN, so no key can match how
+    ``==`` treats it.
+    """
+    for val in ev.values():
+        if isinstance(val, float) and val != val:
+            return None
+    return tuple(sorted(ev.items()))
+
+
 def _fold_also_seen(winner: dict, loser: dict) -> None:
     """Record ``loser``'s provenance on ``winner`` when the two collapse (#4881).
 
@@ -302,9 +314,22 @@ def _fold_also_seen(winner: dict, loser: dict) -> None:
     """
     own = _evidence(winner)
     kept: list[dict] = []
+    # Membership by hashable key, not `ev not in kept`: a list scan made one
+    # fold O(k^2) in the entries an edge carries, and an edge folded k times
+    # O(k^3) (over 20 minutes on golang/go). `_evidence` keeps only str, int
+    # and float values, so the items hash; a NaN (never equal to itself, so
+    # the key could disagree with ==) falls back to the scan.
+    seen: set[tuple] = set()
     for raw in (*edge_evidence(winner)[1:], loser, *edge_evidence(loser)[1:]):
         ev = _evidence(raw)
-        if ev and not ev.items() <= own.items() and ev not in kept:
+        if not ev or ev.items() <= own.items():
+            continue
+        key = _evidence_key(ev)
+        if key is None:
+            if ev not in kept:
+                kept.append(ev)
+        elif key not in seen:
+            seen.add(key)
             kept.append(ev)
     if kept:
         winner["also_seen"] = sorted(kept, key=_evidence_sort_key)
